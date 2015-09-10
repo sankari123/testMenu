@@ -31,6 +31,7 @@
 	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
     }
 
+    
   function capturePhoto() {
       
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
@@ -67,9 +68,10 @@
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height,
-                      centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, 0,0, img.width, img.height);
+   //,
+     //                 centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+//					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
 }
 
 function getPhoto(source) {
