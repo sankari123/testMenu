@@ -44,14 +44,15 @@
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
    
-   var x = 188;
-      var y = 30;
-      var width = 200;
-      var height = 137;
+   
       var imageObj = new Image();
 
       imageObj.onload = function() {
-        ctx.drawImage(imageObj, x, y, width, height);
+      	var hRatio = c.width / imageObj.width    ;
+var vRatio = c.height / imageObj.height  ;
+var ratio  = Math.min ( hRatio, vRatio );
+ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
+      
       };
          
 	//	 img.onload= drawImageScaled.bind(null, img, ctx);
