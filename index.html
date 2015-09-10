@@ -31,6 +31,7 @@
 	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
     }
 
+    
   function capturePhoto() {
       
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
@@ -42,10 +43,20 @@
 	 
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
-   var img = new Image();
+   
+   
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+      	var hRatio = c.width / imageObj.width    ;
+var vRatio = c.height / imageObj.height  ;
+var ratio  = Math.min ( hRatio, vRatio );
+ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
+      
+      };
          
-		 img.onload= drawImageScaled.bind(null, img, ctx);
-		 img.src = "data:image/jpeg;base64," + imageData;
+	//	 img.onload= drawImageScaled.bind(null, img, ctx);
+		 imageObj.src = "data:image/jpeg;base64," + imageData;
   
 }
 
@@ -67,9 +78,10 @@
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height,
-                      centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, 0,0, img.width, img.height);
+   //,
+     //                 centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+//					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
 }
 
 function getPhoto(source) {
