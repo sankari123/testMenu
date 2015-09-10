@@ -8,11 +8,7 @@
     <script type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 	<script>
-    //  image01= new Image()
-	  //image01.src="instagram.png"
-      //image02= new Image()
-      //image02.src="facebook.jpg"
-	var imgDataUrl;
+        var imgDataUrl;
 	var start = function() {
     screen.orientation.lock('portrait');
       
@@ -31,23 +27,19 @@
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
+	
     }
 
     
     function onPhotoDataSuccess(imageData) {
       
 	 
-   var c = document.getElementById("theCanvas");
+   var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
    var img = new Image();
-
- //  var img = document.getElementById("scream");
-         
-		 img.onload= drawImageScaled.bind(null, img, ctx);
+ 		 img.onload= drawImageScaled.bind(null, img, ctx);
 		 img.src = "data:image/jpeg;base64," + imageData;
-  //showAlert();
- //  ctx.drawImage(img,10,10,100,100);
+  
 }
 function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
@@ -59,41 +51,25 @@ function drawImageScaled(img, ctx) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height,
-                      centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
 }
 
     function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("theCanvas");
-		var ctx = c.getContext('2d');
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
 	    var img = new Image();
-
-  
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-		//showAlert();
-    }
-
-   
+   }
     function capturePhoto() {
       
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
     }
 
-    function capturePhotoEdit() {
-     
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
-    }
-
-    
     function getPhoto(source) {
       
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
     }
 
     // Called if something bad happens.
@@ -101,73 +77,6 @@ function drawImageScaled(img, ctx) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-function signPhoto()
-{
-
-// Get the specific canvas element from the HTML document
-        canvas = document.getElementById('theCanvas');
-
-        // If the browser supports the canvas tag, get the 2d drawing context for this canvas
-        if (canvas.getContext)
-            ctx = canvas.getContext('2d');
-
-        // Check that we have a valid context to draw on/with before adding event handlers
-        if (ctx) {
-		
-            // React to mouse events on the canvas, and mouseup on the entire document
-            canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
-            canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
-            window.addEventListener('mouseup', theCanvas_mouseUp, false);
-
-            // React to touch events on the canvas
-            canvas.addEventListener('touchstart', theCanvas_touchStart, false);
-            canvas.addEventListener('touchend', theCanvas_touchEnd, false);
-            canvas.addEventListener('touchmove', theCanvas_touchMove, false);
-        }
-		imgDataUrl = canvas.toDataURL();  
-		//window.location = canvas.toDataURL('image/png');
-		
-}
-
-  
-	function drawLine(ctx,x,y,size) {
-
-        // If lastX is not set, set lastX and lastY to the current position 
-        if (lastX==-1) {
-            lastX=x;
-	    lastY=y;
-        }
-
-        // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
-        r=0; g=0; b=0; a=255;
-
-        // Select a fill style
-        ctx.strokeStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
-
-        // Set the line "cap" style to round, so lines at different angles can join into each other
-        ctx.lineCap = "round";
-        //ctx.lineJoin = "round";
-
-
-        // Draw a filled line
-        ctx.beginPath();
-
-	// First, move to the old (previous) position
-	ctx.moveTo(lastX,lastY);
-
-	// Now draw a line to the current touch/pointer position
-	ctx.lineTo(x,y);
-
-        // Set the line thickness and draw the line
-        ctx.lineWidth = size;
-        ctx.stroke();
-
-        ctx.closePath();
-
-	// Update the last position to reference the current position
-	lastX=x;
-	lastY=y;
-    } 
 
     // Clear the canvas context using the canvas width and height
     function clearCanvas() {
@@ -183,92 +92,6 @@ function signPhoto()
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
-    function theCanvas_mouseDown() {
-        mouseDown=1;
-        drawLine(ctx,mouseX,mouseY,5);
-    }
-
-    // Keep track of the mouse button being released
-    function theCanvas_mouseUp() {
-        mouseDown=0;
-
-        // Reset lastX and lastY to -1 to indicate that they are now invalid, since we have lifted the "pen"
-        lastX=-1;
-        lastY=-1;
-    }
-
-    // Keep track of the mouse position and draw a dot if mouse button is currently pressed
-    function theCanvas_mouseMove(e) { 
-        // Update the mouse co-ordinates when moved
-        getMousePos(e);
-
-        // Draw a dot if the mouse button is currently being pressed
-        if (mouseDown==1) {
-            drawLine(ctx,mouseX,mouseY,5);
-        }
-    }
-
-    // Get the current mouse position relative to the top-left of the canvas
-    function getMousePos(e) {
-        if (!e)
-            var e = event;
-
-        if (e.offsetX) {
-            mouseX = e.offsetX;
-            mouseY = e.offsetY;
-        }
-        else if (e.layerX) {
-            mouseX = e.layerX;
-            mouseY = e.layerY;
-        }
-     }
-
-    // Draw something when a touch start is detected
-    function theCanvas_touchStart() {
-        // Update the touch co-ordinates
-        getTouchPos();
-
-        drawLine(ctx,touchX,touchY,5);
-
-        // Prevents an additional mousedown event being triggered
-        event.preventDefault();
-    }
-
-    function theCanvas_touchEnd() {
-        // Reset lastX and lastY to -1 to indicate that they are now invalid, since we have lifted the "pen"
-        lastX=-1;
-        lastY=-1;
-    }
-
-    // Draw something and prevent the default scrolling when touch movement is detected
-    function theCanvas_touchMove(e) { 
-        // Update the touch co-ordinates
-        getTouchPos(e);
-
-        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawLine(ctx,touchX,touchY,5); 
-
-        // Prevent a scrolling action as a result of this touchmove triggering.
-        event.preventDefault();
-    }
-
-    // Get the touch position relative to the top-left of the canvas
-    // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
-    // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
-    // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
-    function getTouchPos(e) {
-        if (!e)
-            var e = event;
-
-        if(e.touches) {
-            if (e.touches.length == 1) { // Only deal with one finger
-                var touch = e.touches[0]; // Get the information for finger #1
-                touchX=touch.pageX-touch.target.offsetLeft;
-                touchY=touch.pageY-touch.target.offsetTop;
-            }
-        }
-    }
-
 	function saveCanvas()
 {
     window.canvas2ImagePlugin.saveImageDataToLibrary(
@@ -299,14 +122,7 @@ window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
         //['Facebook','Instagram','Viber','WhatsApp']         // buttonLabels
    // );
 
-function onConfirm(buttonIndex) {
-  if(buttonIndex==1)
-  {
-    //alert('You selected button ' + buttonIndex);
-	//alert(imgDataUrl);
-	//window.plugins.socialsharing.shareViaFacebook('From DigiGraph App', imgDataUrl,null)
-	}
-}
+
 </script>
 	<style>
 	h1 {
@@ -317,10 +133,7 @@ function onConfirm(buttonIndex) {
 	text-shadow: 1px 1px 2px #fff; 
 	width:100%;
 	}
-	.sketch {
-	border: 0px solid gray;
-	height: 100%;
-	}
+	
  	.canvasStyle
 	{
         border: 1px #CCC solid;
@@ -342,7 +155,7 @@ function onConfirm(buttonIndex) {
   </head>
   <body onload="start();">
   <header>
-  <h1>DigiGraph</h1>
+  <h1>MeMO</h1>
   </header>
 
   
