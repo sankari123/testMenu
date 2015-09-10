@@ -23,79 +23,51 @@
     var destinationType; // sets the format of returned value
    
     document.addEventListener("deviceready",onDeviceReady,false);
-
     
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
     }
-
     
   function capturePhoto() {
       
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
-
 	function onPhotoDataSuccess(imageData) {
       
-	 
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
    
-   
       var imageObj = new Image();
-
       imageObj.onload = function() {
       	var hRatio = c.width / imageObj.width    ;
 var vRatio = c.height / imageObj.height  ;
 var ratio  = Math.min ( hRatio, vRatio );
 ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
-      
+     
       };
-         
-	//	 img.onload= drawImageScaled.bind(null, img, ctx);
-		 imageObj.src = "data:image/jpeg;base64," + imageData;
+   		 imageObj.src = "data:image/jpeg;base64," + imageData;
   
 }
-
     // Called if something bad happens.
     //
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-
 	
-
-	function drawImageScaled(img, ctx) {
-   var canvas = ctx.canvas ;
-   canvas.height = window.innerHeight-40;
-	canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height);
-   //,
-     //                 centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-//					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
-}
-
+	
 function getPhoto(source) {
       
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
         destinationType: destinationType.FILE_URI,
         sourceType: source });
     }
-
 	function onPhotoURISuccess(imageURI) {
 	    var c = document.getElementById("can_me");
 		var ctx = c.getContext('2d');
 	    var img = new Image();
-
   
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
@@ -141,7 +113,7 @@ function getPhoto(source) {
 <tr>
 <td width="25%"><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button>
 </td>
-<td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face - white background)</button></td>
+<td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face)</button></td>
 <td width="25%"><button onclick="MOSettings();" class="btncss" >Makeover Adjustments</button></td>
 <td width="25%"><button onclick="saveCanvas();" class="btncss" >Save & Share</button></td>
 
@@ -150,25 +122,6 @@ function getPhoto(source) {
 <td width="33%"><canvas id="can_model" class="canvasStyle"></canvas></td>
 <td width="33%"><canvas id="can_me" class="canvasStyle"></canvas></td>
 <td width="34%"><canvas id="can_final" class="canvasStyle"></canvas></td></tr>
-    <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-
-      imageObj.onload = function() {
-        // draw cropped image
-        var sourceX = 150;
-        var sourceY = 0;
-        var sourceWidth = 150;
-        var sourceHeight = 150;
-        var destWidth = sourceWidth;
-        var destHeight = sourceHeight;
-        var destX = canvas.width / 2 - destWidth / 2;
-        var destY = canvas.height / 2 - destHeight / 2;
-
-        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
-      };
-      imageObj.src = 'logo.png';
-    </script>
+    
   </body>
 </html>      
