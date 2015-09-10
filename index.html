@@ -70,8 +70,11 @@ function drawImageScaled(img, ctx) {
 		img.src = imageURI;
    }
     function capturePhoto() {
+    	
+ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, encodingType : encodingType.PNG, targetWidth:120, targeHeight: 120, correctOrientation: true, sourceType: source });
+  
       
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+   //   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
     }
 
     function getPhoto(source) {
