@@ -81,7 +81,7 @@ function drawImageScaled(img, ctx) {
     // Clear the canvas context using the canvas width and height
     function clearCanvas() {
 
-	var c=document.getElementById("theCanvas");
+	var c=document.getElementById("can_final");
 	var ctx=c.getContext("2d");
 
 	//ctx.clearRect(20,20,100,50);
@@ -101,27 +101,10 @@ function drawImageScaled(img, ctx) {
         function(err){
             console.log(err);
         },
-        document.getElementById("theCanvas")  );
+        document.getElementById("can_model")  );
 }
-function showConfirm() {
-//window.plugins.socialsharing.share('DigiGraph','From DigiGraph App', null, imgDataUrl);
- canvas = document.getElementById('theCanvas');
- ctx = canvas.getContext('2d');
-imgDataUrl = canvas.toDataURL();
-var imageObj = new Image();
-    imageObj.src = imgDataUrl;
 
-window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
- // ['www/manual.pdf','https://www.google.nl/images/srpr/logo4w.png'],
- // 'http://www.myurl.com');
-}
-   // navigator.notification.confirm(
-     //   ' Share via', // message
-       //  onConfirm,            // callback to invoke with index of button pressed
-        //'DigiGraph',           // title
-        //['Facebook','Instagram','Viber','WhatsApp']         // buttonLabels
-   // );
-
+   
 
 </script>
 	<style>
@@ -164,24 +147,26 @@ window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
   <section>
 <table width="100%" height="5%">
 <tr>
-<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Image</button></td>
-<td><button onclick="capturePhoto();" class="btncss">Take a Selfie</button></td>
-<td><button onclick="signPhoto();" class="btncss">Sign </button></td>
-<td><button onclick="saveCanvas();" class="btncss" >Save</td>
-<td><button onclick="clearCanvas();" class="btncss" >Clear</td></tr>
-<tr><td colspan=5 align="right"><a href="#" onclick="showConfirm(); return false;">Share</a></td></tr>
+	<td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
+<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
+<td><button onclick="saveCanvas();" class="btncss">Adjustments </button></td>
+</tr>
+
+
+<tr>
+<td>
+<canvas id="can_model" class="canvasStyle"></canvas>	
+</td>
+<td>
+	<canvas id="can_me" class="canvasStyle"></canvas>
+</td>
+<td>
+	<canvas id="can_final" class="canvasStyle"></canvas>
+</td>	
+</tr>
 </table>
   
 </section>
-<div id="sketchpadapp">
-        <canvas id="theCanvas" class="canvasStyle"></canvas>
-</div>
 
-
-
-
-
-
-    
   </body>
 </html>
