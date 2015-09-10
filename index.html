@@ -32,8 +32,7 @@
 
   function capturePhoto() {
 
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
     }
 	function onPhotoDataSuccess(imageData) {
 
@@ -45,10 +44,9 @@
       	var hRatio = c.width / imageObj.width    ;
         var vRatio = c.height / imageObj.height  ;
         var ratio  = Math.min ( hRatio, vRatio );
-		ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
-
+	ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
       };
-   		 imageObj.src = "data:image/jpeg;base64," + imageData;
+   	 imageObj.src = "data:image/jpeg;base64," + imageData;
 
 }
     // Called if something bad happens.
@@ -57,19 +55,14 @@
       alert('Failed because: ' + message);
     }
 
-
 function getPhoto(source) {
 
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
     }
 	function onPhotoURISuccess(imageURI) {
 	    var c = document.getElementById("can_me");
 		var ctx = c.getContext('2d');
-	    var img = new Image();
-
-		//img.onload= drawImageScaled.bind(null, img, ctx);
+		var img = new Image();
 		img.src = imageURI;
 		//showAlert();
     }
@@ -116,19 +109,14 @@ function getPhoto(source) {
   </header>
   <table width="100%">
 <tr height="10%">
-<td width="25%"><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button>
-</td>
+<td width="25%"><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
 <td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face)</button></td>
 <td width="25%"><button onclick="MOSettings();" class="btncss" >Adjustments</button></td>
-<td width="25%"><button onclick="MOSettings();" class="btncss" >Makeover Adjustments</button></td>
 <td width="25%"><button onclick="saveCanvas();" class="btncss" >Save & Share</button></td>
 
 </tr>
-<tr>
-<td width="33%"><canvas id="can_model" class="canvasStyle" height="200" width="200"></canvas></td>
-<td width="33%"><canvas id="can_me" class="canvasStyle" height="200" width="200"></canvas></td>
-<td width="34%"><canvas id="can_final" class="canvasStyle" height="200" width="200"></canvas></td>
-</tr>
 </table>
+<canvas id="can_model" class="canvasStyle" height="200" width="200"></canvas><canvas id="can_me" class="canvasStyle" height="200" width="200"></canvas>
+<canvas id="can_final" class="canvasStyle" height="200" width="200"></canvas>
  </body>
 </html>
