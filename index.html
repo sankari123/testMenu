@@ -73,6 +73,12 @@ function getPhoto(source) {
 		img.src = imageURI;
 		//showAlert();
     }
+	function MOSettings(){
+	}
+	function saveCanvas(){
+	}
+
+
 </script>
 
     <style>
@@ -109,19 +115,19 @@ function getPhoto(source) {
   <body>
   <header><h1>MeMO</h1>
   </header>
-  <table width="100%" cellspacing=0 cellpadding=0>
-<tr>
+  <table width="100%">
+<tr height="10%">
 <td width="25%"><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button>
 </td>
 <td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face)</button></td>
-<td width="25%"><button onclick="MOSettings();" class="btncss" >Makeover Adjustments</button></td>
+<td width="25%"><button onclick="MOSettings();" class="btncss" >Adjustments</button></td>
 <td width="25%"><button onclick="saveCanvas();" class="btncss" >Save & Share</button></td>
 
 </tr>
-<tr>
+<tr height="90%">
 <td width="33%"><canvas id="can_model" class="canvasStyle"></canvas></td>
 <td width="33%"><canvas id="can_me" class="canvasStyle"></canvas></td>
 <td width="34%"><canvas id="can_final" class="canvasStyle"></canvas></td></tr>
-    
+    </table>
   </body>
 </html>      
