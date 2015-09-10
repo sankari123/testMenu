@@ -1,18 +1,21 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
-  <title>MeMO..!</title>
-
+    <title>MeMO</title>
+	
     <script type="text/javascript" src="paint.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 	<script>
-
+    //  image01= new Image()
+	  //image01.src="instagram.png"
+      //image02= new Image()
+      //image02.src="facebook.jpg"
 	var imgDataUrl;
 	var start = function() {
     screen.orientation.lock('portrait');
-
+      
     }
     var canvas,ctx;
     var mouseX,mouseY,mouseDown=0;
@@ -21,68 +24,309 @@
 	var tmp;
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
-
+   
     document.addEventListener("deviceready",onDeviceReady,false);
 
+    
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
     }
 
-  function capturePhoto() {
-
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
-    }
-	function onPhotoDataSuccess(imageData) {
-
-   var c = document.getElementById("can_model");
+    
+    function onPhotoDataSuccess(imageData) {
+      
+	 
+   var c = document.getElementById("theCanvas");
    var ctx = c.getContext("2d");
+   var img = new Image();
 
-      var imageObj = new Image();
-      imageObj.onload = function() {
-      	var hRatio = c.width / imageObj.width    ;
-        var vRatio = c.height / imageObj.height  ;
-        var ratio  = Math.min ( hRatio, vRatio );
-	ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
-      };
-   	 imageObj.src = "data:image/jpeg;base64," + imageData;
-
+ //  var img = document.getElementById("scream");
+         
+		 img.onload= drawImageScaled.bind(null, img, ctx);
+		 img.src = "data:image/jpeg;base64," + imageData;
+  //showAlert();
+ //  ctx.drawImage(img,10,10,100,100);
 }
+function drawImageScaled(img, ctx) {
+   var canvas = ctx.canvas ;
+   canvas.height = window.innerHeight-40;
+	canvas.width = window.innerWidth;
+   var hRatio = canvas.width  / img.width    ;
+   var vRatio =  canvas.height / img.height  ;
+   var ratio  = Math.min ( hRatio, vRatio );
+   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, 0,0, img.width, img.height,
+                      centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+					   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+}
+
+    function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("theCanvas");
+		var ctx = c.getContext('2d');
+	    var img = new Image();
+
+  
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI;
+		//showAlert();
+    }
+
+   
+    function capturePhoto() {
+      
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        destinationType: destinationType.DATA_URL });
+    }
+
+    function capturePhotoEdit() {
+     
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
+
+    
+    function getPhoto(source) {
+      
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+    }
+
     // Called if something bad happens.
     //
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+function signPhoto()
+{
 
-function getPhoto(source) {
+// Get the specific canvas element from the HTML document
+        canvas = document.getElementById('theCanvas');
 
-navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
+        // If the browser supports the canvas tag, get the 2d drawing context for this canvas
+        if (canvas.getContext)
+            ctx = canvas.getContext('2d');
+
+        // Check that we have a valid context to draw on/with before adding event handlers
+        if (ctx) {
+		
+            // React to mouse events on the canvas, and mouseup on the entire document
+            canvas.addEventListener('mousedown', theCanvas_mouseDown, false);
+            canvas.addEventListener('mousemove', theCanvas_mouseMove, false);
+            window.addEventListener('mouseup', theCanvas_mouseUp, false);
+
+            // React to touch events on the canvas
+            canvas.addEventListener('touchstart', theCanvas_touchStart, false);
+            canvas.addEventListener('touchend', theCanvas_touchEnd, false);
+            canvas.addEventListener('touchmove', theCanvas_touchMove, false);
+        }
+		imgDataUrl = canvas.toDataURL();  
+		//window.location = canvas.toDataURL('image/png');
+		
+}
+
+  
+	function drawLine(ctx,x,y,size) {
+
+        // If lastX is not set, set lastX and lastY to the current position 
+        if (lastX==-1) {
+            lastX=x;
+	    lastY=y;
+        }
+
+        // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
+        r=0; g=0; b=0; a=255;
+
+        // Select a fill style
+        ctx.strokeStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
+
+        // Set the line "cap" style to round, so lines at different angles can join into each other
+        ctx.lineCap = "round";
+        //ctx.lineJoin = "round";
+
+
+        // Draw a filled line
+        ctx.beginPath();
+
+	// First, move to the old (previous) position
+	ctx.moveTo(lastX,lastY);
+
+	// Now draw a line to the current touch/pointer position
+	ctx.lineTo(x,y);
+
+        // Set the line thickness and draw the line
+        ctx.lineWidth = size;
+        ctx.stroke();
+
+        ctx.closePath();
+
+	// Update the last position to reference the current position
+	lastX=x;
+	lastY=y;
+    } 
+
+    // Clear the canvas context using the canvas width and height
+    function clearCanvas() {
+
+	var c=document.getElementById("theCanvas");
+	var ctx=c.getContext("2d");
+
+	//ctx.clearRect(20,20,100,50);
+	  
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+	   ctx.putImageData(tmp,0,0);
+
     }
-	function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_me");
-		var ctx = c.getContext('2d');
-		var img = new Image();
-		img.src = imageURI;
-		//showAlert();
+
+    // Keep track of the mouse button being pressed and draw a dot at current location
+    function theCanvas_mouseDown() {
+        mouseDown=1;
+        drawLine(ctx,mouseX,mouseY,5);
     }
-	function MOSettings(){
-	}
-	function saveCanvas(){
-	}
 
+    // Keep track of the mouse button being released
+    function theCanvas_mouseUp() {
+        mouseDown=0;
 
+        // Reset lastX and lastY to -1 to indicate that they are now invalid, since we have lifted the "pen"
+        lastX=-1;
+        lastY=-1;
+    }
+
+    // Keep track of the mouse position and draw a dot if mouse button is currently pressed
+    function theCanvas_mouseMove(e) { 
+        // Update the mouse co-ordinates when moved
+        getMousePos(e);
+
+        // Draw a dot if the mouse button is currently being pressed
+        if (mouseDown==1) {
+            drawLine(ctx,mouseX,mouseY,5);
+        }
+    }
+
+    // Get the current mouse position relative to the top-left of the canvas
+    function getMousePos(e) {
+        if (!e)
+            var e = event;
+
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+
+    // Draw something when a touch start is detected
+    function theCanvas_touchStart() {
+        // Update the touch co-ordinates
+        getTouchPos();
+
+        drawLine(ctx,touchX,touchY,5);
+
+        // Prevents an additional mousedown event being triggered
+        event.preventDefault();
+    }
+
+    function theCanvas_touchEnd() {
+        // Reset lastX and lastY to -1 to indicate that they are now invalid, since we have lifted the "pen"
+        lastX=-1;
+        lastY=-1;
+    }
+
+    // Draw something and prevent the default scrolling when touch movement is detected
+    function theCanvas_touchMove(e) { 
+        // Update the touch co-ordinates
+        getTouchPos(e);
+
+        // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
+        drawLine(ctx,touchX,touchY,5); 
+
+        // Prevent a scrolling action as a result of this touchmove triggering.
+        event.preventDefault();
+    }
+
+    // Get the touch position relative to the top-left of the canvas
+    // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
+    // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
+    // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
+    function getTouchPos(e) {
+        if (!e)
+            var e = event;
+
+        if(e.touches) {
+            if (e.touches.length == 1) { // Only deal with one finger
+                var touch = e.touches[0]; // Get the information for finger #1
+                touchX=touch.pageX-touch.target.offsetLeft;
+                touchY=touch.pageY-touch.target.offsetTop;
+            }
+        }
+    }
+
+	function saveCanvas()
+{
+    window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        document.getElementById("theCanvas")  );
+}
+function showConfirm() {
+//window.plugins.socialsharing.share('DigiGraph','From DigiGraph App', null, imgDataUrl);
+ canvas = document.getElementById('theCanvas');
+ ctx = canvas.getContext('2d');
+imgDataUrl = canvas.toDataURL();
+var imageObj = new Image();
+    imageObj.src = imgDataUrl;
+
+window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
+ // ['www/manual.pdf','https://www.google.nl/images/srpr/logo4w.png'],
+ // 'http://www.myurl.com');
+}
+   // navigator.notification.confirm(
+     //   ' Share via', // message
+       //  onConfirm,            // callback to invoke with index of button pressed
+        //'DigiGraph',           // title
+        //['Facebook','Instagram','Viber','WhatsApp']         // buttonLabels
+   // );
+
+function onConfirm(buttonIndex) {
+  if(buttonIndex==1)
+  {
+    //alert('You selected button ' + buttonIndex);
+	//alert(imgDataUrl);
+	//window.plugins.socialsharing.shareViaFacebook('From DigiGraph App', imgDataUrl,null)
+	}
+}
 </script>
-
-    <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-	  .canvasStyle
+	<style>
+	h1 {
+	font: 15pt vivaldi;
+	text-align: center;
+	color: #e5b7ad;
+	padding-top: 1px ;
+	text-shadow: 1px 1px 2px #fff; 
+	width:100%;
+	}
+	.sketch {
+	border: 0px solid gray;
+	height: 100%;
+	}
+ 	.canvasStyle
 	{
         border: 1px #CCC solid;
-	}
+		width:100%;
+		height:100%;
+    }
 	.btncss
 	{
 	background:none;
@@ -93,30 +337,38 @@ navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinatio
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
-	h1 {
-	font: 15pt arial;
-	text-align: center;
-	color: #e5b7ad;
-	padding-top: 1px ;
-	text-shadow: 1px 1px 2px #fff;
-	width:100%;
-	}
-
-    </style>
+	
+  </style>
   </head>
-  <body>
-  <header><h1>MeMO</h1>
+  <body onload="start();">
+  <header>
+  <h1>DigiGraph</h1>
   </header>
-  <table width="100%">
-<tr height="10%">
-<td width="25%"><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
-<td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face)</button></td>
-<td width="25%"><button onclick="MOSettings();" class="btncss" >Adjustments</button></td>
-<td width="25%"><button onclick="saveCanvas();" class="btncss" >Save & Share</button></td>
 
-</tr>
+  
+  
+ 
+  <section>
+<table width="100%" height="5%">
+<tr>
+<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Image</button></td>
+<td><button onclick="capturePhoto();" class="btncss">Take a Selfie</button></td>
+<td><button onclick="signPhoto();" class="btncss">Sign </button></td>
+<td><button onclick="saveCanvas();" class="btncss" >Save</td>
+<td><button onclick="clearCanvas();" class="btncss" >Clear</td></tr>
+<tr><td colspan=5 align="right"><a href="#" onclick="showConfirm(); return false;">Share</a></td></tr>
 </table>
-<canvas id="can_model" class="canvasStyle" height="200" width="200"></canvas><canvas id="can_me" class="canvasStyle" height="200" width="200"></canvas>
-<canvas id="can_final" class="canvasStyle" height="200" width="200"></canvas>
- </body>
+  
+</section>
+<div id="sketchpadapp">
+        <canvas id="theCanvas" class="canvasStyle"></canvas>
+</div>
+
+
+
+
+
+
+    
+  </body>
 </html>
