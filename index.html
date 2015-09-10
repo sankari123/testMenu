@@ -3,16 +3,16 @@
   <head>
   <title>MeMO..!</title>
 
-<script type="text/javascript" src="paint.js"></script>
+    <script type="text/javascript" src="paint.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 	<script>
-    
+
 	var imgDataUrl;
 	var start = function() {
     screen.orientation.lock('portrait');
-      
+
     }
     var canvas,ctx;
     var mouseX,mouseY,mouseDown=0;
@@ -21,45 +21,45 @@
 	var tmp;
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
-   
+
     document.addEventListener("deviceready",onDeviceReady,false);
-    
+
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 	//	var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
     }
-    
+
   function capturePhoto() {
-      
+
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
 	function onPhotoDataSuccess(imageData) {
-      
+
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
-   
+
       var imageObj = new Image();
       imageObj.onload = function() {
       	var hRatio = c.width / imageObj.width    ;
-var vRatio = c.height / imageObj.height  ;
-var ratio  = Math.min ( hRatio, vRatio );
-ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
-     
+        var vRatio = c.height / imageObj.height  ;
+        var ratio  = Math.min ( hRatio, vRatio );
+		ctx.drawImage(imageObj 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
+
       };
    		 imageObj.src = "data:image/jpeg;base64," + imageData;
-  
+
 }
     // Called if something bad happens.
     //
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-	
-	
+
+
 function getPhoto(source) {
-      
+
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
         destinationType: destinationType.FILE_URI,
         sourceType: source });
@@ -68,8 +68,8 @@ function getPhoto(source) {
 	    var c = document.getElementById("can_me");
 		var ctx = c.getContext('2d');
 	    var img = new Image();
-  
-		img.onload= drawImageScaled.bind(null, img, ctx);
+
+		//img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		//showAlert();
     }
@@ -106,10 +106,10 @@ function getPhoto(source) {
 	text-align: center;
 	color: #e5b7ad;
 	padding-top: 1px ;
-	text-shadow: 1px 1px 2px #fff; 
+	text-shadow: 1px 1px 2px #fff;
 	width:100%;
 	}
-	
+
     </style>
   </head>
   <body>
@@ -121,13 +121,13 @@ function getPhoto(source) {
 </td>
 <td width="25%"><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo (Only Face)</button></td>
 <td width="25%"><button onclick="MOSettings();" class="btncss" >Adjustments</button></td>
+<td width="25%"><button onclick="MOSettings();" class="btncss" >Makeover Adjustments</button></td>
 <td width="25%"><button onclick="saveCanvas();" class="btncss" >Save & Share</button></td>
 
 </tr>
 <tr height="90%">
-<td width="33%"><canvas id="can_model" class="canvasStyle"></canvas></td>
-<td width="33%"><canvas id="can_me" class="canvasStyle"></canvas></td>
-<td width="34%"><canvas id="can_final" class="canvasStyle"></canvas></td></tr>
-    </table>
-  </body>
-</html>      
+<td width="33%"><canvas id="can_model" class="canvasStyle" height="200 px" width="200 px"></canvas></td>
+<td width="33%"><canvas id="can_me" class="canvasStyle" height="200 px" width="200 px"></canvas></td>
+<td width="34%"><canvas id="can_final" class="canvasStyle" height="200 px" width="200 px"></canvas></td></tr>
+ </body>
+</html>
