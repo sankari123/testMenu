@@ -64,28 +64,11 @@ function drawImageScaled(img, ctx) {
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });  	
    }
 
-   function getPhoto(source) {
-    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: source });
-    }
-
-    function onFail(message) {
+   function onFail(message) {
       alert('Failed because: ' + message);
     }
 
-    // Clear the canvas context using the canvas width and height
-    function clearCanvas() {
-
-	var c=document.getElementById("can_final");
-	var ctx=c.getContext("2d");
-
-	//ctx.clearRect(20,20,100,50);
-	  
-       ctx.clearRect(0, 0, canvas.width, canvas.height);
-	   ctx.putImageData(tmp,0,0);
-
-    }
-
- 	function savePhoto()
+      	function savePhoto()
 	{
 		var image1=document.getElementById("smallImage");
 	var c = document.getElementById("can_model");
@@ -152,13 +135,11 @@ function drawImageScaled(img, ctx) {
   
  
   <section>
+  	<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
   <table width="100%" height="5%" border="1">
-<tr><td colspan=3>     <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /></td></tr>
-
-
 <tr >
 	<td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
-<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
+<td><button class="btncss">Upload Your Photo</button></td>
 <td><button onclick="savePhoto();" class="btncss">Save</button></td>
 
 </tr>
