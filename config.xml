@@ -67,6 +67,7 @@
 <gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
 <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
 <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
+<plugin name="Base64ToPNG" value="org.apache.cordova.Base64ToPNG"/>
 
 	<!--<plugin name="Base64ToPNG" value="org.apache.cordova.Base64ToPNG"/>-->
 
