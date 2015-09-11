@@ -38,7 +38,7 @@
       // The in-line CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
-     alert(smallImage.src);
+    // alert(smallImage.src);
     myBase64=smallImage.src;
     window.plugins.base64ToPNG.saveImage(myBase64, {}, function(result) {alert(result);}, function(error) {alert(error); }); 
  //    window.plugins.base64ToPNG.saveImage(myBase64, {filename:"dot.png", overwrite: true}, function(result) {  alert(result); }, function(error) { alert(error); });
