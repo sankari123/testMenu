@@ -39,10 +39,10 @@
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
      alert(smallImage.src);
-    // myBase64=
+    myBase64=smallImage.src;
+    window.plugins.base64ToPNG.saveImage(myBase64, {}, function(result) {alert(result);}, function(error) {alert(error); }); 
  //    window.plugins.base64ToPNG.saveImage(myBase64, {filename:"dot.png", overwrite: true}, function(result) {  alert(result); }, function(error) { alert(error); });
-     
-	 }
+     }
    
 function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
