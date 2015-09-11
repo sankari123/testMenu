@@ -37,7 +37,7 @@
       // The in-line CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
-	  savePhoto(smallImage);
+	  savePhoto();
 }
    
 function drawImageScaled(img, ctx) {
@@ -86,8 +86,9 @@ function drawImageScaled(img, ctx) {
 
     }
 
- 	function savePhoto(img1)
+ 	function savePhoto()
 	{
+		var image1=document.getElementById("smallImage")
 	var c = document.getElementById("can_model");
    	var ctx = c.getContext("2d");
    	var img = new Image();
@@ -99,7 +100,7 @@ function drawImageScaled(img, ctx) {
 	  ctx.translate(-450,0);
           ctx.drawImage(img,450,0);
    
-    }img1;
+    }image1;
  	 window.canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
             console.log(msg);
@@ -107,7 +108,7 @@ function drawImageScaled(img, ctx) {
         function(err){
             console.log(err);
         },
-        img1);
+        image1);
         
 }
 
