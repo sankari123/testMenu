@@ -37,7 +37,7 @@
       // The in-line CSS rules are used to resize the image
       //
       smallImage.src = "data:image/jpeg;base64," + imageData;
-      alert(smallImage.src);
+     // alert(smallImage.src);
 	 }
    
 function drawImageScaled(img, ctx) {
@@ -72,7 +72,13 @@ function drawImageScaled(img, ctx) {
   savePhoto()
   {
   // alert('Failed because');
-  var img4=document.getElementById('smallImage')
+//  smallImage.src
+  var img4=document.getElementById('smallImage');
+  alert(img4.src);
+  convertImgToBase64(img4.src, function(base64Img){
+    // Base64DataURL
+});
+}
    function convertImgToBase64(url, callback, outputFormat){
                 var canvas = document.getElementById('can_model');
                 var ctx = canvas.getContext('2d');
@@ -85,15 +91,13 @@ function drawImageScaled(img, ctx) {
                     var dataURL = canvas.toDataURL(outputFormat || 'image/png');
                     callback.call(this, dataURL);
                     // Clean up
-                    canvas = null; 
+                   // canvas = null; 
                 };
                 img.src= url;
             }
 
-convertImgToBase64(img4.src, function(base64Img){
-    // Base64DataURL
-});
-  }
+
+  
 
    
 
