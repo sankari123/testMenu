@@ -64,8 +64,7 @@ function drawImageScaled(img, ctx) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
    }
-    function capturePhoto() {
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });  	
+    function capturePhoto() {navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });  	
    }
 
    function onFail(message) {
