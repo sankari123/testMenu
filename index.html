@@ -81,13 +81,14 @@ function onPhotoURISuccess(imageURI) {
       alert('Failed because: ' + message);
     }
 
-function rotate(degrees)
+function rotate()
  {
      var canvas = document.getElementById("can_model");
      var ctx = c.getContext('2d');
      
      var dataURL = canvas.toDataURL();
      document.getElementById('canvasImg').src = dataURL;
+     alert(dataURL);
      var img = new Image();
      img.src=dataURL;
      ctx.rotate(Math.PI / 2);
@@ -138,7 +139,7 @@ function rotate(degrees)
 <tr>
 <td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="rotate(90);" class="btncss">Rotate</button></td>
+<td><button onclick="rotate();" class="btncss">Rotate</button></td>
 </tr>
 </table>
  <img id="canvasImg" alt="Right click to save me!" type="hidden">
