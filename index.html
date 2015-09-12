@@ -37,7 +37,7 @@
    var img = new Image();
    img.onload= = function () {
                 // reset the canvas with new dimensions
-                rotating-true;
+                rotating=true;
                 var cw = c.width;
     		var ch = c.height;
                 c.width = ch;
@@ -91,7 +91,7 @@ function onPhotoURISuccess(imageURI) {
 		img.onload= drawImageScaled1.bind(null, img, ctx);
 		img.src = imageURI;
    }
-   function drawImageScaled(img, ctx) {
+   function drawImageScaled1(img, ctx) {
    var canvas = ctx.canvas ;
    canvas.height = window.innerHeight-40;
 	canvas.width = window.innerWidth;
@@ -103,8 +103,8 @@ function onPhotoURISuccess(imageURI) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
    tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
-    window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); },
-        document.getElementById("can_me")  );
+  //  window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); },
+    //    document.getElementById("can_me")  );
 
 }
    
