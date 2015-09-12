@@ -35,35 +35,9 @@
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
    var img = new Image();
+   
+   img.onload=  drawImageScaled.bind(null, img, ctx);
    img.src = "data:image/jpeg;base64," + imageData;
-   img.onload=  function () {
-                // reset the canvas with new dimensions
-                rotating=true;
-                var cw = c.width;
-    		var ch = c.height;
-                c.width = ch;
-                c.height = cw;
-                cw = c.width;
-                ch = c.height;
-
-                ctx.save();
-                // translate and rotate
-                ctx.translate(cw, ch / cw);
-                ctx.rotate(Math.PI / 2);
-                // draw the previows image, now rotated
-                ctx.drawImage(img, 0, 0);               
-                ctx.restore();
-   }
-   
-                // clear the temporary image
-             //   img = null;
-               
-                rotating = false;               
-            
-        
-   
-      //drawImageScaled.bind(null, img, ctx);
-   
   }
 
 function drawImageScaled(img, ctx) {
@@ -78,8 +52,7 @@ function drawImageScaled(img, ctx) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
    tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
-  //  window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); },
-    //    document.getElementById("can_model")  );
+window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model")  );
 
 }
 function getPhoto(source) {
@@ -95,46 +68,10 @@ function onPhotoURISuccess(imageURI) {
    }
    
    
-   function capturePhotoEdit() {
-      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,destinationType: destinationType.DATA_URL });
-    }
-   
-   
-     function onFail(message) {
+    function onFail(message) {
       alert('Failed because: ' + message);
     }
-function rotate()
- {
-        if (!rotating) {
-            rotating = true;            
-            // store current data to an image
-            myImage = new Image();
-            myImage.src = canvas.toDataURL();
 
-           myImage.onload = function () {
-                // reset the canvas with new dimensions
-                canvas.width = ch;
-                canvas.height = cw;
-                cw = canvas.width;
-                ch = canvas.height;
-
-                context.save();
-                // translate and rotate
-                context.translate(cw, ch / cw);
-                context.rotate(Math.PI / 2);
-                // draw the previows image, now rotated
-                context.drawImage(myImage, 0, 0);               
-                context.restore();
-               
-                // clear the temporary image
-                myImage = null;
-               
-                rotating = false;               
-            }
-        }
-    }
-  
 </script>
 	<style>
 	h1 {
