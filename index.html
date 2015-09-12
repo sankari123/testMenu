@@ -18,7 +18,7 @@
 	  var tmp;
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
-   var img, rotating = false; 
+   var rotating = false; 
     document.addEventListener("deviceready",onDeviceReady,false);
 
     
@@ -87,62 +87,25 @@ function getPhoto(source) {
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
 function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_me");
+	    var c = document.getElementById("can_model");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
-		img.onload= drawImageScaled1.bind(null, img, ctx);
+		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
    }
-   function drawImageScaled1(img, ctx) {
-   var canvas = ctx.canvas ;
-   canvas.height = window.innerHeight-40;
-	canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
-  }
+   
    
    function capturePhotoEdit() {
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-navigator.camera.getPicture(onPhotoDataSuccess1, onFail, { quality: 20, allowEdit: true,destinationType: destinationType.DATA_URL });
+navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,destinationType: destinationType.DATA_URL });
     }
    
    
-    function onPhotoDataSuccess1(imageData) {
-      
-	 smallImage.style.display = 'block';
-
-      // Show the captured photo
-      // The in-line CSS rules are used to resize the image
-      //
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    // alert(smallImage.src);
-//  var  myBase64=smallImage.src;
-   // window.plugins.base64ToPNG.saveImage(smallImage.src, {}, function(result) {alert(result);}, function(error) {alert(error); }); 
- //    window.plugins.base64ToPNG.saveImage(myBase64, {filename:"dot.png", overwrite: true}, function(result) {  alert(result); }, function(error) { alert(error); });
-     }
-   
-
-    
-    
-
-   function onFail(message) {
+     function onFail(message) {
       alert('Failed because: ' + message);
     }
 
-  savePhoto()
-  {
-  //	document.getElementById('largeImage')
-  var img11 = document.getElementById('smallImage');
-  //alert(img11.src);
-  //window.plugins.base64ToPNG.saveImage(myBase64, {filename:"dot.png", overwrite: true}, function(result) {  alert(result); }, function(error) { alert(error); });
-  }
-
+  
 </script>
 	<style>
 	h1 {
@@ -182,24 +145,9 @@ navigator.camera.getPicture(onPhotoDataSuccess1, onFail, { quality: 20, allowEdi
   <body>
  
 <section>
-  <table width="100%" height="5%" border="1">
-<tr >
-	<td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
-	<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-	   <td> <button onclick="capturePhotoEdit();" class="btncss">Adjustments</button> </td>
-<td><button onclick="savePhoto();" class="btncss">Save</button></td>
-
-</tr>
-<tr>
-<td colspan="2">
+ 
 <canvas id="can_model" class="canvasStyle"></canvas>	
-</td>
-<td colspan="2">
-	<canvas id="can_me" class="canvasStyle"></canvas>
-</td>
-	
-</tr>
-</table>
+
   
 </section>
   </body>
