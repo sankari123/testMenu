@@ -28,8 +28,52 @@
 	
     }
 
-    
+    function capturePhoto() {
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+    }
     function onPhotoDataSuccess(imageData) {
+   var c = document.getElementById("can_model");
+   var ctx = c.getContext("2d");
+   var img = new Image();
+   img.onload= drawImageScaled.bind(null, img, ctx);
+   img.src = "data:image/jpeg;base64," + imageData;
+  }
+
+function drawImageScaled(img, ctx) {
+   var canvas = ctx.canvas ;
+   canvas.height = window.innerHeight-40;
+	canvas.width = window.innerWidth;
+   var hRatio = canvas.width  / img.width    ;
+   var vRatio =  canvas.height / img.height  ;
+   var ratio  = Math.min ( hRatio, vRatio );
+   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+    window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); },
+        document.getElementById("can_model")  );
+
+}
+function getPhoto(source) {
+      
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
+    }
+function onPhotoURISuccess(imageURI) {
+	    var c = document.getElementById("can_me");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.src = imageURI;
+   }
+   
+   function capturePhotoEdit() {
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,destinationType: destinationType.DATA_URL });
+    }
+   
+   
+    function onPhotoDataSuccess1(imageData) {
       
 	 smallImage.style.display = 'block';
 
@@ -43,29 +87,9 @@
  //    window.plugins.base64ToPNG.saveImage(myBase64, {filename:"dot.png", overwrite: true}, function(result) {  alert(result); }, function(error) { alert(error); });
      }
    
-function drawImageScaled(img, ctx) {
-   var canvas = ctx.canvas ;
-   canvas.height = window.innerHeight-40;
-	canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
-}
 
-    function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	    var img = new Image();
-		img.onload= drawImageScaled.bind(null, img, ctx);
-		img.src = imageURI;
-   }
-    function capturePhoto() {navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });  	
-   }
+    
+    
 
    function onFail(message) {
       alert('Failed because: ' + message);
@@ -115,32 +139,28 @@ function drawImageScaled(img, ctx) {
   </header>
 
   
-  
+  <body>
  
-  <div>
-  	<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-  	</div>
+<section>
   <table width="100%" height="5%" border="1">
 <tr >
 	<td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
-<td><button class="btncss">Upload Your Photo</button></td>
+	<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
+	   <td> <button onclick="capturePhotoEdit();">Capture Editable Photo</button> </td>
 <td><button onclick="savePhoto();" class="btncss">Save</button></td>
 
 </tr>
-</table>
-<table width="100%">
-
 <tr>
-<td>
+<td colspan="2">
 <canvas id="can_model" class="canvasStyle"></canvas>	
 </td>
-<td>
+<td colspan="2">
 	<canvas id="can_me" class="canvasStyle"></canvas>
 </td>
 	
 </tr>
 </table>
   
-
+</section>
   </body>
 </html>
