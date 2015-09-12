@@ -38,6 +38,8 @@
    img.onload= = function () {
                 // reset the canvas with new dimensions
                 rotating-true;
+                var cw = c.width;
+    		var ch = c.height;
                 c.width = ch;
                 c.height = cw;
                 cw = c.width;
@@ -52,7 +54,7 @@
                 ctx.restore();
    }img.src = "data:image/jpeg;base64," + imageData;
                 // clear the temporary image
-                img = null;
+             //   img = null;
                
                 rotating = false;               
             
