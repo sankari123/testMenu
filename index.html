@@ -85,11 +85,13 @@ function rotate(degrees)
  {
      var canvas = document.getElementById("can_model");
      var ctx = c.getContext('2d');
-     var img = new Image();
+     
      var dataURL = canvas.toDataURL();
      document.getElementById('canvasImg').src = dataURL;
+     var img = new Image();
+     img.src=dataURL;
      ctx.rotate(Math.PI / 2);
-ctx.drawImage(dataURL,1,100, img.width, img.height);
+     ctx.drawImage(dataURL,1,100, img.width, img.height);
 		
      
   }
