@@ -18,7 +18,7 @@
 	  var tmp;
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
-   
+   var img, rotating = false; 
     document.addEventListener("deviceready",onDeviceReady,false);
 
     
@@ -35,8 +35,31 @@
    var c = document.getElementById("can_model");
    var ctx = c.getContext("2d");
    var img = new Image();
-   img.onload= drawImageScaled.bind(null, img, ctx);
-   img.src = "data:image/jpeg;base64," + imageData;
+   img.onload= = function () {
+                // reset the canvas with new dimensions
+                rotating-true;
+                c.width = ch;
+                c.height = cw;
+                cw = c.width;
+                ch = c.height;
+
+                ctx.save();
+                // translate and rotate
+                ctx.translate(cw, ch / cw);
+                ctx.rotate(Math.PI / 2);
+                // draw the previows image, now rotated
+                ctx.drawImage(img, 0, 0);               
+                ctx.restore();
+   }img.src = "data:image/jpeg;base64," + imageData;
+                // clear the temporary image
+                img = null;
+               
+                rotating = false;               
+            
+        
+   
+      //drawImageScaled.bind(null, img, ctx);
+   
   }
 
 function drawImageScaled(img, ctx) {
