@@ -90,9 +90,9 @@ function rotate()
      var canvas = document.getElementById("can_model");
      var ctx = c.getContext('2d');
      var img = new Image();
-    // img.src=img111.src;
+    img.src=img111;
      ctx.rotate(Math.PI / 2);
-     ctx.drawImage(img111,1,100, img111.width, img111.height);
+     ctx.drawImage(img,1,100, img.width, img.height);
 		
      
   }
@@ -142,7 +142,7 @@ function rotate()
 <td><button onclick="rotate();" class="btncss">Rotate</button></td>
 </tr>
 </table>
- <img id="canvasImg" alt="Right click to save me!">
+ <img id="canvasImg" alt="Right click to save me!" type "hidden">
 <canvas id="can_model" class="canvasStyle"></canvas>	
 
   
