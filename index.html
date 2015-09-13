@@ -31,8 +31,12 @@
 	
     }
 
+   // function capturePhoto() {
+   // navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+   // }
     function capturePhoto() {
-    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,destinationType: destinationType.DATA_URL });
     }
     function onPhotoDataSuccess(imageData) {
    var c = document.getElementById("can_model");
