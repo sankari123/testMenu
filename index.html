@@ -13,17 +13,7 @@
 	      var start = function() {
        screen.orientation.lock('portrait');
         }
-        
-        
-        function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
-      }
-      canvas.addEventListener('mousemove', function(evt) { var mousePos = getMousePos(canvas, evt); var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y; writeMessage(canvas, message); }, false);
-    var canvas,ctx;
+     var canvas,ctx;
     var mouseX,mouseY,mouseDown=0;
     var touchX,touchY;
     var lastX,lastY=-1;
