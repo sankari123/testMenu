@@ -36,13 +36,13 @@
     }
     function onPhotoDataSuccess(imageData) {
    var c = document.getElementById("can_model");
-   image111=document.getElementById('canvasImg');
-   image111.style.display = 'block';
+ //  image111=document.getElementById('canvasImg');
+ //  image111.style.display = 'block';
    var ctx = c.getContext("2d");
    var img = new Image();
    img.onload=  drawImageScaled.bind(null, img, ctx);
    img.src = "data:image/jpeg;base64," + imageData;
-   img111.src = "data:image/jpeg;base64," + imageData;
+//   img111.src = "data:image/jpeg;base64," + imageData;
   
   }
 
@@ -148,7 +148,6 @@ function rotate()
 <td><button onclick="rotate();" class="btncss">Rotate</button></td>
 </tr>
 </table>
- <img id="canvasImg" alt="Right click to save me!" type "hidden">
 <canvas id="can_model" class="canvasStyle"></canvas>	
 
   
