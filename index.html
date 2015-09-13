@@ -21,6 +21,7 @@
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
    var rotating = false; 
+    var image111;
     document.addEventListener("deviceready",onDeviceReady,false);
 
     
@@ -35,11 +36,13 @@
     }
     function onPhotoDataSuccess(imageData) {
    var c = document.getElementById("can_model");
+   image111=document.getElementById('canvasImg');
    var ctx = c.getContext("2d");
    var img = new Image();
-   
    img.onload=  drawImageScaled.bind(null, img, ctx);
+   img111.src = "data:image/jpeg;base64," + imageData;
    img.src = "data:image/jpeg;base64," + imageData;
+  
   }
 
 function drawImageScaled(img, ctx) {
@@ -85,14 +88,10 @@ function rotate()
  {
      var canvas = document.getElementById("can_model");
      var ctx = c.getContext('2d');
-     
-     var dataURL = canvas.toDataURL();
-     document.getElementById('canvasImg').src = dataURL;
-     alert(dataURL);
      var img = new Image();
-     img.src=dataURL;
+    // img.src=img111.src;
      ctx.rotate(Math.PI / 2);
-     ctx.drawImage(dataURL,1,100, img.width, img.height);
+     ctx.drawImage(img111,1,100, img111.width, img111.height);
 		
      
   }
