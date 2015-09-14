@@ -113,6 +113,7 @@ function onPhotoURISuccess(imageURI) {
 //ctx.drawImage(img, 1,2, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
 //ctx.drawImage(img,1,10, img.width, img.height);
 //ctx.restore();
+draw(img,ctx);
 }
    
     function onFail(message) {
@@ -132,6 +133,27 @@ function rotate()
 		
      ctx.restore();
   }
+  
+  draw (img1,ctx1){
+  	var width = 100,
+                height = 100,
+                frames = 4,
+                 
+                currentFrame = 0,
+                 
+                canvas = document.getElementById("can_final");
+                ctx = canvas.getContext("2d");
+                ctx=ctx1;
+                ctx.clearRect(0, 0, width, height);
+                ctx.drawImage(imgage, 0, height * currentFrame, width, height, 0, 0, width, height);
+         
+                if (currentFrame == frames) {
+                  currentFrame = 0;
+                } else {
+                  currentFrame++;
+                }
+        }
+
 </script>
 	<style>
 	h1 {
@@ -175,11 +197,12 @@ function rotate()
 <tr>
 <td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="rotate();" class="btncss">Rotate</button></td></tr>
+<td><button onclick="draw();" class="btncss">Rotate</button></td></tr>
 </table>
 <div style="position: relative;">
  <canvas id="can_model"></canvas>
  <canvas id="can_me"></canvas>
+ <canvas id="can_final" class="canvasStyle"></canvas>
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
 
