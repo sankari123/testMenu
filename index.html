@@ -87,7 +87,7 @@ function onPhotoURISuccess(imageURI) {
 function overlap()
   {
   
-var imgArray1 = [imgArray[0],imgArray[1]];
+var imgArray1 = [imgArray[1],imgArray[0]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
@@ -96,7 +96,7 @@ var imgArray1 = [imgArray[0],imgArray[1]];
                 imageObj = new Image();
                 imageObj.src = imgArray1[i];
 				imageObj.setAtX = i*10;
-				imageObj.setAtY = i*1;
+				imageObj.setAtY = i*10;
 				context.globalAlpha=1;
 				imageObj.onload = function() {
 				context.globalAlpha=1;
