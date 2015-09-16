@@ -121,18 +121,18 @@ var imgArray1 = [imgArray[0],imgArray[1]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
-               canvas.height = window.innerHeight;
-  	       canvas.width = window.innerWidth;
+            //   canvas.height = window.innerHeight;
+  	      // canvas.width = window.innerWidth;
                 imageObj = new Image();
                 imageObj.src = imgArray1[i];
 				imageObj.setAtX = i*10;
 				imageObj.setAtY = i*10;
 				context.globalAlpha=1;
-				if(i==0)
-				{
-				context.drawImage(this, this.setAtX, this.setAtY,canvas.width*0.5,canvas.height*0.5);
-				}
-				;
+				imageObj.onload = function() {
+				context.globalAlpha=1;
+				context.drawImage(this, this.setAtX, this.setAtY);
+	    			}
+				
                 
             }
 
