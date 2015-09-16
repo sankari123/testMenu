@@ -114,17 +114,6 @@ function onPhotoURISuccess(imageURI) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-function overlap1()
-{
-	
-        var c = document.getElementById("can_final");
-	    var ctx = c.getContext('2d');
-	    var img = new Image();
-	    canvas.height = window.innerHeight/2;
-        canvas.width = window.innerWidth/2;
-        
-//	photojoiner.join({'images' : ['imgArray[0]','imgArray[1]'],'canvas':document.getElementById('can_final')}); 
-}
 function overlap()
   {
   
@@ -204,7 +193,7 @@ function rotate()
 <tr>
 <td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="draw();" class="btncss">Overlap</button></td></tr>
+<td><button onclick="overlap();" class="btncss">Overlap</button></td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
