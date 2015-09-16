@@ -127,13 +127,12 @@ var imgArray1 = [imgArray[0],imgArray[1]];
                 imageObj.src = imgArray1[i];
 				imageObj.setAtX = i;
 				imageObj.setAtY = i;
-				imageObj.onload = function() {
 				context.globalAlpha=1;
 				if(i==0)
 				{
-				context.drawImage(this, this.setAtX, this.setAtY,canvas.width,canvas.height);
+				context.drawImage(this, this.setAtX, this.setAtY,canvas.width*5,canvas.height*5);
 				}
-				};
+				;
                 
             }
 
