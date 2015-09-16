@@ -9,6 +9,7 @@
 <script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 
    <script>
+   var imgArray;
         var imgDataUrl;
 	      var start = function() {
        screen.orientation.lock('portrait');
@@ -42,6 +43,7 @@
    var img = new Image();
    img.onload=  drawImageScaled.bind(null, img, ctx);
    img.src = "data:image/jpeg;base64," + imageData;
+   imgArray[0]=img.src;
 //   img111.src = "data:image/jpeg;base64," + imageData;
   
   }
@@ -86,6 +88,7 @@ function onPhotoURISuccess(imageURI) {
 	    var img = new Image();
 		img.onload= drawImageScaled_new.bind(null, img, ctx);
 		img.src = imageURI;
+		imgArray[1]=img.src;
    }
    function drawImageScaled_new(img, ctx) {
 	var fileName   = "test.png";
@@ -118,7 +121,23 @@ function onPhotoURISuccess(imageURI) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-
+function overlap()
+{
+	for(i = 0; i < 2; i++){
+                canvas = document.getElementById('canvas');
+               context = canvas.getContext("2d");
+                imageObj = new Image();
+                imageObj.src = imgArray[i];
+				imageObj.setAtX = i*10;
+				imageObj.setAtY = i*50;
+				imageObj.onload = function() {
+				context.globalAlpha=1;
+				context.drawImage(this, this.setAtX, this.setAtY);
+	    
+				};
+                
+            }
+}
 function rotate()
  {
      var canvas = document.getElementById("can_model");
@@ -176,7 +195,7 @@ function rotate()
 <tr>
 <td><button onclick="capturePhoto();" class="btncss">Capture Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="draw();" class="btncss">Rotate</button></td></tr>
+<td><button onclick="draw();" class="btncss">Overlap</button></td></tr>
 </table>
 <div style="position: relative;">
  <canvas id="can_model"></canvas>
