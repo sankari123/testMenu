@@ -74,7 +74,7 @@ function onPhotoURISuccess(imageURI) {
 	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
-		img.onload= drawImageScaled_new.bind(null, img, ctx);
+		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
    }
