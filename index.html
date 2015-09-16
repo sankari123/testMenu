@@ -88,7 +88,7 @@ function getPhoto(source) {
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
 function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_model");
+	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
 		img.onload= drawImageScaled_new.bind(null, img, ctx);
