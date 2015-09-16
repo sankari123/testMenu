@@ -40,14 +40,14 @@
       
 navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
-function onPhotoURISuccess_m(imageURI) {
+function onPhotoURISuccess_m(imageURI1) {
 	    var c = document.getElementById("can_model");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
-		img.src = imageURI;
+		img.src = imageURI1;
 		imgArray[1]=img.src;
-		document.getElementById("m_img")=imageURI;
+	
    }
 
 function drawImageScaled(img, ctx) {
@@ -78,8 +78,8 @@ function onPhotoURISuccess(imageURI) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
-		//alert()
-		document.getElementById("y_img")=imageURI;
+		alert(imageURI);
+	
    }
       function onFail(message) {
       alert('Failed because: ' + message);
@@ -124,6 +124,8 @@ function rotate()
      ctx.restore();
   }
   
+  
+
 </script>
 	<style>
 	h1 {
@@ -167,8 +169,6 @@ function rotate()
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlap();" class="btncss">Overlap</button></td></tr>
-<tr>
-<td><input type=text "id=m_img" readonly="readonly"></td><td><input type=text "id=y_img" readonly="readonly"></td><td><input type=text "id=o_img" readonly="readonly"></td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
