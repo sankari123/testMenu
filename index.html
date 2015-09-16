@@ -47,6 +47,7 @@ function onPhotoURISuccess_m(imageURI) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
+		document.getElementById("m_img")=imageURI;
    }
 
 function drawImageScaled(img, ctx) {
@@ -77,6 +78,8 @@ function onPhotoURISuccess(imageURI) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
+		//alert()
+		document.getElementById("y_img")=imageURI;
    }
       function onFail(message) {
       alert('Failed because: ' + message);
@@ -97,13 +100,8 @@ var imgArray1 = [imgArray[0],imgArray[1]];
 				context.globalAlpha=1;
 				imageObj.onload = function() {
 				context.globalAlpha=1;
-				if(i==1)
-				{
-				context.drawImage(this, this.setAtX, this.setAtY,canvas.width*0.5,canvas.width*0.5);              			}
-              			else
-              			{
 				context.drawImage(this, this.setAtX, this.setAtY);
-              			}
+              		
 	    			}
 				
                 
@@ -169,6 +167,8 @@ function rotate()
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlap();" class="btncss">Overlap</button></td></tr>
+<tr>
+<td><input type=text "id=m_img" readonly="readonly"></td><td><input type=text "id=y_img" readonly="readonly"></td><td><input type=text "id=o_img" readonly="readonly"></td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
