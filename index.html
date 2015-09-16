@@ -46,7 +46,7 @@
    var img = new Image();
    img.onload=  drawImageScaled.bind(null, img, ctx);
    img.src = "data:image/jpeg;base64," + imageData;
-   imgArray[0]=img;
+   imgArray[0]=img.src;
 //   img111.src = "data:image/jpeg;base64," + imageData;
   
   }
@@ -92,7 +92,7 @@ function onPhotoURISuccess(imageURI) {
 	    var img = new Image();
 		img.onload= drawImageScaled_new.bind(null, img, ctx);
 		img.src = imageURI;
-		imgArray[1]=img;
+		imgArray[1]=img.src;
    }
    function drawImageScaled_new(img, ctx) {
 	var fileName   = "test.png";
