@@ -47,7 +47,7 @@ function onPhotoURISuccess_m(imageURI1) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		imgArray[1]=img.src;
-		navigator.notification.alert(img.src, PhoneGapAlert, 'HelloWorld', 'Exit');
+		alert(imageURI1);
 	
    }
 
@@ -88,7 +88,7 @@ function onPhotoURISuccess(imageURI) {
 function overlap()
   {
   
-var imgArray1 = [imgArray[1],imgArray[0]];
+var imgArray1 = [imgArray[0],imgArray[1]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
