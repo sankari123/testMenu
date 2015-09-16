@@ -121,6 +121,8 @@ var imgArray1 = [imgArray[0],imgArray[1]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
+               canvas.height = window.innerHeight;
+  	       canvas.width = window.innerWidth;
                 imageObj = new Image();
                 imageObj.src = imgArray1[i];
 				imageObj.setAtX = i*10;
@@ -197,9 +199,9 @@ function rotate()
 </table>
 <!--<div style="position: relative;">-->
 	<div>
- <canvas id="can_model" width="200" height="200" style= "border:1px solid black"></canvas>
- <canvas id="can_me" width="200" height="100" style= "border:1px solid black"></canvas>
-  <canvas id="can_final" width="200" height="200" style= "border:1px solid black"></canvas>
+ <canvas id="can_model" style= "border:1px solid black"></canvas>
+ <canvas id="can_me" style= "border:1px solid black"></canvas>
+  <canvas id="can_final" style= "border:1px solid black"></canvas>
 
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
