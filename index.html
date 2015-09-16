@@ -47,6 +47,7 @@ function onPhotoURISuccess_m(imageURI1) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		imgArray[1]=img.src;
+		navigator.notification.alert(img.src, PhoneGapAlert, 'HelloWorld', 'Exit');
 	
    }
 
@@ -78,7 +79,7 @@ function onPhotoURISuccess(imageURI) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
-		alert(imageURI);
+		alert(img.src);
 	
    }
       function onFail(message) {
