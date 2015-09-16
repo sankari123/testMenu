@@ -13,6 +13,7 @@
   // var tmpCanvas = document.createElement('canvas');
     //var tmpCtx = tmpCanvas.getContext('2d');
    var imgArray;
+    imgArray = new Array();
         var imgDataUrl;
 	      var start = function() {
        screen.orientation.lock('portrait');
@@ -125,10 +126,39 @@ function onPhotoURISuccess(imageURI) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
-function overlap()
+function overlap1()
 {
-	photojoiner.join({'images' : ['imgArray[0]','imgArray[1]'],'canvas':document.getElementById('can_final')}); 
+	
+        var c = document.getElementById("can_final");
+	    var ctx = c.getContext('2d');
+	    var img = new Image();
+	    canvas.height = window.innerHeight/2;
+        canvas.width = window.innerWidth/2;
+        
+//	photojoiner.join({'images' : ['imgArray[0]','imgArray[1]'],'canvas':document.getElementById('can_final')}); 
 }
+function overlap()
+  {
+  
+var imgArray1 = [imgArray[0],[imgArray[1]];
+              for(i = 0; i < 2; i++){
+                canvas = document.getElementById('canvas');
+               context = canvas.getContext("2d");
+                imageObj = new Image();
+                imageObj.src = imgArray1[i];
+				imageObj.setAtX = i*10;
+				imageObj.setAtY = i*50;
+				imageObj.onload = function() {
+				context.globalAlpha=1;
+				context.drawImage(this, this.setAtX, this.setAtY);
+	    
+				};
+                
+            }
+
+			
+}
+
 function rotate()
  {
      var canvas = document.getElementById("can_model");
@@ -188,10 +218,11 @@ function rotate()
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="draw();" class="btncss">Overlap</button></td></tr>
 </table>
-<div style="position: relative;">
- <canvas id="can_model"></canvas>
- <canvas id="can_me"></canvas>
-  <canvas id="can_final"></canvas>
+<!--<div style="position: relative;">-->
+	<div>
+ <canvas id="can_model" width="200" height="200" style= "border:1px solid black"></canvas>
+ <canvas id="can_me" width="200" height="100" style= "border:1px solid black"></canvas>
+  <canvas id="can_final" width="200" height="200" style= "border:1px solid black"></canvas>
 
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
