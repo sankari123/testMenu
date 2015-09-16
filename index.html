@@ -9,6 +9,8 @@
 <script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 
    <script>
+  // var tmpCanvas = document.createElement('canvas');
+    //var tmpCtx = tmpCanvas.getContext('2d');
    var imgArray;
         var imgDataUrl;
 	      var start = function() {
@@ -77,6 +79,7 @@ window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg
 //ctx.drawImage(img, 1,-10, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
 //ctx.drawImage(img,1,10, img.width, img.height);
 ctx.restore();
+
 }
 function getPhoto(source) {
       
@@ -124,7 +127,7 @@ function onPhotoURISuccess(imageURI) {
 function overlap()
 {
 	for(i = 0; i < 2; i++){
-                canvas = document.getElementById('canvas');
+                canvas = document.getElementById('can_model');
                context = canvas.getContext("2d");
                 imageObj = new Image();
                 imageObj.src = imgArray[i];
