@@ -125,12 +125,14 @@ var imgArray1 = [imgArray[0],imgArray[1]];
   	       canvas.width = window.innerWidth;
                 imageObj = new Image();
                 imageObj.src = imgArray1[i];
-				imageObj.setAtX = i*10;
-				imageObj.setAtY = i*50;
+				imageObj.setAtX = i;
+				imageObj.setAtY = i;
 				imageObj.onload = function() {
 				context.globalAlpha=1;
+				if(i==0)
+				{
 				context.drawImage(this, this.setAtX, this.setAtY);
-	    
+				}
 				};
                 
             }
