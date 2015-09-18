@@ -94,13 +94,15 @@ var imgArray1 = [imgArray[0],imgArray[1]];
                context = canvas.getContext("2d");
             canvas.height = window.innerHeight;
   	     canvas.width = window.innerWidth;
-  	     var img = new Image();
-img.onload = function() {
+  	     var img111 = new Image();
+  	     img111.setAtX = i*10;
+             img111.setAtY = i*10;
+img111.onload = function() {
 	context.globalAlpha=1;
-	context.drawImage(img, 100, 30);
+	context.drawImage(img111, this.setAtX, this.setAtY);
 	
 };
-img.src = imgArray1[0];
+img111.src = imgArray1[0];
 
 //                imageObj = new Image();
   //              imageObj.src = imgArray1[i];
