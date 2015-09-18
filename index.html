@@ -46,8 +46,8 @@ function onPhotoURISuccess_m(imageURI1) {
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
-		imgArray[1]=img.src;
-		alert(imageURI1);
+		imgArray[0]=img.src;
+		//alert(img.src;);
 	
    }
 
@@ -79,7 +79,7 @@ function onPhotoURISuccess(imageURI) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
-		alert(img.src);
+	//	alert(img.src);
 	
    }
       function onFail(message) {
@@ -94,16 +94,24 @@ var imgArray1 = [imgArray[0],imgArray[1]];
                context = canvas.getContext("2d");
             canvas.height = window.innerHeight;
   	     canvas.width = window.innerWidth;
-                imageObj = new Image();
-                imageObj.src = imgArray1[i];
-				imageObj.setAtX = i*10;
-				imageObj.setAtY = i*10;
-				context.globalAlpha=1;
-				imageObj.onload = function() {
-				context.globalAlpha=1;
-				context.drawImage(this, this.setAtX, this.setAtY);
+  	     var img = new Image();
+img.onLoad = function() {
+	context.globalAlpha=1;
+	context.drawImage(img, 100, 30);
+	
+};
+img.src = imgArray1[0];
+
+//                imageObj = new Image();
+  //              imageObj.src = imgArray1[i];
+//				imageObj.setAtX = i*10;
+//				imageObj.setAtY = i*10;
+//				context.globalAlpha=1;
+//				imageObj.onload = function() {
+//				context.globalAlpha=1;
+//				context.drawImage(this, this.setAtX, this.setAtY);
               		
-	    			}
+//	    			}
 				
                 
             }
