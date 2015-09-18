@@ -48,8 +48,8 @@ function onPhotoURISuccess_m(imageURI1) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		imgArray[0]=img.src;
-		prefetch = new Image();
-                 prefetch.src = img.src;
+	//	prefetch = new Image();
+          //       prefetch.src = img.src;
 		//alert(img.src;);
 	
    }
@@ -81,8 +81,9 @@ function onPhotoURISuccess(imageURI) {
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-		prefetch1 = new Image();
-                 prefetch1.src = img.src;
+		imgArray[1]=img.src;
+	//	prefetch1 = new Image();
+          //       prefetch1.src = img.src;
 	//	alert(img.src);
 	
    }
@@ -91,12 +92,12 @@ function onPhotoURISuccess(imageURI) {
     }
 function overlap()
   {
-var imgArray1 = [prefetch.src,prefetch1.src];
+var imgArray1 = [imgArray[0],imgArray[1]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
-            canvas.height = window.innerHeight;
-  	     canvas.width = window.innerWidth;
+           // canvas.height = window.innerHeight;
+  	     //canvas.width = window.innerWidth;
 
 imageObj = new Image();
               imageObj.src = imgArray1[i];
