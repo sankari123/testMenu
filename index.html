@@ -10,6 +10,7 @@
 <script type="text/javascript" charset="utf-8" src="photojoiner.js"></script>
 
    <script>
+   var prefetch,prefetch1;
   // var tmpCanvas = document.createElement('canvas');
     //var tmpCtx = tmpCanvas.getContext('2d');
    var imgArray;
@@ -47,6 +48,8 @@ function onPhotoURISuccess_m(imageURI1) {
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
 		imgArray[0]=img.src;
+		prefetch = new Image();
+                 prefetch.src = img.src;
 		//alert(img.src;);
 	
    }
@@ -78,7 +81,8 @@ function onPhotoURISuccess(imageURI) {
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI;
-		imgArray[1]=img.src;
+		prefetch1 = new Image();
+                 prefetch1.src = img.src;
 	//	alert(img.src);
 	
    }
@@ -87,33 +91,23 @@ function onPhotoURISuccess(imageURI) {
     }
 function overlap()
   {
-  
-var imgArray1 = [imgArray[0],imgArray[1]];
+var imgArray1 = [prefetch.src,prefetch1.src];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
                context = canvas.getContext("2d");
             canvas.height = window.innerHeight;
   	     canvas.width = window.innerWidth;
-  	     var img111 = new Image();
-  	     img111.setAtX = i*10;
-             img111.setAtY = i*10;
-img111.onload = function() {
-	context.globalAlpha=1;
-	context.drawImage(this, this.setAtX, this.setAtY);
-	
-};
 
-
-//                imageObj = new Image();
-  //              imageObj.src = imgArray1[i];
-//				imageObj.setAtX = i*10;
-//				imageObj.setAtY = i*10;
-//				context.globalAlpha=1;
-//				imageObj.onload = function() {
-//				context.globalAlpha=1;
-//				context.drawImage(this, this.setAtX, this.setAtY);
-              		
-//	    			}
+imageObj = new Image();
+              imageObj.src = imgArray1[i];
+			imageObj.setAtX = i*10;
+				imageObj.setAtY = i*10;
+				context.globalAlpha=1;
+				imageObj.onload = function() {
+				context.globalAlpha=1;
+				context.drawImage(this, this.setAtX, this.setAtY);
+            		
+	    			}
 				
                 
             }
