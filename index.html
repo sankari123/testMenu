@@ -11,6 +11,7 @@
 
    <script>
    var prefetch,prefetch1;
+   var imgData1, imgData2;
   // var tmpCanvas = document.createElement('canvas');
     //var tmpCtx = tmpCanvas.getContext('2d');
    var imgArray;
@@ -47,6 +48,7 @@ function onPhotoURISuccess_m(imageURI1) {
 	    var img = new Image();
 		img.onload= drawImageScaled.bind(null, img, ctx);
 		img.src = imageURI1;
+
 		imgArray[0]=img.src;
 	//	prefetch = new Image();
           //       prefetch.src = img.src;
@@ -66,7 +68,8 @@ function drawImageScaled(img, ctx) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width, canvas.height);
-  
+  		var imgData1=ctx.getImageData(0,0,200,200);
+//ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
 
@@ -79,19 +82,50 @@ function onPhotoURISuccess(imageURI) {
 	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
-		img.onload= drawImageScaled.bind(null, img, ctx);
+		img.onload= drawImageScaled_new.bind(null, img, ctx);
 		img.src = imageURI;
 		imgArray[1]=img.src;
+	
 	//	prefetch1 = new Image();
           //       prefetch1.src = img.src;
 	//	alert(img.src);
 	
    }
+   
+   function drawImageScaled_new(img, ctx) {
+	var fileName   = "test.png";
+   var canvas = ctx.canvas ;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+   var hRatio = canvas.width  / img.width    ;
+   var vRatio =  canvas.height / img.height  ;
+   var ratio  = Math.min ( hRatio, vRatio );
+   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img,0,0,canvas.width, canvas.height);
+  		var imgData2=ctx.getImageData(0,0,50,50);
+//ctx.putImageData(imgData,10,70);
+//window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
+ ctx.restore();
+
+}
       function onFail(message) {
       alert('Failed because: ' + message);
     }
+
+function overlay()
+{
+	canvas = document.getElementById('can_final');
+               context = canvas.getContext("2d");
+               
+               context.putImageData(imgData1,200,200);
+                 context.putImageData(imgData2,50,50);
+               
+}
 function overlap()
   {
+  	
 var imgArray1 = [imgArray[0],imgArray[1]];
               for(i = 0; i < 2; i++){
                 canvas = document.getElementById('can_final');
@@ -200,7 +234,7 @@ function loadImage(src, onload) {
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="overlap();" class="btncss">Overlap</button></td></tr>
+<td><button onclick="overlay();" class="btncss">Overlap</button></td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
