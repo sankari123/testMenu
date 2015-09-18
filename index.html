@@ -99,10 +99,10 @@ var imgArray1 = [imgArray[0],imgArray[1]];
              img111.setAtY = i*10;
 img111.onload = function() {
 	context.globalAlpha=1;
-	context.drawImage(img111, this.setAtX, this.setAtY);
+	context.drawImage(this, this.setAtX, this.setAtY);
 	
 };
-img111.src = imgArray1[0];
+
 
 //                imageObj = new Image();
   //              imageObj.src = imgArray1[i];
