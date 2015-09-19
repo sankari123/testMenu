@@ -127,12 +127,12 @@ function overlay()
                
 }
 
-function makeface(this) 
+function makeface(canvas) 
   { 
-   this.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(this, evt);
+   canvas.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(this, message);
+        writeMessage(canvas, message);
       }, false);
   }
     
@@ -194,7 +194,7 @@ function makeface(this)
 <!--<div style="position: relative;">-->
 	<div>
  <canvas id="can_model" style= "border:1px solid black"></canvas>
- <canvas id="can_me" style= "border:1px solid black" onclick="makeface();"></canvas>
+ <canvas id="can_me" style= "border:1px solid black" onclick="makeface(this);"></canvas>
   <canvas id="can_final" style= "border:1px solid black"></canvas>
 
 </div>
