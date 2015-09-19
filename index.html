@@ -111,13 +111,7 @@ function onPhotoURISuccess(imageURI) {
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
  
- canvas.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message);
-      }, false);
-
-}
+ canvas.addEventListener('mousemove', function(evt) { var mousePos = getMousePos(canvas, evt); var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y; writeMessage(canvas, message); }, false); }
 function getMousePos(canvas, evt) {
         var rect = canvas.getBoundingClientRect();
         return {
