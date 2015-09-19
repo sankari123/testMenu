@@ -91,7 +91,7 @@ function onPhotoURISuccess(imageURI) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0);
    //,canvas.width, canvas.height);
-  	imgData2=ctx.getImageData(0,0,img.width*0.5,img.height*0.5);
+  	imgData2=ctx.getImageData(0,0,img.width*0.25,img.height*0.25);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
@@ -108,7 +108,7 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-           context_final.putImageData(imgData2,50,20);
+           context_final.putImageData(imgData2,0,20);
 // canvas_final.addEventListener('touchstart', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
 //canvas_final.addEventListener('touchend', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
                
