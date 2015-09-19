@@ -110,8 +110,22 @@ function onPhotoURISuccess(imageURI) {
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
+ 
+ canvas.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+      }, false);
 
 }
+function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+      
       function onFail(message) {
       alert('Failed because: ' + message);
     }
@@ -166,37 +180,7 @@ function rotate()
 		
      ctx.restore();
   }
- function overlap_final(){ 
-  var canvas = document.getElementById("can_final");
-var ctx = canvas.getContext("2d");
-  var img1 = loadImage(imgArray[0], main);
-var img2 = loadImage(imgArray[1], main);
-var imagesLoaded = 0;
-}
-function main() {
-    imagesLoaded += 1;
-
-    if(imagesLoaded == 2) {
-        // composite now
-        ctx.drawImage(img1, 0, 0);
-
-        ctx.globalAlpha = 0.5;
-        ctx.drawImage(img2, 0, 0);
-    }
-}
-
-function loadImage(src, onload) {
-    // http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called
-    var img = new Image();
-
-    img.onload = onload;
-    img.src = src;
-
-    return img;
-}
-
-</script>
-	<style>
+ 	<style>
 	h1 {
 	font: 15pt vivaldi;
 	text-align: center;
