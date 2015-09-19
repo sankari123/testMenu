@@ -97,22 +97,7 @@ function onPhotoURISuccess(imageURI) {
  ctx.restore();
  
  }
- var canvas5 = document.getElementById('can_me');
-      var context5 = canvas.getContext('2d');
-canvas5.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvas5, evt);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas5, message);
-      }, false);
-      
-      function getMousePos(canvas5, evt) {
-        var rect = canvas5.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
-      }
-      function onFail(message) {
+       function onFail(message) {
       alert('Failed because: ' + message);
     }
 
