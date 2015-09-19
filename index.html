@@ -124,16 +124,12 @@ function overlay()
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
            context_final.putImageData(imgData2,50,50);
+           makeface(this);
                
 }
-
 function makeface(canvas) 
   { 
-   canvas.addEventListener('mousemove', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        writeMessage(canvas, message);
-      }, false);
+   canvas.addEventListener('mousemove', function(evt) { var mousePos = getMousePos(canvas, evt);  var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;  writeMessage(canvas, message);  }, false);
   }
     
     function getMousePos(canvas, evt) {
@@ -194,7 +190,7 @@ function makeface(canvas)
 <!--<div style="position: relative;">-->
 	<div>
  <canvas id="can_model" style= "border:1px solid black"></canvas>
- <canvas id="can_me" style= "border:1px solid black" onclick="makeface(this);"></canvas>
+ <canvas id="can_me" style= "border:1px solid black" ></canvas>
   <canvas id="can_final" style= "border:1px solid black"></canvas>
 
 </div>
