@@ -68,7 +68,7 @@ function drawImageScaled(img, ctx) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width, canvas.height);
-  		var imgData1=ctx.getImageData(0,0,200,200);
+  	 imgData1=ctx.getImageData(0,0,200,200);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
@@ -104,7 +104,7 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0,canvas.width, canvas.height);
-  		var imgData2=ctx.getImageData(0,0,50,50);
+  	imgData2=ctx.getImageData(0,0,50,50);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
