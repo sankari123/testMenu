@@ -95,8 +95,27 @@ function onPhotoURISuccess(imageURI) {
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
+canvas.addEventListener('touchstart',mouseDown,false);  
+ //   canvas.addEventListener('touchmove',mouseMove,false);   
+  //  document.addEventListener('touchend',mouseUp,false);  
  
  }
+ function mouseDown(e)
+{
+var mousePos = getMousePos(e);
+alert(mousePos.x + "," + mousePos.y);
+e.preventDefault();
+}
+function getMousePos(evt)
+{
+    
+    //  var c_t = document.getElementById("can_me");
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: (evt.clientX - rect.left),
+        y: (evt.clientY - rect.top) 
+    };
+}
        function onFail(message) {
       alert('Failed because: ' + message);
     }
