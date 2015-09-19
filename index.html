@@ -12,6 +12,8 @@
    <script>
    var prefetch,prefetch1;
    var imgData1, imgData2;
+   var canvas_final;
+   var context_final;
   // var tmpCanvas = document.createElement('canvas');
     //var tmpCtx = tmpCanvas.getContext('2d');
    var imgArray;
@@ -116,12 +118,12 @@ function onPhotoURISuccess(imageURI) {
 
 function overlay()
 {
-	canvas = document.getElementById('can_final');
-               context = canvas.getContext("2d");
-               canvas.height = window.innerHeight;
-  		canvas.width = window.innerWidth;
-               context.putImageData(imgData1,0,0);
-           context.putImageData(imgData2,50,50);
+	canvas_final = document.getElementById('can_final');
+               context_final = canvas_final.getContext("2d");
+               canvas_final.height = window.innerHeight;
+  		canvas_final.width = window.innerWidth;
+               context_final.putImageData(imgData1,0,0);
+           context_final.putImageData(imgData2,50,50);
                
 }
 function overlap()
