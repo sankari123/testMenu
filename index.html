@@ -4,6 +4,7 @@
     <title>MeMO</title>
 	
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8"></script>
    <script src="Base64ToPNG.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
@@ -89,7 +90,8 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img,0,0,img.width*0.5,img.height*0.5);
+   var n=0.5;
+   ctx.drawImage(img,0,0,img.width*n,img.height*n);
    //,canvas.width, canvas.height);
  // var result = ScaleImage(img.width, img.height, 300, 200, true);
 
@@ -177,7 +179,9 @@ function overlay()
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
            context_final.putImageData(imgData2,100,10);
-           //,60,40,imgData2.width,imgData2.height);
+        var result_q = prompt("Is your face image not set. Enter a value to decrease");
+        
+                   //,60,40,imgData2.width,imgData2.height);
 // canvas_final.addEventListener('touchstart', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
 //canvas_final.addEventListener('touchend', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
                
