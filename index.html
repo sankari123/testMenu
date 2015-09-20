@@ -91,7 +91,7 @@ function onPhotoURISuccess(imageURI) {
    ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img,0,0);
    //,canvas.width, canvas.height);
-  	imgData2=ctx.getImageData(0,0,img.width*0.75,img.height*0.75);
+  	imgData2=ctx.getImageData(0,0,img.width*0.9,img.height*0.9);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
