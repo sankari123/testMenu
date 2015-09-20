@@ -89,14 +89,14 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   //ctx.drawImage(img,0,0);
+   ctx.drawImage(img,0,0,img.width*0.5,img.height*0.5);
    //,canvas.width, canvas.height);
-  var result = ScaleImage(img.width, img.height, 300, 200, true);
+ // var result = ScaleImage(img.width, img.height, 300, 200, true);
 
-  ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height); 
+ // ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height); 
  // You can replace result.targetleft and result.targettop with "0" if you don't want the image centered.
   // resizes image to a target size of 300x200 using letterbox mode
-  	imgData2=ctx.getImageData(0,0,img.width*0.55,img.height*0.55);
+  	imgData2=ctx.getImageData(0,0);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
@@ -176,7 +176,7 @@ function overlay()
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
               // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,0,0);
+           context_final.putImageData(imgData2,100,10);
            //,60,40,imgData2.width,imgData2.height);
 // canvas_final.addEventListener('touchstart', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
 //canvas_final.addEventListener('touchend', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
