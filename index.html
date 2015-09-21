@@ -17,7 +17,7 @@
    var canvas_final;
    var context_final;
    var imgDataUrl;
-   var c_width,c_height;
+   int c_width,c_height;
 //   $('#cropbox').Jcrop();
    jQuery(function($) {
         $('#can_model').Jcrop({
@@ -29,8 +29,9 @@
   {
       // variables can be accessed here as
      // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     c_height=c.h;
-     c_width=c.w;
+     c_height=val(c.h);
+     c_width=val(c.w);
+    
   };
   
    
