@@ -20,10 +20,18 @@
    var c_width,c_height;
 //   $('#cropbox').Jcrop();
    jQuery(function($) {
-        $('#can_model').Jcrop({
-            onSelect: showCoords,
+    //    $('#can_model').Jcrop({
+      //      onSelect: showCoords,
         //    onChange: showCoords
-        });
+       // });
+       
+       $('#can_model').Jcrop({
+       	
+       	boxWidth: 450, boxHeight: 400 
+       	onSelect: showCoords,
+       	onChange: showCoords
+       	
+       });
     });
     function showCoords(c)
   {
