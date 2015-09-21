@@ -181,8 +181,8 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-               alert(document.getElementById('w').value);
-               alert(document.getElementById('h').value);
+               c_width=document.getElementById('w').value;
+               c_height=document.getElementById('h').value;
                // context_final.scale(0.5, 0.5);
            context_final.putImageData(imgData2,100,10,c_width,c_height);
        // var result_q = prompt("Is your face image not set. Enter a value to decrease");
