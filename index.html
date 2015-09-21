@@ -149,23 +149,8 @@ canvas.addEventListener('touchstart',mouseDown,false);
     return result;
 }
 
- function mouseDown(e)
-{
-var mousePos = getMousePos(e);
-alert(mousePos.x + "," + mousePos.y);
-e.preventDefault();
-}
-function getMousePos(evt)
-{
-    
-    //  var c_t = document.getElementById("can_me");
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: (evt.clientX - rect.left),
-        y: (evt.clientY - rect.top) 
-    };
-}
-       function onFail(message) {
+
+ function onFail(message) {
       alert('Failed because: ' + message);
     }
 
@@ -189,19 +174,22 @@ function overlay()
     
 function adjust()
 {
-	
-	var cc=document.getElementById('can_model');
-	var cc_final = cc.getContext("2d");
-	cc.addEventListener('touchmove', function(event) {
-  for (var i = 0; i < event.touches.length; i++) {
-    var touch = event.touches[i];
-    ctx.beginPath();
-    ctx.arc(touch.pageX, touch.pageY, 20, 0, 2*Math.PI, true);
-    ctx.fill();
-    ctx.stroke();
-  }
-}, false);
-	
+var hole = {x: 0, y: 0};
+
+var touchEvents = function(e){
+    e.preventDefault();
+    if(e.targetTouches) e = e.targetTouches[0]; // since i like to test with a mouse, but still have it work with touch devices.
+    hole.x=e.clientX;
+    hole.y=e.clientY;
+    alert(hole.x);
+    alert(hole.y);
+    
+};
+
+
+canvas.onmousemove=touchEvents;
+canvas.ontouchmove=touchEvents;
+canvas.ontouchstart=touchEvents;
 }
 
 </script>
