@@ -119,7 +119,7 @@ function onPhotoURISuccess(imageURI) {
   // resizes image to a target size of 300x200 using letterbox mode
   c_width=document.getElementById('w').value;
                c_height=document.getElementById('h').value;
-  	imgData2=ctx.getImageData(0,0,c_width+2,c_height+2);
+  	imgData2=ctx.getImageData(0,0,c_width,c_height);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
@@ -185,7 +185,7 @@ function overlay()
                context_final.putImageData(imgData1,0,0);
                
                // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,120,30);
+           context_final.putImageData(imgData2,120,25);
        // var result_q = prompt("Is your face image not set. Enter a value to decrease");
         
                    //,60,40,imgData2.width,imgData2.height);
