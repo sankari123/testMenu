@@ -217,6 +217,11 @@ canvas.ontouchstart=touchEvents;
 
 </script>
 <style>
+html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
 	h1 {
 	font: 15pt vivaldi;
 	text-align: center;
@@ -229,6 +234,16 @@ canvas.ontouchstart=touchEvents;
  	.canvasStyle
 	{
         border: 0px #CCC solid;
+        background: #CCC;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        }
 		
     }
 	.btncss
@@ -264,7 +279,7 @@ canvas.ontouchstart=touchEvents;
 </table>
 <!--<div style="position: relative;">-->
 	<div>
- <canvas id="can_model" style= "border:1px solid black"></canvas>
+ <canvas id="can_model" width=500 height=500></canvas>
  <canvas id="can_me" style= "border:1px solid black" ></canvas>
   <canvas id="can_final" style= "border:1px solid black"></canvas>
 
