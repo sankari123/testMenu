@@ -231,9 +231,9 @@ html,body {
 	width:100%;
 	}
 	
- 	.canvasStyle
+ 	.canvasStyle1
 	{
-        border: 1px #FFF solid;
+        border: 1px solid;
         display: block;
         position: absolute;
         top: 0;
@@ -241,7 +241,19 @@ html,body {
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 100%;
+        height: 45%;
+        }
+        .canvasStyle2
+	{
+        border: 1px solid;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
         }
 		
     }
@@ -267,7 +279,7 @@ html,body {
   <body>
  
 <section>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<table width="100%" border="1" cellspacing="0" cellpadding="0">
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
@@ -278,9 +290,9 @@ html,body {
 </table>
 <!--<div style="position: relative;">-->
 	<div>
- <canvas id="can_model" class='canvasStyle' width=500 height=500></canvas>
- <canvas id="can_me" class='canvasStyle'></canvas>
-  <canvas id="can_final" class='canvasStyle'></canvas>
+ <canvas id="can_model" class='canvasStyle1' width=500 height=500></canvas>
+ <canvas id="can_me" class='canvasStyle2'></canvas>
+  <canvas id="can_final" class='canvasStyle1'></canvas>
 
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
