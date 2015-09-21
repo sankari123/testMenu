@@ -29,8 +29,8 @@
   {
       // variables can be accessed here as
      // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     c_height=val(c.h);
-     c_width=val(c.w);
+     $('#w').val(c.w);
+    $('#h').val(c.h);
     
   };
   
@@ -181,8 +181,8 @@ function overlay()
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
                context_final.putImageData(imgData1,0,0);
-               alert(c_width);
-               alert(c_height);
+               alert(document.getElementById('w').value);
+               alert(document.getElementById('h').value);
                // context_final.scale(0.5, 0.5);
            context_final.putImageData(imgData2,100,10,c_width,c_height);
        // var result_q = prompt("Is your face image not set. Enter a value to decrease");
@@ -258,6 +258,8 @@ canvas.ontouchstart=touchEvents;
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
+<tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
