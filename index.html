@@ -89,7 +89,7 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-  // int n=0.5;
+  // int
    ctx.drawImage(img,0,0,img.width*0.35,img.height*0.35);
    //,canvas.width, canvas.height);
  // var result = ScaleImage(img.width, img.height, 300, 200, true);
@@ -187,7 +187,11 @@ function overlay()
 }
 
     
-
+function adjust()
+{
+	alert("");
+	
+}
 
 </script>
 <style>
@@ -231,7 +235,8 @@ function overlay()
 <tr>
 <td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
 <td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="overlay();" class="btncss">Overlap</button></td></tr>
+<td><button onclick="overlay();" class="btncss">Overlap</button></td>
+<td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
 </table>
 <!--<div style="position: relative;">-->
 	<div>
