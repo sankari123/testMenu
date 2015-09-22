@@ -103,6 +103,10 @@ function drawImageScaled(img, ctx) {
 
 }
 function getPhoto(source) {
+	var canvas_model1=document.querySelector('can_model');
+
+// hide the canvas
+canvas_model1.style.display="none";
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
@@ -197,6 +201,14 @@ canvas.addEventListener('touchstart',mouseDown,false);
 
 function overlay()
 {
+//		var canvas_model1=document.querySelector('can_model');
+
+// hide the canvas
+//canvas_model1.style.display="none";
+var canvas_model2=document.querySelector('can_me');
+
+// hide the canvas
+canvas_model2.style.display="none";
 	canvas_final = document.getElementById('can_final');
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
