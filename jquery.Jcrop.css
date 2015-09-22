@@ -22,8 +22,8 @@
 .jcrop-dragbar.ord-e{margin-right:-4px;right:0;}
 .jcrop-dragbar.ord-w{margin-left:-4px;}
 .jcrop-light .jcrop-vline,.jcrop-light .jcrop-hline{background:#FFF;filter:alpha(opacity=70)!important;opacity:.70!important;}
-.jcrop-light .jcrop-handle{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#CCC;border-color:#FFF;border-radius:3px;}
-.jcrop-dark .jcrop-vline,.jcrop-dark .jcrop-hline{background:#CCC;filter:alpha(opacity=70)!important;opacity:.7!important;}
-.jcrop-dark .jcrop-handle{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#FFF;border-color:#CCC;border-radius:3px;}
+.jcrop-light .jcrop-handle{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#000;border-color:#FFF;border-radius:3px;}
+.jcrop-dark .jcrop-vline,.jcrop-dark .jcrop-hline{background:#000;filter:alpha(opacity=70)!important;opacity:.7!important;}
+.jcrop-dark .jcrop-handle{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#000;border-color:#CCC;border-radius:3px;}
 .solid-line .jcrop-vline,.solid-line .jcrop-hline{background:#FFF;}
 .jcrop-holder img,img.jcrop-preview{max-width:none;}
