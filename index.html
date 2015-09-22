@@ -25,6 +25,7 @@
  $('#can_model').Jcrop({
  onSelect: showCoords,
  onChange: showCoords
+ aspectRatio: 0
  });
  });
  
@@ -100,7 +101,7 @@ function drawImageScaled(img, ctx) {
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
-
+ctx.clearRect(0,0,canvas.width, canvas.height);
 }
 function getPhoto(source) {
 
@@ -281,13 +282,13 @@ function overlay()
 
 
 </table>
-<table width="100%" border="1" cellspacing="0" cellpadding="0">
+<div>
 
-<tr><td width="33%" height="100%"><canvas id="can_model" style= "border:1px solid black;overflow:hidden;"></canvas></td>
-<td width="33%" height="100%"><canvas id="can_me" style= "border:1px solid black;overflow:hidden;"></canvas></td>
-<td width="33%" height="100%"><canvas id="can_final" style= "border:1px solid black;overflow:hidden;"></canvas></td></tr>
+<canvas id="can_model" style= "border:1px solid black;overflow:hidden;"></canvas>
+<canvas id="can_me" style= "border:1px solid black;overflow:hidden;"></canvas>
+<canvas id="can_final" style= "border:1px solid black;overflow:hidden;"></canvas>
 
-  </table>
+  </div>
 
 
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
