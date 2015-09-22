@@ -21,12 +21,6 @@
 //   $('#cropbox').Jcrop();
 
 
-   jQuery(function($) {
- $('#can_model').Jcrop({
- onSelect: showCoords,
- onChange: showCoords
-  });
- });
  
 
    
@@ -102,6 +96,14 @@ function drawImageScaled(img, ctx) {
  ctx.restore();
 ctx.clearRect(0,0,canvas.width, canvas.height);
 }
+
+   jQuery(function($) {
+ $('#can_model').Jcrop({
+ onSelect: showCoords,
+ onChange: showCoords
+  });
+ });
+ 
 function getPhoto(source) {
 
       
