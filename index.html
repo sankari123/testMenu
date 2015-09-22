@@ -99,7 +99,6 @@ function drawImageScaled(img, ctx) {
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
  ctx.restore();
-ctx.clearRect(0,0,canvas.width, canvas.height);
 }
 
  
@@ -285,9 +284,9 @@ function overlay()
 </table>
 <div>
 
-<canvas id="can_model" style="border:1px solid black;overflow:hidden;"></canvas>
-<canvas id="can_me" style="border:1px solid black;overflow:hidden;"></canvas>
-<canvas id="can_final" style="border:1px solid black;overflow:hidden;"></canvas>
+<canvas id="can_model" style="border:1px solid black;"></canvas>
+<canvas id="can_me" style="border:1px solid black;"></canvas>
+<canvas id="can_final" style="border:1px solid black;"></canvas>
 
   </div>
 
