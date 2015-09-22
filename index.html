@@ -19,30 +19,14 @@
    var imgDataUrl;
    var c_width,c_height;
 //   $('#cropbox').Jcrop();
-  if (typeof(api) != "undefined") {
-        api.destroy();
-}
-
-api = $.Jcrop('#can_model');
-api.setImage(src);
-api.setOptions({
-	onChange : showCoords,
-	onSelect : showCoords,
-	bgOpacity :   .4,
-	aspectRatio : 16 / 9,
-	trueSize : [ width, height ],
-	minSize : [ 160, 90 ],
-	setSelect : selection
-	});
-api.focus();
 
 
-//   jQuery(function($) {
-// $('#can_model').Jcrop({
-  // onSelect: showCoords,
-  // onChange: showCoords
- // });
-//  });
+   jQuery(function($) {
+ $('#can_model').Jcrop({
+ onSelect: showCoords,
+ onChange: showCoords
+ });
+ });
  
 
    
@@ -60,6 +44,9 @@ api.focus();
      // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
      $('#w').val(c.w);
     $('#h').val(c.h);
+  
+
+//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
     
   };
   
@@ -251,6 +238,13 @@ function overlay()
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
+	.canvasStyle
+	{
+	  height: 100vh; 
+  	width: 100vw; 
+  	display: block;
+}
+	}
 	
   </style>
   </head>
@@ -270,9 +264,9 @@ function overlay()
 </table>
 <!--<div style="position: relative;">-->
 	<div>
- <canvas id="can_model" style="border:1px solid black"></canvas>
- <canvas id="can_me" style="border:1px solid black"></canvas>
-  <canvas id="can_final" style="border:1px solid black"></canvas>
+ <canvas id="can_model" class="canvasStyle"></canvas>
+ <canvas id="can_me" class="canvasStyle"></canvas>
+  <canvas id="can_final" class="canvasStyle"></canvas>
 
 </div>
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
