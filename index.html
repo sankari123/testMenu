@@ -103,10 +103,7 @@ function drawImageScaled(img, ctx) {
 
 }
 function getPhoto(source) {
-	var canvas_model1=document.getElementById('can_model');
 
-// hide the canvas
-canvas_model1.style.display="none";
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
@@ -130,10 +127,10 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
   // int
- // c_width=document.getElementById('w').value;
-  // c_height=document.getElementById('h').value;
-  c_height=img.height;
-  c_width=img.width;
+  c_width=document.getElementById('w').value;
+  c_height=document.getElementById('h').value;
+ // c_height=img.height;
+ // c_width=img.width;
   
    ctx.drawImage(img,0,0,c_width,c_height);
    //,canvas.width, canvas.height);
@@ -280,15 +277,16 @@ canvas_model2.style.display="none";
 <td><button onclick="overlay();" class="btncss">Overlap</button></td>
 <td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
 <tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
 </table>
 <!--<div style="position: relative;">-->
-	<div>
- <canvas id="can_model" class="canvasStyle"></canvas>
- <canvas id="can_me" class="canvasStyle2"></canvas>
-  <canvas id="can_final" class="canvasStyle"></canvas>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+<tr><td><canvas id="can_model" class="canvasStyle"></canvas></td><Td><canvas id="can_me" class="canvasStyle2"></canvas></Td></tr>
+ <tr><td colspan=2><canvas id="can_final" class="canvasStyle"></canvas></td></tr>
+ </table>
+  
 
-</div>
+
 <!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
 
   
