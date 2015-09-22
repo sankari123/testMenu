@@ -120,8 +120,11 @@ function onPhotoURISuccess(imageURI) {
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
   // int
-  c_width=document.getElementById('w').value;
-   c_height=document.getElementById('h').value;
+ // c_width=document.getElementById('w').value;
+  // c_height=document.getElementById('h').value;
+  c_height=img.height;
+  c_width=img.width;
+  
    ctx.drawImage(img,0,0,c_width,c_height);
    //,canvas.width, canvas.height);
  // var result = ScaleImage(img.width, img.height, 300, 200, true);
