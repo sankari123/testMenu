@@ -19,18 +19,37 @@
    var imgDataUrl;
    var c_width,c_height;
 //   $('#cropbox').Jcrop();
-  
+  if (typeof(api) != "undefined") {
+        api.destroy();
+}
+
+api = $.Jcrop('#can_model');
+api.setImage(src);
+api.setOptions({
+	onChange : showCoords,
+	onSelect : showCoords,
+	bgOpacity :   .4,
+	aspectRatio : 16 / 9,
+	trueSize : [ width, height ],
+	minSize : [ 160, 90 ],
+	setSelect : selection
+	});
+api.focus();
+
+
 //   jQuery(function($) {
-      // $('#can_model').Jcrop({
-       //   onSelect: showCoords,
-     //   onChange: showCoords
-   //  });
- //  });
+// $('#can_model').Jcrop({
+  // onSelect: showCoords,
+  // onChange: showCoords
+ // });
+//  });
+ 
+
    
-      // $('#can_model').Jcrop({
+     // $('#can_model').Jcrop({
        	
-       //	boxWidth: 450, boxHeight: 400 
-       //	onSelect: showCoords,
+     // 	boxWidth: 450, boxHeight: 400 
+      //onSelect: showCoords,
        //	onChange: showCoords
        	
     //   });
