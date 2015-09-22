@@ -108,7 +108,7 @@ function getPhoto(source) {
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
 function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_model");
+	    var c = document.getElementById("can_me");
 	    var ctx = c.getContext('2d');
 	    var img = new Image();
 		img.onload= drawImageScaled_new.bind(null, img, ctx);
@@ -206,9 +206,8 @@ function overlay()
 
 // hide the canvas
 //canvas_model2.style.display="none";
-JcropAPI = $('#can_model').data('Jcrop');
-JcropAPI.destroy();
-	canvas_final = document.getElementById('can_model');
+
+	canvas_final = document.getElementById('can_final');
                context_final = canvas_final.getContext("2d");
                canvas_final.height = window.innerHeight;
   		canvas_final.width = window.innerWidth;
@@ -284,9 +283,9 @@ JcropAPI.destroy();
 </table>
 <table width="100%" border="1" cellspacing="0" cellpadding="0">
 
-<tr><td><canvas id="can_model" class="canvasStyle2"></canvas></td></tr>
-<!--<tr><td><canvas id="can_me" class="canvasStyle2"></canvas></td></tr>
-<tr><td><canvas id="can_final" class="canvasStyle2"></canvas></td></tr>-->
+<tr><td width="33%" height="100%"><canvas id="can_model" style= "border:1px solid black"></canvas></td>
+<td width="33%" height="100%"><canvas id="can_me" style= "border:1px solid black"></canvas></td>
+<td width="33%" height="100%"><canvas id="can_final" style= "border:1px solid black"></canvas></td></tr>
 
   </table>
 
