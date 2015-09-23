@@ -20,17 +20,15 @@
    var c_width,c_height;
    
 //   $('#cropbox').Jcrop();
-  jQuery(function($) {
- $('#can_model').Jcrop({
- bgColor:     '#CCC',
- onSelect: showCoords,
- onChange: showCoords
 
-  });
- });
 
- 
 
+
+ function setCrop()
+    {
+        api = $Jcrop.('#can_model'.{ bgColor: '#d5d5d6', onSelect: showCoords, onChange: showCoords  });
+ };
+    
    
      // $('#can_model').Jcrop({
        	
@@ -105,9 +103,10 @@ function drawImageScaled(img, ctx) {
 
 
   	 imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
+  	 setCrop();
   //	 ctx.drawImage(img,0,0,canvas.width,canvas.height);
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-  	  ctx.putImageData(imgData1,0,0);
+  // ctx.clearRect(0,0,canvas.width, canvas.height);
+  //	  ctx.putImageData(imgData1,0,0);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
 // ctx.restore();
