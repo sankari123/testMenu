@@ -101,7 +101,7 @@ function drawImageScaled(img, ctx) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img,0,0);
+   ctx.drawImage(img,0,0,canvas.width, canvas.height);
    //imagealphablending($img, true);
    //,canvas.width, canvas.height);
   	 imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
