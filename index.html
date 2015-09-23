@@ -21,7 +21,7 @@
    
 //   $('#cropbox').Jcrop();
   jQuery(function($) {
- $('#can_model').Jcrop({
+ $('#div_main').Jcrop({
  bgColor:     'transparent',
             bgOpacity:   .4,
  onSelect: showCoords,
@@ -282,9 +282,10 @@ function overlay()
 
 </table>
 
-<div id='div_main'>
+<div id='div_main' style="width: 100px; height: 100px;position: absolute; left: 0px: right: 0px;">
 <canvas id="can_model" width='600' height='400' style="border:1px solid black;"></canvas>
-
+</div>
+<div>
 <canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:1px solid black;"></canvas>
 
