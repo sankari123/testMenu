@@ -106,10 +106,11 @@ function drawImageScaled(img, ctx) {
 
   	 imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
   //	 ctx.drawImage(img,0,0,canvas.width,canvas.height);
+   ctx.clearRect(0,0,canvas.width, canvas.height);
   	  ctx.putImageData(imgData1,0,0);
 //ctx.putImageData(imgData,10,70);
 //window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
- ctx.restore();
+// ctx.restore();
 }
 
  
@@ -272,8 +273,8 @@ function overlay()
   .divStyle{
   overflow-x: scroll;
   overflow-y: scroll;
-  height:auto;
-  width: auto;
+  height:100%;
+  width: 100%;
   
   }
   </style>
