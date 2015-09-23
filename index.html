@@ -27,19 +27,7 @@
 
  function setCrop()
     {
-        var wrapper;
-        var canvasHeight;
-        var vScrollHeight;
-        var canvasWrapperHeight=300;
-
-        $(".bar").draggable({
-            containment: "parent"
-        });
-
-        $(".bar").on("drag", function (event, ui) {
-            var ctop=(-ui.position.top * canvasHeight / canvasWrapperHeight);
-            canvas.style.top = ctop + "px"
-        });
+        
 
 jQuery(function($) {
  $('#can_model').Jcrop({
@@ -309,7 +297,6 @@ html, body {
     width: auto;
   }
   .divStyle{
-  overflow-x: scroll;
   overflow-y: scroll;
   height:100%;
   width: 100%;
@@ -333,12 +320,9 @@ html, body {
 
 </table>
 
-<div class="wrapper" id="wrap1">
+<div class="divStyle" id="div_main">
 <canvas id="can_model" style="border:1px solid black;"></canvas>
 </div>
-<div class="vertical-scroll" id="vscroll">
-        <div class="bar" id="vbar"></div>
-    </div>
 <div>
 <canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:1px solid black;"></canvas>
