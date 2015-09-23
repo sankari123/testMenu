@@ -27,8 +27,13 @@
 
  function setCrop()
     {
-        $.globalEval("var api;");
-        api = $Jcrop.('#can_model'.{ bgColor: '#d5', onSelect: showCoords, onChange: showCoords  });
+        jQuery(function($) {
+ $('#can_model').Jcrop({
+ bgColor:     '#CCC',
+ onSelect: showCoords,
+ onChange: showCoords
+  });
+ });
  }
     
    
