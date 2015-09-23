@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
 
    <script>
+    $.globalEval("var api;");
    var imgData1, imgData2;
    var canvas_final;
    var context_final;
@@ -27,7 +28,7 @@
  function setCrop()
     {
         api = $Jcrop.('#can_model'.{ bgColor: '#d5d5d6', onSelect: showCoords, onChange: showCoords  });
- };
+ }
     
    
      // $('#can_model').Jcrop({
