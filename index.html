@@ -22,10 +22,12 @@
 //   $('#cropbox').Jcrop();
   jQuery(function($) {
  $('#can_model').Jcrop({
- 	bgcolor:''
+ 	
  onSelect: showCoords,
  onChange: showCoords
-
+aspectRatio: 16 / 9
+bgColor:     'black',
+            bgOpacity:   .4,
   });
  });
 
