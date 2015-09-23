@@ -27,7 +27,21 @@
 
  function setCrop()
     {
-        jQuery(function($) {
+        var wrapper;
+        var canvasHeight;
+        var vScrollHeight;
+        var canvasWrapperHeight=300;
+
+        $(".bar").draggable({
+            containment: "parent"
+        });
+
+        $(".bar").on("drag", function (event, ui) {
+            var ctop=(-ui.position.top * canvasHeight / canvasWrapperHeight);
+            canvas.style.top = ctop + "px"
+        });
+
+jQuery(function($) {
  $('#can_model').Jcrop({
  bgColor:     '#CCC',
  onSelect: showCoords,
@@ -252,6 +266,21 @@ html, body {
   height: 100%;
   overflow-y: scroll;
 }
+.vertical-scroll {
+    left:320px;
+    top:10px;
+    border: 1px solid green;
+    width: 20px;
+    height: 300px;
+}
+.vertical-scroll div.bar {
+    left:0px;
+    top:0px;
+    width: 20px;
+    background-color: blue;
+    height: 20px;
+}
+
 	h1 {
 	font: 15pt vivaldi;
 	text-align: center;
@@ -304,9 +333,12 @@ html, body {
 
 </table>
 
-<div id='div_main' class='divStyle'>
+<div class="wrapper" id="wrap1">
 <canvas id="can_model" style="border:1px solid black;"></canvas>
 </div>
+<div class="vertical-scroll" id="vscroll">
+        <div class="bar" id="vbar"></div>
+    </div>
 <div>
 <canvas id="can_me" style="border:1px solid black;"></canvas>
 <canvas id="can_final" style="border:1px solid black;"></canvas>
