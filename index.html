@@ -100,12 +100,10 @@ function drawImageScaled(img, ctx) {
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img,0,0,img.width,img.height);
+   ctx.drawImage(img,0,0,canvas.width,canvas.height);
    //imagealphablending($img, true);
    //,canvas.width, canvas.height);
-   var div = document.getElementById('div_main');
-    canvas.width = div.clientWidth;
-    canvas.height = div.clientHeight;
+
 
   	 imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
 //ctx.putImageData(imgData,10,70);
@@ -286,7 +284,7 @@ function overlay()
 
 </table>
 
-<div id='div_main' style="width: 100px; height: 100px;position: absolute; left: 0px: right: 0px;">
+<div id='div_main'>
 <canvas id="can_model" width='600' height='400' style="border:1px solid black;"></canvas>
 </div>
 <div>
