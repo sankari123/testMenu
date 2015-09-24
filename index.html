@@ -38,7 +38,20 @@ jQuery(function($) {
  });
  }
     
-   
+   function release()
+{
+
+jQuery(function($) {
+      // Destroy Jcrop widget, restore original state
+      jcrop_api.destroy();
+      // Update the interface to reflect un-attached state
+      $('#unhook,#enable,.requiresjcrop').hide();
+      $('#rehook').show();
+      return false;
+    });
+
+	
+}
      // $('#can_model').Jcrop({
        	
      // 	boxWidth: 450, boxHeight: 400 
@@ -122,20 +135,7 @@ function drawImageScaled(img, ctx) {
 // ctx.restore();
 }
 
-function release()
-{
 
-jQuery(function($) {
-      // Destroy Jcrop widget, restore original state
-      jcrop_api.destroy();
-      // Update the interface to reflect un-attached state
-      $('#unhook,#enable,.requiresjcrop').hide();
-      $('#rehook').show();
-      return false;
-    });
-
-	
-}
  
  
 function getPhoto(source) {
