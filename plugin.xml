@@ -40,7 +40,7 @@
 
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="FileTransfer" >
                 <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer"/>
             </feature>
@@ -57,7 +57,7 @@
 
     <!-- amamzon-fireos -->
     <platform name="amazon-fireos">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="FileTransfer" >
                 <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer"/>
             </feature>
@@ -80,7 +80,7 @@
 
     <!-- blackberry10 -->
     <platform name="blackberry10">
-        <config-file target="www/config.xml" parent="/widget">
+        <config-file target="config.xml" parent="/widget">
             <feature name="FileTransfer" value="FileTransfer"></feature>
         </config-file>
         <js-module src="www/blackberry10/FileTransferProxy.js" name="FileTransferProxy" >
