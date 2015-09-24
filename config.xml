@@ -44,8 +44,8 @@
 
     <!--
         Define a specific version of PhoneGap to build into your app.
-        <preference name="phonegap-version"       value="3.5.0" />
-    -->
+        <preference name='phonegap-version' value='cli-5.1.1' />
+     -->
 
     <!-- Plugins -->
 
@@ -109,7 +109,7 @@
     <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
-
+	cordova plugin add https://github.com/MobileChromeApps/cordova-plugin-okhttp.git
     <!--
         Define access to external domains.
 
