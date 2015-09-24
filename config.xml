@@ -143,6 +143,7 @@
     <feature name="SocialSharing">
 	  <param name="ios-package" value="SocialSharing" />
 	</feature>
+	
 	<feature name="http://api.phonegap.com/1.0/file"/>
 	<!-- for Android -->
 	<feature name="SocialSharing">
@@ -152,5 +153,11 @@
 	<feature name="SocialSharing">
 	 <param name="wp-package" value="SocialSharing"/>
 	</feature>
+	<feature name="File">
+      <param name="android-package" value="org.apache.cordova.FileUtils" />
+  </feature>
+  <feature name="FileTransfer">
+      <param name="android-package" value="org.apache.cordova.FileTransfer" />
+  </feature>
 
 </widget>
