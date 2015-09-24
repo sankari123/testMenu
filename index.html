@@ -121,10 +121,25 @@ function drawImageScaled(img, ctx) {
 // ctx.restore();
 }
 
+function release()
+{
+
+jQuery(function($) {
+      // Destroy Jcrop widget, restore original state
+      jcrop_api.destroy();
+      // Update the interface to reflect un-attached state
+      $('#unhook,#enable,.requiresjcrop').hide();
+      $('#rehook').show();
+      return false;
+    });
+
+	
+}
  
  
 function getPhoto(source) {
-
+	release();
+        
       
 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
     }
