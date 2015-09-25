@@ -7,7 +7,7 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.0">
 
-    <name>MeMO</name>
+    <name>locateME</name>
     
 
     <author href="http://phonegap.com" email="support@phonegap.com">
