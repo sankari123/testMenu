@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MeMO</title>
+    <title>locateME</title>
 	
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="FileTransfer.js"></script>
@@ -11,344 +11,51 @@
 <script src="jquery.min.js"></script>
 <script src="jquery.Jcrop.min.js"></script>
 <link rel="stylesheet" href="jquery.Jcrop.css" type="text/css" />
+</head>
+<body>
 
-   <script>
-    
-   var imgData1, imgData2;
-   var canvas_final;
-   var context_final;
-   var imgDataUrl;
-   var c_width,c_height;
-   
-//   $('#cropbox').Jcrop();
+<p id="demo">Click the button to get your position.</p>
 
+<button onclick="getLocation()">Try It</button>
 
+<div id="mapholder"></div>
 
+<script>
+var x = document.getElementById("demo");
 
- function setCrop()
-    {
-        
-
-jQuery(function($) {
- $('#can_model').Jcrop({
- bgColor:     '#CCC',
- onSelect: showCoords,
- onChange: showCoords
-  });
- });
- }
-    
-   function release()
-{
-
-//jQuery(function($) {
-  //    // Destroy Jcrop widget, restore original state
-    //  jcrop_api.destroy();
-      // Update the interface to reflect un-attached state
-    //  $('#unhook,#enable,.requiresjcrop').hide();
-     // $('#rehook').show();
-     // return false;
-   // });
-
-	
-}
-     // $('#can_model').Jcrop({
-       	
-     // 	boxWidth: 450, boxHeight: 400 
-      //onSelect: showCoords,
-       //	onChange: showCoords
-       	
-    //   });
-    
-    function showCoords(c)
-  {
-      // variables can be accessed here as
-     // alert(c.x, c.y, c.x2, c.y2, c.w, c.h);
-     $('#w').val(c.w);
-    $('#h').val(c.h);
-  
-
-//context_tmp.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height);
-    
-  };
-  
-   
-      var start = function() {
-       screen.orientation.lock('portrait');
-        }
-     var canvas,ctx;
-    var mouseX,mouseY,mouseDown=0;
-    var touchX,touchY;
-    var lastX,lastY=-1;
-	  var tmp;
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
-   var rotating = false; 
-    var image111;
-    document.addEventListener("deviceready",onDeviceReady,false);
-
-    
-    function onDeviceReady() {
-    	//console.log(FileTransfer);
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-	
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
     }
-
-    function m_getPhoto(source) {
-      
-navigator.camera.getPicture(onPhotoURISuccess_m, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
-    }
-function onPhotoURISuccess_m(imageURI1) {
-	    var c = document.getElementById("can_model");
-	    var ctx = c.getContext('2d');
-	    var img = new Image();
-		img.onload= drawImageScaled.bind(null, img, ctx);
-		img.src = imageURI1;
-   }
-
-            
-function drawImageScaled(img, ctx) {
-	
-	var fileName   = "test.png";
-   var canvas = ctx.canvas ;
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img,0,0,canvas.width,canvas.height);
-   //imagealphablending($img, true);
-   //,canvas.width, canvas.height);
-
-
-  	 imgData1=ctx.getImageData(0,0,canvas.width, canvas.height);
-  	 setCrop();
-  //	 ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  // ctx.clearRect(0,0,canvas.width, canvas.height);
-  //	  ctx.putImageData(imgData1,0,0);
-//ctx.putImageData(imgData,10,70);
-//window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
-// ctx.restore();
 }
 
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
 
- 
- 
-function getPhoto(source) {
-	release();
-        
-      
-navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: source });
-    }
-function onPhotoURISuccess(imageURI) {
-	    var c = document.getElementById("can_me");
-	    var ctx = c.getContext('2d');
-	    var img = new Image();
-		img.onload= drawImageScaled_new.bind(null, img, ctx);
-		img.src = imageURI;
-   }
-   
-   function drawImageScaled_new(img, ctx) {
-	var fileName   = "test.png";
-   var canvas = ctx.canvas ;
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-   var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-  // int
-  c_width=document.getElementById('w').value;
-  c_height=document.getElementById('h').value;
- // c_height=img.height;
- // c_width=img.width;
-  
-   ctx.drawImage(img,0,0,c_width,c_height);
-   //,canvas.width, canvas.height);
- // var result = ScaleImage(img.width, img.height, 300, 200, true);
-
- // ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height); 
- // You can replace result.targetleft and result.targettop with "0" if you don't want the image centered.
-  // resizes image to a target size of 300x200 using letterbox mode
-    	imgData2=ctx.getImageData(0,0,c_width,c_height);
-//ctx.putImageData(imgData,10,70);
-//window.canvas2ImagePlugin.saveImageDataToLibrary( function(msg){ console.log(msg); },  function(err){console.log(err); }, document.getElementById("can_model"),fileName );
- ctx.restore();
-//canvas.addEventListener('touchstart',mouseDown,false);  
- //   canvas.addEventListener('touchmove',mouseMove,false);   
-  //  document.addEventListener('touchend',mouseUp,false);  
- 
- }
- 
- 
- function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
-
-    var result = { width: 0, height: 0, fScaleToTargetWidth: true };
-
-    if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
-        return result;
-    }
-
-    // scale to the target width
-    var scaleX1 = targetwidth;
-    var scaleY1 = (srcheight * targetwidth) / srcwidth;
-
-    // scale to the target height
-    var scaleX2 = (srcwidth * targetheight) / srcheight;
-    var scaleY2 = targetheight;
-
-    // now figure out which one we should use
-    var fScaleOnWidth = (scaleX2 > targetwidth);
-    if (fScaleOnWidth) {
-        fScaleOnWidth = fLetterBox;
-    }
-    else {
-       fScaleOnWidth = !fLetterBox;
-    }
-
-    if (fScaleOnWidth) {
-        result.width = Math.floor(scaleX1);
-        result.height = Math.floor(scaleY1);
-        result.fScaleToTargetWidth = true;
-    }
-    else {
-        result.width = Math.floor(scaleX2);
-        result.height = Math.floor(scaleY2);
-        result.fScaleToTargetWidth = false;
-    }
-    result.targetleft = Math.floor((targetwidth - result.width) / 2);
-    result.targettop = Math.floor((targetheight - result.height) / 2);
-
-    return result;
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 
-
- function onFail(message) {
-      alert('Failed because: ' + message);
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
     }
-
-function overlay()
-{
-//		var canvas_model1=document.querySelector('can_model');
-
-// hide the canvas
-//canvas_model1.style.display="none";
-//var canvas_model2=document.getElementById('can_me');
-
-// hide the canvas
-//canvas_model2.style.display="none";
-
-	canvas_final = document.getElementById('can_final');
-               context_final = canvas_final.getContext("2d");
-               canvas_final.height = window.innerHeight;
-  		canvas_final.width = window.innerWidth;
-               context_final.putImageData(imgData1,0,0);
-               
-               // context_final.scale(0.5, 0.5);
-           context_final.putImageData(imgData2,120,25);
-       // var result_q = prompt("Is your face image not set. Enter a value to decrease");
-        
-                   //,60,40,imgData2.width,imgData2.height);
-// canvas_final.addEventListener('touchstart', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
-//canvas_final.addEventListener('touchend', function(e){ alert(e.changedTouches[0].pageX + " " + e.changedTouches[0].pageY);}
-               
 }
-
-    
-
-
 </script>
-<style>
 
-html, body {
-  height: 100%;
-  overflow-y: scroll;
-}
-.vertical-scroll {
-    left:320px;
-    top:10px;
-    border: 1px solid green;
-    width: 20px;
-    height: 300px;
-}
-.vertical-scroll div.bar {
-    left:0px;
-    top:0px;
-    width: 20px;
-    background-color: blue;
-    height: 20px;
-}
-
-	h1 {
-	font: 15pt vivaldi;
-	text-align: center;
-	color: #e5b7ad;
-	padding-top: 1px ;
-	text-shadow: 1px 1px 2px #fff; 
-	width:100%;
-	}
-	
- 	.btncss
-	{
-	background:none;
-	border:none;
-	padding:0;
-	cursor:pinter;
-	font: 8pt arial;
-	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
-	color: #b32d5f;
-	}
-	.canvasStyle
-	{ 
-     position: absolute; 
-     overflow: hidden
-   }
-  body{
-    width: auto;
-  }
-  .divStyle{
-  overflow-y: scroll;
-  height:100%;
-  width: 100%;
-  
-  }
-  </style>
-  </head>
-  <body onload="start();">
-  <header>
-  <h1>MeMO</h1>
-  </header>
- <section>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td><button onclick="m_getPhoto(pictureSource.PHOTOLIBRARY);"  class="btncss">Upload Model Photo</button></td>
-<td><button onclick="getPhoto(pictureSource.PHOTOLIBRARY);" class="btncss">Upload Your Photo</button></td>
-<td><button onclick="overlay();" class="btncss">Overlap</button></td>
-<td><button onclick="adjust();" class="btncss">Adjust</button></td></tr>
-<tr><td colspan=2><input type=hidden id='w'></td><td colspan=2><input type=hidden id='h'></td></tr>
-
-
-</table>
-
-<div class="divStyle" id="div_main">
-<canvas id="can_model" style="border:1px solid black;"></canvas>
-</div>
-<div>
-<canvas id="can_me" style="border:1px solid black;"></canvas>
-<canvas id="can_final" style="border:1px solid black;"></canvas>
-
-  </div>
-
-
-<!--<canvas id="can_model" class="canvasStyle"></canvas>-->	
-
-  
-</section>
-  </body>
+</body>
 </html>
