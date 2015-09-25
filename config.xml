@@ -68,8 +68,7 @@
 <gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
 <gap:plugin name="org.crosswalk.engine" version="1.3.0" />
 <gap:plugin name="org.devgeeks.canvas2imageplugin" version="0.6.0" />
-<gap:plugin name="com.coconutcenter.file-transfer" version="0.4.6" />
-<--<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />-->
+<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
 	<!--<plugin name="Base64ToPNG" value="org.apache.cordova.Base64ToPNG"/>-->
 
     <!-- Third party plugins -->
