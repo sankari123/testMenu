@@ -116,6 +116,18 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="*"/>
+    <!-- Allow images, xhrs, etc. to google.com -->
+<access origin="http://google.com" />
+<access origin="https://google.com" />
+
+<!-- Access to the subdomain maps.google.com -->
+<access origin="http://maps.google.com" />
+
+<!-- Access to all the subdomains on google.com -->
+<access origin="http://*.google.com" />
+
+<!-- Enable requests to content: URLs -->
+<access origin="content:///*" />
     <!--
        <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
        <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
