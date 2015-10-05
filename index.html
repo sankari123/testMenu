@@ -27,12 +27,12 @@ var geo_loc;
 var geo_loc1;
 function onSuccess1(position) {
 	alert(position.coords.latitude);
-	alert(position.coords.longitude);
+//	alert(position.coords.longitude);
 	
       geo_loc = position.coords.latitude;
-      geo_loc1 = position.coords.longitude;
+   //   geo_loc1 = position.coords.longitude;
         document.getElementById('loca_txt').value=geo_loc;
-        document.getElementById('loca_txt1').value=geo_loc1;
+    //    document.getElementById('loca_txt1').value=geo_loc1;
     }
     function onError1(error) {
           alert('code: '    + error.code    + '\n' +
@@ -46,7 +46,7 @@ function onSuccess1(position) {
 function saveloc()
 {
 	alert(geo_loc);
-	alert(geo_loc1);
+//	alert(geo_loc1);
 	alert(document.getElementById("place_txt").value;);
 }
     </script>
