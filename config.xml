@@ -85,6 +85,15 @@
  </feature>
  <feature name="http://api.phonegap.com/1.0/media"/>
  <feature name="http://api.phonegap.com/1.0/file"/>
+ <feature name="Geolocation">
+    <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+</feature>
+<feature name="Geolocation">
+    <param name="ios-package" value="CDVLocation" />
+</feature>
+<Capabilities>
+    <Capability Name="ID_CAP_LOCATION" />
+</Capabilities>
  <feature name="File">
       <param name="android-package" value="org.apache.cordova.FileUtils" />
  </feature>
