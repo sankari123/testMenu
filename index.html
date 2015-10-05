@@ -12,55 +12,10 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     var watchID = null;
     var place_name;
-    // Populate the database 
-    //function onDeviceReady() {
+    function onDeviceReady() {
     	//console.log(FileTransfer);
-     //   pictureSource=navigator.camera.PictureSourceType;
-       // destinationType=navigator.camera.DestinationType;
-
+       
     }
-    function populateDB(tx) {
-        //tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS geolocation (data1,data2)');
-        data1=geo_loc;
-        data2=place_name;
-        tx.executeSql('INSERT INTO geolocation (data1,data2) VALUES ("' + data1+ '","' + data2+ '"');
-
-       // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
-    }
-
-    // Query the database
-    //
-    function queryDB(tx) {
-        tx.executeSql('SELECT * FROM geolocation', [], querySuccess, errorCB);
-    }
-
-    // Query the success callback
-    //
-    function querySuccess(tx, results) {
-        var len = results.rows.length;
-        console.log("geolocation table: " + len + " rows found.");
-        for (var i=0; i<len; i++){
-            console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
-        }
-    }
-
-    // Transaction error callback
-    //
-    function errorCB(err) {
-        console.log("Error processing SQL: "+err.code);
-    }
-
-    // Transaction success callback
-    //
-    function successCB() {
-        var db = window.openDatabase("geolocation", "1.0", "Express Avenue Geo Location", 200000);
-        db.transaction(queryDB, errorCB);
-    }
-
-    // PhoneGap is ready
-    //
-    
 function getloc()
 {
 	alert("in");
@@ -73,8 +28,8 @@ function onSuccess1(position) {
 	alert(position.coords.latitude);
 	alert(position.coords.longitude);
 	
-        geo_loc = 'Lati:'  + position.coords.latitude + ' Long: ' + position.coords.longitude;
-        document.getElementById('loca_txt').value=position.coords.latitude;
+      geo_loc = position.coords.latitude ;
+        document.getElementById('loca_txt').value=geo_loc;
     }
     function onError1(error) {
           alert('code: '    + error.code    + '\n' +
@@ -84,12 +39,12 @@ function onSuccess1(position) {
         {
           place_name=document.getElementById("place_txt").value;
         }
-        function saveloc()
-        {
-        var db = window.openDatabase("geolocation", "1.0", "Express Avenue Geo Location", 200000);
-        db.transaction(populateDB, errorCB, successCB);
-    }
-
+        
+function saveloc()
+{
+	alert(geo_loc);
+	alert(place_name);
+}
     </script>
     <style>
       .btncss
