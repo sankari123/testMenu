@@ -63,6 +63,7 @@
     
 function getloc()
 {
+	alert("in");
   var options = { enableHighAccuracy: true };
         watchID = navigator.geolocation.watchPosition(onSuccess1, onError1, options);
         alert("in");
@@ -72,7 +73,7 @@ function onSuccess1(position) {
 	alert(position.coords.latitude);
 	alert(position.coords.longitude);
 	
-        //  geo_loc = 'Lati:'  + position.coords.latitude + ' Long: ' + position.coords.longitude;
+        geo_loc = 'Lati:'  + position.coords.latitude + ' Long: ' + position.coords.longitude;
         document.getElementById('loca_txt').value=position.coords.latitude;
     }
     function onError1(error) {
@@ -107,8 +108,8 @@ function onSuccess1(position) {
   <body>
     <h1>locateME</h1>
     <p>Database</p>
-    <input type=text name=loca_txt><button onclick="getloc();" class="btncss">Get Latitude and Longitude</button><br>
-    <input type=text name=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
+    <input type=text id=loca_txt><button onclick="getloc();" class="btncss">Get Latitude and Longitude</button><br>
+    <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
     <button onclick="saveloc();" class="btncss">Save Location</button><br>
     
     
