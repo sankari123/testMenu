@@ -28,7 +28,7 @@ function onSuccess1(position) {
 	alert(position.coords.latitude);
 	alert(position.coords.longitude);
 	
-      geo_loc = position.coords.latitude ;
+      geo_loc = position.coords.latitude+"-"+ position.coords.longitude;
         document.getElementById('loca_txt').value=geo_loc;
     }
     function onError1(error) {
@@ -43,7 +43,7 @@ function onSuccess1(position) {
 function saveloc()
 {
 	alert(geo_loc);
-	alert(place_name);
+	alert(document.getElementById("place_txt").value;);
 }
     </script>
     <style>
