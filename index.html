@@ -26,13 +26,13 @@ function getloc()
 var geo_loc;
 var geo_loc1;
 function onSuccess1(position) {
-	alert(position.coords.latitude);
+//	alert(position.coords.latitude);
 //	alert(position.coords.longitude);
 	
-    //  geo_loc = position.coords.latitude;
-   //   geo_loc1 = position.coords.longitude;
-   //     document.getElementById('loca_txt').value=geo_loc;
-    //    document.getElementById('loca_txt1').value=geo_loc1;
+    geo_loc = position.coords.latitude;
+      geo_loc1 = position.coords.longitude;
+    document.getElementById('loca_txt').value=geo_loc;
+      document.getElementById('loca_txt1').value=geo_loc1;
     }
     function onError1(error) {
           alert('code: '    + error.code    + '\n' +
@@ -40,15 +40,19 @@ function onSuccess1(position) {
         }
         function placeloc()
         {
+         	if(document.getElementById("place_txt").value=='')
+         	{
+         		alert("Enter Place Name");
+         	}
           place_name=document.getElementById("place_txt").value;
-          alert(place_name);
+     //     alert(place_name);
         }
         
 function saveloc()
 {
-	alert(geo_loc);
+//	alert(geo_loc);
 //	alert(geo_loc1);
-//	alert(document.getElementById("place_txt").value;);
+alert(document.getElementById("place_txt").value;);
 }
     </script>
     <style>
