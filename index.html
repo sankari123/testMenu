@@ -1,79 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>locateME@XPressAvenue</title>
+    <title>Device Properties Example</title>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Wait for PhoneGap to load
+    // Wait for device API libraries to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
+
     var watchID = null;
-    var place_name;
+
+    // device APIs are available
+    //
     function onDeviceReady() {
-    	//console.log(FileTransfer);
-       
+        // Get the most accurate position updates available on the
+        // device.
+        var options = { enableHighAccuracy: true };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
-function getloc()
-{
-//	alert("in");
-  var options = { enableHighAccuracy: true };
-        watchID = navigator.geolocation.watchPosition(onSuccess1, onError1, options);
-        alert("in");
-}
-var geo_loc;
-var geo_loc1;
-function onSuccess1(position) {
-alert(position.coords.latitude);
-//	alert(position.coords.longitude);
-	
-// geo_loc = position.coords.latitude;
-   //   geo_loc1 = position.coords.longitude;
- //   document.getElementById('loc_txt').value=geo_loc;
-    //  document.getElementById('loc_txt1').value=position.coords.longitude;
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
     }
-    function onError1(error) {
+
+    // clear the watch that was started earlier
+    //
+    function clearWatch() {
+        if (watchID != null) {
+            navigator.geolocation.clearWatch(watchID);
+            watchID = null;
+        }
+    }
+
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
           alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
         }
-        function placeloc()
-        {
-           place_name=document.getElementById("place_txt").value;
-     //     alert(place_name);
-        }
-        
-function saveloc()
-{
-//	alert(geo_loc);
-//	alert(geo_loc1);
-alert(document.getElementById("place_txt").value);
-}
+
     </script>
-    <style>
-      .btncss
-	{
-	background:none;
-	border:none;
-	padding:0;
-	cursor:pointer;
-	font: 8pt arial;
-	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
-	color: #b32d5f;
-	}
-	</style>
-    </style>
   </head>
   <body>
-    <h1>locateME</h1>
-    <p>Database</p>
-    <input type=text id=loc_txt><input type=text id=loc_txt1><button onclick="getloc();" class="btncss">Get Latitude and Longitude</button><br>
-    <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
-    <button onclick="saveloc();" class="btncss">Save Location</button><br>
-    
-    
-    
-    
+    <p id="geolocation">Watching geolocation...</p>
+        <button onclick="clearWatch();">Clear Watch</button>
   </body>
 </html>
