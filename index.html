@@ -34,7 +34,7 @@ geo_loc = position.coords.latitude;
     document.getElementById('loc_txt1').value=geo_loc1;
     }
     function onError1(error) {
-          alert('code: '    + error.code    +  'message: ' + error.message );
+          console.log('code: '    + error.code    +  'message: ' + error.message );
         }
         function placeloc()
         {
@@ -65,7 +65,7 @@ function populateDB(tx) {
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
     function errorCB(err) {
-        alert("Error processing SQL: "+err.code);
+        console.log("Error processing SQL: "+err.code);
     }
 
     // Transaction success callback
@@ -80,7 +80,7 @@ function populateDB(tx) {
     function querySuccess(tx, results) {
     	var myTable = document.getElementById('dbTable');
         var len = results.rows.length;
-        alert("locateME table: " + len + " rows found.");
+        console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
         //	alert(results.rows.item(i).data1);
         //	alert(results.rows.item(i).data2);
@@ -106,7 +106,7 @@ function populateDB(tx) {
 	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
 	color: #b32d5f;
 	}
-	</style>
+
     </style>
   </head>
   <body>
@@ -118,7 +118,7 @@ function populateDB(tx) {
     <table id="dbTable" border="1">
     	<tr>
 
-<td >Latitude</td><td>Longitude</td><td>Location</td></tr>
+<td>Latitude</td><td>Longitude</td><td>Location</td></tr>
 
 </table>
     
