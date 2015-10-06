@@ -58,10 +58,11 @@ function populateDB(tx) {
     //    tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2)');
      //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
-       tx.executeSql('INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '")');
+     
   
-        var sql='INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '")';
+        var sql='INSERT INTO locateME (data1,data2) VALUES ("' + geo_loc+ '","' + geo_loc1+ '")';
         alert(sql);
+          tx.executeSql(sql);
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
     function errorCB(err) {
@@ -81,7 +82,10 @@ function populateDB(tx) {
         var len = results.rows.length;
         console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-            console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
+        	alert(results.rows.item(i).data1);
+        	alert(results.rows.item(i).data2);
+        	
+           // console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
         }
     }
     
