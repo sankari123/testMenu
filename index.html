@@ -45,10 +45,43 @@ geo_loc = position.coords.latitude;
         
 function saveloc()
 {
+	var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
+        db.transaction(populateDB, errorCB, successCB);
 //	alert(geo_loc);
 //	alert(geo_loc1);
-alert(document.getElementById("place_txt").value);
+//alert(document.getElementById("place_txt").value);
 }
+
+function populateDB(tx) {
+    //    tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2)');
+     //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
+       tx.executeSql('INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '"');
+  
+        
+       // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+    }
+    function errorCB(err) {
+        console.log("Error processing SQL: "+err.code);
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+        var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
+        db.transaction(queryDB, errorCB);
+    }
+    function queryDB(tx) {
+        tx.executeSql('SELECT * FROM locateME', [], querySuccess, errorCB);
+    }
+    function querySuccess(tx, results) {
+        var len = results.rows.length;
+        console.log("locateME table: " + len + " rows found.");
+        for (var i=0; i<len; i++){
+            console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
+        }
+    }
+    
     </script>
     <style>
       .btncss
