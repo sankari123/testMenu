@@ -95,31 +95,23 @@ function populateDB(tx) {
         }
       //  addTable();
        }
+   function addRow() {
+          
+    var myPlace = document.getElementById("place_txt");
+    var myLat = document.getElementById("loc_txt");
+    var myLong = document.getElementById("loc_txt1");
+    var table = document.getElementById("myTableData");
+ 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+  //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+    row.insertCell(1).innerHTML= myPlace.value;
+    row.insertCell(2).innerHTML= myLat.value;
+    row.insertCell(3).innerHTML= myLong.value;
     
-   function addTable() {
-      
-    var myTableDiv = document.getElementById("myDynamicTable");
-      
-    var table = document.createElement('TABLE');
-    table.border='1';
-    
-    var tableBody = document.createElement('TBODY');
-    table.appendChild(tableBody);
-      
-    for (var i=0; i<len; i++){
-       var tr = document.createElement('TR');
-       tableBody.appendChild(tr);
-       
-       for (var j=0; j<4; j++){
-           var td = document.createElement('TD');
-           td.width='75';
-           td.appendChild(document.createTextNode("Cell " + i + "," + j));
-           tr.appendChild(td);
-       }
-    }
-    myTableDiv.appendChild(table);
-    
-}
+ 
+} 
     
     
     </script>
@@ -141,12 +133,17 @@ function populateDB(tx) {
     <h1>locateME</h1>
     <p>Database</p>
     <input type=text id=loc_txt><input type=text id=loc_txt1><button onclick="getloc();" class="btncss">Get Latitude and Longitude</button><br>
-    <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
+    <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br><br>
     <button onclick="saveloc();" class="btncss">Save Location</button><br>
-    <div id="myDynamicTable">
-    	<input type="button" id="create" value="Display Results" onclick="addTable();">
-    </div>
-    
+    <br>
+    <input type="button" id="add" value="Add" onclick="addRow();">
+    <table id="myTableData"  border="1" cellpadding="2">
+    <tr>
+        <td>Place Name</td>
+        <td>Latitude</td>
+        <td>Longitude</td>
+    </tr>
+</table>
     
   </body>
 </html>
