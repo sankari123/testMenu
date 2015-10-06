@@ -130,6 +130,22 @@ function populateDB(tx) {
 } 
     
    }
+   
+   
+   function addRow1() {
+          
+    var myName = document.getElementById("name");
+    var age = document.getElementById("age");
+    var table = document.getElementById("myTableData11");
+ 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+    row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+    row.insertCell(1).innerHTML= myName.value;
+    row.insertCell(2).innerHTML= age.value;
+ 
+}
     </script>
     <style>
       .btncss
@@ -160,6 +176,20 @@ function populateDB(tx) {
         <td>Longitude</td>
     </tr>
 </table>
-    
+    <table id=myTableData11>
+    <tr>
+        <td>Name:</td>
+        <td><input type="text" id="name"></td>
+    </tr>
+    <tr>
+        <td>Age:</td>
+        <td><input type="text" id="age">
+        <input type="button" id="add" value="Add" onclick="addRow1();"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
   </body>
 </html>
