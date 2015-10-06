@@ -45,11 +45,12 @@ geo_loc = position.coords.latitude;
         
 function saveloc()
 {
+	place_name=document.getElementById("place_txt").value;
 	var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
         db.transaction(populateDB, errorCB, successCB);
-alert(geo_loc);
-alert(geo_loc1);
-alert(place_name);
+//alert(geo_loc);
+//alert(geo_loc1);
+//alert(place_name);
 //alert(document.getElementById("place_txt").value);
 }
 
@@ -57,9 +58,10 @@ function populateDB(tx) {
     //    tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2)');
      //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
-       tx.executeSql('INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '"');
+       tx.executeSql('INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '")');
   
-        
+        var sql='INSERT INTO locateME VALUES ("' + geo_loc+ '","' + geo_loc1+ '")';
+        alert(sql);
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
     function errorCB(err) {
