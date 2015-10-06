@@ -81,6 +81,7 @@ function populateDB(tx) {
     function querySuccess(tx, results) {
     	var myTable = document.getElementById('dbTable');
         len = results.rows.length;
+        alert(len);
         console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
         //	alert(results.rows.item(i).data1);
@@ -92,7 +93,7 @@ function populateDB(tx) {
 		
            // console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
         }
-        addTable();
+      //  addTable();
        }
     
    function addTable() {
@@ -143,7 +144,7 @@ function populateDB(tx) {
     <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
     <button onclick="saveloc();" class="btncss">Save Location</button><br>
     <div id="myDynamicTable">
-    	
+    	<input type="button" id="create" value="Display Results" onclick="addTable();">
     </div>
     
     
