@@ -12,8 +12,7 @@
     var watchID = null;
     var place_name;
     function onDeviceReady() {
-    	var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
-        db.transaction(populateDB, errorCB, successCB);
+    	
         
     	//console.log(FileTransfer);
     //	tx.executeSql('DROP TABLE IF EXISTS locateME');
@@ -58,7 +57,7 @@ function saveloc()
 }
 
 function populateDB(tx) {
-    tx.executeSql('DROP TABLE IF EXISTS DEMO');
+    tx.executeSql('DROP TABLE IF EXISTS locateME');
      
      //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
      
@@ -122,9 +121,9 @@ function populateDB(tx) {
    var rowCount = table.rows.length;
  //  alert('ff'+rowCount);
     var row = table.insertRow(rowCount);
-// alert(results1.rows.item(i).data1);
-// alert(results1.rows.item(i).data2);
-// alert(results1.rows.item(i).data3);
+alert(results1.rows.item(i).data1);
+alert(results1.rows.item(i).data2);
+alert(results1.rows.item(i).data3);
   //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= results1.rows.item(i).data1;
     row.insertCell(2).innerHTML= results1.rows.item(i).data2;
