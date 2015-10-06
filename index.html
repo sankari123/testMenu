@@ -82,7 +82,7 @@ function populateDB(tx) {
     	
     	var myTable = document.getElementById('dbTable');
         len = results.rows.length;
-        alert(len);
+      //  alert(len);
         console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
         //	alert(results.rows.item(i).data1);
@@ -115,7 +115,8 @@ function populateDB(tx) {
         alert(len);
        // console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-    var rowCount = table.rows.length;
+   var rowCount = table.rows.length;
+   alert('ff'+rowCount);
     var row = table.insertRow(rowCount);
  
   //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
