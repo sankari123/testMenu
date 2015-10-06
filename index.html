@@ -115,10 +115,12 @@ function populateDB(tx) {
         alert(len);
        // console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-   var rowCount = table.rows.length;
-   alert('ff'+rowCount);
+   var rowCount = len;
+ //  alert('ff'+rowCount);
     var row = table.insertRow(rowCount);
- 
+ alert(results.rows.item(i).data1);
+ alert(results.rows.item(i).data2);
+ alert(results.rows.item(i).data3);
   //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= results1.rows.item(i).data1;
     row.insertCell(2).innerHTML= results1.rows.item(i).data2;
