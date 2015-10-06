@@ -61,7 +61,7 @@ function populateDB(tx) {
      
   
         var sql='INSERT INTO locateME (data1,data2,data3) VALUES ("' + geo_loc+ '","' + geo_loc1+ '","' + place_name+ '")';
-       // alert(sql);
+       alert(sql);
           tx.executeSql(sql);
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
