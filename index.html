@@ -120,9 +120,9 @@ function populateDB(tx) {
     var row = table.insertRow(rowCount);
  
   //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
-    row.insertCell(1).innerHTML= results.rows.item(i).data1;
-    row.insertCell(2).innerHTML= results.rows.item(i).data2;
-    row.insertCell(3).innerHTML= results.rows.item(i).data3;
+    row.insertCell(1).innerHTML= results1.rows.item(i).data1;
+    row.insertCell(2).innerHTML= results1.rows.item(i).data2;
+    row.insertCell(3).innerHTML= results1.rows.item(i).data3;
     
  
 } 
@@ -150,7 +150,7 @@ function populateDB(tx) {
     <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br><br>
     <button onclick="saveloc();" class="btncss">Save Location</button><br>
     <br>
-    <input type="button" id="add" value="Add" onclick="addRow();">
+    <!--<input type="button" id="add" value="Add" onclick="addRow();">-->
     <table id="myTableData"  border="1" cellpadding="2">
     <tr>
         <td>Place Name</td>
