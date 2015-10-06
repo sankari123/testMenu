@@ -47,8 +47,9 @@ function saveloc()
 {
 	var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
         db.transaction(populateDB, errorCB, successCB);
-//	alert(geo_loc);
-//	alert(geo_loc1);
+alert(geo_loc);
+alert(geo_loc1);
+alert(place_name);
 //alert(document.getElementById("place_txt").value);
 }
 
