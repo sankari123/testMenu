@@ -79,6 +79,7 @@ function populateDB(tx) {
     }
     var len;
     function querySuccess(tx, results) {
+    	
     	var myTable = document.getElementById('dbTable');
         len = results.rows.length;
         alert(len);
@@ -93,27 +94,39 @@ function populateDB(tx) {
 		
            // console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
         }
-      //  addTable();
+      var r = confirm("Press a button");
+	if (r == true) {
+    	addRow(tx,results);
+	} 
+     
        }
-   function addRow() {
+       
+       
+       
+       
+   function addRow(tx1,results1) {
           
-    var myPlace = document.getElementById("place_txt");
-    var myLat = document.getElementById("loc_txt");
-    var myLong = document.getElementById("loc_txt1");
+  //  var myPlace = document.getElementById("place_txt");
+   // var myLat = document.getElementById("loc_txt");
+   // var myLong = document.getElementById("loc_txt1");
     var table = document.getElementById("myTableData");
- 
+ var myTable = document.getElementById('dbTable');
+        len = results1.rows.length;
+        alert(len);
+       // console.log("locateME table: " + len + " rows found.");
+        for (var i=0; i<len; i++){
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
  
   //  row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
-    row.insertCell(1).innerHTML= myPlace.value;
-    row.insertCell(2).innerHTML= myLat.value;
-    row.insertCell(3).innerHTML= myLong.value;
+    row.insertCell(1).innerHTML= results.rows.item(i).data1;
+    row.insertCell(2).innerHTML= results.rows.item(i).data2;
+    row.insertCell(3).innerHTML= results.rows.item(i).data3;
     
  
 } 
     
-    
+   }
     </script>
     <style>
       .btncss
