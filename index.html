@@ -56,11 +56,11 @@ function saveloc()
 
 function populateDB(tx) {
     //    tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2,data3)');
      //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
      
   
-        var sql='INSERT INTO locateME (data1,data2) VALUES ("' + geo_loc+ '","' + geo_loc1+ '")';
+        var sql='INSERT INTO locateME (data1,data2,data3) VALUES ("' + geo_loc+ '","' + geo_loc1+ '","' + place_name+ '")';
         alert(sql);
           tx.executeSql(sql);
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
@@ -79,15 +79,21 @@ function populateDB(tx) {
         tx.executeSql('SELECT * FROM locateME', [], querySuccess, errorCB);
     }
     function querySuccess(tx, results) {
+    	var myTable = document.getElementById('dbTable');
         var len = results.rows.length;
         console.log("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-        	alert(results.rows.item(i).data1);
-        	alert(results.rows.item(i).data2);
-        	
+        //	alert(results.rows.item(i).data1);
+        //	alert(results.rows.item(i).data2);
+        
+		myTable.rows[i].cells[1].innerHTML = results.rows.item(i).data1;
+		myTable.rows[i].cells[2].innerHTML = results.rows.item(i).data2;
+		myTable.rows[i].cells[3].innerHTML = results.rows.item(i).data3;
+		
            // console.log("Row = " + i + " ID = " + results.rows.item(i).data1 + " Data =  " + results.rows.item(i).data2);
         }
     }
+    
     
     </script>
     <style>
@@ -110,7 +116,12 @@ function populateDB(tx) {
     <input type=text id=loc_txt><input type=text id=loc_txt1><button onclick="getloc();" class="btncss">Get Latitude and Longitude</button><br>
     <input type=text id=place_txt><button onclick="placeloc();" class="btncss">Enter Place Name</button><br>
     <button onclick="saveloc();" class="btncss">Save Location</button><br>
-    
+    <table id="dbTable" border="1">
+    	<tr>
+
+<td >Latitude</td><td>Longitude</td><td>Location</td></tr>
+
+</table>
     
     
     
