@@ -20,7 +20,7 @@ function getloc()
 //	alert("in");
   var options = { enableHighAccuracy: true };
         watchID = navigator.geolocation.watchPosition(onSuccess1, onError1, options);
-        alert("in");
+     //   alert("in");
 }
 var geo_loc;
 var geo_loc1;
@@ -61,12 +61,12 @@ function populateDB(tx) {
      
   
         var sql='INSERT INTO locateME (data1,data2,data3) VALUES ("' + geo_loc+ '","' + geo_loc1+ '","' + place_name+ '")';
-        alert(sql);
+       // alert(sql);
           tx.executeSql(sql);
        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
     function errorCB(err) {
-        console.log("Error processing SQL: "+err.code);
+        alert("Error processing SQL: "+err.code);
     }
 
     // Transaction success callback
@@ -81,7 +81,7 @@ function populateDB(tx) {
     function querySuccess(tx, results) {
     	var myTable = document.getElementById('dbTable');
         var len = results.rows.length;
-        console.log("locateME table: " + len + " rows found.");
+        alert("locateME table: " + len + " rows found.");
         for (var i=0; i<len; i++){
         //	alert(results.rows.item(i).data1);
         //	alert(results.rows.item(i).data2);
