@@ -12,9 +12,12 @@
     var watchID = null;
     var place_name;
     function onDeviceReady() {
+    	var db = window.openDatabase("locateME", "1.0", "locateME DB", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+        
     	//console.log(FileTransfer);
-    	tx.executeSql('DROP TABLE IF EXISTS locateME');
-          tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2,data3)');
+    //	tx.executeSql('DROP TABLE IF EXISTS locateME');
+      //    tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2,data3)');
     }
 function getloc()
 {
@@ -55,7 +58,7 @@ function saveloc()
 }
 
 function populateDB(tx) {
-    //tx.executeSql('DROP TABLE IF EXISTS DEMO');
+    tx.executeSql('DROP TABLE IF EXISTS DEMO');
      
      //   tx.executeSql('INSERT INTO locateME VALUES ('"&geo_loc&"','"&geo_loc1&";)');
      
@@ -177,7 +180,7 @@ function populateDB(tx) {
         <td>Longitude</td>
     </tr>
 </table>
-    <table id=myTableData11>
+   <!-- <table id=myTableData11>
     <tr>
         <td>Name:</td>
         <td><input type="text" id="name"></td>
@@ -191,6 +194,6 @@ function populateDB(tx) {
         <td>&nbsp;</td>
         <td>&nbsp;</td>
     </tr>
-</table>
+</table>-->
   </body>
 </html>
