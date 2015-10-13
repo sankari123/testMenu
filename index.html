@@ -9,7 +9,8 @@
     <script>
     	function saveLoc()
     	{
-    		VideoPlayer.play("file:///android_asset/sample.mp4");
+    	//	VideoPlayer.play("file:///android_asset/sample.mp4");
+    	VideoPlayer.play("file:///android_asset/www/sample.mp4");
     	}
     </script>
     </script>
@@ -32,6 +33,17 @@
     <p>Database</p>
    
     <button onclick="saveLoc();" class="btncss">Play Video</button><br>
+    <P>
+		<video width="320" height="240" controls webkit-playsinline>
+			<source src="http://www.writeacademy.in/digigraph/sample.mp4" type="video/mp4">
+		</video>
+	</P>
+	<P>
+		<video width="320" height="240" controls webkit-playsinline>
+			<source src="file:///android_asset/www/sample.mp4" type="video/mp4">
+		</video>
+	</P>
+	
     
   </body>
 </html>
