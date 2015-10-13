@@ -39,7 +39,7 @@
   <gap:plugin name="org.apache.cordova.vibration"/>
   <gap:plugin name="org.apache.cordova.geolocation"  />
   <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
-  <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" />
+  <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
 
   <icon src="https://cloud.githubusercontent.com/assets/14199766/10266748/eabeec4a-6a91-11e5-91e7-d834cb924d33.jpg" />
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
