@@ -5,45 +5,37 @@
 
     <script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="videoplayer.js"></script>
-    <script>
-    	function saveLoc()
-    	{
-    	//	VideoPlayer.play("file:///android_asset/sample.mp4");
-    	VideoPlayer.play("file:///android_asset/www/sample.mp4");
-    	}
-    </script>
-    </script>
-    <style>
-      .btncss
-	{
-	background:none;
-	border:none;
-	padding:0;
-	cursor:pointer;
-	font: 8pt arial;
-	font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
-	color: #b32d5f;
-	}
+       <script>
 
-    </style>
-  </head>
-  <body>
-    <h1>Video</h1>
-    <p>Database</p>
-   
-    <button onclick="saveLoc();" class="btncss">Play Video</button><br>
-    <P>
-		<video width="320" height="240" controls webkit-playsinline>
-			<source src="http://www.writeacademy.in/digigraph/sample.mp4" type="video/mp4">
-		</video>
-	</P>
-	<P>
-		<video width="320" height="240" controls webkit-playsinline>
-			<source src="file:///android_asset/www/sample.mp4" type="video/mp4">
-		</video>
-	</P>
-	
-    
-  </body>
+var x = 1;
+function Slideshow(){
+    document.getElementById("img").src="images/image"+x+".jpg";
+    x++;
+    if (x > 3)
+        x = 1;
+}
+
+document.getElementById ("button-click").addEventListener ("click", Slideshow, false);
+
+</script>
+</head>
+<body>
+
+<div id="homepage_title">
+    <h1>Slideshow</h1>
+</div>
+
+<div id="slideshow_wrapper">
+    <div id="image">
+        <img id="img" src="images/image1.jpg" />
+    </div>
+
+    <div id="slideshow_button_right">
+        <button id="button-click" type="button">Next</button>
+    </div>
+
+</div>
+
+
+</body>
 </html>
