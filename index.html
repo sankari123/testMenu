@@ -8,11 +8,14 @@
        <script>
 
 var x = 1;
+var f_name;
 function Slideshow(){
-    document.getElementById("img").src="pic"+x+".png";
-    x++;
-    if (x > 3)
-        x = 1;
+     x++;
+    f_name="pic"+x+".png";
+    document.getElementById("img").src=f_name;
+    alert(f_name);
+    if (x > 5)
+         x = 1;
 }
 
 document.getElementById ("button-click").addEventListener ("click", Slideshow, false);
