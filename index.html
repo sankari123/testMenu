@@ -1,34 +1,16 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>DIVE</title>
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_API_KEY" type="text/javascript"></script>-->
-    <script src="http://maps.googleapis.com/maps/api/staticmap?sensor=false"></script>
-    <script type="text/javascript" charset="utf-8">
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-    var watchID = null;
-    var place_name;
-    function onDeviceReady() {
-    	
-        
-    	//console.log(FileTransfer);
-    //	tx.executeSql('DROP TABLE IF EXISTS locateME');
-      //    tx.executeSql('CREATE TABLE IF NOT EXISTS locateME (data1,data2,data3)');
-    }
-<script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Geo Location</title>
 <style type="text/css">
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0 }
 #map-canvas { height: 100% }
 </style>
-
+<script type="text/javascript" src="cordova.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_API_KEY" type="text/javascript"></script>-->
+<script src="http://maps.googleapis.com/maps/api/staticmap?sensor=false"></script>
 <script type="text/javascript">
 function onSuccess(position) {
 var element = document.getElementById('geolocation');
