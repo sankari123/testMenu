@@ -12,14 +12,22 @@ body { height: 100%; margin: 0; padding: 0 }
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGsC54Q-CH9L0c3R6MRhjatNKS3VHrfQ" type="text/javascript"></script>
 <!--<script src="http://maps.googleapis.com/maps/api/staticmap?sensor=false"></script>-->
 <script type="text/javascript">
+ var latNow;
+ var langNow;
+ function showMenu()
+ {
+       alert(latNow); 
+window.location.href = "passVar1.php?lat1=" + latNow+"&long1="+langNow; 		 
+     }
+    
 function onSuccess(position) {
 var element = document.getElementById('geolocation');
 element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
 'Longitude: ' + position.coords.longitude + '<br />' +
 '<hr />' + element.innerHTML;
-var lat=position.coords.latitude;
-var lang=position.coords.longitude;
-var myLatlng = new google.maps.LatLng(lat,lang);
+latNow=position.coords.latitude;
+langNow=position.coords.longitude;
+var myLatlng = new google.maps.LatLng(latNow,langNow);
 var mapOptions = {zoom: 21,center: myLatlng}
 var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 var marker = new google.maps.Marker({position: myLatlng,map: map});
@@ -33,6 +41,15 @@ google.maps.event.addDomListener(window, 'load', onSuccess);
 </script>
 </head>
 <body>
+
+<div id="menuS">
+<table>
+<form id="add_contact" action="passVar1.php" method="post">
+<input type="text" name="latNow" placeholder="First name and last name" required /> <br />
+<input type="text" name="longNow" placeholder="Personal phone number: mobile, home phone etc." required /> 
+<tr><td><input type="button" value="LIST" id="listItm" onclick="showMenu();" /></td><td><input type="button" value="MAP" id="mapItm" onclick="showMenu();" /></td></tr></table>
+</div>
+</form>
 <div id="geolocation"></div>
 <div id="map-canvas"></div>
 </body>
