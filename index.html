@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+		
 		<title>DIVE</title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -47,6 +47,7 @@ function ajaxCall(passVar) {
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
+	document.getElementById("lst_mnu").style.visibility=false;
 	
 		    if(passVar=='true')
 			{
@@ -190,13 +191,12 @@ function showTbl()
 	document.getElementById("map").style.display="none";
 	document.getElementById("map").style.visibility=false;
 	document.getElementById("lst_mnu").style.display="block";
-	lst_mnu.innerHTML="";
-for (var i = 0, len = multiArr.length; i < len; i++) {
+	for (var i = 0, len = multiArr.length; i < len; i++) {
      
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
-		alert(imgName);
+		alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+trim(multiArr[i][0])+"'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR>"
 	}
 	}
 </script>
