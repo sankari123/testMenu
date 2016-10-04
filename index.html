@@ -20,10 +20,10 @@
 		var c,ctx;
 		var multiArr = [];
 		document.addEventListener("deviceready",onDeviceReady,false);
-		
+		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 		function onDeviceReady()
 		{
-			
+		document.getElementById("loading").style.display = "none"; 	
     		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
 		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
@@ -230,10 +230,15 @@ body, html {
 	{
 		display:none;
 	}
-	
+#loading {width: 100%;height: 100%;top: 0px;left: 0px;position: fixed;display: block; z-index: 99}
+
+#loading-image {position: absolute;top: 40%;left: 45%;z-index: 100} 	
 </style>
 	</head>
 <body onload="getLoc();">
+	<div id="loading">
+<img id="loading-image" src="img/loading.gif" alt="Detecting your location..." />
+</div> 
 		<table width="100%" bgcolor="#d78f97">
 			<tr><td colspan=2 ><font face=tahoma>DIVE</font></td></tr>
 		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
