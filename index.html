@@ -1,56 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Geo Location</title>
-<style type="text/css">
-html { height: 100% }
-body { height: 100%; margin: 0; padding: 0 }
-#map-canvas { height: 100% }
-</style>
+<html>
+	<head>
+		<title>DIVE</title>
 <script type="text/javascript" src="cordova.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTGsC54Q-CH9L0c3R6MRhjatNKS3VHrfQ" type="text/javascript"></script>
-<!--<script src="http://maps.googleapis.com/maps/api/staticmap?sensor=false"></script>-->
-<script type="text/javascript">
- var latNow;
- var langNow;
- function showMenu()
- {
-       alert(latNow); 
-window.location.href = "passVar1.php?lat1=" + latNow+"&long1="+langNow; 		 
-     }
-    
-function onSuccess(position) {
-var element = document.getElementById('geolocation');
-element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
-'Longitude: ' + position.coords.longitude + '<br />' +
-'<hr />' + element.innerHTML;
-latNow=position.coords.latitude;
-langNow=position.coords.longitude;
-var myLatlng = new google.maps.LatLng(latNow,langNow);
-var mapOptions = {zoom: 21,center: myLatlng}
-var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-var marker = new google.maps.Marker({position: myLatlng,map: map});
-}
-function onError(error) {
-alert('code: ' + error.code + '\n' +
-'message: ' + error.message + '\n');
-}
-var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 3000 });
-google.maps.event.addDomListener(window, 'load', onSuccess);
-</script>
-</head>
-<body>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	
 
-<div id="menuS">
-<table>
-<form id="add_contact" action="passVar1.php" method="post">
-<input type="text" name="latNow" placeholder="First name and last name" required /> <br />
-<input type="text" name="longNow" placeholder="Personal phone number: mobile, home phone etc." required /> 
-<tr><td><input type="button" value="LIST" id="listItm" onclick="showMenu();" /></td><td><input type="button" value="MAP" id="mapItm" onclick="showMenu();" /></td></tr></table>
-</div>
-</form>
-<div id="geolocation"></div>
-<div id="map-canvas"></div>
+<script>
+		var x,y;
+		var flg;
+	    	var return_data;
+		var locArr;
+		var tmpDat1;
+		var latR;
+		var result;
+		var zoom;
+		var c,ctx;
+		var multiArr = [];
+		document.addEventListener("deviceready",onDeviceReady,false);
+		
+		function onDeviceReady()
+		{
+		
+    	 document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
+		}
+	
+		function onConfirmExit(button) {
+		if(button==2){ //If User select a No, then return back;
+        return;
+		}else{
+    	if (navigator.app) {
+            navigator.app.exitApp();
+        }
+        else if (navigator.device) {
+            navigator.device.exitApp();
+        }
+       // navigator.app.exitApp(); // If user select a Yes, quit from the app.
+		}
+		}
+	   var mnu_select=false;
+function ajaxCall(passVar) {
+	document.getElementById("map").style.display="block";
+	document.getElementById("map").style.visibility=true;
+	document.getElementById("lst_mnu").style.display="none";
+	
+		    if(passVar=='true')
+			{
+			mnu_select=true;
+			}
+			else
+			{
+			mnu_select=false;
+			}
+				
+			zoom=14;
+var params = "lat1=" + x +"&long11=" + y; 
+ var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
+        var request = new XMLHttpRequest(); 
+        request.open("POST", myURL, true); 
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+        request.setRequestHeader("Content-length", params.length); 
+        request.setRequestHeader("Connection", "close"); 
+        request.onreadystatechange = function() {//Call a function when the state changes. 
+                if(request.readyState == 4 && request.status == 200) { 
+                     //   alert("response: "+request.responseText);
+			document.getElementById("ajaxDiv").innerHTML = request.responseText;
+			document.getElementById('rest1').value=request.responseText;
+			procVal();
+                } 
+        } 
+        request.send(params); 
+}
+	
+	
+	
+		function getLoc()
+		{
+		if (navigator.geolocation)
+          {
+            navigator.geolocation.getCurrentPosition(myMap);
+          }
+        else
+          {
+             alert("Geolocation API not supported.");
+          }
+	}
+function myMap(position) {
+       x = position.coords.latitude;
+        y = position.coords.longitude;
+  var myCenter = new google.maps.LatLng(x,y);
+	document.getElementById("map").width=window.innerWidth;
+	document.getElementById("map").height=window.innerHeight;
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 18};
+  var map1 = new google.maps.Map(mapCanvas, mapOptions);
+  var marker1 = new google.maps.Marker({position:myCenter});
+  var infowindow = new google.maps.InfoWindow();
+  marker1.setMap(map1);
+var c = document.getElementById("map1");
+var ctx = c.getContext("2d");
+var img = document.getElementById("map");
+img.onload = function(){
+    ctx.drawImage(img,0,0);
+}
+}
+ function procVal(){
+	if(document.getElementById("rest1").value.length==0)
+	{
+	}
+	else
+	{
+		flg='y';
+		//alert("Searching DIVE Joints");
+		multiArr=[];
+		locArr = document.getElementById("rest1").value;
+		locArr = locArr.substring(0, locArr.length - 1);
+		locArr=locArr.split('#');
+		tmpDat1='';
+		for (var i = 0, len = locArr.length; i < len; i++) {
+		delimiter = ',';
+		start = 2;
+		result = locArr[i].split(delimiter, start+1).join(delimiter);
+		latR=result.split(',');
+		tmpDat1 +="&markers=" +latR[0]+","+latR[1]+","+latR[2];
+		
+		
+		var radlat1 = Math.PI * x/180;
+	    var radlat2 = Math.PI * latR[0]/180;
+		var theta = y-latR[1];
+		var radtheta = Math.PI * theta/180;
+		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+		dist = Math.acos(dist);
+	    dist = dist * 180/Math.PI;
+		dist = dist * 60 * 1.1515;
+	//  alert(dist+"___"+i);
+	  //alert(len);
+	multiArr.push([latR[2],latR[0],latR[1],dist]);
+		
+		}
+		document.getElementById("tmpD").value=tmpDat1;
+		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
+		displayArr();
+		
+		
+	}	
+	
+	
+}
+function displayArr()
+{
+for (var i = 0, len = multiArr.length; i < len; i++) {
+//alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
+}
+	if(mnu_select==false)
+	{
+ var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: zoom,
+      center: new google.maps.LatLng(x,y),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+   var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < multiArr.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(multiArr[i][1], multiArr[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(multiArr[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+}
+	else
+	{
+		showTbl();
+}
+	
+}
+function showTbl()
+	{
+		lst_mnu.innerHTML="";
+	document.getElementById("map").style.display="none";
+	document.getElementById("map").style.visibility=false;
+	document.getElementById("lst_mnu").style.display="block";
+	lst_mnu.innerHTML="";
+for (var i = 0, len = multiArr.length; i < len; i++) {
+     
+	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
+		 //alert(imgName);
+	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR>"
+	}
+	}
+</script>
+<style>
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+    #map1 {
+    width: 100%;
+    height: 65.85%;
+    position: fixed;
+    display: block;
+    z-index: 10;
+}
+ .hideDontTakeUpSpace
+        {
+            display:none;
+        }
+#controls
+{
+  top: 0;
+  left: 0;
+  position: absolute;
+  
+}
+	#lst_mnu
+	{
+		display:none;
+	}
+		
+</style>
+	</head>
+<body onload="getLoc();">
+	<table width="100%" bgcolor="#d78f97">
+		<tr><td colspan=2>DIVE</td></tr>
+		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
+	</table>
+<div id="map" style="position:fixed;width:100%;height:500px">
+	<canvas id="map1">   </canvas>
+	</div>
+	<div id="lst_mnu">
+		
+	</div>
+	
+<div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
+<textarea id="tmpD"  class="hideDontTakeUpSpace" rows=6 cols=50></textarea>
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=6 cols=50></textarea>
 </body>
-</html>
+		</html>
