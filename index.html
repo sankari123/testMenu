@@ -194,7 +194,7 @@ function showTbl()
 for (var i = 0, len = multiArr.length; i < len; i++) {
      
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
-		 //alert(imgName);
+		alert(imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
 	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+trim(multiArr[i][0])+"'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR>"
 	}
@@ -230,25 +230,7 @@ body, html {
 	{
 		display:none;
 	}
-	#loading {
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  display: block;
-  opacity: 0.7;
-  background-color: #fff;
-  z-index: 99;
-  text-align: center;
-}
-
-#loading-image {
-  position: absolute;
-  top: 100px;
-  left: 240px;
-  z-index: 100;
-}	
+	
 </style>
 	</head>
 <body onload="getLoc();">
