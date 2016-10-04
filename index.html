@@ -196,7 +196,7 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' name='mytext'+ i value='"+round(multiArr[i][3],2)+"'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' name='mytext'+ i value='"+parseFloat(Math.round((multiArr[i][3] + 0.00001) * 100) / 100)+"'>"+"<BR>"
 	}
 	}
 </script>
