@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
 		<title>DIVE</title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -252,7 +253,7 @@ body, html {
 	</head>
 <body onload="getLoc();">
 		<table width="100%" bgcolor="#d78f97">
-		<tr><td colspan=2>DIVE</td></tr>
+			<tr><td colspan=2 ><font face=tahoma>DIVE</font></td></tr>
 		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
 	</table>
 <div id="map" style="position:fixed;width:100%;height:500px">
