@@ -22,22 +22,24 @@
 		
 		function onDeviceReady()
 		{
-		
-    	 document.addEventListener("backbutton", function (e) {
-        e.preventDefault(); 
+		$(window).load(function() {
+		$('#loading').hide();   }); 
+			
+    		document.addEventListener("backbutton", function (e) {
+        	e.preventDefault(); 
 		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
 		}
 	
 		function onConfirmExit(button) {
 		if(button==2){ //If User select a No, then return back;
-        return;
+        	return;
 		}else{
-    	if (navigator.app) {
-            navigator.app.exitApp();
-        }
-        else if (navigator.device) {
-            navigator.device.exitApp();
-        }
+    		if (navigator.app) {
+            	navigator.app.exitApp();
+        	}
+        	else if (navigator.device) {
+            	navigator.device.exitApp();
+        	}
        // navigator.app.exitApp(); // If user select a Yes, quit from the app.
 		}
 		}
@@ -195,7 +197,7 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		 //alert(imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' id='mytext'+ i name='mytext'+ i value='"+trim(multiArr[i][0])+"'>"+"<input type='text' id='mytext'+ i name='mytext'+ i value='"+multiArr[i][3]+"'>"+"<BR />"
 	}
 	}
 </script>
@@ -229,10 +231,31 @@ body, html {
 	{
 		display:none;
 	}
-		
+	#loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
+}	
 </style>
 	</head>
 <body onload="getLoc();">
+	<div id="loading">
+  <img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
+</div>
 	<table width="100%" bgcolor="#d78f97">
 		<tr><td colspan=2>DIVE</td></tr>
 		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
