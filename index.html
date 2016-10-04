@@ -81,6 +81,7 @@ var params = "lat1=" + x +"&long11=" + y;
 	
 		function getLoc()
 		{
+		document.getElementById("loading").style.display = "none";
 		if (navigator.geolocation)
           {
             navigator.geolocation.getCurrentPosition(myMap);
@@ -196,7 +197,7 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' size='15' name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' size='5' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<BR>"
 	}
 	}
 </script>
@@ -233,15 +234,16 @@ body, html {
 #loading {width: 100%;height: 100%;top: 0px;left: 0px;position: fixed;display: block; z-index: 99}
 
 #loading-image {position: absolute;top: 40%;left: 45%;z-index: 100} 	
+	.btn1 {  background-color: transparent; border: 0; padding: 0;}
 </style>
 	</head>
 <body onload="getLoc();">
 	<div id="loading">
-<img id="loading-image" src="img/loading.gif" alt="Detecting your location..." />
+<img id="loading-image" src="loading.gif" alt="Detecting your location..." />
 </div> 
 		<table width="100%" bgcolor="#d78f97">
 			<tr><td colspan=2 ><font face=tahoma>DIVE</font></td></tr>
-		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
+		<tr><td width="50%" align="center"><input type="button" class='btn1' value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button"  class='btn1'  value="MAP" onclick="ajaxCall('false');" /></td></tr>
 	</table>
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
