@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
-  <name>locateME</name>
-  <description>locateME</description>
+  <name>DIVE</name>
+  <description>DIVE</description>
   <author href="http://phonegap.com" email="support@phonegap.com">Sivasankari</author>
   <content src="index.html"/>
   <feature name="Notification">
@@ -65,7 +65,7 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
-  <access origin="*"/>
+  <access origin="*" subdomains="true" />
   <plugin name="cordova-plugin-whitelist" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
@@ -85,6 +85,7 @@
  </feature>
  <feature name="http://api.phonegap.com/1.0/media"/>
  <feature name="http://api.phonegap.com/1.0/file"/>
+ <feature name="http://api.phonegap.com/1.0/network"/>
  <feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
 </feature>
