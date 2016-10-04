@@ -22,8 +22,6 @@
 		
 		function onDeviceReady()
 		{
-		$(window).load(function() {
-		$('#loading').hide();   }); 
 			
     		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
@@ -253,10 +251,7 @@ body, html {
 </style>
 	</head>
 <body onload="getLoc();">
-	<div id="loading">
-  <img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
-</div>
-	<table width="100%" bgcolor="#d78f97">
+		<table width="100%" bgcolor="#d78f97">
 		<tr><td colspan=2>DIVE</td></tr>
 		<tr><td width="50%" align="center"><input type="button" value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button" value="MAP" id="mapItm" onclick="ajaxCall('false');" /></td></tr>
 	</table>
