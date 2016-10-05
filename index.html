@@ -196,11 +196,20 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"&nbsp;&nbsp;<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"&nbsp;&nbsp;<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:none;background:arrow.png;background-repeat: no-repeat;'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"&nbsp;&nbsp;<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"&nbsp;&nbsp;<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;padding:0;background:arrow.png;background-repeat: no-repeat;'>"+"<BR>"
 	}
 	}
 </script>
 <style>
+	#hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
 	.rock {
     border: none; padding: 0;
     background: 'arrow.png'; 
