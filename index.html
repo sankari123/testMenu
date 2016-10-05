@@ -81,16 +81,6 @@ var params = "lat1=" + x +"&long11=" + y;
 	
 function getLoc()
 {
-if (document.getElementById){
-	document.getElementById('prepage').style.visibility='hidden';
-	}else{
-	if (document.layers){ //NS4
-	document.prepage.visibility = 'hidden';
-	}
-	else { //IE4
-	document.all.prepage.style.visibility = 'hidden';
-	}
-}
 		if (navigator.geolocation)
           {
             navigator.geolocation.getCurrentPosition(myMap);
@@ -206,11 +196,15 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+"<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<img src='"+imgName+"' width='50px' height='50px'>"+&nbsp;&nbsp;+<input type='text' size='20' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+&nbsp;&nbsp;+"<input type='text' size='10' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button'class='rock'>"+"<BR>"
 	}
 	}
 </script>
 <style>
+	.rock {
+    background: url('arrow.png') no-repeat;
+}
+	
 body, html {
     width: 100%;
     height: 100%;
@@ -240,10 +234,18 @@ body, html {
 	{
 		display:none;
 	}
-#loading {width: 100%;height: 100%;top: 0px;left: 0px;position: fixed;display: block; z-index: 99}
-
-#loading-image {position: absolute;top: 40%;left: 45%;z-index: 100} 	
-	.btn1 {  background-color: transparent; border: 0; padding: 0;}
+.btn1 {  background-color: transparent; border: 0; padding: 0;}
+	.wraptocenter {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  background-color: #999;
+}
+.wraptocenter * {
+  vertical-align: middle;
+}
 </style>
 	</head>
 <body onload="getLoc();">
@@ -252,13 +254,11 @@ body, html {
 			<tr><td colspan=2 ><font face=arial>DIVE</font></td></tr>
 		<tr><td width="50%" align="center"><input type="button" class='btn1' value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button"  class='btn1'  value="MAP" onclick="ajaxCall('false');" /></td></tr>
 	</table>
-	<DIV id="prepage" style="position:absolute; font-family:arial; font-size:16; left:0px; top:0px; background-color:white; layer-background-color:white; height:100%; width:100%;"> 
-<TABLE width=100%><TR><TD><B>Detecting your location ... ... Please wait!</B></TD></TR></TABLE>
-</DIV>
+	
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
 	</div>
-	<div id="lst_mnu">
+	<div id="lst_mnu" class="wraptocenter">
 		
 	</div>
 	
