@@ -196,8 +196,18 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"&nbsp;&nbsp;<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"&nbsp;&nbsp;<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:arrow.png;background-repeat: no-repeat;'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"&nbsp;&nbsp;<input type='text' size='15' style='border:none'  name='mytext'+ i value='"+multiArr[i][0]+"'>"+"&nbsp;&nbsp;<input type='text' size='5' style='border:none' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;' onclick='call_hotel();'>"+"<BR>"
 	}
+	}
+	
+	function call_hotel()
+	
+	{
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("sms").style.display="block";
+		document.getElementById("sms").style.visibility="true";
+		
 	}
 </script>
 <style>
@@ -246,6 +256,11 @@ body, html {
 		display:none;
 		
 	}
+	#sms
+	{
+		display:none;
+		
+	}
 .btn1 {  background-color: transparent; border: 0; padding: 0;}
 	
 </style>
@@ -262,6 +277,9 @@ body, html {
 	</div>
 	<div id="lst_mnu">
 		
+	</div>
+	<div id="sms">
+		inside....
 	</div>
 	
 <div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
