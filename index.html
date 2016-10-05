@@ -23,7 +23,7 @@
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 		function onDeviceReady()
 		{
-		document.getElementById("loading").style.display = "none"; 	
+			
     		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
 		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
@@ -79,9 +79,18 @@ var params = "lat1=" + x +"&long11=" + y;
 	
 	
 	
-		function getLoc()
-		{
-		document.getElementById("loading").style.display = "none";
+function getLoc()
+{
+if (document.getElementById){
+	document.getElementById('prepage').style.visibility='hidden';
+	}else{
+	if (document.layers){ //NS4
+	document.prepage.visibility = 'hidden';
+	}
+	else { //IE4
+	document.all.prepage.style.visibility = 'hidden';
+	}
+}
 		if (navigator.geolocation)
           {
             navigator.geolocation.getCurrentPosition(myMap);
@@ -238,13 +247,14 @@ body, html {
 </style>
 	</head>
 <body onload="getLoc();">
-	<div id="loading">
-<img id="loading-image" src="loading.gif" alt="Detecting your location..." />
-</div> 
+	
 		<table width="100%" bgcolor="#d78f97">
-			<tr><td colspan=2 ><font face=tahoma>DIVE</font></td></tr>
+			<tr><td colspan=2 ><font face=arial>DIVE</font></td></tr>
 		<tr><td width="50%" align="center"><input type="button" class='btn1' value="LIST" onclick="ajaxCall('true');" /></td><td width="50%" align="center"><input type="button"  class='btn1'  value="MAP" onclick="ajaxCall('false');" /></td></tr>
 	</table>
+	<DIV id="prepage" style="position:absolute; font-family:arial; font-size:16; left:0px; top:0px; background-color:white; layer-background-color:white; height:100%; width:100%;"> 
+<TABLE width=100%><TR><TD><B>Detecting your location ... ... Please wait!</B></TD></TR></TABLE>
+</DIV>
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
 	</div>
