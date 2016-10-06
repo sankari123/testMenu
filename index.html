@@ -218,13 +218,25 @@ function showTbl()
 	function call_hotel(hNam)
 	
 	{
-		alert('in');
+		//alert('in');
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
-		sms.innerHTML=multiArr[hNam][0];
-		
+		//sms.innerHTML=multiArr[hNam][0];
+		for (var i = 0, len = locArr.length; i < len; i++) {
+			if locArr[0]==multiArr[hNam][1] && locArr[1]==multiArr[hNam][2] 
+			{
+				alert(locArr[0]+"-"+multiArr[hNam][1]);
+				alert(locArr[1]+"-"+multiArr[hNam][2]);
+				
+			}
+			else
+			{
+			alert(locArr[0]+"-"+multiArr[hNam][1]);
+			alert(locArr[1]+"-"+multiArr[hNam][2]);}
+			}
+	        }
 	}
 </script>
 <style>
