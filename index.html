@@ -16,6 +16,7 @@
 		var locArr;
 		var tmpDat1;
 		var latR;
+		var latR1;
 		var result;
 		var zoom;
 		var c,ctx;
@@ -133,13 +134,14 @@ img.onload = function(){
 		flg='y';
 		//alert("Searching DIVE Joints");
 		multiArr=[];
+		multiArr1=[];
 		locArr = document.getElementById("rest1").value;
 		locArr = locArr.substring(0, locArr.length - 1);
 		locArr=locArr.split('#');
 		tmpDat1='';
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 2;
+		start = 8;
 		result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
 		//tmpDat1 +="&markers=" +latR[0]+","+latR[1]+","+latR[2];
@@ -156,9 +158,10 @@ img.onload = function(){
 	//  alert(dist+"___"+i);
 	  //alert(len);
 	multiArr.push([latR[2],latR[0],latR[1],dist]);
+	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7],latR[8]);
 		
 		}
-		document.getElementById("tmpD").value=tmpDat1;
+		//document.getElementById("tmpD").value=tmpDat1;
 		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
 		displayArr();
 		
@@ -219,24 +222,21 @@ function showTbl()
 	
 	{
 		//alert('in');
+		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
-		//for (var i = 0, len = locArr.length; i < len; i++) {
-		//	if locArr[0]==multiArr[hNam][1] && locArr[1]==multiArr[hNam][2] 
-		//	{
-				alert(locArr[0]+"-"+multiArr[hNam][1]);
-				alert(locArr[1]+"-"+multiArr[hNam][2]);
+		
+				alert(multiArr1[hNam][0]);
+				alert(multiArr1[hNam][1]);
+				alert(multiArr1[hNam][2]);
+				alert(multiArr1[hNam][3]);
+				alert(multiArr1[hNam][4]);
+				alert(multiArr1[hNam][5]);
 				
-		//	}
-		//	else
-		//	{
-		//	alert(locArr[0]+"-"+multiArr[hNam][1]);
-		//	alert(locArr[1]+"-"+multiArr[hNam][2]);
-		//	}
-	       // }
+			
 	}
 </script>
 <style>
