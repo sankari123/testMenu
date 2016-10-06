@@ -22,6 +22,7 @@
 		var c,ctx;
 		var multiArr = [];
 		var multiArr1 = [];
+		var mnu_select=false;
 		document.addEventListener("deviceready",onDeviceReady,false);
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 	window.document.addEventListener('orientationchange', function() {
@@ -57,7 +58,7 @@
        // navigator.app.exitApp(); // If user select a Yes, quit from the app.
 		}
 		}
-	   var mnu_select=false;
+	   
 function ajaxCall(passVar) {
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
@@ -76,8 +77,8 @@ function ajaxCall(passVar) {
 			}
 				
 			zoom=14;
-var params = "lat1=" + x +"&long11=" + y; 
- var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
+		var params = "lat1=" + x +"&long11=" + y; 
+		var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
         var request = new XMLHttpRequest(); 
         request.open("POST", myURL, true); 
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
@@ -110,6 +111,7 @@ function getLoc()
 function myMap(position) {
        x = position.coords.latitude;
         y = position.coords.longitude;
+		alert(x);
   var myCenter = new google.maps.LatLng(x,y);
 	document.getElementById("map").width=window.innerWidth;
 	document.getElementById("map").height=window.innerHeight;
@@ -142,10 +144,10 @@ img.onload = function(){
 		tmpDat1='';
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 8;
+		start = 7;
 		result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
-		//tmpDat1 +="&markers=" +latR[0]+","+latR[1]+","+latR[2];
+		tmpDat1 +="&markers=" +latR[0]+","+latR[1]+","+latR[2];
 		
 		
 		var radlat1 = Math.PI * x/180;
@@ -162,7 +164,7 @@ img.onload = function(){
 	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7],latR[8]);
 		
 		}
-		//document.getElementById("tmpD").value=tmpDat1;
+		document.getElementById("tmpD").value=tmpDat1;
 		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
 		displayArr();
 		
