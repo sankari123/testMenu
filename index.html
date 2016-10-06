@@ -20,8 +20,8 @@
 		var result;
 		var zoom;
 		var c,ctx;
-		var multiArr = [];
-		var multiArr1 = [];
+		multiArr = [];
+		multiArr1 = [];
 		var mnu_select=false;
 		document.addEventListener("deviceready",onDeviceReady,false);
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
@@ -161,7 +161,7 @@ img.onload = function(){
 	//  alert(dist+"___"+i);
 	  //alert(len);
 	multiArr.push([latR[2],latR[0],latR[1],dist]);
-	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7],latR[8]);
+	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7]]);
 		
 		}
 		document.getElementById("tmpD").value=tmpDat1;
@@ -232,7 +232,7 @@ function showTbl()
 		document.getElementById("sms").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
 		
-				alert(multiArr1[hNam][0]);
+				alert(multiArr1[hNam][4]);
 				
 				
 			
