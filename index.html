@@ -66,6 +66,8 @@ function ajaxCall(passVar) {
 	document.getElementById("lst_mnu").style.visibility=false;
 	document.getElementById("sms").style.display="none";
 	document.getElementById("sms").style.visibility="false";
+	document.getElementById("inTab").style.display="none";
+	document.getElementById("inTab").style.visibility="false";
 	
 		    if(passVar=='true')
 			{
@@ -217,8 +219,11 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"<input type='text' disabled='disabled' style='border:none;  white-space: normal;' size='12' name='mytext'+ i value='"+ multiArr[i][0]+"'>"+"<input type='text' size=5 style='border:none'  disabled='disabled' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"<BR>"
+//	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"<input type='text' disabled='disabled' style='border:none;' size='12' name='mytext'+ i value='"+ multiArr[i][0]+"'>"+"<input type='text' size=5 style='border:none'  disabled='disabled' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"<BR>"
+	  
+	  lst_mnu.innerHTML=lst_mnu.innerHTML +"<hr>"+"<table width='100%'><tr><td><img src='"+imgName+"' valign='middle' width='60px' height='60px'></td><td>"+multiArr[i][0]+"</td><td>"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"</td><td><input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"</td></tr>"
 	}
+		lst_mnu.innerHTML=lst_mnu.innerHTML+"</table>";
 	}
 	
 	function call_hotel(h)
