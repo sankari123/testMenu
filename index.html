@@ -232,6 +232,8 @@ function showTbl()
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
+		document.getElementById("inTab").style.display="block";
+		document.getElementById("inTab").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
 		sms.innerHTML=sms.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' valign='middle'>"+"</td><td width='50%'><textarea cols=20 rows=5>"+multiArr1[h][0]+multiArr1[h][1]+multiArr1[h][2]+multiArr1[h][3]+multiArr1[h][4]+"</textarea></td></tr></table>";
 				
@@ -294,7 +296,7 @@ body, html {
 	}
 	#inTab
 	{
-		display:block;
+		display:none;
 		
 	}
 .btn1 {  background-color: transparent; border: 0; padding: 0;}
