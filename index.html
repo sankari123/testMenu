@@ -217,7 +217,7 @@ function showTbl()
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
-	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"<input type='text' disabled='disabled' style='border:none; size='12' white-space: normal; ' name='mytext'+ i value='"+ multiArr[i][0]+"'>"+"<input type='text'  style='border:none' size=5 disabled='disabled' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"<BR>"
+	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"<input type='text' disabled='disabled' style='border:none;  white-space: normal;' size='12' name='mytext'+ i value='"+ multiArr[i][0]+"'>"+"<input type='text' size=5 style='border:none'  disabled='disabled' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"<BR>"
 	}
 	}
 	
@@ -233,7 +233,7 @@ function showTbl()
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' valign='middle' width='100px' height='100px'>"+"</td><td><textarea cols=20 rows=5>"+multiArr1[h][3]+multiArr1[h][4]+multiArr1[h][5]+multiArr1[h][6]+multiArr1[h][7]+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' valign='middle'>"+"</td><td width='50%'><textarea cols=20 rows=5>"+multiArr1[h][0]+multiArr1[h][1]+multiArr1[h][2]+multiArr1[h][3]+multiArr1[h][4]+"</textarea></td></tr></table>";
 				
 				
 				
@@ -292,6 +292,11 @@ body, html {
 		display:none;
 		
 	}
+	#inTab
+	{
+		display:none;
+		
+	}
 .btn1 {  background-color: transparent; border: 0; padding: 0;}
 	
 </style>
@@ -311,6 +316,11 @@ body, html {
 	</div>
 	<div id="sms">
 		
+		</div>
+	<div id='inTab'>
+			<table width='100%'>
+				<tr><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Call</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
+			</table>
 	</div>
 	
 <div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
