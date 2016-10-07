@@ -221,7 +221,7 @@ function showTbl()
 	  //lst_mnu.innerHTML = lst_mnu.innerHTML +"<BR>"+"<input type='text' name='mytext'+ i value='"+aName[0][0]+"'>"
 //	  lst_mnu.innerHTML = lst_mnu.innerHTML +"<hr>"+"<img src='"+imgName+"' valign='middle' width='60px' height='60px'>"+"<input type='text' disabled='disabled' style='border:none;' size='12' name='mytext'+ i value='"+ multiArr[i][0]+"'>"+"<input type='text' size=5 style='border:none'  disabled='disabled' name='mytext'+ i value='"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"'>"+"<input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"<BR>"
 	  
-	  lst_mnu.innerHTML=lst_mnu.innerHTML +"<hr>"+"<table width='100%'><tr><td><img src='"+imgName+"' valign='middle' width='60px' height='60px'></td><td>"+multiArr[i][0]+"</td><td>"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"</td><td><input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"</td></tr>"
+	  lst_mnu.innerHTML=lst_mnu.innerHTML +"<hr>"+"<table width='100%' padding='0' spacing='0'><tr><td><img src='"+imgName+"' valign='middle' width='60px' height='60px'></td><td align='left'>"+multiArr[i][0]+"</td><td align='left'>"+Math.round((parseFloat(multiArr[i][3])*Math.pow(10,2)))/Math.pow(10,2)+"</td><td align='left'><input type='button' style='border:0;background:url(arrow.png);background-repeat: no-repeat;color:white;' value='"+ i+"' onclick='call_hotel(this.value);'>"+"</td></tr>"
 	}
 		lst_mnu.innerHTML=lst_mnu.innerHTML+"</table>";
 	}
@@ -240,7 +240,7 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
-		sms.innerHTML=sms.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' valign='middle'>"+"</td><td width='50%'><textarea cols=20 rows=5>"+multiArr1[h][0]+multiArr1[h][1]+multiArr1[h][2]+multiArr1[h][3]+multiArr1[h][4]+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' valign='middle'>"+"</td><td><textarea cols=20 rows=5>"+multiArr1[h][0]+"<br>"+multiArr1[h][1]+"<br>"+multiArr1[h][2]+"<br>"+multiArr1[h][3]+"<br>"+multiArr1[h][4]+"</textarea></td></tr></table>";
 				
 				
 				
@@ -268,7 +268,7 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    
 }
     #map1 {
     width: 100%;
