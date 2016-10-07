@@ -221,18 +221,20 @@ function showTbl()
 	}
 	}
 	
-	function call_hotel(hNam)
+	function call_hotel(h)
 	
 	{
 		//alert('in');
+		sms.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
+		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
-		
-				alert(multiArr1[hNam][4]);
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' valign='middle' width='100px' height='1000px'>"+"</td><td><textarea>"+multiArr1[h][3]+multiArr1[h][4]+multiArr1[h][5]+multiArr1[h][6]+multiArr1[h][7]+"</textarea></td></tr></table>";
+				
 				
 				
 			
