@@ -349,7 +349,12 @@ body, html {
 		<input type="hidden" name="smname" id="smname" />
 			<table width='100%' bgcolor='#4e448a'>
 	<tr><td width='33%'>
-		<input type='button' class='btn1' onclick='showDiv();' value='Call'>
+		<!--<input type='button' class='btn1' onclick='showDiv();' value='Call'>-->
+<a href="" id="burl">Call</a>
+		<script>
+document.getElementById("burl").href = 'tel:'+fone;
+</script>
+
 		
 	
 		
