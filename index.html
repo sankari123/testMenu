@@ -231,7 +231,7 @@ function showTbl()
 	
 	{
 		//alert('in');
-		fone=multiArr1[h][4];		
+		fone=parseInt(multiArr1[h][4]);		
 		sms.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
@@ -242,9 +242,9 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//sms.innerHTML=multiArr[hNam][0];
-		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3]+" "+multiArr1[h][4];
+		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3]+" ;
 
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;overflow-x: scroll;border: none; overflow: auto;outline: none;' cols=40 rows=5>"+addr+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;border: none; overflow: auto;outline: none;' cols=40 rows=2>"+addr+"</textarea></td></tr></table>";
 		
 				
 				
@@ -253,7 +253,7 @@ function showTbl()
 	function showDiv()
 	
 	{
-		alert('in');
+		//alert('in');
 	document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
@@ -349,19 +349,24 @@ body, html {
 		<input type="hidden" name="smname" id="smname" />
 			<table width='100%' bgcolor='#4e448a'>
 	<tr><td width='33%'>
-		<!--<input type='button' class='btn1' onclick='showDiv();' value='Call'>-->
-<a href="" id="burl">Call</a>
-		<script>
-document.getElementById("burl").href = 'tel:'+fone;
-</script>
+		<input type='button' class='btn1' onclick='showDiv();' value='Call'>
+
 
 		
 	
 		
-	</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
+	</td><td width='33%'><input type=button class=btn1 onclick='showSMS();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showRoute();'>Route Map</td></tr>
 				
 				
 			</table>
+	</div>
+	<div id='Txt'>
+		<table width='100'>
+	<tr><td width='33%'>Number:</td><td width='33%'><input type=button class=btn1 onclick='showSMS();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showRoute();'>Route Map</td></tr>
+				
+				
+			</table>
+		
 	</div>
 	
 <div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
