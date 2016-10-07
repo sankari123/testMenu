@@ -23,6 +23,7 @@
 		multiArr = [];
 		multiArr1 = [];
 		var mnu_select=false;
+		var fone;
 		document.addEventListener("deviceready",onDeviceReady,false);
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 	window.document.addEventListener('orientationchange', function() {
@@ -230,6 +231,7 @@ function showTbl()
 	
 	{
 		//alert('in');
+		fone=multiArr1[h][4];		
 		sms.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
@@ -243,22 +245,17 @@ function showTbl()
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3]+" "+multiArr1[h][4];
 
 		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='75%' height='75%' valign='middle'>"+"</td><td><textarea cols=20 rows=5>"+addr+"</textarea></td></tr></table>";
-				
+		
 				
 				
 			
 	}
-	function phone()
+	function showDiv()
+	
 	{
-	window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
+	document.write('<a href="' + fone + '">Open here</a>');
 	}
-	function onSuccess(result){
-  console.log("Success:"+result);
-}
-
-function onError(result) {
-  console.log("Error:"+result);
-}
+	
 		
 </script>
 <style>
@@ -348,8 +345,16 @@ body, html {
 		
 		</div>
 	<div id='inTab'>
+		<input type="hidden" name="smname" id="smname" />
 			<table width='100%'>
-				<tr><td width='33%'><a href="tel:+00-000"> Make a Phone Call </a></td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
+	<tr><td width='33%'>
+		<input type=button class=btn1 onclick='showDiv();'>Call
+		
+	
+		
+	</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
+				
+				<a ng-href="tel:+1{{phone}}" class="button button-stable icon ion-ios-telephone"></a>
 			</table>
 	</div>
 	
