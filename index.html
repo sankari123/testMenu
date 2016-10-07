@@ -244,7 +244,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3]+" "+multiArr1[h][4];
 
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='75%' height='75%' valign='middle'>"+"</td><td><textarea cols=20 rows=5>"+addr+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;overflow-x: scroll;border: none; overflow: auto;outline: none;' cols=20 rows=5>"+addr+"</textarea></td></tr></table>";
 		
 				
 				
@@ -253,7 +253,8 @@ function showTbl()
 	function showDiv()
 	
 	{
-	document.write('<a href="' + fone + '">Open here</a>');
+		alert('in');
+	document.write('<a href="' + fone + '">Call Now</a>');
 	}
 	
 		
