@@ -244,7 +244,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3]+" "+multiArr1[h][4];
 
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;overflow-x: scroll;border: none; overflow: auto;outline: none;' cols=20 rows=5>"+addr+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;overflow-x: scroll;border: none; overflow: auto;outline: none;' cols=40 rows=5>"+addr+"</textarea></td></tr></table>";
 		
 				
 				
@@ -254,7 +254,7 @@ function showTbl()
 	
 	{
 		alert('in');
-	document.write('<a href="' + fone + '">Call Now</a>');
+	document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
 		
@@ -347,7 +347,7 @@ body, html {
 		</div>
 	<div id='inTab'>
 		<input type="hidden" name="smname" id="smname" />
-			<table width='100%'>
+			<table width='100%' bgcolor='#4e448a'>
 	<tr><td width='33%'>
 		<input type=button class=btn1 onclick='showDiv();'>Call
 		
@@ -355,7 +355,7 @@ body, html {
 		
 	</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
 				
-				<a ng-href="tel:+1{{phone}}" class="button button-stable icon ion-ios-telephone"></a>
+				
 			</table>
 	</div>
 	
