@@ -248,6 +248,18 @@ function showTbl()
 				
 			
 	}
+	function phone()
+	{
+	window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
+	}
+	function onSuccess(result){
+  console.log("Success:"+result);
+}
+
+function onError(result) {
+  console.log("Error:"+result);
+}
+		
 </script>
 <style>
 	#textarea {
@@ -337,7 +349,7 @@ body, html {
 		</div>
 	<div id='inTab'>
 			<table width='100%'>
-				<tr><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Call</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
+				<tr><td width='33%'><a href="tel:+00-000"> Make a Phone Call </a></td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showDiv();'>Route Map</td></tr>
 			</table>
 	</div>
 	
