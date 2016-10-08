@@ -239,13 +239,12 @@ function showTbl()
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
 		document.getElementById("sms").style.visibility="true";
-		document.getElementById("inTab").style.display="block";
-		document.getElementById("inTab").style.visibility="true";
+		
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
 
 		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='60%' height='60%' valign='middle'>"+"</td><td><textarea readonly  style='white-space: pre;overflow-wrap: normal;border: none; overflow: auto;outline: none;' cols=40 rows=2>"+addr+"</textarea></td></tr></table>";
-		
+		showDiv();
 				
 				
 			
@@ -254,6 +253,8 @@ function showTbl()
 	
 	{
 		//alert('in');
+		document.getElementById("inTab").style.display="block";
+		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
 		inTab.innerHTML="<table width='100%' bgcolor='#4e448a'><tr><td width='33%'><a href=tel:'+fone+'>Call</a></td><td width='33%'><input type=button class=btn1 onclick='showSMS();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showRoute();'>Route Map</td></tr></table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
