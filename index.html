@@ -254,10 +254,12 @@ function showTbl()
 	
 	{
 		//alert('in');
-	document.write('<a href=tel:"' + fone + '">Call Now</a>');
+		//inTab.innerHTML="<table width='100%'>";
+		inTab.innerHTML="<table width='100%' bgcolor='#4e448a'><tr><td width='33%'><a href=tel:'+fone+'>Call</a></td><td width='33%'><input type=button class=btn1 onclick='showSMS();'>Text</td><td width='33%'><input type=button class=btn1 onclick='showRoute();'>Route Map</td></tr></table>"
+	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
-		
+	//showDiv();	
 </script>
 <style>
 	#textarea {
