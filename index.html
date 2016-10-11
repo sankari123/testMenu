@@ -20,6 +20,8 @@
 		var result;
 		var zoom;
 		var c,ctx;
+		var lat2;
+		var long2;
 		multiArr = [];
 		multiArr1 = [];
 		var mnu_select=false;
@@ -230,12 +232,15 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
-		alert('in');
-		fone=parseInt(multiArr1[h][4]);		
+		//alert('in');
+		fone=parseInt(multiArr1[h][4]);	
+		lat2=multiArr[h][1];
+		long2=multiArr[h][2];
+		
 		smsBar.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
-		alert(imgNam);
+		//alert(imgNam);
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("smsBar").style.display="block";
@@ -244,7 +249,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
 
-		smsBar.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='100px' height='100px' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
+		smsBar.innerHTML=smsBar.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='100px' height='100px' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
 		showDiv();
 				
 				
@@ -257,13 +262,13 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
-		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a 'style=color: black;text-decoration: none;' href=tel:"+fone+">Call</a></td><td><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td></tr><table>"
+		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a href=tel:"+fone+">Call</a></td><td><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td><td><input type='button' class='btn1' onclick='calcRoute()' value='Route Map' /></td></tr><table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
 var app = {
     sendSms: function() {
-        alert('click');
+       // alert('click');
         var number = fone;
 	var message = "Pl. book a table"
 	var intent = 'INTENT'; //leave empty for sending sms using default intent
@@ -272,18 +277,47 @@ var app = {
         sms.send(number, message, intent, success, error);
     }
 };
+	
+	function calcRoute() {
+
+        var waypts = [];
+
+
+stop = new google.maps.LatLng(lat2,long2)
+        waypts.push({
+            location:stop,
+            stopover:true});
+
+
+        start  = new google.maps.LatLng(x,y);
+        end = new google.maps.LatLng(lat2,long2);
+        var request = {
+            origin: start,
+            destination: end,
+            waypoints: waypts,
+            optimizeWaypoints: true,
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+                var route = response.routes[0];
+
+            }
+        });
+    }
+
 	//showDiv();	
 </script>
 <style>
-	a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
-}
+
+	a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:black; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }
 	
 	
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+   
 }
 	#hr { 
     display: block;
