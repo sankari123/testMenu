@@ -10,7 +10,10 @@
 	
 
 <script>
-		var x,y;
+		 var directionDisplay;
+    var directionsService = new google.maps.DirectionsService();
+    var map2;
+	var x,y;
 		var flg;
 	    	var return_data;
 		var locArr;
@@ -289,8 +292,8 @@ var app = {
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: myLoc
         }
-        map = new google.maps.Map(document.getElementById("route_canvas"), myOptions);
-        directionsDisplay.setMap(map);
+        map2 = new google.maps.Map(document.getElementById("route_canvas"), myOptions);
+        directionsDisplay.setMap(map2);
         calcRoute();
     }
 	
