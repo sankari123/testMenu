@@ -124,9 +124,10 @@ function myMap(position) {
         y = position.coords.longitude;
 	if(parseInt(x)==0||parseInt(y)==0)
 	{
-		alert('Unable to detect your location');
+		alert('Unable to detect your location.....');
+		exit;
 	}
-		//alert(x);
+		window.plugins.spinnerDialog.hide();
   var myCenter = new google.maps.LatLng(x,y);
 	document.getElementById("map").width=window.innerWidth;
 	document.getElementById("map").height=window.innerHeight;
