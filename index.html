@@ -65,8 +65,8 @@ function ajaxCall(passVar) {
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility=false;
-	document.getElementById("sms").style.display="none";
-	document.getElementById("sms").style.visibility="false";
+	document.getElementById("smsBar").style.display="none";
+	document.getElementById("smsBar").style.visibility="false";
 	document.getElementById("inTab").style.display="none";
 	document.getElementById("inTab").style.visibility="false";
 	
@@ -232,20 +232,20 @@ function showTbl()
 	{
 		alert('in');
 		fone=parseInt(multiArr1[h][4]);		
-		sms.innerHTML="<table width='100%'>";
+		smsBar.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		alert(imgNam);
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
-		document.getElementById("sms").style.display="block";
-		document.getElementById("sms").style.visibility="true";
+		document.getElementById("smsBar").style.display="block";
+		document.getElementById("smsBar").style.visibility="true";
 		
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
 
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='100px' height='100px' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
-		//showDiv();
+		smsBar.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='100px' height='100px' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
+		showDiv();
 				
 				
 			
@@ -257,10 +257,21 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
-		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a 'style=color: black;text-decoration: none;' href=tel:"+fone+">Call</a></td></tr><table>"
+		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a 'style=color: black;text-decoration: none;' href=tel:"+fone+">Call</a></td><td><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td></tr><table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
+var app = {
+    sendSms: function() {
+        alert('click');
+        var number = fone;
+	var message = "Pl. book a table"
+	var intent = 'INTENT'; //leave empty for sending sms using default intent
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, intent, success, error);
+    }
+};
 	//showDiv();	
 </script>
 <style>
@@ -347,7 +358,7 @@ body, html {
 	<div id="lst_mnu">
 		
 	</div>
-	<div id="sms">
+	<div id="smsBar">
 		
 		</div>
 	<div id='inTab'>
