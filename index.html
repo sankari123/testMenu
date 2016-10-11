@@ -245,6 +245,9 @@ function showTbl()
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("smsBar").style.display="block";
 		document.getElementById("smsBar").style.visibility="true";
+		document.getElementById("route_canvas").style.display="block";
+		document.getElementById("route_canvas").style.visibility="true";
+		
 		
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
@@ -262,7 +265,7 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
-		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a href=tel:"+fone+">Call</a></td><td><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td><td><input type='button' class='btn1' onclick='calcRoute()' value='Route Map' /></td></tr><table>"
+		inTab.innerHTML="<table width='100%'><tr><td width='33%'><a href=tel:"+fone+">Call</a></td><td><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td><td><input type='button' class='btn1' onclick='ini_route();' value='Route Map' /></td></tr><table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
@@ -277,6 +280,19 @@ var app = {
         sms.send(number, message, intent, success, error);
     }
 };
+	
+	function ini_route() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var chicago = new google.maps.LatLng(-40.321, 175.54);
+        var myOptions = {
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: chicago
+        }
+        map = new google.maps.Map(document.getElementById("route_canvas"), myOptions);
+        directionsDisplay.setMap(map);
+        calcRoute();
+    }
 	
 	function calcRoute() {
 
@@ -375,6 +391,11 @@ body, html {
 		display:none;
 		
 	}
+	#route_canvas
+	{
+		display:none;
+		
+	}
 .btn1 {  background-color: transparent; border: 0; padding: 0;}
 	
 </style>
@@ -398,7 +419,7 @@ body, html {
 	<div id='inTab'>
 		
 	</div>
-	
+	<div id='route_canvas' style='width:70%;height:80%;'></div>
 	
 <div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
 <textarea id="tmpD"  class="hideDontTakeUpSpace" rows=6 cols=50></textarea>
