@@ -230,11 +230,12 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
-		//alert('in');
+		alert('in');
 		fone=parseInt(multiArr1[h][4]);		
 		sms.innerHTML="<table width='100%'>";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
+		alert(imgNam);
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("sms").style.display="block";
@@ -243,7 +244,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
 
-		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='40%' height='40%' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
+		sms.innerHTML=sms.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='100px' height='100px' valign='middle'>"+"</td><td><textarea readonly style='white-space: pre;overflow-wrap: normal;border: none; outline: none;' cols=30 rows=2>"+addr+"</textarea></td></tr></table>";
 		showDiv();
 				
 				
