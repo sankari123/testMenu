@@ -46,6 +46,7 @@
 	
 		function onDeviceReady()
 		{
+		window.plugins.spinnerDialog.show(null, "Detecting your location... Please wait!");
 		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
 		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
@@ -121,7 +122,11 @@ function getLoc()
 function myMap(position) {
        x = position.coords.latitude;
         y = position.coords.longitude;
-		alert(x);
+	if(parseInt(x)==0||parseInt(y)==0)
+	{
+		alert('Unable to detect your location');
+	}
+		//alert(x);
   var myCenter = new google.maps.LatLng(x,y);
 	document.getElementById("map").width=window.innerWidth;
 	document.getElementById("map").height=window.innerHeight;
@@ -257,7 +262,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr1[h][0]+" "+multiArr1[h][1]+" "+multiArr1[h][2]+" "+multiArr1[h][3];
 
-		smsBar.innerHTML=smsBar.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='40%' height='40%' valign='middle'>"+"</td><td>"+addr+"</td></tr></table>";
+		smsBar.innerHTML=smsBar.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='40%' height='40%' valign='middle'>"+"</td><td><textarea style='word-break: break-all;  '>"+addr+"</textarea></td></tr></table>";
 		showDiv();
 				
 				
