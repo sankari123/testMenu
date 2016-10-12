@@ -286,9 +286,9 @@ var app = {
         var number = fone;
 	var message = "Pl. book a table"
 	var intent = 'INTENT'; //leave empty for sending sms using default intent
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, intent, success, error);
+      //  var success = function () { alert('Message sent successfully'); };
+       // var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, intent);
     }
 };
 	
