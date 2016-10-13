@@ -181,6 +181,7 @@ function myMap(position) {
 		
 		}
 		multiArr.push(['You are here!',x,y,0]);
+		//multiArr1.push(['addr1','addr2','addr3','addr4','addr5']);
 		document.getElementById("tmpD").value=tmpDat1;
 		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
 		displayArr();
@@ -222,10 +223,7 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
       })(marker, i));
     }
 }
-	else
-	{
-		//showTbl();
-}
+	
 	
 }
 function showTbl()
@@ -234,7 +232,7 @@ function showTbl()
 	document.getElementById("map").style.display="none";
 	document.getElementById("map").style.visibility=false;
 	document.getElementById("lst_mnu").style.display="block";
-	for (var i = 0, len = multiArr.length; i < len; i++) {
+	for (var i = 0, len = multiArr.length-1; i < len; i++) {
      
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
