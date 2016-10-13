@@ -79,7 +79,7 @@ function ajaxCall() {
 	document.getElementById("route_canvas").style.visibility="false";
 	
 				
-			zoom=12;
+			zoom=13;
 		var params = "lat1=" + x +"&long11=" + y; 
 		var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
         var request = new XMLHttpRequest(); 
@@ -319,7 +319,7 @@ var app = {
         directionsDisplay = new google.maps.DirectionsRenderer();
         var myLoc = new google.maps.LatLng(x,y);
         var myOptions = {
-            zoom: 16,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: myLoc
         }
@@ -329,7 +329,7 @@ var app = {
     }
 	
 	function calcRoute() {
-
+	alert('in');
         var waypts = [];
 
 
