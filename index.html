@@ -134,8 +134,9 @@ var ctx = c.getContext("2d");
 var img = document.getElementById("map");
 img.onload = function(){
     ctx.drawImage(img,0,0);
+	ajaxCall();
 }
-ajaxCall();
+
 }
  function procVal(){
 	if(document.getElementById("rest1").value.length==0)
