@@ -429,7 +429,7 @@ body, html {
    
 }
 .btn1 {  background-color: transparent; border: 0; padding: 0;}
-	
+	optgroup { font-size:10px; }
 </style>
 	</head>
 <body onload="getLoc();">
@@ -437,13 +437,13 @@ body, html {
 			<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>DIVE</b></font></td></tr>
 		
 	</table>
-		<div id="titleBar" align='right'><h6>Search DIVE Joints WW </h6>
-    <select name="cities">
-          <option value="New York#USA">New York USA</option>
-          <option value="Paris#France">Paris France</option>
-          <option value="Calfornia#USA">Calfornia USA</option>
-          <option value="Arizona#USA">Arizona USA</option>
-    </select>
+		<div id="titleBar" align='right'><h6>Search DIVE Joints WW&nbsp;&nbsp; </h6>
+    <optgroup name="cities">
+          <option value="New York#USA">New York,USA</option>
+          <option value="Paris#France">Paris,France</option>
+          <option value="Calfornia#USA">Calfornia,USA</option>
+          <option value="Arizona#USA">Arizona,USA</option>
+  </optgroup>
 </div>
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
