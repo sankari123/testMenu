@@ -119,23 +119,28 @@ function myMap(position) {
 		alert('Unable to detect your location.....');
 		exit;
 	}
-		window.plugins.spinnerDialog.hide();
-  var myCenter = new google.maps.LatLng(x,y);
-	document.getElementById("map").width=window.innerWidth;
-	document.getElementById("map").height=window.innerHeight;
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {center: myCenter, zoom: 18};
-  var map1 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker1 = new google.maps.Marker({position:myCenter});
-  var infowindow = new google.maps.InfoWindow();
-  marker1.setMap(map1);
-var c = document.getElementById("map1");
-var ctx = c.getContext("2d");
-var img = document.getElementById("map");
-img.onload = function(){
-    ctx.drawImage(img,0,0);
+	else
+	{
+	window.plugins.spinnerDialog.hide();		
 	ajaxCall();
-}
+	}
+		
+  //var myCenter = new google.maps.LatLng(x,y);
+//	document.getElementById("map").width=window.innerWidth;
+//	document.getElementById("map").height=window.innerHeight;
+ // var mapCanvas = document.getElementById("map");
+  //var mapOptions = {center: myCenter, zoom: 18};
+  //var map1 = new google.maps.Map(mapCanvas, mapOptions);
+  //var marker1 = new google.maps.Marker({position:myCenter});
+  //var infowindow = new google.maps.InfoWindow();
+  //marker1.setMap(map1);
+//var c = document.getElementById("map1");
+//var ctx = c.getContext("2d");
+//var img = document.getElementById("map");
+//img.onload = function(){
+ //   ctx.drawImage(img,0,0);
+	
+//}
 
 }
  function procVal(){
