@@ -248,7 +248,8 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
-		alert('in');
+		if(h!=multiArr.length)
+		{
 		alert(h);
 		fone=parseInt(multiArr1[h][4]);	
 		lat2=multiArr[h][1];
@@ -258,6 +259,9 @@ function showTbl()
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		//alert(imgNam);
+						
+		document.getElementById("map").style.display="none";
+		document.getElementById("map").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("smsBar").style.display="block";
@@ -272,7 +276,7 @@ function showTbl()
 		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='40%' height='40%' valign='middle'>"+"</td><td width='50%'><textarea rows=5 cols=25 disabled style='resize:none; background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
 		ini_route();
 		showDiv();
-				
+		}		
 				
 			
 	}
