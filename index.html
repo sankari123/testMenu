@@ -255,7 +255,7 @@ function showTbl()
 		lat2=multiArr[h][1];
 		long2=multiArr[h][2];
 		
-		smsBar.innerHTML="<table width='100%'><tr height='30px' bgcolor='#a7a7a8'><td colspan=2> <img src='back.png' onclick='ajaxCall();' />Back</td></tr> ";
+		smsBar.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px' bgcolor='#e0e1e1'><td colspan=2> <img src='back.png' onclick='ajaxCall();' />Back</td></tr> ";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		//alert(imgNam);
@@ -425,7 +425,7 @@ body, html {
 <body onload="getLoc();">
 	<table width="100%"  cellspacing='0' cellpadding='0'>
 			<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>DIVE</b></font></td></tr>
-		
+		<tr height='40px' bgcolor="#e0e1e1"><td colspan=2 align='right'><font face=arial><b>Search DIVE Joints WorldOver</b></font></td></tr>
 	</table>
 		
 <div id="map" style="position:fixed;width:100%;height:500px">
