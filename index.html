@@ -195,13 +195,27 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
 }
 	if(mnu_select==false)
 	{
+		
+		var mapOptions1 = {
+  center: new google.maps.LatLng(x,y),
+  zoom: 18,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+	var map11 = new google.maps.Map(document.getElementById("map"), mapOptions1);
+		var markerOptions1 = {
+  position:  new google.maps.LatLng(x,y),
+  map: map,
+  animation: google.maps.Animation.DROP,
+  clickable: false
+}
+	var marker = new google.maps.Marker(markerOptions1);	
+		
  var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoom,
       center: new google.maps.LatLng(x,y),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-  var myCenter = new google.maps.LatLng(x,y);
-   var marker1 = new google.maps.Marker({position:myCenter});
+ 
     
    var infowindow = new google.maps.InfoWindow();
     var marker, i;
