@@ -207,9 +207,11 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
  
-  for (i = 0; i < multiArr.length; i++) { 
-   
-  if( multiArr[i][1]==x && multiArr[i][2]==y)
+ 		
+   var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < multiArr.length; i++) { 
+	     if( multiArr[i][1]==x && multiArr[i][2]==y)
   {
 	  icon='you';
   }
@@ -217,11 +219,8 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
 		{
 		icon='green';
 		}
-icon = icon + ".png";		
-  }		
-   var infowindow = new google.maps.InfoWindow();
-    var marker, i;
-    for (i = 0; i < multiArr.length; i++) { 
+icon = icon + ".png";
+	    
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(multiArr[i][1], multiArr[i][2]),
 	animation: google.maps.Animation.DROP,
