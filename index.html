@@ -219,6 +219,7 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
         return function() {
           infowindow.setContent(multiArr[i][0]);
           infowindow.open(map, marker);
+	   call_hotel(i);
         }
       })(marker, i));
     }
@@ -247,7 +248,8 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
-		//alert('in');
+		alert('in');
+		alert(h);
 		fone=parseInt(multiArr1[h][4]);	
 		lat2=multiArr[h][1];
 		long2=multiArr[h][2];
