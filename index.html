@@ -157,7 +157,7 @@ function myMap(position) {
 		locArr = locArr.substring(0, locArr.length - 1);
 		locArr=locArr.split('#');
 		tmpDat1='';
-		multiArr.push(['Your location'],x,y,0);
+		
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 7;
@@ -180,7 +180,7 @@ function myMap(position) {
 	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7]]);
 		
 		}
-		//multiArr.push(
+		multiArr.push(['You are here!',x,y,0]);
 		document.getElementById("tmpD").value=tmpDat1;
 		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
 		displayArr();
