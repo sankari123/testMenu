@@ -345,7 +345,35 @@ stop = new google.maps.LatLng(lat2,long2)
         });
     }
 
-	//showDiv();	
+	//showDiv();
+	
+	var config = {
+    title: "Select a City", 
+    items: [
+        { text: "Orange", value: "orange" },
+        { text: "Apple", value: "apple" },
+        { text: "Watermelon", value: "watermelon" },
+        { text: "Papaya", value: "papaya" },
+        { text: "Banana", value: "banana" },
+        { text: "Pear", value: "pear" }         
+    ],
+    selectedValue: "papaya",
+    doneButtonLabel: "Done",
+    cancelButtonLabel: "Cancel"
+};
+	
+// Show the picker
+	function showLst()
+	{
+window.plugins.listpicker.showPicker(config, 
+    function(item) { 
+        alert("You have selected " + item);
+    },
+    function() { 
+        alert("You have cancelled");
+    }
+);
+	}	
 </script>
 <style>
 
@@ -436,28 +464,9 @@ body, html {
 <body onload="getLoc();">
 	<table width="100%"  cellspacing='0' cellpadding='0'>
 			<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>DIVE</b></font></td></tr>
-		
+		<tr><td align=right><input type='button' class='btn1' value='Search DIVE Joints WW' onclick='showLst();'></td></tr>
 	</table>
-		<div id="titleBar" align='right'><h6>Search DIVE Joints WW &nbsp;&nbsp; </h6>
-    <select name="cities" class='optgroup'>
-          <option value="New York#USA">New York,USA</option>
-          <option value="Paris#France">Paris,France</option>
-          <option value="California#USA">California,USA</option>
-          <option value="Phoenix#USA">Arizona,USA</option>
-	   <option value="Washington#USA">Washington,USA</option>
-	    <option value="Virginia#USA">Virginia,USA</option>
-	     <option value="Florida#USA">Florida,USA</option>
-	     <option value="Chicago#USA">Chicago,USA</option>
-	     <option value="Los Angeles#USA">Los Angeles,USA</option>
-	    <option value="Houston#USA">Houston,USA</option>
-	    <option value="San Diego#USA">San Diego,USA</option>
-	    <option value="Dallas#USA">Dallas,USA</option>
-	    <option value="San Jose#USA">San Jose,USA</option>
-	    <option value="Boston#USA">Boston,USA</option>
-	    <option value="Denver#USA">Denver,USA</option>
-	    
-  </select>
-</div>
+		
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
 	</div>
