@@ -66,7 +66,7 @@
 		}
 		}
 	   
-function ajaxCall(passVar) {
+function ajaxCall() {
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
@@ -78,16 +78,8 @@ function ajaxCall(passVar) {
 	document.getElementById("route_canvas").style.display="none";
 	document.getElementById("route_canvas").style.visibility="false";
 	
-		    if(passVar=='true')
-			{
-			mnu_select=true;
-			}
-			else
-			{
-			mnu_select=false;
-			}
 				
-			zoom=14;
+			zoom=12;
 		var params = "lat1=" + x +"&long11=" + y; 
 		var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
         var request = new XMLHttpRequest(); 
@@ -127,22 +119,29 @@ function myMap(position) {
 		alert('Unable to detect your location.....');
 		exit;
 	}
-		window.plugins.spinnerDialog.hide();
-  var myCenter = new google.maps.LatLng(x,y);
-	document.getElementById("map").width=window.innerWidth;
-	document.getElementById("map").height=window.innerHeight;
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {center: myCenter, zoom: 18};
-  var map1 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker1 = new google.maps.Marker({position:myCenter});
-  var infowindow = new google.maps.InfoWindow();
-  marker1.setMap(map1);
-var c = document.getElementById("map1");
-var ctx = c.getContext("2d");
-var img = document.getElementById("map");
-img.onload = function(){
-    ctx.drawImage(img,0,0);
-}
+	else
+	{
+	window.plugins.spinnerDialog.hide();		
+	ajaxCall();
+	}
+		
+  //var myCenter = new google.maps.LatLng(x,y);
+//	document.getElementById("map").width=window.innerWidth;
+//	document.getElementById("map").height=window.innerHeight;
+ // var mapCanvas = document.getElementById("map");
+  //var mapOptions = {center: myCenter, zoom: 18};
+  //var map1 = new google.maps.Map(mapCanvas, mapOptions);
+  //var marker1 = new google.maps.Marker({position:myCenter});
+  //var infowindow = new google.maps.InfoWindow();
+  //marker1.setMap(map1);
+//var c = document.getElementById("map1");
+//var ctx = c.getContext("2d");
+//var img = document.getElementById("map");
+//img.onload = function(){
+ //   ctx.drawImage(img,0,0);
+	
+//}
+
 }
  function procVal(){
 	if(document.getElementById("rest1").value.length==0)
@@ -158,6 +157,7 @@ img.onload = function(){
 		locArr = locArr.substring(0, locArr.length - 1);
 		locArr=locArr.split('#');
 		tmpDat1='';
+		
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 7;
@@ -180,6 +180,8 @@ img.onload = function(){
 	multiArr1.push([latR[3],latR[4],latR[5],latR[6],latR[7]]);
 		
 		}
+		multiArr.push(['You are here!',x,y,0]);
+		//multiArr1.push(['addr1','addr2','addr3','addr4','addr5']);
 		document.getElementById("tmpD").value=tmpDat1;
 		//navigator.geolocation.getCurrentPosition(handle_geolocation_query);
 		displayArr();
@@ -196,30 +198,45 @@ for (var i = 0, len = multiArr.length; i < len; i++) {
 }
 	if(mnu_select==false)
 	{
+		
+		
+		
  var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoom,
       center: new google.maps.LatLng(x,y),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+ 
+ 		
    var infowindow = new google.maps.InfoWindow();
     var marker, i;
     for (i = 0; i < multiArr.length; i++) { 
+	     if( multiArr[i][1]==x && multiArr[i][2]==y)
+  {
+	  icon='you';
+  }
+		else
+		{
+		icon='green';
+		}
+icon = icon + ".png";
+	    
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(multiArr[i][1], multiArr[i][2]),
+	animation: google.maps.Animation.DROP,
+        icon: new google.maps.MarkerImage(icon),	      
         map: map
       });
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infowindow.setContent(multiArr[i][0]);
           infowindow.open(map, marker);
+	   call_hotel(i);
         }
       })(marker, i));
     }
 }
-	else
-	{
-		showTbl();
-}
+	
 	
 }
 function showTbl()
@@ -228,7 +245,7 @@ function showTbl()
 	document.getElementById("map").style.display="none";
 	document.getElementById("map").style.visibility=false;
 	document.getElementById("lst_mnu").style.display="block";
-	for (var i = 0, len = multiArr.length; i < len; i++) {
+	for (var i = 0, len = multiArr.length-1; i < len; i++) {
      
 	     imgName="http://www.writeacademy.in/dive/images/"+multiArr[i][0].replace(/\s/g, '_')+'.jpg';
 		//alert(len+"-"+imgName);
@@ -243,15 +260,20 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
-		//alert('in');
+		if(h!=multiArr.length)
+		{
+		//alert(h);
 		fone=parseInt(multiArr1[h][4]);	
 		lat2=multiArr[h][1];
 		long2=multiArr[h][2];
 		
-		smsBar.innerHTML="<table width='100%'>";
+		smsBar.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px'><td colspan=2> <input type=button value='Back' class='btn1' onclick='ajaxCall();' /></td></tr> ";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		//alert(imgNam);
+						
+		document.getElementById("map").style.display="none";
+		document.getElementById("map").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("smsBar").style.display="block";
@@ -261,11 +283,12 @@ function showTbl()
 		
 		
 		//sms.innerHTML=multiArr[hNam][0];
-		var addr=multiArr1[h][0]+","+multiArr1[h][1]+","+multiArr1[h][2]+","+multiArr1[h][3];
-		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='40%' height='40%' valign='middle'>"+"</td><td width='50%'><textarea rows=5 cols=25 disabled style='resize:none; background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
+		var addr=multiArr[h][0]+","+multiArr1[h][0]+","+multiArr1[h][1]+","+multiArr1[h][2]+","+multiArr1[h][3];
+
+		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='30%' height='30%' valign='middle'>"+"</td><td width='50%'><textarea rows=5 cols=25 disabled style='resize:none; background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
 		ini_route();
 		showDiv();
-				
+		}		
 				
 			
 	}
@@ -306,11 +329,16 @@ var app = {
     }
 	
 	function calcRoute() {
+
         var waypts = [];
+
+
 stop = new google.maps.LatLng(lat2,long2)
         waypts.push({
             location:stop,
             stopover:true});
+
+
         start  = new google.maps.LatLng(x,y);
         end = new google.maps.LatLng(lat2,long2);
         var request = {
@@ -324,12 +352,46 @@ stop = new google.maps.LatLng(lat2,long2)
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
                 var route = response.routes[0];
+
             }
         });
     }
-	//showDiv();	
+
+	//showDiv();
+	
+	var config = {
+    title: "Select a City", 
+    items: [
+        { text: "California", value: "California" },
+        { text: "Phoenix", value: "Phoenix" },
+        { text: "San Jose", value: "San Jose" },
+        { text: "Chicago", value: "Chicago" },
+        { text: "Denver", value: "Denver" },
+        { text: "New York", value: "New York" },  
+	 { text: "Washington", value: "Washington" }, 
+	{ text: "Austin", value: "Austin" }, 
+        { text: "Las Vegas", value: "Las Vegas" }   
+    ],
+    selectedValue: "papaya",
+    doneButtonLabel: "Done",
+    cancelButtonLabel: "Cancel"
+};
+	
+// Show the picker
+	function showLst()
+	{
+window.plugins.listpicker.showPicker(config, 
+    function(item) { 
+        alert("You have selected " + item);
+    },
+    function() { 
+        alert("You have cancelled");
+    }
+);
+	}	
 </script>
 <style>
+
 	a:visited { text-decoration: none; color:black; }
 a:hover { text-decoration: none; color:black; }
 a:focus { text-decoration: none; color:black; }
@@ -399,17 +461,27 @@ body, html {
 		display:none;
 		
 	}
-.btn1 {  background-color: transparent; border: 0; padding: 0;}
+	div#titleBar > select {
+     float: right;
+ }
+ h6 {
+     display: inline;
+ }
+ #titleBar {
+    border: none;
+   
+}
+.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold;}
 	
+	.optgroup { font-size:10px; }
 </style>
 	</head>
 <body onload="getLoc();">
-	
-		<table width="100%"  cellspacing='0' cellpadding='0'>
-			<tr height='40px' bgcolor='#f1f1f1'><td colspan=2 align='center'><font face=arial><b>DIVE</b></font></td></tr>
-		<tr height='40px' bgcolor="#d78f97"><td width="50%" align="center"><b><input type="button" class='btn1' value="LIST" onclick="ajaxCall('true');" /></b></td><td width="50%" align="center"><b><input type="button"  class='btn1'  value="MAP" onclick="ajaxCall('false');" /></b></td></tr>
+	<table width="100%"  cellspacing='0' cellpadding='0'>
+			<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>DIVE</b></font></td></tr>
+		
 	</table>
-	
+		
 <div id="map" style="position:fixed;width:100%;height:500px">
 	<canvas id="map1">   </canvas>
 	</div>
