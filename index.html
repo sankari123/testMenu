@@ -79,7 +79,7 @@ function ajaxCall() {
 	document.getElementById("route_canvas").style.visibility="false";
 	
 				
-			zoom=12;
+			zoom=13;
 		var params = "lat1=" + x +"&long11=" + y; 
 		var myURL="http://www.writeacademy.in/dive/passVar1.php"; 
         var request = new XMLHttpRequest(); 
@@ -285,7 +285,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr[h][0]+","+multiArr1[h][0]+","+multiArr1[h][1]+","+multiArr1[h][2]+","+multiArr1[h][3];
 
-		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='30%' height='30%' valign='middle'>"+"</td><td width='50%'><textarea rows=5 cols=25 disabled style='resize:none; background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
+		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='30%' height='30%' valign='middle'>"+"</td><td width='50%'><textarea rows=3 cols=25 disabled style='resize:none; background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
 		ini_route();
 		showDiv();
 		}		
@@ -319,7 +319,7 @@ var app = {
         directionsDisplay = new google.maps.DirectionsRenderer();
         var myLoc = new google.maps.LatLng(x,y);
         var myOptions = {
-            zoom: 16,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: myLoc
         }
