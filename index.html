@@ -331,7 +331,7 @@ var app = {
         map2 = new google.maps.Map(document.getElementById("route_canvas"), myOptions);
         directionsDisplay.setMap(map2);
         calcRoute();
-	//	getDrive();
+		getDrive();
     }
 	
 	function calcRoute() {
@@ -536,7 +536,7 @@ body, html {
 	</div>
 	 <div style="width: 600px;">
          <div id='route_canvas' style='width:200px;height:400px;float: left;'></div>
-         <div id="panel" style="width: 250px; float: right;"></div> 
+         <div id="panel" style="font-family:arial;font-size:12px;width: 200px; float: right;"></div> 
        </div>
 	
 	
