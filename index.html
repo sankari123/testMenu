@@ -285,7 +285,7 @@ function showTbl()
 		//sms.innerHTML=multiArr[hNam][0];
 		var addr=multiArr[h][0]+","+multiArr1[h][0]+","+multiArr1[h][1]+","+multiArr1[h][2]+","+multiArr1[h][3];
 
-		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='40px' height='40px' valign='middle'>"+"</td><td width='50%'><textarea rows=3 cols=18 disabled style='background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
+		smsBar.innerHTML=smsBar.innerHTML+"<tr><td width='50%'>"+"<img src='"+imgNam+"' width='50px' height='50px' valign='middle'>"+"</td><td width='50%'><textarea rows=3 cols=25 disabled style='background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr></table>";
 		ini_route();
 		showDiv();
 		}		
@@ -299,7 +299,7 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
-		inTab.innerHTML="<table width='100%' bgcolor='#e0e1e1'><tr><td width='50%' align='center'><a style='text-decoration:none;color: #000000' href=tel:"+fone+">Call</a></td><td width='50%' align='center'><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td></tr><table>"
+		inTab.innerHTML="<table width='100%' bgcolor='#e0e1e1'><tr><td width='50%' align='center'><a style='text-decoration:none;color: #000000' href=tel:"+fone+"><b>Call</b></a></td><td width='50%' align='center'><input type='button' class='btn1' onclick='app.sendSms()' value='Send SMS' /></td></tr><table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
@@ -483,7 +483,7 @@ body, html {
 		
 	</table>
 		
-<div id="map" style="position:fixed;width:100%;height:500px">
+<div id="map" style="position:fixed;width:100%;height:500px;">
 	<canvas id="map1">   </canvas>
 	</div>
 	<div id="lst_mnu">
@@ -495,7 +495,7 @@ body, html {
 	<div id='inTab'>
 		
 	</div>
-	<div id='route_canvas' style='width:100%;height:80%;'></div>
+	<div id='route_canvas' style='width:100%;height:500px;'></div>
 	
 <div id='ajaxDiv' class="hideDontTakeUpSpace">Your result will display here</div>
 <textarea id="tmpD"  class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
