@@ -267,7 +267,7 @@ function showTbl()
 		lat2=multiArr[h][1];
 		long2=multiArr[h][2];
 		
-		smsBar.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px'><td colspan=2> <input type=button value='Back' class='btn1' onclick='ajaxCall();' /></td></tr> ";
+		smsBar.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px' bgcolor='#f7f7f7'><td colspan=2> <input type=button value='Back' class='btn1' onclick='ajaxCall();' /></td></tr> ";
 		//locArr[0] contains full address of a hotel lat,long,hotel name,add1,add2,add3,add4,add5,phone
 		imgNam="http://www.writeacademy.in/dive/images/"+multiArr[h][0].replace(/\s/g, '_')+'.jpg';
 		//alert(imgNam);
@@ -472,7 +472,7 @@ body, html {
     border: none;
    
 }
-.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold;}
+.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold;font-family: "Times New Roman", Times, serif;font-size: 20px;}
 	
 	.optgroup { font-size:10px; }
 </style>
