@@ -29,9 +29,7 @@
 		multiArr1 = [];
 		var mnu_select=false;
 		var fone;
-	window.addEventListener("orientationchange", function(){
-    console.log(screen.orientation); // e.g. portrait
-});
+	
 		document.addEventListener("deviceready",onDeviceReady,false);
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 	window.document.addEventListener('orientationchange', function() {
@@ -49,6 +47,9 @@
 	
 		function onDeviceReady()
 		{
+		window.addEventListener("orientationchange", function(){
+    console.log(screen.orientation); // e.g. portrait
+});
 		window.plugins.spinnerDialog.show(null, "Detecting your location... Please wait!");
 		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
@@ -157,6 +158,7 @@ function myMap(position) {
 	{
 		flg='y';
 		//alert("Searching DIVE Joints");
+		window.plugins.spinnerDialog.hide();
 		multiArr=[];
 		multiArr1=[];
 		locArr = document.getElementById("rest1").value;
@@ -199,7 +201,7 @@ function myMap(position) {
 }
 function displayArr()
 {
-	window.plugins.spinnerDialog.hide();
+	
 for (var i = 0, len = multiArr.length; i < len; i++) {
 //alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 }
