@@ -309,7 +309,7 @@ function showTbl()
 		document.getElementById("inTab").style.display="block";
 		document.getElementById("inTab").style.visibility="true";
 		//inTab.innerHTML="<table width='100%'>";
-		inTab.innerHTML="<table width='100%' bgcolor='#e0e1e1'><tr><td width='50%' align='center'><a style='text-decoration:none;color: #000000' href=tel:"+fone+"><b>Call</b></a></td><td width='50%' align='center'><input type='button' class='btn1' onclick='getDrive()' value='Directions' /></td></tr><table>"
+		inTab.innerHTML="<table width='100%' bgcolor='#e0e1e1'><tr><td width='50%' align='center'><a style='text-decoration:none;color: #000000' href=tel:"+fone+"><b>Call</b></a></td><td width='50%' align='center'><input type='button' class='btn1' onclick='speechStart();' value='Voice' /></td></tr><table>"
 	//document.write('<a href=tel:"' + fone + '">Call Now</a>');
 	}
 	
@@ -427,6 +427,13 @@ window.plugins.listpicker.showPicker(config,
              directionsDisplay.setDirections(response);
            }
          });
+	}
+	function speechStart()
+	{
+		var node = document.getElementById('panel'),
+		htmlContent = node.innerHTML,
+		textContent = node.textContent;
+	tts.speak(textContent);
 	}
 </script>
 <style>
