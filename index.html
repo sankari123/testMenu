@@ -29,6 +29,9 @@
 		multiArr1 = [];
 		var mnu_select=false;
 		var fone;
+	window.addEventListener("orientationchange", function(){
+    console.log(screen.orientation); // e.g. portrait
+});
 		document.addEventListener("deviceready",onDeviceReady,false);
 		//window.onload = function(){ document.getElementById("loading").style.display = "none" } 
 	window.document.addEventListener('orientationchange', function() {
@@ -67,6 +70,7 @@
 		}
 	   
 function ajaxCall() {
+	screen.unlockOrientation();
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
@@ -263,6 +267,7 @@ function showTbl()
 	function call_hotel(h)
 	
 	{
+		screen.lockOrientation('landscape');
 		if(h!=multiArr.length)
 		{
 		//alert(h);
