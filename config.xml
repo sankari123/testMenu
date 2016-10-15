@@ -43,7 +43,7 @@
   <plugin name="com.teamnemitoff.phonedialer" spec="0.3.0" source="pgb" />
   <plugin name="com.cordova.plugins.sms" spec="0.1.2" source="pgb" />
   <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
-
+<plugin name="org.tt.plugin.tts" spec="1" source="pgb" />
   <icon src="icon.png" />
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
