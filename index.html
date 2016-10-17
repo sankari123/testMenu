@@ -72,6 +72,7 @@
 	   
 function ajaxCall() {
 	//screen.unlockOrientation();
+	codeLatLng(x,y);
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
@@ -128,7 +129,7 @@ function myMap(position) {
 	}
 	else
 	{
-	codeLatLng(x,y);		
+			
 	ajaxCall();
 	}
 		
