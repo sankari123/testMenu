@@ -433,6 +433,8 @@ window.plugins.listpicker.showPicker(config,
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
+		alert(origin);
+		alert(destination);
 		textContent=textContent.replace(origin,'');
 		textContent=textContent.replace(destination,'');
 		
