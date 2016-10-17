@@ -13,6 +13,8 @@
 		 var directionDisplay;
     var directionsService = new google.maps.DirectionsService();
     var map2;
+	var addr_start;
+	var addr_end;
 	var x,y;
 		var flg;
 	    	var return_data;
@@ -126,7 +128,7 @@ function myMap(position) {
 	}
 	else
 	{
-			
+	codeLatLng(x,y);		
 	ajaxCall();
 	}
 		
@@ -430,15 +432,12 @@ window.plugins.listpicker.showPicker(config,
 	}
 	function speechStart()
 	{
-		addr1= getAddressFromLatLang(x,y);
+		
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		alert(addr1);
+		alert(addr_start);
 		//alert(destination);
-		textContent=textContent.replace(origin,'');
-		textContent=textContent.replace(destination,'');
-		
 		alert(textContent);
 	//window.plugins.tts.speak(textContent);
 	}
@@ -490,24 +489,44 @@ window.plugins.listpicker.showPicker(config,
         console.log("Error = " + result);
     }
 	
-	function getAddressFromLatLang(lat,lng){
-    //  console.log("Entering getAddressFromLatLang()");
-      var geocoder = new google.maps.Geocoder();
-        var latLng = new google.maps.LatLng(lat, lng);
-        geocoder.geocode( { 'latLng': latLng}, function(results, status) {
-        console.log("After getting address");
-        console.log(results);
-        if (status == google.maps.GeocoderStatus.OK) {
-          if (results[1]) {
-          //  console.log(results[1]);
-            return (results[1].formatted_address);
-          }
-        }else{
-          alert("Geocode was not successfulfor the following reason: " + status);
+	function codeLatLng(lat, lng) {
+  addr='';
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      console.log(results)
+        if (results[1]) {
+         //formatted address
+       //  alert(results[0].formatted_address);
+		 addr_start=results[0].formatted_address;
+		
+		//alert(addr);
+		 exit;
+        //find country name
+             for (var i=0; i<results[0].address_components.length; i++) {
+            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+
+            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    city= results[0].address_components[i];
+                    break;
+                }
+            }
         }
-        });
-     // console.log("Entering getAddressFromLatLang()");
-    }
+        //city data
+      //  alert(city.short_name + " " + city.long_name)
+
+
+        } else {
+          alert("No results found");
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+	//test();
+  }
 		
 </script>
 <style>
