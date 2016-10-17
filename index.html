@@ -430,6 +430,7 @@ window.plugins.listpicker.showPicker(config,
 	}
 	function speechStart()
 	{
+		addr1= getAddressFromLatLang(x,y);
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
@@ -489,6 +490,25 @@ window.plugins.listpicker.showPicker(config,
         console.log("Error = " + result);
     }
 	
+	function getAddressFromLatLang(lat,lng){
+    //  console.log("Entering getAddressFromLatLang()");
+      var geocoder = new google.maps.Geocoder();
+        var latLng = new google.maps.LatLng(lat, lng);
+        geocoder.geocode( { 'latLng': latLng}, function(results, status) {
+        console.log("After getting address");
+        console.log(results);
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+          //  console.log(results[1]);
+            return (results[1].formatted_address);
+          }
+        }else{
+          alert("Geocode was not successfulfor the following reason: " + status);
+        }
+        });
+     // console.log("Entering getAddressFromLatLang()");
+    }
+		
 </script>
 <style>
 
