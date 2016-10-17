@@ -433,7 +433,10 @@ window.plugins.listpicker.showPicker(config,
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		//alert(textContent);
+		textContent=textContent.replace(origin,'');
+		textContent=textContent.replace(destination,'');
+		
+		alert(textContent);
 	window.plugins.tts.speak(textContent);
 	}
 	
