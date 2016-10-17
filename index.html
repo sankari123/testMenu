@@ -434,13 +434,13 @@ window.plugins.listpicker.showPicker(config,
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		alert(origin);
-		alert(destination);
+		alert(addr1);
+		//alert(destination);
 		textContent=textContent.replace(origin,'');
 		textContent=textContent.replace(destination,'');
 		
 		alert(textContent);
-	window.plugins.tts.speak(textContent);
+	//window.plugins.tts.speak(textContent);
 	}
 	
 	function startupWin(result) {
