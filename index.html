@@ -433,11 +433,11 @@ window.plugins.listpicker.showPicker(config,
 	}
 	function speechStart()
 	{
-		
+		codeLatLng(lat, lng);
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		alert(addr_start);
+		//alert(addr_start);
 		//alert(destination);
 		alert(textContent);
 	//window.plugins.tts.speak(textContent);
@@ -491,17 +491,17 @@ window.plugins.listpicker.showPicker(config,
     }
 	
 	function codeLatLng(lat, lng) {
-  addr='';
+   
     var latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
       console.log(results)
         if (results[1]) {
          //formatted address
-       //  alert(results[0].formatted_address);
+       // alert(results[0].formatted_address);
 		 addr_start=results[0].formatted_address;
 		
-		//alert(addr);
+		alert(addr_start);
 		 exit;
         //find country name
              for (var i=0; i<results[0].address_components.length; i++) {
