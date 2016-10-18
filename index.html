@@ -52,7 +52,7 @@
 
             if(navigator.connection.type == Connection.NONE) {        
         navigator.notification.alert(
-            'You are offline. Please connect to wi-fi',  // message
+            'You are offline. Please connect to wifi',  // message
             alertDismissed1,         // callback
             'Wifi Status',            // title
             'OK'                  // buttonName
@@ -60,6 +60,10 @@
 	//alert("	No network connection.Please turn it on");
 	
     }
+   else
+      {
+	window.plugins.spinnerDialog.show(null, "Detecting your location... Please wait!");
+      }
 }
 	function alertDismissed1()
 	{
@@ -70,7 +74,7 @@
 		
 		checkConnection();
 		window.plugins.tts.startup(startupWin, fail);
-		window.plugins.spinnerDialog.show(null, "Detecting your location... Please wait!");
+		
 		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
 		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
