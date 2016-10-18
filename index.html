@@ -110,7 +110,13 @@ function ajaxCall() {
 	
 function getLoc()
 {
-		if (navigator.geolocation)
+	if (navigator.network.connection.type == Connection.NONE) {
+    alert('Geen internet :(');
+}
+else {
+    // nothing
+ 
+	if (navigator.geolocation)
           {
             navigator.geolocation.getCurrentPosition(myMap);
           }
@@ -118,6 +124,7 @@ function getLoc()
           {
              alert("Geolocation API not supported.");
           }
+}
 	}
 function myMap(position) {
        x = position.coords.latitude;
