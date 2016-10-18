@@ -461,11 +461,11 @@ window.plugins.listpicker.showPicker(config,
 	}
 	function speechStart()
 	{
-		codeLatLng(lat, lng);
+		codeLatLng(x,y);
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		//alert(addr_start);
+		alert(addr_start);
 		//alert(destination);
 		alert(textContent);
 	//window.plugins.tts.speak(textContent);
