@@ -15,6 +15,7 @@
     var map2;
 	var addr_start;
 	var addr_end;
+	var addr;
 	var x,y;
 		var flg;
 	    	var return_data;
@@ -324,10 +325,10 @@ function showTbl()
 		
 		
 		//sms.innerHTML=multiArr[hNam][0];
-		var addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
+	         addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
 
 		smsBar.innerHTML=smsBar.innerHTML+"<tr><td>"+"<img src='"+imgNam+"' width='50px' height='50px' valign='middle' style='display:block;'>"+"</td><td><textarea rows=3 cols=30 disabled style='font-size:10px;background-color:transparent; border:0px; padding:0px;'>"+addr+"</textarea></td></tr><tr><td colspan=2><font size=2>Distance:</font>&nbsp;<font size=2 color=red>"+Math.round((parseFloat(multiArr[h][3])*Math.pow(10,2)))/Math.pow(10,2)+" </font><font size=2>miles</font></td></tr></table>";
-		ini_route();
+		ini_route(h);
 		showDiv();
 		}		
 				
@@ -356,7 +357,7 @@ var app = {
     }
 };
 	
-	function ini_route() {
+	function ini_route(j) {
         directionsDisplay = new google.maps.DirectionsRenderer();
         var myLoc = new google.maps.LatLng(x,y);
         var myOptions = {
@@ -367,7 +368,7 @@ var app = {
         map2 = new google.maps.Map(document.getElementById("route_canvas"), myOptions);
         directionsDisplay.setMap(map2);
         calcRoute();
-		getDrive();
+		getDrive(j);
     }
 	
 	function calcRoute() {
@@ -431,7 +432,7 @@ window.plugins.listpicker.showPicker(config,
     }
 );
 	}	
-	function getDrive()
+	function getDrive(dHotel)
 	{
 		
 	var directionsService = new google.maps.DirectionsService();
@@ -462,15 +463,17 @@ window.plugins.listpicker.showPicker(config,
 	function speechStart()
 	{
 		//alert(x+'  '+y);
-		navigator.geocoder.reverseGeocodeLocation(x,y,success, failure);
-		alert(addr_start);
+		//navigator.geocoder.reverseGeocodeLocation(x,y,success,failure);
+		//alert(addr_start);
+	
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
 		textContent = node.textContent;
-		
+		textContent=textContent.replace(addr,'');
+		//textContent=textContent.replace(s1,'');
 		//alert(destination);
 		alert(textContent);
-	//window.plugins.tts.speak(textContent);
+	window.plugins.tts.speak(textContent);
 	}
 	
 	
