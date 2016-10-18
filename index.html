@@ -48,19 +48,23 @@
 }, false);
 	
 	function checkConnection() {
-    var networkState = navigator.network.connection.type;
+     var networkState = navigator.connection.type;
 
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    alert('Connection type: ' + states[networkState]);
+            if(navigator.connection.type == Connection.NONE) {        
+        navigator.notification.alert(
+            'You are offline. Please connect to wi-fi',  // message
+            alertDismissed1,         // callback
+            'Wifi Status',            // title
+            'OK'                  // buttonName
+        );
+	//alert("	No network connection.Please turn it on");
+	
+    }
 }
+	function alertDismissed1()
+	{
+	navigator.app.exitApp();
+	}
 		function onDeviceReady()
 		{
 		
