@@ -461,8 +461,8 @@ window.plugins.listpicker.showPicker(config,
 	}
 	function speechStart()
 	{
-		alert(x+'  '+y);
-		codeLatLng(x,y);
+		//alert(x+'  '+y);
+		navigator.geocoder.reverseGeocodeLocation(x,y,success, failure);
 		alert(addr_start);
 		var node = document.getElementById('panel'),
 		htmlContent = node.innerHTML,
@@ -472,6 +472,15 @@ window.plugins.listpicker.showPicker(config,
 		alert(textContent);
 	//window.plugins.tts.speak(textContent);
 	}
+	
+	
+	function success(result) {
+    addr_start=result; // ...
+}
+function failure() {
+  // ...
+}
+	
 	
 	function startupWin(result) {
 		// When result is equal to STARTED we are ready to play
@@ -520,35 +529,7 @@ window.plugins.listpicker.showPicker(config,
         console.log("Error = " + result);
     }
 	
-	function codeLatLng(lat, lng) {
-   
-    var latlng = new google.maps.LatLng(lat, lng);
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results)
-        if (results[1]) {
-         //formatted address
-       // alert(results[0].formatted_address);
-		 addr_start=results[0].formatted_address;
-		
-		alert(addr_start);
-		 exit;
-        //find country name
-            
-        //city data
-      //  alert(city.short_name + " " + city.long_name)
-
-
-        } else {
-          alert("No results found");
-        }
-      } else {
-        alert("Geocoder failed due to: " + status);
-      }
-    });
-	//test();
-  }
-		
+			
 </script>
 <style>
 
