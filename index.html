@@ -47,9 +47,25 @@
   // window.scrollTo(0, 0);
 }, false);
 	
+	function checkConnection() {
+    var networkState = navigator.network.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    alert('Connection type: ' + states[networkState]);
+}
 		function onDeviceReady()
 		{
-		 window.plugins.tts.startup(startupWin, fail);
+		
+		checkConnection();
+		window.plugins.tts.startup(startupWin, fail);
 		window.plugins.spinnerDialog.show(null, "Detecting your location... Please wait!");
 		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
@@ -110,10 +126,7 @@ function ajaxCall() {
 	
 function getLoc()
 {
-	if (navigator.network.connection.type == Connection.NONE) {
-    alert('Geen internet :(');
-}
-else {
+	
     // nothing
  
 	if (navigator.geolocation)
@@ -124,8 +137,8 @@ else {
           {
              alert("Geolocation API not supported.");
           }
+
 }
-	}
 function myMap(position) {
        x = position.coords.latitude;
         y = position.coords.longitude;
