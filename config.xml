@@ -38,6 +38,7 @@
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="org.apache.cordova.vibration"/>
   <plugin name="fr.louisbl.cordova.gpslocation" spec="0.1.0" source="pgb" />
+  <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="2.1.0" source="pgb" />
   <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
   <gap:plugin name="cordova-plugin-listpicker" source="npm" />
   <plugin name="com.teamnemitoff.phonedialer" spec="0.3.0" source="pgb" />
