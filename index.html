@@ -301,16 +301,18 @@ function showTbl()
 	}
 	
 	
-	function call_hotel1(h)
-	{
-		addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
-	//launchnavigator.navigate( addr, null, function()
-	//	{
-      	//	alert("Plugin success"):  },
-  	//	function(error){
-      	//	alert("Plugin error: "+ error):	 });
-	}
 	function call_hotel(h)
+	{
+		//addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
+		lat2=multiArr[h][1];
+		long2=multiArr[h][2];
+	launchnavigator.navigate( [lat2, long2], null, function()
+		{
+      		alert("Plugin success"):  },
+  		function(error){
+      		alert("Plugin error: "+ error):	 });
+	}
+	function call_hotel1(h)
 	
 	{
 		//screen.lockOrientation('landscape');
