@@ -305,15 +305,16 @@ function showTbl()
 		//addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
 		lat2=multiArr[h][1];
 		long2=multiArr[h][2];
+		alert(in');
 	launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function(isAvailable){
     var app;
     if(isAvailable){
         app = launchnavigator.APP.GOOGLE_MAPS;
     }else{
-        console.warn("Google Maps not available - falling back to user selection");
+       // console.warn("Google Maps not available - falling back to user selection");
         app = launchnavigator.APP.USER_SELECT;
     }
-    launchnavigator.navigate("London, UK", {
+    launchnavigator.navigate("Mumbai, India", {
         app: app
     });
 });
