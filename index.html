@@ -300,7 +300,17 @@ function showTbl()
 		lst_mnu.innerHTML=lst_mnu.innerHTML+"</table>";
 	}
 	
+	
 	function call_hotel(h)
+	{
+		addr=multiArr[h][0]+", "+multiArr1[h][0]+", "+multiArr1[h][1]+", "+multiArr1[h][2]+", "+multiArr1[h][3];
+	launchnavigator.navigate( addr, null, function()
+		{
+      		alert("Plugin success"):  },
+  		function(error){
+      		alert("Plugin error: "+ error):	 });
+	}
+	function call_hotel1(h)
 	
 	{
 		//screen.lockOrientation('landscape');
