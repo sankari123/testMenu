@@ -64,7 +64,7 @@
    else
       {
 	      msg='Detecting your location... Please wait!';
-	window.plugins.spinnerDialog.show(null, msg);
+	window.plugins.spinnerDialog.show(null,'Detecting your location... Please wait!');
       }
 }
 	function alertDismissed1()
@@ -100,7 +100,7 @@ function ajaxCall() {
 	//screen.unlockOrientation();
 	//codeLatLng(x,y);
 	 msg='Searching DIVE Joints..!';
-	window.plugins.spinnerDialog.show(null, msg);
+	window.plugins.spinnerDialog.show(null, 'Searching DIVE Joints..!');
 	
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
