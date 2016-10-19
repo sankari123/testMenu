@@ -2,62 +2,66 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-<title><center><font face=verdana size=12>Madras Music Fest</font></center></title></head>
+<title><center><font face=verdana size=12>Madras Music Fest</font></center></title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<link rel="stylesheet" href="calendarview.css">
-<script src="prototype.js"></script>
-<script src="calendarview.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.min.css" />
+<script type="text/javascript" src="jsDatePick.min.1.3.js"></script>
 <script type="text/javascript" charset="utf-8" src="tts.js"></script>
-<script>
+<script type="text/javascript">
 	document.addEventListener("deviceready",onDeviceReady,false);
 	function onDeviceReady()
 		{
-		setupCalendars();
-		document.addEventListener("backbutton", function (e) {
-        	e.preventDefault(); 
-		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
+			display_calendar();
 		}
-	function setupCalendars() {
-        // Embedded Calendar
-        Calendar.setup(
-          {
-            dateField: 'embeddedDateField',
-            parentElement: 'embeddedCalendar'
-          }
-        )
-</script>
-<style>
-      body {
-        font-family: Trebuchet MS;
-      }
-     
-      div#popupDateField:hover {
-        background-color: #cde;
-        cursor: pointer;
-      }
-</style>
-<body>
-<div style="float: left; width: 50%">
-      <div style="height: 400px; background-color: #efefef; padding: 10px; -webkit-border-radius: 12px; -moz-border-radius: 12px; margin-right: 10px">
-        <h3 style="text-align: center; background-color: white; -webkit-border-radius: 10px; -moz-border-radius: 10px; margin-top: 0px; margin-bottom: 20px; padding: 8px">
-          Embedded Calendar
-        </h3>
-        <div id="embeddedExample" style="">
-          <div id="embeddedCalendar" style="margin-left: auto; margin-right: auto">
-          </div>
-          <br />
-          <div id="embeddedDateField" class="dateField">
-            Select Date
-          </div>
-          <br />
-        </div>
-      </div>
-    </div>
-</body>
-</html>
-	
-	
-
+	function display_calendar()
+	{
 		
+		
+		g_globalObject = new JsDatePick({
+			useMode:1,
+			isStripped:true,
+			target:"div3_example"
+			
+		});		
+		
+		g_globalObject.setOnSelectedDelegate(function(){
+			var obj = g_globalObject.getSelectedDay();
+			//alert("a date was just selected and the date is : " + obj.day + "/" + obj.month + "/" + obj.year);
+			var dt_sel=obj.day + "/" + obj.month + "/" + obj.year;
+			alert(dt_sel);
+			document.getElementById("div3_example_result").innerHTML = obj.day + "/" + obj.month + "/" + obj.year;
+			});
+		
+		
+		
+		g_globalObject2 = new JsDatePick({
+			useMode:1,
+			isStripped:false,
+			target:"div4_example",
+			cellColorScheme:"beige"
+			
+		});
+		
+		g_globalObject2.setOnSelectedDelegate(function(){
+			var obj = g_globalObject2.getSelectedDay();
+			alert("a date was just selected and the date is : " + obj.day + "/" + obj.month + "/" + obj.year);
+			document.getElementById("div3_example_result").innerHTML = obj.day + "/" + obj.month + "/" + obj.year;
+		});		
+		
+	};
+</script>
+	</head>
+<body>
+	
+    
+    <div id="div3_example" style="margin:10px 0 30px 0;  width:205px; height:230px;">
+    	
+    </div>
+	</body>
+</html>
+    
+    
+    
+   
