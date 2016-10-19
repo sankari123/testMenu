@@ -99,7 +99,9 @@
 function ajaxCall() {
 	//screen.unlockOrientation();
 	//codeLatLng(x,y);
-	 msg='Searching DIVE Joints..!'
+	 msg='Searching DIVE Joints..!';
+	window.plugins.spinnerDialog.show(null, msg);
+	
 	document.getElementById("map").style.display="block";
 	document.getElementById("map").style.visibility=true;
 	document.getElementById("lst_mnu").style.display="none";
@@ -160,7 +162,7 @@ function myMap(position) {
 	}
 	else
 	{
-			
+	window.plugins.spinnerDialog.hide();		
 	ajaxCall();
 	}
 		
