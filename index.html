@@ -25,7 +25,11 @@
 	function onDeviceReady()
 		{
 			window.plugins.calendar.createCalendar(calendarName,success,error);
-			//openCalendar()
+			window.plugins.calendar.openCalendar();
+  // - open at a specific date, here today + 3 days
+  var d = new Date(new Date().getTime() + 3*24*60*60*1000);
+  window.plugins.calendar.openCalendar(d, success, error); // callbacks are optional
+
 		}
 	
 </script>
