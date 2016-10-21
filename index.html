@@ -24,11 +24,12 @@
 var myimages=new Array()
 
 function preloadimages(){
+	ajaxFunction();	
 	for (i=0;i<preloadimages.arguments.length;i++){
 		myimages[i]=new Image();
 		myimages[i].src=preloadimages.arguments[i];
 	}
-ajaxFunction();	
+
 }
 
 
@@ -292,28 +293,7 @@ var floater = 0;
 
 
 function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
-// Floating holidays/events of the events.js file uses:
-//	the Month field for the Month (here it becomes the targetmo field)
-//	the Day field as the Cardinal Occurrence  (here it becomes the cardinaloccurrence field)
-//		1=1st, 2=2nd, 3=3rd, 4=4th, 5=5th, 6=6th occurrence of the day listed next
-//	the Year field as the Day of the week the event/holiday falls on  (here it becomes the targetday field)
-//		1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thurday, 6=Friday, 7=Saturday
-//	example: "F",	"1",	"3",	"2", = Floating holiday in January on the 3rd Monday of that month.
-//
-// In our code below:
-// 	targetyr is the active year
-// 	targetmo is the active month (1-12)
-// 	cardinaloccurrence is the xth occurrence of the targetday (1-6)
-// 	targetday is the day of the week the floating holiday is on
-//		0=Sun; 1=Mon; 2=Tue; 3=Wed; 4=Thu; 5=Fri; 6=Sat
-//		Note: subtract 1 from the targetday field if the info comes from the events.js file
-//
-// Note:
-//	If Memorial Day falls on the 22nd, 23rd, or 24th, then we add 7 to the dayofmonth to the result.
-//
-// Example: targetyr = 2052; targetmo = 5; cardinaloccurrence = 4; targetday = 1
-//	This is the same as saying our floating holiday in the year 2052, is during May, on the 4th Monday
-//
+
 var firstdate = new Date(String(targetmo)+"/1/"+String(targetyr));	// Object Storing the first day of the current month.
 var firstday = firstdate.getUTCDay();	// The first day (0-6) of the target month.
 var dayofmonth = 0;	// zero out our calendar day variable.
