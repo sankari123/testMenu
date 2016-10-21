@@ -25,7 +25,7 @@ document.addEventListener("deviceready",onDeviceReady,false);
 	function onDeviceReady()
 		{
 		
-		 changedate('return');
+		
 		// ajaxFunction()	;
 		//window.plugins.tts.startup(startupWin, fail);
 		
@@ -354,23 +354,23 @@ xhr.send(null);
 
 </head>
 
-<body style="background-color: transparent;"> 
+<body style="background-color: transparent; onload='changedate('return');'"> 
 
 <table>
 	<tr><td><input type='button' onclick='ajaxFunction();' value='Load Data'></td><td>Venue</td><td>Artist</td></tr>
 	</table>
 
 
-<div id='main'width='100%'>
-	
-     <div id="calendar" width='100%'><!--  Dynamically Filled --></div>
+<table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
+	<tbody>
+		<tr>
+			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
+				<div id="calendar"><!--  Dynamically Filled --></div>
+			</td></tr></table>
 	<div id='inst'>	</div>
 	
 <div id='ajaxDiv'></div>
 <div id='rest1'></div>
-	</div>
-
-
-
+	
 </body>
 </html>
