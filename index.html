@@ -239,7 +239,7 @@ var floater = 0;
 				theevent += 'Ending Time: ' + events[i][5] + '\n';
 				theevent += 'Description: ' + events[i][7] + '\n';
 				theevent += '\n -------------- \n\n';
-				document.forms.eventform.eventlist.value = theevent;
+				document.getElementById("inst").innerHTML = theevent;
 				}
 			}
 			if (events[i][0] == "M") {
@@ -253,7 +253,7 @@ var floater = 0;
 				theevent += 'Description: ' + events[i][7] + '\n';
 				theevent += 'Description: ' + events[i][8] + '\n';
 				theevent += '\n -------------- \n\n';
-				document.forms.eventform.eventlist.value = theevent;
+				document.getElementById("inst").innerHTML = theevent;
 				}
 			}
 			if (events[i][0] == "F") {
@@ -266,7 +266,7 @@ var floater = 0;
 						theevent += 'Description: ' + events[i][7] + '\n';
 						theevent += 'Description: ' + events[i][8] + '\n';
 						theevent += '\n -------------- \n\n';
-						document.forms.eventform.eventlist.value = theevent;
+						document.getElementById("inst").innerHTML = theevent;
 					} 
 				} else {
 					floater = floatingholiday(year,events[i][1],events[i][2],events[i][3]);
@@ -280,7 +280,7 @@ var floater = 0;
 							theevent += 'Description: ' + events[i][7] + '\n';
 							theevent += 'Description: ' + events[i][8] + '\n';
 							theevent += '\n -------------- \n\n';
-							document.forms.eventform.eventlist.value = theevent;
+							document.getElementById("inst").innerHTML = theevent;
 						} else if ((floater + 7 > 31) && (day == floater)) {
 							theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
 							theevent += events[i][6] + '\n';
@@ -289,7 +289,7 @@ var floater = 0;
 							theevent += 'Description: ' + events[i][7] + '\n';
 							theevent += 'Description: ' + events[i][8] + '\n';
 							theevent += '\n -------------- \n\n';
-							document.forms.eventform.eventlist.value = theevent;
+							document.getElementById("inst").innerHTML = theevent;
 						}
 					} else if ((events[i][1] == month) && (floater == day)) {
 						theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
@@ -299,7 +299,7 @@ var floater = 0;
 						theevent += 'Description: ' + events[i][7] + '\n';
 						theevent += 'Description: ' + events[i][8] + '\n';
 						theevent += '\n -------------- \n\n';
-						document.forms.eventform.eventlist.value = theevent;
+						document.getElementById("inst").innerHTML = theevent;
 					}
 				}
 		}
@@ -313,10 +313,10 @@ var floater = 0;
 			theevent += 'Description: ' + events[i][7] + '\n';
 			theevent += 'Description: ' + events[i][8] + '\n';
 			theevent += '\n -------------- \n\n';
-			document.forms.eventform.eventlist.value = theevent;
+			document.getElementById("inst").innerHTML = theevent;
 		}
 	}
-	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
+	if (theevent == "") document.getElementById("inst").innerHTML = = 'No events to show.';
 }
 
 
@@ -362,31 +362,21 @@ function ajaxFunction(){//alert('in');
 
 </head>
 
-<body style="background-color: transparent;">
+<body style="background-color: transparent;"> 
 
-<p align="center">Calendar of Events</p>
+<table>
+	<tr><td><input type='button' onclick='ajaxFunction();' value='Load Data'></td><td>Venue</td><td>Artist</td></tr>
+	</table>
 
-<center>
-<table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
-	<tbody>
-		<tr>
-			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
-				<div id="calendar"><!--  Dynamically Filled --></div>
-			<td width="10">&nbsp;</td>
-			<td style="padding: 3px;" align="center" bgcolor="#ffffc8" valign="top" width="260"><b>Intructions:</b><br />
-				-<center><b><u>Events</u></b>
-				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist" cols="25" rows="11" wrap="soft">Auto filled when clicking on date.</textarea>
-				</form>
-				</center>
-			</td>
-		</tr>
-	</tbody>
-</table>
-</center>
+
+<div id='main'width='100%'>
+	
+     <div id="calendar" width='100%'><!--  Dynamically Filled --></div>
+	<div id='inst'>	</div>
+	
 <div id='ajaxDiv'></div>
 <div id='rest1'></div>
-<br />
+	</div>
 
 
 
