@@ -333,22 +333,19 @@ function ajaxFunction(){//alert('in');
 var flg=1;
 //alert(flg);
 		
-         var hr=new XMLHttpRequest();
-		var myURL="http://www.writeacademy.in/MMF/test.php"; 
+        var myURL="http://www.writeacademy.in/MMF/test.php"; 
         var request = new XMLHttpRequest(); 
         
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         request.setRequestHeader("Content-length", null); 
         request.setRequestHeader("Connection", "close"); 
-		alert(request.readyState);
-		alert(request.status);
 		
         request.onreadystatechange = function() {
 		request.open("POST", myURL, true); //Call a function when the state changes. 
                 if(request.readyState == 4 && request.status == 200) { 
                       alert("response: "+request.responseText);
 			document.getElementById("ajaxDiv").innerHTML = request.responseText;
-			document.getElementById('rest1').value=request.responseText;
+			//document.getElementById('rest1').value=request.responseText;
 			//procVal();
                 } 
         } 
@@ -358,7 +355,7 @@ var flg=1;
 </script>
 </head>
 
-<body style="background-color: transparent; onload='changedate('return');'"> 
+<body style="background-color: transparent;" onload="changedate('return');"> 
 <input type='button' onclick='ajaxFunction();'>	
 <center>
 <table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
@@ -379,7 +376,7 @@ var flg=1;
 </table>
 </center>
 <div id='ajaxDiv'></div>
-<div id='rest1'></div>
+
 
 </body>
 </html>
