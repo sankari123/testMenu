@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
   <name>MMF</name>
-  <description>Madras Music Fest</description>
+  <description>MMF</description>
   <author href="http://phonegap.com" email="support@phonegap.com">Sivasankari</author>
   <content src="index.html"/>
   <feature name="Notification">
@@ -23,7 +23,7 @@
   <preference name="android-build-tool" value="gradle" /> 
   <gap:plugin name="cordova-plugin-admobpro" source="npm" />
   <preference name="android-installLocation" value="auto"/>
-  <gap:plugin name="nl.x-services.plugins.calendar" />
+  
   <gap:plugin name="org.apache.cordova.battery-status"/>
   <gap:plugin name="org.apache.cordova.camera"/>
   <gap:plugin name="org.apache.cordova.media-capture"/>
@@ -94,6 +94,7 @@
  <feature name="http://api.phonegap.com/1.0/media"/>
  <feature name="http://api.phonegap.com/1.0/file"/>
  <feature name="http://api.phonegap.com/1.0/network"/>
+  <feature name="http://api.phonegap.com/1.0/device"/>
  <feature name="CLGeocoderPlugin">
     <param name="ios-package" value="CLGeocoderPlugin" />
  </feature>
