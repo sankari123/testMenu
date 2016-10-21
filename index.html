@@ -19,7 +19,35 @@
 <script language="JavaScript" type="text/javascript" src="events.js"></script>
 
 <script type="text/JavaScript" language="JavaScript">
-
+document.addEventListener("deviceready",onDeviceReady,false);
+	
+	
+	function onDeviceReady()
+		{
+		
+		 changedate('return');
+		 ajaxFunction()	;
+		//window.plugins.tts.startup(startupWin, fail);
+		
+		document.addEventListener("backbutton", function (e) {
+        	e.preventDefault(); 
+		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
+		}
+	
+function onConfirmExit(button) {
+		if(button==2){ //If User select a No, then return back;
+        	return;
+		}else{
+    		if (navigator.app) {
+            	navigator.app.exitApp();
+        	}
+        	else if (navigator.device) {
+            	navigator.device.exitApp();
+        	}
+       // navigator.app.exitApp(); // If user select a Yes, quit from the app.
+		}
+		}
+	
 /* Preload images script */
 var myimages=new Array()
 
@@ -334,7 +362,7 @@ function ajaxFunction(){//alert('in');
 
 </head>
 
-<body style="background-color: transparent;" onload="changedate('return');">
+<body style="background-color: transparent;">
 
 <p align="center">Calendar of Events</p>
 
