@@ -380,7 +380,32 @@ function ajaxFunction()
  }
 function procVal()
 	{
-		alert('in');
+		multiArr=[];
+	locArr = document.getElementById("rest1").value;
+	locArr = locArr.substring(0, locArr.length - 1);
+	locArr=locArr.split('#');
+	for (var i = 0, len = locArr.length; i < len; i++) {
+		delimiter = ',';
+		start = 5;
+		var result = locArr[i].split(delimiter, start+1).join(delimiter);
+		latR=result.split(',');
+		//alert(result);
+		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]);
+		}
+	
+	for (var i = 0, len = multiArr.length; i < len; i++) {
+		alert(multiArr[i][4]);
+		eDat=getDate(multiArr[i][4]);
+		eMon=getMonth(multiArr[i][4]);
+		eYr=getFullYear(multiArr[i][4]);
+		events.push("Y",eMon,eDat,eYr,        latR[5],         latR[1],   latR[0],latR[3],      latR[2]);
+			//   dummy  month   date   year    time        venue         prog name          prog details  ---> artist 
+}
+		 
+		 for (var i = 0, len = events.length; i < len; i++) {
+
+		alert(events[i][0],events[i][1],events[i][2],events[i][3],events[i][4],events[i][5],events[i][6],events[i][7],events[i][8]);
+}
 	       }
 		 
 	
