@@ -16,7 +16,7 @@
 
 </style>
 
-<script language="JavaScript" type="text/javascript" src="events.js"></script>
+<!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
 
@@ -355,22 +355,26 @@ var locArr;
 		locArr=locArr.split('#');
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 6;
+		start = 5;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
-		alert(result);
-		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5],latR[6],latR[7]]);
+		//alert(result);
+		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5],latR[6]);
 		}
 	
 	for (var i = 0, len = multiArr.length; i < len; i++) {
-alert(multiArr[i][4]);
+//alert(multiArr[i][4]);
+		eDat=getDate(multiArr[i][4]);
+		eMon=getMonth(multiArr[i][4]);
+		eYr=getFullYear(multiArr[i][4]);
+		events.push("Y",eMon,eDat,eYr,latR[5],latR[1],latR[0],latR[2]);
 }
 }
 	
 </script>
 </head>
 
-<body style="overflow:scroll"  onload="changedate('return');"> 
+<body style="overflow:scroll"  onload="ajaxFunction();changedate('return');"> 
 <input type='button' onclick='ajaxFunction();' value='Load'>	<br>
 	
 <center>
