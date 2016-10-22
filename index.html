@@ -334,7 +334,7 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 xhr.onload = function(){
     console.log(xhr);
-	//alert(xhr.responseText);
+	alert(xhr.responseText);
 	document.getElementById("ajaxDiv").innerHTML = request.responseText;
 	document.getElementById("rest1").value= request.responseText;
 	procVal();
@@ -368,7 +368,7 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 </script>
 </head>
 
-<body style="background-color: transparent;"  onload="changedate('return');"> 
+<body style="background-color: transparent; overflow-y:scroll"  onload="changedate('return');"> 
 <input type='button' onclick='ajaxFunction();' value='Load'>	<br>
 	
 <center>
