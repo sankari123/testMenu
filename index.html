@@ -334,7 +334,7 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 xhr.onload = function(){
     console.log(xhr);
-	alert(xhr.responseText);
+	//alert(xhr.responseText);
 	var object1=document.getElementById('ajaxDiv');
 	object1.innerHTML= xhr.responseText;
 	//document.getElementById("ajaxDiv").innerHTML = request.responseText;
@@ -355,7 +355,7 @@ var locArr;
 		locArr=locArr.split('#');
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 7;
+		start = 6;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
 		alert(result);
@@ -363,7 +363,7 @@ var locArr;
 		}
 	
 	for (var i = 0, len = multiArr.length; i < len; i++) {
-alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
+alert(multiArr[i][4]);
 }
 }
 	
@@ -390,6 +390,6 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 	</table>
 </center>
 <div id='ajaxDiv'></div>
-<textarea id="rest1" rows=1 cols=50></textarea>
-
+<textarea id="rest1" rows=5 cols=50></textarea>
+	</body>
 </html>
