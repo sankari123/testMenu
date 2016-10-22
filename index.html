@@ -336,6 +336,7 @@ alert(flg);
         var myURL="http://www.writeacademy.in/MMF/test.php"; 
         var request = new XMLHttpRequest(); 
         var params = "flg=" + flg;  
+	alert(params);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         request.setRequestHeader("Content-length", params.length); 
         request.setRequestHeader("Connection", "close"); 
@@ -344,7 +345,7 @@ alert(flg);
         request.onreadystatechange = function() {
 		request.open("POST", myURL, true); //Call a function when the state changes. 
                 if(request.readyState == 4 && request.status == 200) { 
-                     // alert("response: "+request.responseText);
+                      alert("response: "+request.responseText);
 			document.getElementById("ajaxDiv").innerHTML = request.responseText;
 			//document.getElementById('rest1').value=request.responseText;
 			//procVal();
