@@ -372,7 +372,23 @@ function ajaxFunction()
     	//console.log(xhr);
 	document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
-	//procVal();
+	
+	multiArr=[];
+	locArr = document.getElementById("rest1").value;
+	locArr = locArr.substring(0, locArr.length - 1);
+	locArr=locArr.split('#');
+	for (var i = 0, len = locArr.length; i < len; i++) {
+		delimiter = ',';
+		start = 5;
+		var result = locArr[i].split(delimiter, start+1).join(delimiter);
+		latR=result.split(',');
+		alert(result);
+		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]);
+		}	
+		
+		
+		
+		//procVal();
 	};
 	xhr.send();
 	
