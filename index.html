@@ -329,16 +329,42 @@ var dayofmonth = 0;	// zero out our calendar day variable.
 return dayofmonth;
 }
 
-function ajaxFunction(){alert('in');
+function ajaxFunction(){//alert('in');
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 xhr.onload = function(){
     console.log(xhr);
-	alert(xhr.responseText);
+	//alert(xhr.responseText);
+	document.getElementById("ajaxDiv").innerHTML = request.responseText;
+	document.getElementById("rest1").value= request.responseText;
+	procVal();
 };
 xhr.send();
  }
-
+	
+multiArr = [];
+var locArr;
+var result;
+	
+	 function procVal(){
+	
+		multiArr=[];
+		locArr = document.getElementById("rest1").value;
+		locArr = locArr.substring(0, locArr.length - 1);
+		locArr=locArr.split('#');
+		for (var i = 0, len = locArr.length; i < len; i++) {
+		delimiter = ',';
+		start = 7;
+		result = locArr[i].split(delimiter, start+1).join(delimiter);
+		latR=result.split(',');
+		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5],latR[6],latR[7]]);
+		}
+	
+	for (var i = 0, len = multiArr.length; i < len; i++) {
+alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
+}
+}
+	
 </script>
 </head>
 
@@ -364,7 +390,7 @@ xhr.send();
 </table>
 </center>
 <div id='ajaxDiv'></div>
-
+<textarea id="rest1" rows=1 cols=50></textarea>
 
 </body>
 </html>
