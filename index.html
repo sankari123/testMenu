@@ -336,9 +336,9 @@ xhr.onload = function(){
     console.log(xhr);
 	alert(xhr.responseText);
 	var object1=document.getElementById('ajaxDiv');
-	object1.innerHTML= request.responseText;
+	object1.innerHTML= xhr.responseText;
 	//document.getElementById("ajaxDiv").innerHTML = request.responseText;
-	document.getElementById("rest1").value= request.responseText;
+	document.getElementById("rest1").value= xhr.responseText;
 	procVal();
 };
 xhr.send();
@@ -370,7 +370,7 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 </script>
 </head>
 
-<body style="background-color: transparent; overflow-y:scroll"  onload="changedate('return');"> 
+<body style="overflow:scroll"  onload="changedate('return');"> 
 <input type='button' onclick='ajaxFunction();' value='Load'>	<br>
 	
 <center>
@@ -391,6 +391,5 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 </center>
 <div id='ajaxDiv'></div>
 <textarea id="rest1" rows=1 cols=50></textarea>
-<div id='test'>fnsdkfsh dfhsdklfsdklfjsdklf sdjfl sdksdjkflsdf sd sldkflsdfksdlfsd fk sdlfsdkf</div>
-</body>
+
 </html>
