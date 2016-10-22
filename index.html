@@ -363,19 +363,24 @@ var dayofmonth = 0;	// zero out our calendar day variable.
 return dayofmonth;
 }
 
-function ajaxFunction(){//alert('in');
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
-xhr.onload = function(){
-    console.log(xhr);
-	//alert(xhr.responseText);
-	var object1=document.getElementById('ajaxDiv');
-	object1.innerHTML= xhr.responseText;
-	//document.getElementById("ajaxDiv").innerHTML = request.responseText;
-	document.getElementById("rest1").value= xhr.responseText;
-	procVal();
-};
-xhr.send();
+function ajaxFunction(){alert('in');
+	var flg=1;
+var params = "flg=" + flg; 
+		var myURL="http://www.writeacademy.in/MMF/test.php"; 
+        var request = new XMLHttpRequest(); 
+        request.open("GET", myURL, true); 
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+        request.setRequestHeader("Content-length", params.length); 
+        request.setRequestHeader("Connection", "close"); 
+        request.onreadystatechange = function() {//Call a function when the state changes. 
+                if(request.readyState == 4 && request.status == 200) { 
+                     //   alert("response: "+request.responseText);
+			document.getElementById("ajaxDiv").innerHTML = request.responseText;
+			document.getElementById('rest1').value=request.responseText;
+			procVal();
+                } 
+        } 
+        request.send(params); 
  }
 events=[];	
 multiArr = [];
