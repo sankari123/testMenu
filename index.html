@@ -369,12 +369,13 @@ function ajaxFunction()
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
-    	console.log(xhr);
+    	//console.log(xhr);
 	document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
+	procVal();
 	};
 	xhr.send();
-	procVal();
+	
                
  }
 events=[];	
@@ -382,31 +383,7 @@ multiArr = [];
 var locArr;
 var latR;
 function procVal(){
-	multiArr=[];
-	locArr = document.getElementById("rest1").value;
-	locArr = locArr.substring(0, locArr.length - 1);
-	locArr=locArr.split('#');
-	for (var i = 0, len = locArr.length; i < len; i++) {
-		delimiter = ',';
-		start = 5;
-		var result = locArr[i].split(delimiter, start+1).join(delimiter);
-		latR=result.split(',');
-		//alert(result);
-		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4]);
-		}
-	
-	for (var i = 0, len = multiArr.length; i < len; i++) {
-	alert(multiArr[i][4]);
-	//	eDat=getDate(multiArr[i][4]);
-	//	eMon=getMonth(multiArr[i][4]);
-	//	eYr=getFullYear(multiArr[i][4]);
-	//	alert(eDat);
-	//	alert(eMon);
-	//	alert(eYr);
-		//events.push("Y",eMon,eDat,eYr,        latR[5],         latR[1],   latR[0],latR[3],      latR[2]);
-			//   dummy  month   date   year    time        venue         prog name          prog details  ---> artist 
-}
-		
+	alert("inPoc");
 }
 		 
 	
