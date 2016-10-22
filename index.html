@@ -363,18 +363,19 @@ var locArr;
 		}
 	
 	for (var i = 0, len = multiArr.length; i < len; i++) {
-//alert(multiArr[i][4]);
+alert(multiArr[i][4]);
 		eDat=getDate(multiArr[i][4]);
 		eMon=getMonth(multiArr[i][4]);
 		eYr=getFullYear(multiArr[i][4]);
 		events.push("Y",eMon,eDat,eYr,latR[5],latR[1],latR[0],latR[2]);
 }
+		 changedate('return');
 }
 	
 </script>
 </head>
 
-<body style="overflow:scroll"  onload="ajaxFunction();changedate('return');"> 
+<body style="overflow:scroll"  onload="ajaxFunction();"> 
 <input type='button' onclick='ajaxFunction();' value='Load'>	<br>
 	
 <center>
