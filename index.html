@@ -335,7 +335,9 @@ xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 xhr.onload = function(){
     console.log(xhr);
 	alert(xhr.responseText);
-	document.getElementById("ajaxDiv").innerHTML = request.responseText;
+	var object1=document.getElementById('ajaxDiv');
+	object1.innerHTML= request.responseText;
+	//document.getElementById("ajaxDiv").innerHTML = request.responseText;
 	document.getElementById("rest1").value= request.responseText;
 	procVal();
 };
@@ -344,7 +346,6 @@ xhr.send();
 	
 multiArr = [];
 var locArr;
-var result;
 	
 	 function procVal(){
 	
@@ -355,7 +356,7 @@ var result;
 		for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 7;
-		result = locArr[i].split(delimiter, start+1).join(delimiter);
+		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
 		alert(result);
 		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5],latR[6],latR[7]]);
@@ -374,7 +375,6 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 	
 <center>
 <table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
-	<tbody>
 		<tr>
 			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
@@ -387,11 +387,10 @@ alert(multiArr[i],multiArr[i],multiArr[i],multiArr[i]);
 				</center>
 			</td>
 		</tr>
-	</tbody>
-</table>
+	</table>
 </center>
 <div id='ajaxDiv'></div>
 <textarea id="rest1" rows=1 cols=50></textarea>
-
+<div id='test'>fnsdkfsh dfhsdklfsdklfjsdklf sdjfl sdksdjkflsdf sd sldkflsdfksdlfsd fk sdlfsdkf</div>
 </body>
 </html>
