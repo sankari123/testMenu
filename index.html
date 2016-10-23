@@ -256,12 +256,12 @@ var floater = 0;
 			}
 			if (events[i][0] == "Y") {
 				if ((events[i][2] == day) && (events[i][1] == month)) {
-				theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+				theevent += "Events of: " + day + '/'+ month +'/'+ year + '\n';
 				theevent += events[i][6] + '\n';
 				theevent += 'Start Time: ' + events[i][4] + '\n';
-				theevent += 'Ending Time: ' + events[i][5] + '\n';
-				theevent += 'Description: ' + events[i][7] + '\n';
-				theevent += 'Description: ' + events[i][8] + '\n';
+				theevent += 'Venue Time: ' + events[i][5] + '\n';
+				theevent += 'Artist: ' + events[i][8] + '\n';
+				theevent += 'Details: ' + events[i][7] + '\n';
 				theevent += '\n -------------- \n\n';
 				document.forms.eventform.eventlist.value = theevent;
 				}
@@ -368,11 +368,11 @@ var events = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	alert('Ajax Resp'+pVar);
+	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
-	alert('locarr'+locArr);
+	//alert('locarr'+locArr);
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
