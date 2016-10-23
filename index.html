@@ -367,7 +367,7 @@ var latR;
 var events = new Array();
 function procVal(pVar)
 {
-mltiArr=[];
+//multiArr=[];
 	alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
@@ -378,32 +378,19 @@ mltiArr=[];
 		start = 5;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
-		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
-		}
-	for (var i = 0, len = multiArr.length; i < len; i++) {
-		pnam=multiArr[i][0];
-		venue=multiArr[i][1];
-		art=multiArr[i][2];
-		Pdeta=multiArr[i][3];
-		pTim=multiArr[i][5];
-		//eDat= right(multiArr[i][4],2);
-		//eMon=multiArr[i][4].substring(5,7);
-		//eYr=left(multiArr[i][4],4);
-		var dt = new Date(multiArr[i][4]);
+		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
+		pnam=String(latR[0]);
+		venue=String(latR[1]);
+		art=String(latR[2]);
+		Pdeta=String(latR[3]);
+		pTim=String(latR[5]);
+		var dt = new Date(latR[4]);
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
-		
-		alert(pnam);
-		alert(venue);
-		alert(art);
-		alert(Pdeta);
-		alert(pTim);
-		alert(multiArr[i][4]);
-		alert('date'+eDat+'mon'+eMon+'yr'+eYr);
-		events.push(["Y",String(eMon),String(eDat),String(eYr),String(pTim),String(venue),String(pnam),String(Pdeta),String(art)]);
-		
+		events.push(["Y",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);
 		}
+	
 	//testing();
 	//alert("events"+events);
 }
