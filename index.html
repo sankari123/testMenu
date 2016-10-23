@@ -372,7 +372,7 @@ mltiArr=[];
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
-	alert(locArr);
+	alert('locarr'+locArr);
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
@@ -386,9 +386,20 @@ mltiArr=[];
 		art=multiArr[i][2];
 		Pdeta=multiArr[i][3];
 		pTim=multiArr[i][5];
-		eDat= right(multiArr[i][4],2);
-		eMon=multiArr[i][4].substring(5,7);
-		eYr=left(multiArr[i][4],4);
+		//eDat= right(multiArr[i][4],2);
+		//eMon=multiArr[i][4].substring(5,7);
+		//eYr=left(multiArr[i][4],4);
+		var dt = new Date(multiArr[i][4]);
+		var eDat= dt.getDate();
+		eMon=dt.getMonth()+1;
+		eYr=dt.getFullYear();
+		
+		alert(pnam);
+		alert(venue);
+		alert(art);
+		alert(Pdeta);
+		alert(pTim);
+		alert(multiArr[i][4]);
 		alert('date'+eDat+'mon'+eMon+'yr'+eYr);
 		events.push(["Y",String(eMon),String(eDat),String(eYr),String(pTim),String(venue),String(pnam),String(Pdeta),String(art)]);
 		
