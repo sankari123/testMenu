@@ -26,8 +26,8 @@
 		{
 		
 		ajaxFunction();
-			procVal();
-			changedate('return');
+		procVal();
+		changedate('return');
 		//changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
@@ -91,6 +91,7 @@ var easterday = 0;
 var flg=1;
 
 function changedate(buttonpressed) {
+	alert('in');
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -380,7 +381,7 @@ function ajaxFunction()
                
  }
 var latR;
-
+var events = new Array();
 function procVal()
 {
 multiArr=[];
@@ -409,6 +410,7 @@ events=[];
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
+		test2.push(["Y",eMon,eDat,eYr,pTim,ve,pnam,Pdeta,ar]);
 		events.push(["Y",eMon,eDat,eYr,pTim,ve,pnam,Pdeta,ar]);
 		//   dummy  month   date   year    time        venue         prog name          prog details  ---> artist 
 		}
