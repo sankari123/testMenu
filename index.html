@@ -19,15 +19,16 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-	document.addEventListener("deviceready",onDeviceReady,false);
-	
-	
+	function init() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+		changedate('return');
+}
 	function onDeviceReady()
 		{
 		
 		ajaxFunction();
 		procVal();
-		changedate('return');
+		
 		//changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
@@ -368,7 +369,7 @@ return dayofmonth;
 
 function ajaxFunction()
 {
-	alert('in');
+	//alert('in');
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
@@ -412,16 +413,14 @@ function procVal()
 		events.push(["Y",eMon,eDat,eYr,pTim,ve,pnam,Pdeta,ar]);
 		//   dummy  month   date   year    time        venue         prog name          prog details  ---> artist 
 		}
-		
+		alert(events.value == test2.value);
 		
 }
 		 
 </script>
 </head>
 
-<body style="overflow:scroll"> 
-<input type='button' onclick='ajaxFunction();' value='Load'>	<br>
-	
+<body style="background-color: transparent;" onload='init();'> 
 <center>
 <table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
 		<tr>
