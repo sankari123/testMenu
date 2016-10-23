@@ -27,7 +27,7 @@
 		{
 		
 		ajaxFunction();
-		procVal();alert(events);
+		procVal();
 		changedate('return');
 		//changedate('return');
 
@@ -361,12 +361,11 @@ function ajaxFunction()
                
  }
 var latR;
-var events = new Array();
+//var events = new Array();
 function procVal()
 {
+events[];
 multiArr=[];
-
-	
 	locArr = document.getElementById("rest1").value;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
@@ -383,11 +382,12 @@ multiArr=[];
 		venue=multiArr[i][1];
 		art=multiArr[i][2];
 		Pdeta=multiArr[i][3];
-		pTim	=multiArr[i][5];
+		pTim=multiArr[i][5];
 		var dt = new Date(multiArr[i][4]);
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
+		alert('date'+eDat);
 		events.push(["Y",String(eMon),String(eDat),String(eYr),String(pTim),String(venue),String(pnam),String(Pdeta),String(art)]);
 		
 		}
@@ -397,8 +397,6 @@ multiArr=[];
 	
 	function  testing()	 
 {
-alert("<a href=\"javascript:showevents(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a>)");
-
 eventsTest = new Array(
 	["Y",	"1",	"1",	"2006",	"1:00 AM",	"12:00 PM",	"New Year's Day",	"New Year's Day will be ushered in with great joy and celebration. Come as you are."],
 	["F",	"1",	"3",	"2",	"1:00 AM",	"12:59 PM",	"Martin Luther King Day",	"Honors civil rights leader Rev Martin Luther King."],
@@ -434,7 +432,7 @@ test1.push("value2");
 //test2.push("value2");
 
 alert(events);
-alert(eventsTest);
+//alert(eventsTest);
 //alert(events == test2);
 //alert(events.value == test2.value);
 
