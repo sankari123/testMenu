@@ -363,38 +363,40 @@ var latR;
 var events = new Array();
 function procVal()
 {
-	multiArr=[];
+multiArr=[];
+events=[];
+	
 	locArr = document.getElementById("rest1").value;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
-	
+
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
-		
+		//alert(result);
 		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		}
 		for (var i = 0, len = multiArr.length; i < len; i++) {
-		
 		pnam=multiArr[i][0];
-		ve=multiArr[i][1];
-		ar=multiArr[i][2];
+		venue=multiArr[i][1];
+		art=multiArr[i][2];
 		Pdeta=multiArr[i][3];
 		pTim	=multiArr[i][5];
 		var dt = new Date(multiArr[i][4]);
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
-		test2.push(["Y",eMon,eDat,eYr,pTim,ve,pnam,Pdeta,ar]);
-		events.push(["Y",eMon,eDat,eYr,pTim,ve,pnam,Pdeta,ar]);
-		//   dummy  month   date   year    time        venue         prog name          prog details  ---> artist 
-		}
-		alert(events.value == test2.value);
+		//alert(eDat);
+		//alert(eMon);
+		//alert(eYr);
+		events.push(["Y",String(eMon),String(eDat),String(eYr),String(pTim),String(venue),String(pnam),String(Pdeta),String(art)]);
 		
+		}
 }
-		 
+	
+
 </script>
 </head>
 
