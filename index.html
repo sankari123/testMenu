@@ -254,7 +254,6 @@ var floater = 0;
 			if (events[i][0] == "M") {
 			}
 			if (events[i][0] == "Y") {
-				alert(i);
 				if ((events[i][2] == day) && (events[i][1] == month)) {
 				theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
 				theevent += events[i][6] + '\n';
@@ -353,6 +352,7 @@ function ajaxFunction()
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
     	//console.log(xhr);
+		alert(xhr.responseText);
 	document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
 	};
@@ -364,7 +364,7 @@ var latR;
 //var events = new Array();
 function procVal()
 {
-events[];
+events=[];
 multiArr=[];
 	locArr = document.getElementById("rest1").value;
 	locArr = locArr.substring(0, locArr.length - 1);
@@ -400,19 +400,6 @@ multiArr=[];
 eventsTest = new Array(
 	["Y",	"1",	"1",	"2006",	"1:00 AM",	"12:00 PM",	"New Year's Day",	"New Year's Day will be ushered in with great joy and celebration. Come as you are."],
 	["F",	"1",	"3",	"2",	"1:00 AM",	"12:59 PM",	"Martin Luther King Day",	"Honors civil rights leader Rev Martin Luther King."],
-	["Y",	"2",	"2",	"2005",	"1:00 AM",	"12:59 PM",	"Groundhog Day",	"If Philadelphia's groundhog 'Punxsutawney Phil' sees his shadow, there will be six more weeks of winter weather. If he does not see his shadow, there will be an early spring."],
-	["Y",	"2",	"14",	"2005",	"1:00 AM",	"12:59 PM",	"Valentine's Day",	"Traditional celebration of love and romance, including the exchange of cards, candy, flowers, and other gifts."],
-	["F",	"2",	"3",	"2",	"1:00 AM",	"12:59 PM",	"President's Day",	"Honors the birthdays of George Washington, Abraham Lincoln and other past American Presidents."],
-	["F",	"3",	"0",	"0",	"1:00 AM",	"12:59 PM",	"Easter",	"Traditional celebration of the resurrection of Jesus Christ."],
-	["Y",	"3",	"17",	"2005",	"1:00 AM",	"12:59 PM",	"St. Patrick's Day",	"A celebration of Irish heritage and culture, based on the Catholic feast of St. Patrick. Primary activity is simply the wearing of green clothing ('wearing of the green')."],
-	["Y",	"3",	"22",	"2005",	"1:00 AM",	"12:59 PM",	"World Water Day",	"A day to promote appreciation of the world's most valuable commodity - water."],
-	["Y",	"4",	"1",	"2005",	"1:00 AM",	"12:59 PM",	"April Fool's Day",	"A day to play tricks on or 'fool' family, friends, and coworkers, if so inclined. As Ecclesiastes says: 'There is a time for everything'; in this case, a time to be silly."],
-	["F",	"5",	"2",	"1",	"1:00 AM",	"12:59 PM",	"Mother's Day",	"Honors mothers and motherhood (made a Federal Holiday by Presidential order)."],
-	["F",	"5",	"3",	"7",	"1:00 AM",	"12:59 PM",	"Armed Forces Day",	"Celebrates the United States Army, Navy, Air Force and Marine Corps; formerly - each used to have separate days."],
-	["F",	"5",	"4",	"2",	"1:00 AM",	"12:59 PM",	"Memorial Day",	"Honors the nation's war dead, and those we love who have passed away. Traditionally a time to decorate graves and remember those who have gone before us. Also marks traditional beginning of summer."],
-	["Y",	"6",	"14",	"2005",	"1:00 AM",	"12:59 PM",	"Flag Day",	"Honors the American flag, encourages patriotism. Citizens are urged to fly the flag and study its traditions."],
-	["F",	"6",	"3",	"1",	"1:00 AM",	"12:59 PM",	"Father's Day",	"Honors all Fathers and fatherhood."],
-	["Y",	"7",	"4",	"2005",	"1:00 AM",	"12:59 PM",	"Independence Day",	"Celebrates our Declaration of Independence from England in 1776, usually called the Fourth of July."],
 	["F",	"9",	"1",	"2",	"1:00 AM",	"12:59 PM",	"Labor Day",	"Celebrates the achievements of workers, giving them a day of rest - marks traditional end of summer."],
 	["F",	"10",	"2",	"2",	"1:00 AM",	"12:59 PM",	"Columbus' Day",	"Honors the traditional discovery of the Americas by Christopher Columbus."],
 	["Y",	"10",	"20",	"2016",	"1:00 AM",	"12:59 PM",	"Testing",	"Testing of events."],
