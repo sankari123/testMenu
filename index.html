@@ -27,7 +27,7 @@
 		{
 		
 		ajaxFunction();
-		procVal();
+		//procVal();
 		changedate('return');
 		//changedate('return');
 
@@ -356,6 +356,7 @@ function ajaxFunction()
 	document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
 	ajaxResponse=xhr.responseText;
+		procVal(ajaxResponse);
 	};
 	xhr.send();
 	
@@ -363,12 +364,12 @@ function ajaxFunction()
  }
 var latR;
 //var events = new Array();
-function procVal()
+function procVal(pVar)
 {
 	
 events=[];
 multiArr=[];
-	alert('Ajax Resp'+ajaxResponse);
+	alert('Ajax Resp'+pVar);
 	locArr = document.getElementById("rest1").value;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
