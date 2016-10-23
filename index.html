@@ -21,6 +21,7 @@
 <script type="text/JavaScript" language="JavaScript">
 	function init() {
     document.addEventListener("deviceready", onDeviceReady, false);
+		changedate('return');
 
 }
 	function onDeviceReady()
@@ -28,7 +29,7 @@
 		
 		ajaxFunction();
 		//procVal();
-		changedate('return');
+		
 		//changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
@@ -370,10 +371,10 @@ function procVal(pVar)
 events=[];
 multiArr=[];
 	alert('Ajax Resp'+pVar);
-	locArr = document.getElementById("rest1").value;
+	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
-	//alert(locArr);
+	alert(locArr);
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
@@ -382,13 +383,13 @@ multiArr=[];
 		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		}
 	for (var i = 0, len = multiArr.length; i < len; i++) {
-	//	alert('multi');
-	//	alert(multiArr[i][0]);
-	//	alert(multiArr[i][1]);
-	//	alert(multiArr[i][2]);
-	//	alert(multiArr[i][3]);
-	//	alert(multiArr[i][4]);
-	//	alert(multiArr[i][5]);
+		alert('multi');
+		alert(multiArr[i][0]);
+		alert(multiArr[i][1]);
+		alert(multiArr[i][2]);
+		alert(multiArr[i][3]);
+		alert(multiArr[i][4]);
+		alert(multiArr[i][5]);
 	}
 	
 		for (var i = 0, len = multiArr.length; i < len; i++) {
