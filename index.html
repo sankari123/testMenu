@@ -21,6 +21,7 @@
 <script type="text/JavaScript" language="JavaScript">
 	function init() {
     document.addEventListener("deviceready", onDeviceReady, false);
+		alert(events);
 		changedate('return');
 }
 	function onDeviceReady()
@@ -92,7 +93,7 @@ var easterday = 0;
 var flg=1;
 
 function changedate(buttonpressed) {
-	alert('in');
+	//alert('in');
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -254,6 +255,7 @@ var floater = 0;
 			if (events[i][0] == "M") {
 			}
 			if (events[i][0] == "Y") {
+				alert(i);
 				if ((events[i][2] == day) && (events[i][1] == month)) {
 				theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
 				theevent += events[i][6] + '\n';
@@ -375,7 +377,6 @@ events=[];
 		start = 5;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
-		//alert(result);
 		multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		}
 		for (var i = 0, len = multiArr.length; i < len; i++) {
@@ -388,9 +389,6 @@ events=[];
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
-		//alert(eDat);
-		//alert(eMon);
-		//alert(eYr);
 		events.push(["Y",String(eMon),String(eDat),String(eYr),String(pTim),String(venue),String(pnam),String(Pdeta),String(art)]);
 		
 		}
