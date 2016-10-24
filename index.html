@@ -388,6 +388,18 @@ function procVal(pVar)
 	//alert("events"+events);
 }
 
+window.document.addEventListener('orientationchange', function() {
+  var iOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
+  var viewportmeta = document.querySelector('meta[name="viewport"]');
+  if (iOS && viewportmeta) {
+    if (viewportmeta.content.match(/width=device-width/)) {
+      viewportmeta.content = viewportmeta.content.replace(/width=[^,]+/, 'width=1');
+    }
+    viewportmeta.content = viewportmeta.content.replace(/width=[^,]+/, 'width=' + window.innerWidth);
+  }
+  // If you want to hide the address bar on orientation change, uncomment the next line
+  // window.scrollTo(0, 0);
+}, false);
 	
 </script>
 <style type="text/css">
@@ -408,7 +420,7 @@ function procVal(pVar)
 <body style="background-color: transparent;" onload='init();'> 
 	<table width="100%"  cellspacing='0' cellpadding='0'>
 			<tr height='40px' bgcolor="#003366"><td colspan=2 align='center'><font face='arial' color='white'><b>Madras Music Fest</b></font></td></tr>
-		<tr height='40px' ><td width='50%'><input type=button class='btn1' onclick='venueSel()'>Venue</td><td width='50%'><input type=button class='btn1' onclick='artistSel()'>Artist</td></tr>
+		<tr height='40px' ><td width='50%'><input type=button class='btn1' onclick='venueSel()' value='Venue'></td><td width='50%'><input type=button class='btn1' onclick='artistSel()' value='Artist'></td></tr>
 	</table>
 		
 <center>
@@ -419,9 +431,9 @@ function procVal(pVar)
 			</td>
 	</tr>
 	</table>
-	<div width="314"><center><b><u>Events</u></b>
+	<div width="314px"><center><b><u>Events</u></b>
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist" cols="25" rows="11" wrap="soft">Auto filled when clicking on date.</textarea>
+					<textarea name="eventlist" cols="30" rows="11" wrap="soft" disabled>Auto filled when clicking on date.</textarea>
 				</form>
 		</center></div>
 			
