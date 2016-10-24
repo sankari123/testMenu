@@ -7,14 +7,7 @@
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-<style type="text/css">
 
-#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* unvisited link */
-#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}	/* visited link */
-#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;}	/* mouse over link */
-#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* selected link */
-
-</style>
 
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
@@ -259,7 +252,7 @@ var floater = 0;
 				theevent += "Events of: " + day + '/'+ month +'/'+ year + '\n';
 				theevent += events[i][6] + '\n';
 				theevent += 'Start Time: ' + events[i][4] + '\n';
-				theevent += 'Venue Time: ' + events[i][5] + '\n';
+				theevent += 'Venue: ' + events[i][5] + '\n';
 				theevent += 'Artist: ' + events[i][8] + '\n';
 				theevent += 'Details: ' + events[i][7] + '\n';
 				theevent += '\n -------------- \n\n';
@@ -397,6 +390,19 @@ function procVal(pVar)
 
 	
 </script>
+<style type="text/css">
+
+#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* unvisited link */
+#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}	/* visited link */
+#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;}	/* mouse over link */
+#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* selected link */
+
+	
+.hideThis
+	 {
+            display:none;
+        }
+</style>
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
@@ -405,18 +411,17 @@ function procVal(pVar)
 		<tr>
 			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
-			<td width="10">&nbsp;</td>
-			<td style="padding: 3px;" align="center" bgcolor="#ffffc8" valign="top" width="260"><b>Intructions:</b><br />
-				-<center><b><u>Events</u></b>
+			</td>
+	</tr>
+	</table>
+	<div><center><b><u>Events</u></b>
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist" cols="25" rows="11" wrap="soft">Auto filled when clicking on date.</textarea>
 				</form>
-				</center>
-			</td>
-		</tr>
-	</table>
+		</center></div>
+			
 </center>
-<div id='ajaxDiv'></div>
-<textarea id="rest1" rows=5 cols=50></textarea>
+<div id='ajaxDiv' class='hideThis'></div>
+<textarea id="rest1" rows=5 cols=50 class='hideThis'></textarea>
 	</body>
 </html>
