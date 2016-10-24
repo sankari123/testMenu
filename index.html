@@ -22,7 +22,8 @@
 		
 		ajaxFunction();
 		//procVal();
-		
+			msg='Loading Calendar Events... Please wait...';
+		window.plugins.spinnerDialog.show(null, msg);
 		changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
@@ -184,6 +185,7 @@ function createCalendar() {
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
 	thisDate = 1;
+	window.plugins.spinnerDialog.hide();
 }
 
 
@@ -414,13 +416,14 @@ window.document.addEventListener('orientationchange', function() {
 	 {
             display:none;
         }
+	
 </style>
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
 	<table width="100%"  cellspacing='0' cellpadding='0'>
 			<tr height='40px' bgcolor="#003366"><td colspan=2 align='center'><font face='arial' color='white'><b>Madras Music Fest</b></font></td></tr>
-		<tr height='40px' ><td width='50%'><input type=button class='btn1' onclick='venueSel()' value='Venue'></td><td width='50%'><input type=button class='btn1' onclick='artistSel()' value='Artist'></td></tr>
+		<tr height='40px' ><td width='50%' align='center'><input type=button class='btn1' onclick='venueSel()' value='Venue'></td><td width='50%' align='center'><input type=button class='btn1' onclick='artistSel()' value='Artist'></td></tr>
 	</table>
 		
 <center>
@@ -433,7 +436,7 @@ window.document.addEventListener('orientationchange', function() {
 	</table>
 	<div width="314px"><center><b><u>Events</u></b>
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist" cols="30" rows="11" wrap="soft" disabled>Auto filled when clicking on date.</textarea>
+					<textarea name="eventlist" cols="40" rows="11" wrap="soft" disabled>Auto filled when clicking on date.</textarea>
 				</form>
 		</center></div>
 			
