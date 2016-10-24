@@ -19,11 +19,9 @@
 }
 	function onDeviceReady()
 		{
-		
+		window.plugins.spinnerDialog.show(null, 'Loading Calendar Events... Please wait...');
 		ajaxFunction();
 		//procVal();
-			
-		window.plugins.spinnerDialog.show(null, 'Loading Calendar Events... Please wait...');
 		changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
