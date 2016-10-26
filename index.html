@@ -415,8 +415,18 @@ var venueArr=new Array();
 	venueArr.push(['NGS','Vani Mahal','KGS']);
 var config = {
     title: "Select a Venue", 
-    items:venueArr.value,
-    selectedValue: "papaya",
+    items: [
+        { text: "California", value: "California" },
+        { text: "Phoenix", value: "Phoenix" },
+        { text: "San Jose", value: "San Jose" },
+        { text: "Chicago", value: "Chicago" },
+        { text: "Denver", value: "Denver" },
+        { text: "New York", value: "New York" },  
+	 { text: "Washington", value: "Washington" }, 
+	{ text: "Austin", value: "Austin" }, 
+        { text: "Las Vegas", value: "Las Vegas" }   
+    ],
+    selectedValue: "California",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
