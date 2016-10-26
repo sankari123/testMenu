@@ -393,7 +393,7 @@ function procVal(pVar)
 		events.push(["",eMon,eDat,eYr,pTim,venue,pnam,Pdeta,art]);
 		}
 	
-	//testing();
+	xPort();
 	//alert("events"+events);
 }
 
@@ -437,6 +437,50 @@ window.plugins.listpicker.showPicker(config,
     }
 );
 	}	
+
+	
+	function xPort()
+{
+var fileName = "events.csv";
+var buffer = events.join("\n");
+var blob = new Blob([buffer], {
+  "type": "text/csv;charset=utf8;"			
+});
+var link = document.createElement("a");
+			
+if(link.download !== undefined) { // feature detection
+  // Browsers that support HTML5 download attribute
+  link.setAttribute("href", window.URL.createObjectURL(blob));
+  link.setAttribute("download", fileName);
+ }
+else {
+  // it needs to implement server side export
+  link.setAttribute("href", "http://www.example.com/export");
+}
+
+//link.innerHTML = "Export to CSV";
+//document.body.appendChild(link);
+  link.click();
+}
+
+	
+	
+	function storeIntelligrapeLogo(){
+		
+		var buffer = events.join("\n");
+		var blob = new Blob([buffer], { "type": "text/csv;charset=utf8;"});
+		
+  		var url = window.URL.createObjectURL(blob); // image url
+ 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+      var imagePath = fs.root.fullPath; // full file path
+      var fileTransfer = new FileTransfer();
+      fileTransfer.download(url, imagePath, function (entry) {
+               console.log(entry.fullPath); // entry is fileEntry object
+      }, function (error) {
+               console.log("Some error");
+      });
+   })
+}
 	
 	
 </script>
