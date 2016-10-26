@@ -411,7 +411,7 @@ window.document.addEventListener('orientationchange', function() {
 }, false);
 
 	
-var venueArr=new Array();
+var venueArr=[];
 	venueArr.push('NGS');
 	venueArr.push('Vani Mahal');
 	venueArr.push('KGS');
@@ -419,7 +419,7 @@ var venueArr=new Array();
 	
 var config = {
     title: "Select a Venue", 
-    items:venueArr.value ,
+    items:venueArr,
     selectedValue: "NGS",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
