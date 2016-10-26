@@ -393,7 +393,7 @@ function procVal(pVar)
 		events.push(["",eMon,eDat,eYr,pTim,venue,pnam,Pdeta,art]);
 		}
 	
-	xPort();
+	storeIntelligrapeLogo();
 	//alert("events"+events);
 }
 
@@ -441,6 +441,7 @@ window.plugins.listpicker.showPicker(config,
 	
 	function xPort()
 {
+	alert('in');
 var fileName = "events.csv";
 var buffer = events.join("\n");
 var blob = new Blob([buffer], {
@@ -466,7 +467,7 @@ else {
 	
 	
 	function storeIntelligrapeLogo(){
-		
+		alert('in');
 		var buffer = events.join("\n");
 		var blob = new Blob([buffer], { "type": "text/csv;charset=utf8;"});
 		
