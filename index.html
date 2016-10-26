@@ -412,21 +412,15 @@ window.document.addEventListener('orientationchange', function() {
 
 	
 var venueArr=new Array();
-	venueArr.push(['NGS','Vani Mahal','KGS']);
+	venueArr.push('NGS');
+	venueArr.push('Vani Mahal');
+	venueArr.push('KGS');
+	venueArr.push('MFA');
+	
 var config = {
     title: "Select a Venue", 
-    items: [
-        { text: "California", value: "California" },
-        { text: "Phoenix", value: "Phoenix" },
-        { text: "San Jose", value: "San Jose" },
-        { text: "Chicago", value: "Chicago" },
-        { text: "Denver", value: "Denver" },
-        { text: "New York", value: "New York" },  
-	 { text: "Washington", value: "Washington" }, 
-	{ text: "Austin", value: "Austin" }, 
-        { text: "Las Vegas", value: "Las Vegas" }   
-    ],
-    selectedValue: "California",
+    items:venueArr ,
+    selectedValue: "NGS",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
