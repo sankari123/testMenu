@@ -439,7 +439,7 @@ window.plugins.listpicker.showPicker(config,
 	}	
 
 	
-	function xPort()
+	function xPor1t()
 {
 	alert('in');
 var fileName = "events.csv";
@@ -482,7 +482,29 @@ else {
       });
    })
 }
-	
+function xPort()
+	{
+		var fileName = "events.csv";
+var buffer = events.join("\n");
+var blob = new Blob([buffer], {
+  "type": "text/csv;charset=utf8;"			
+});
+		
+	var fileTransfer = new FileTransfer();
+var uri = window.URL.createObjectURL(blob);
+
+fileTransfer.download(
+    uri,
+    filePath,
+    function(entry) {
+        console.log("download complete: " + entry.fullPath);
+    },
+    function(error) {
+        console.log("download error source " + error.source);
+        console.log("download error target " + error.target);
+        console.log("upload error code" + error.code);
+    }
+);}
 	
 </script>
 <style type="text/css">
