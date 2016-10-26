@@ -411,16 +411,16 @@ window.document.addEventListener('orientationchange', function() {
 }, false);
 
 	
-var venueArr=[];
-	venueArr.push('NGS','NGS');
-	venueArr.push('Vani Mahal','Vani Mahal');
-	venueArr.push('KGS','KGS');
-	venueArr.push('MFA','MFA');
-	
 var config = {
-    title: "Select a Venue", 
-    items:venueArr.value,
-    selectedValue: "NGS",
+    title: "Select a City", 
+    items: [
+        { text: "NGS", value: "Narada Gana Sabha" },
+        { text: "Vani Mahal", value: "Vani Mahal" },
+        { text: "KGS", value: "Krishna Gana Sabha" },
+        { text: "MFA", value: "Mylapore Fine Arts" },
+        { text: "BVB", value: "Bharatiya Vidya Bhavan" }
+      ],
+    selectedValue: "papaya",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
