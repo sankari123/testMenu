@@ -439,7 +439,7 @@ window.plugins.listpicker.showPicker(config,
 	}	
 
 	
-	function xPor1t()
+	function xPort11()
 {
 	alert('in');
 var fileName = "events.csv";
@@ -482,7 +482,7 @@ else {
       });
    })
 }
-function xPort()
+function xPort2()
 	{
 		var fileName = "events.csv";
 var buffer = events.join("\n");
@@ -505,7 +505,31 @@ fileTransfer.download(
         console.log("upload error code" + error.code);
     }
 );}
+
 	
+function xPort()
+{
+	var A = events;
+for(var j=1; j<10; ++j){ 
+  //  A.push([j, Math.sqrt(j)]);
+}
+
+var csvRows = [];
+
+for(var i=0, l=A.length; i<l; ++i){
+    csvRows.push(A[i].join(','));
+}
+
+var csvString = csvRows.join("\n");
+var a         = document.createElement('a');
+a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
+a.target      = '_blank';
+a.download    = 'myFile.csv';
+
+document.body.appendChild(a);
+a.click();
+
+}
 </script>
 <style type="text/css">
 
