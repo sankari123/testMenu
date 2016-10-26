@@ -412,14 +412,14 @@ window.document.addEventListener('orientationchange', function() {
 
 	
 var venueArr=[];
-	venueArr.push('NGS');
-	venueArr.push('Vani Mahal');
-	venueArr.push('KGS');
-	venueArr.push('MFA');
+	venueArr.push('NGS','NGS');
+	venueArr.push('Vani Mahal','Vani Mahal');
+	venueArr.push('KGS','KGS');
+	venueArr.push('MFA','MFA');
 	
 var config = {
     title: "Select a Venue", 
-    items:venueArr,
+    items:venueArr.value,
     selectedValue: "NGS",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
