@@ -372,6 +372,8 @@ function procVal(pVar)
 {
 //multiArr=[];
 	events=[];
+	artist_arr=[];
+	venue_arr=[];
 	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
@@ -393,8 +395,10 @@ function procVal(pVar)
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
 		events.push(["",eMon,eDat,eYr,pTim,venue,pnam,Pdeta,art]);
+		venue_arr.push([venue]);
+		artist_arr.push([art]);
 		}
-	xPort();
+	//xPort();
 	//storeIntelligrapeLogo();
 	//alert("events"+events);
 }
