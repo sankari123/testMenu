@@ -446,12 +446,13 @@ window.plugins.listpicker.showPicker(config,
 
 	function venue_filter(j)
 	{
-		alert(j);
+		alert('j'+j);
 	for (var i = 0, len = events.length; i < len; i++) {
-		alert(events[i][5]);
+		alert(i+'='+events[i][5]);
 		if(events[i][5]==j)
 		{
-		                day=events[i][2];
+		                alert('in');
+				day=events[i][2];
 			        month=events[i][1];
 				year=events[i][3];
 				theevent += "Events of: " + day + '/'+ month +'/'+ year + '\n';
@@ -461,6 +462,7 @@ window.plugins.listpicker.showPicker(config,
 				theevent += 'Artist: ' + events[i][8] + '\n';
 				theevent += 'Details: ' + events[i][7] + '\n';
 				theevent += '\n -------------- \n\n';
+				alert(theevent);
 				document.forms.eventform.eventlist.value = theevent;	
 		}
 			
