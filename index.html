@@ -411,17 +411,11 @@ window.document.addEventListener('orientationchange', function() {
   // If you want to hide the address bar on orientation change, uncomment the next line
   // window.scrollTo(0, 0);
 }, false);
-
+venue_array=(["NGS","Narada Gana Sabha"],["Vani Mahal","Vani Mahal"],["KGS","krishna Gana Sabha"],["BVB","bharatiya Vidya Bhavan"]);
 	
 var config = {
-    title: "Select a City", 
-    items: [
-        { text: "NGS", value: "Narada Gana Sabha" },
-        { text: "Vani Mahal", value: "Vani Mahal" },
-        { text: "KGS", value: "Krishna Gana Sabha" },
-        { text: "MFA", value: "Mylapore Fine Arts" },
-        { text: "BVB", value: "Bharatiya Vidya Bhavan" }
-      ],
+    title: "Select a City",
+    items: venue_array,
     selectedValue: "papaya",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
