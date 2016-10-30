@@ -86,7 +86,7 @@ var flg=1;
 
 function changedate(buttonpressed) {
 	//alert('in');
-	//ajaxFunction();
+	ajaxFunction();
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -452,10 +452,10 @@ window.plugins.listpicker.showPicker(config,
 		if(events[k][5]==j)
 		{
 		                alert('in');
-				day=events[k][2];
-			        month=events[k][1];
-				year=events[k][3];
-			        alert(day+'--'+month+'--'+year);
+				day1=events[k][2];
+			        month1=events[k][1];
+				year1=events[k][3];
+			        alert(day1+'--'+month1+'--'+year1);
 				alert(events[k][6]);
 				alert(events[k][4]);
 				alert(events[k][5]);
