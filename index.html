@@ -447,20 +447,20 @@ window.plugins.listpicker.showPicker(config,
 	function venue_filter(j)
 	{
 		alert('j'+j);
-	for (var i = 0, len = events.length; i < len; i++) {
-		alert(i+'='+events[i][5]);
-		if(events[i][5]==j)
+	for (var k = 0, len = events.length; k < len; k++) {
+		alert(k+'='+events[k][5]);
+		if(events[k][5]==j)
 		{
 		                alert('in');
-				day=events[i][2];
-			        month=events[i][1];
-				year=events[i][3];
+				day=events[k][2];
+			        month=events[k][1];
+				year=events[k][3];
 			        alert(day+'--'+month+'--'+year);
-				alert(events[i][6]);
-				alert(events[i][4]);
-				alert(events[i][5]);
-				alert(events[i][8]);
-				alert(events[i][7]);
+				alert(events[k][6]);
+				alert(events[k][4]);
+				alert(events[k][5]);
+				alert(events[k][8]);
+				alert(events[k][7]);
 				
 				//document.forms.eventform.eventlist.value = theevent;	
 		}
