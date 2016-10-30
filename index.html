@@ -426,7 +426,7 @@ var config = {
         { text: "BVB", value: "Bharatiya Vidya Bhavan" }
           
     ],
-    selectedValue: "papaya",
+    selectedValue: "NGS",
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
@@ -435,7 +435,7 @@ function showLst()
 	{// Show the picker
 window.plugins.listpicker.showPicker(config, 
     function(item) { 
-        venue_filter(item);;
+        venue_filter(item);
     },
     function() { 
         alert("You have cancelled");
