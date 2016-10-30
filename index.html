@@ -86,7 +86,7 @@ var flg=1;
 
 function changedate(buttonpressed) {
 	//alert('in');
-	ajaxFunction();
+	//ajaxFunction();
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -472,104 +472,10 @@ window.plugins.listpicker.showPicker(config,
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-function xPort11()
-{
-	alert('in');
-var fileName = "events.csv";
-var buffer = events.join("\n");
-var blob = new Blob([buffer], {
-  "type": "text/csv;charset=utf8;"			
-});
-var link = document.createElement("a");
-			
-if(link.download !== undefined) { // feature detection
-  // Browsers that support HTML5 download attribute
-  link.setAttribute("href", window.URL.createObjectURL(blob));
-  link.setAttribute("download", fileName);
- }
-else {
-  // it needs to implement server side export
-  link.setAttribute("href", "http://www.example.com/export");
-}
-
-//link.innerHTML = "Export to CSV";
-//document.body.appendChild(link);
-  link.click();
-}
 
 	
 	
-	function storeIntelligrapeLogo(){
-		alert('in');
-		var buffer = events.join("\n");
-		var blob = new Blob([buffer], { "type": "text/csv;charset=utf8;"});
-		
-  		var url = window.URL.createObjectURL(blob); // image url
- 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-      var imagePath = fs.root.fullPath; // full file path
-      var fileTransfer = new FileTransfer();
-      fileTransfer.download(url, imagePath, function (entry) {
-               console.log(entry.fullPath); // entry is fileEntry object
-      }, function (error) {
-               console.log("Some error");
-      });
-   })
-}
-function xPort2()
-	{
-		var fileName = "events.csv";
-var buffer = events.join("\n");
-var blob = new Blob([buffer], {
-  "type": "text/csv;charset=utf8;"			
-});
-		
-	var fileTransfer = new FileTransfer();
-var uri = window.URL.createObjectURL(blob);
-
-fileTransfer.download(
-    uri,
-    filePath,
-    function(entry) {
-        console.log("download complete: " + entry.fullPath);
-    },
-    function(error) {
-        console.log("download error source " + error.source);
-        console.log("download error target " + error.target);
-        console.log("upload error code" + error.code);
-    }
-);}
-
 	
-function xPort()
-{
-	var A = events;
-for(var j=1; j<10; ++j){ 
-  //  A.push([j, Math.sqrt(j)]);
-}
-
-var csvRows = [];
-
-for(var i=0, l=A.length; i<l; ++i){
-    csvRows.push(A[i].join(','));
-}
-
-var csvString = csvRows.join("\n");
-var a         = document.createElement('a');
-a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
-a.target      = '_blank';
-a.download    = 'myFile.csv';
-
-document.body.appendChild(a);
-a.click();
-
-}
 </script>
 <style type="text/css">
 
