@@ -20,8 +20,9 @@
 	function onDeviceReady()
 		{
 		window.plugins.spinnerDialog.show(null, 'Loading Calendar Events... Please wait...');
-		ajaxFunction();
+		//ajaxFunction();
 		//procVal();
+		//preloadimages();
 		changedate('return');
 
 		//window.plugins.tts.startup(startupWin, fail);
@@ -86,7 +87,7 @@ var flg=1;
 
 function changedate(buttonpressed) {
 	//alert('in');
-	//ajaxFunction();
+	ajaxFunction();
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
