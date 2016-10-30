@@ -428,14 +428,7 @@ var config = {
 // Show the picker
 	function showLst()
 	{
-window.plugins.listpicker.showPicker(config, 
-    function(item) { 
-        alert("You have selected " + item);
-    },
-    function() { 
-        alert("You have cancelled");
-    }
-);
+window.plugins.listpicker.showPicker(config, function(item) {     alert("You have selected " + item);   },  function() {  alert("You have cancelled"); });
 	}	
 
 	
