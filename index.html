@@ -32,7 +32,7 @@
 		
 		document.addEventListener("backbutton", function (e) {
         	e.preventDefault(); 
-		navigator.notification.confirm("Do you want to exit DIVE?", onConfirmExit, "DIVE", "Yes,No");    }, false );
+		navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
 		}
 	
 		function onConfirmExit(button) {
@@ -65,7 +65,7 @@ function preloadimages(){
 	
 }
 /* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
-preloadimages("images/PrevYrOff40x40.jpg","images/PrevYrOn40x40.jpg","images/PrevMoOff40x40.jpg","images/PrevMoOn40x40.jpg","images/NextYrOff40x40.jpg","images/NextYrOn40x40.jpg","images/NextMoOff40x40.jpg","images/NextMoOn40x40.jpg");
+preloadimages("PrevYrOff40x40.jpg","PrevYrOn40x40.jpg","PrevMoOff40x40.jpg","PrevMoOn40x40.jpg","NextYrOff40x40.jpg","NextYrOn40x40.jpg","NextMoOff40x40.jpg","NextMoOn40x40.jpg");
 var thisDate = 1;							// Tracks current date being written in calendar
 var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
 var today = new Date();							// Date object to store the current date
@@ -348,11 +348,11 @@ var events = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	alert('Ajax Resp'+pVar);
+	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
-	alert('locarr'+locArr);
+	//alert('locarr'+locArr);
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
