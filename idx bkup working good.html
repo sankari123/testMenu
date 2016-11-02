@@ -50,7 +50,9 @@
 		}
 	   
 	
-	
+function getDaysInMonth(m, y) {
+    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
+}	
 	
 	
 /* Preload images script */
@@ -101,6 +103,17 @@ function changedate(buttonpressed) {
 	}
 	lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
 	numbDays = lastDate.getDate();
+	   
+	if(isNaN(parseFloat("numbDays")))
+	  {
+	  numbDays = getDaysInMonth(monthNum, yearNum);
+	  }
+	  else
+	  {
+	   lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
+	   numbDays = lastDate.getDate();
+	  }
+	  
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
 	
