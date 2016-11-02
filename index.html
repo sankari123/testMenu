@@ -31,7 +31,7 @@
 	function onDeviceReady()
 		{
 		window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
-		ajaxFunction();
+		//ajaxFunction();
 		//procVal();
 		changedate('return');
 		//window.plugins.tts.startup(startupWin, fail);
@@ -360,6 +360,7 @@ function procVal(pVar)
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
 	//alert('locarr'+locArr);
+	events=[];
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 5;
