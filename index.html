@@ -356,7 +356,7 @@ function ajaxFunction()
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
     	//console.log(xhr);
-	//	alert(xhr.responseText);
+		alert(xhr.responseText);
 	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
 	ajaxResponse=xhr.responseText;
@@ -381,6 +381,28 @@ function ajaxFunction()
 	navigator.device.exitApp();
 		//navigator.app.exitApp();
 	}
+	
+	function createTxtFile(){
+      //  Request File System
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem){
+        fileSystem.root.getFile("myTxt.txt", {create: true, exclusive: false},
+           function(fileEntry){
+          // Create File
+          fileEntry.createWriter(WriteText, fail);
+      }, fail);
+    },
+    fail
+    );
+  }
+	
+	function WriteText(writer) {
+      writer.onwriteend = function(evt){ // Fired when end write.
+        console.log("End write text in file");
+
+    };
+    writer.write(dataForm);
+}
+	
 var latR;
 var events = new Array();
 function procVal(pVar)
