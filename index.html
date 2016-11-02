@@ -384,26 +384,33 @@ function procVal(pVar)
 	
 </script>
 	<style>
+		body, html {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
 		.hideDontTakeUpSpace
         {
             display:none;
         }
-		.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold;}
+		.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold; color: arial}
 	</style>
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
-		<tr><td align=center><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+	<tr height='40px' bgcolor="#ed7372"><td colspan=2 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
+		<tr bgclor='#003c67'><td align=center><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
-			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
+			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
 			</td></tr></table>
 			
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist" cols="50" rows="20" wrap="soft"></textarea>
+					<textarea name="eventlist" cols="40" rows="20" wrap="soft" readonly></textarea>
 				</form>
 
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
