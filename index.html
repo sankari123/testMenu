@@ -18,7 +18,8 @@
 
 <script type="text/JavaScript" language="JavaScript">
 	function init() {
-    document.addEventListener("deviceready", onDeviceReady, false);
+	window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
+    	document.addEventListener("deviceready", onDeviceReady, false);
 		//changedate('return');
 }
 
@@ -187,6 +188,7 @@ function createCalendar() {
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
 	thisDate = 1;
+	window.plugins.spinnerDialog.hide();		
 }
 function checkevents(day,month,year,week,dayofweek) {
 var numevents = 0;
