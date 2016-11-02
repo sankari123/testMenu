@@ -148,11 +148,11 @@ function createCalendar() {
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
 	calendarString += '<tr>';
-	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.PrevYr.src=\'images\/PrevYrOn40x40\.jpg\';\" onMouseOut=\"document.PrevYr.src=\'images\/PrevYrOff40x40\.jpg\';\" onClick=\"changedate(\'prevyr\')\"><img name=\"PrevYr\" src=\"images\/PrevYrOff40x40\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Yr\"\/><\/a><\/td>';
-	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.PrevMo.src=\'images\/PrevMoOn40x40\.jpg\';\" onMouseOut=\"document.PrevMo.src=\'images\/PrevMoOff40x40\.jpg\';\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMoOff40x40\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevyr\')\"><img name=\"PrevYr\" src=\"images\/PrevYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Yr\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
 	calendarString += '<td bgcolor=\"#C8C896\" align=\"center\" valign=\"center\" width=\"128\" height=\"40\" colspan=\"3\"><b>' + wordMonth[monthNum-1] + '&nbsp;&nbsp;' + yearNum + '<\/b><\/td>';
-	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.NextMo.src=\'images\/NextMoOn40x40\.jpg\';\" onMouseOut=\"document.NextMo.src=\'images\/NextMoOff40x40\.jpg\';\" onClick=\"changedate(\'nextmo\')\"><img name=\"NextMo\" src=\"images\/NextMoOff40x40\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Mo\"\/><\/a><\/td>';
-	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onMouseOver=\"document.NextYr.src=\'images\/NextYrOn40x40\.jpg\';\" onMouseOut=\"document.NextYr.src=\'images\/NextYrOff40x40\.jpg\';\" onClick=\"changedate(\'nextyr\')\"><img name=\"NextYr\" src=\"images\/NextYrOff40x40\.jpg\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Yr\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextmo\')\"><img name=\"NextMo\" src=\"images\/NextMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Mo\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextyr\')\"><img name=\"NextYr\" src=\"images\/NextYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Yr\"\/><\/a><\/td>';
 	calendarString += '<\/tr>';
 	calendarString += '<tr>';
 	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Sun<\/td>';
@@ -306,10 +306,10 @@ var floater = 0;
 		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
-			theevent += 'Artist: ' + events[i][7] + '\n';
+			theevent += 'Artist: ' + events[i][8] + '\n';
 			theevent += 'Time: ' + events[i][4] + '\n';
 			theevent += 'Venue: ' + events[i][5] + '\n';
-			theevent += 'Details: ' + events[i][8] + '\n';
+			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n -------------- \n\n';
 			document.forms.eventform.eventlist.value = theevent;
 		}
@@ -396,9 +396,9 @@ function procVal(pVar)
 			</td></tr></table>
 		
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist" cols="50" rows="11" wrap="soft">Auto filled when clicking on date.</textarea>
+					<textarea name="eventlist" cols="50" rows="20" wrap="soft">Auto filled when clicking on date.</textarea>
 				</form>
 		
-<textarea id="rest1" class="hideDontTakeUpSpace" rows=6 cols=50></textarea>
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
 </body>
 </html>
