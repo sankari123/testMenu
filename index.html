@@ -301,12 +301,12 @@ var floater = 0;
 		}
 		// Now we'll process any One Time events happening on the matching month, day, year:
 		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
-			theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
-			theevent += 'Start Time: ' + events[i][4] + '\n';
-			theevent += 'Ending Time: ' + events[i][5] + '\n';
-			theevent += 'Description: ' + events[i][7] + '\n';
-			theevent += 'Description: ' + events[i][8] + '\n';
+			theevent += 'Artist: ' + events[i][7] + '\n';
+			theevent += 'Time: ' + events[i][4] + '\n';
+			theevent += 'Venue: ' + events[i][5] + '\n';
+			theevent += 'Details: ' + events[i][8] + '\n';
 			theevent += '\n -------------- \n\n';
 			document.forms.eventform.eventlist.value = theevent;
 		}
@@ -369,7 +369,7 @@ function procVal(pVar)
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
-		events.push(["Y",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);
+		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);
 		}
 	
 	//testing();
@@ -377,26 +377,27 @@ function procVal(pVar)
 }
 	
 </script>
+	<style>
+		.hideDontTakeUpSpace
+        {
+            display:none;
+        }
+	</style>
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
-<center>
 <table id="evtcal" border="1" cellpadding="0" cellspacing="0" width="314">
 		<tr>
 			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
-			<td width="10">&nbsp;</td>
-			<td style="padding: 3px;" align="center" bgcolor="#ffffc8" valign="top" width="260"><b>Intructions:</b><br />
-				-<center><b><u>Events</u></b>
+			</td></tr></table>
+	<div>
+		<div>-<center><b><u>Events</u></b></center></div>
+			
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist" cols="25" rows="11" wrap="soft">Auto filled when clicking on date.</textarea>
 				</form>
-				</center>
-			</td>
-		</tr>
-	</table>
-</center>
-<div id='ajaxDiv'></div>
-<textarea id="rest1" rows=5 cols=50></textarea>
-	</body>
+		</div>
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=6 cols=50></textarea>
+</body>
 </html>
