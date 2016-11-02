@@ -21,6 +21,12 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 		//changedate('return');
 }
+
+	function getDaysInMonth(m, y) {
+    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
+}	
+
+	
 	function onDeviceReady()
 		{
 		
@@ -50,9 +56,6 @@
 		}
 	   
 	
-function getDaysInMonth(m, y) {
-    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
-}	
 	
 	
 /* Preload images script */
@@ -65,7 +68,7 @@ function preloadimages(){
 	
 }
 /* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
-preloadimages("images/PrevYrOff40x40.jpg","images/PrevYrOn40x40.jpg","images/PrevMoOff40x40.jpg","images/PrevMoOn40x40.jpg","images/NextYrOff40x40.jpg","images/NextYrOn40x40.jpg","images/NextMoOff40x40.jpg","images/NextMoOn40x40.jpg");
+preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
 
 var thisDate = 1;							// Tracks current date being written in calendar
 var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
