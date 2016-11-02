@@ -388,15 +388,16 @@ function procVal(pVar)
         {
             display:none;
         }
+		.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold;}
 	</style>
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
-<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='40px' bgcolor="#d78f97"><td colspan=2 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
 		<tr><td align=center><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
-	<table><tr>
+	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" bgcolor="#aaddff" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
 			</td></tr></table>
