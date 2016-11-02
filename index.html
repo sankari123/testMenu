@@ -21,6 +21,7 @@
 	
     	document.addEventListener("deviceready", onDeviceReady, false);
 		//changedate('return');
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 function checkConnection() {
      var networkState = navigator.connection.type;
@@ -37,8 +38,43 @@ function checkConnection() {
 	ajaxFunction();
 }
 	
+function gotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
 
-	function getDaysInMonth(m, y) {
+function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(WriteText, fail);
+    }	
+	
+ function WriteText(writer) {
+      writer.onwriteend = function(evt){ // Fired when end write.
+        console.log("End write text in file");
+
+    };
+writer.write(arr_store);
+}
+	function gotFileWriter(writer) {
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample text'");
+            writer.truncate(11);
+            writer.onwriteend = function(evt) {
+                console.log("contents of file now 'some sample'");
+                writer.seek(4);
+                writer.write(" different text");
+                writer.onwriteend = function(evt){
+                    console.log("contents of file now 'some different text'");
+                }
+            };
+        };
+        writer.write("some sample text");
+    }
+
+    function fail(error) {
+        console.log(error.code);
+    }
+	
+	
+function getDaysInMonth(m, y) {
     return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
 }	
 
@@ -349,6 +385,7 @@ var dayofmonth = 0;	// zero out our calendar day variable.
 return dayofmonth;
 }
 var ajaxResponse;
+	var arr_store;
 function ajaxFunction()
 {
 	if (connSel=='Y')
@@ -360,6 +397,7 @@ function ajaxFunction()
 		alert(xhr.responseText);
 	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
+	arr_store=document.getElementById('rest1').value;	
 	ajaxResponse=xhr.responseText;
 		procVal(ajaxResponse);
 	};
@@ -383,27 +421,7 @@ function ajaxFunction()
 		//navigator.app.exitApp();
 	}
 	
-	function createTxtFile(){
-      //  Request File System
-      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem){
-        fileSystem.root.getFile("myTxt.txt", {create: true, exclusive: false},
-           function(fileEntry){
-          // Create File
-          fileEntry.createWriter(WriteText, fail);
-      }, fail);
-    },
-    fail
-    );
-  }
-	
-	function WriteText(writer) {
-      writer.onwriteend = function(evt){ // Fired when end write.
-        console.log("End write text in file");
-
-    };
-    writer.write(dataForm);
-}
-	
+		
 var latR;
 var events = new Array();
 function procVal(pVar)
