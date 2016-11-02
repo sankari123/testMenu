@@ -145,6 +145,7 @@ eastermonth = month;
 easterday = day;
 }
 function createCalendar() {
+	window.plugins.spinnerDialog.hide();		
 	calendarString = '';
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
@@ -188,7 +189,7 @@ function createCalendar() {
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
 	thisDate = 1;
-	window.plugins.spinnerDialog.hide();		
+	
 }
 function checkevents(day,month,year,week,dayofweek) {
 var numevents = 0;
