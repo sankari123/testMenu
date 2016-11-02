@@ -33,6 +33,7 @@ function checkConnection() {
 	 
       }
 	window.plugins.spinnerDialog.show(null,'Loading Calendar.....Please wait!');
+	alert(connSel);
 	ajaxFunction();
 }
 	
@@ -351,7 +352,7 @@ var ajaxResponse;
 function ajaxFunction()
 {
 	if (connSel=='Y')
-	{//alert('in');
+	{alert('in');
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
