@@ -22,6 +22,20 @@
     	document.addEventListener("deviceready", onDeviceReady, false);
 		//changedate('return');
 }
+function checkConnection() {
+     var networkState = navigator.connection.type;
+     if(navigator.connection.type == Connection.NONE) {        
+     connSel='N';
+    }
+   else
+      {
+	 connSel='Y';
+	 
+      }
+	window.plugins.spinnerDialog.show(null,'Loading Calendar.....Please wait!');
+	ajaxFunction();
+}
+	
 
 	function getDaysInMonth(m, y) {
     return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
@@ -30,7 +44,7 @@
 	
 	function onDeviceReady()
 		{
-		window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
+		//window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
 		//ajaxFunction();
 		//procVal();
 		changedate('return');
@@ -89,7 +103,8 @@ var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
 	//alert('in');
-	ajaxFunction();
+	checkConnection(); 
+	//ajaxFunction();
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -335,7 +350,8 @@ return dayofmonth;
 var ajaxResponse;
 function ajaxFunction()
 {
-	//alert('in');
+	if (connSel=='Y')
+	{//alert('in');
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
@@ -347,9 +363,24 @@ function ajaxFunction()
 		procVal(ajaxResponse);
 	};
 	xhr.send();
+	}
+	else if(document.getElementById('rest1').value.length==1)
+	{
+	  navigator.notification.alert('No network connection... Please turn it on..',  alertDismissed1,  'Events Loader',   'OK' );
+	}
+	else
+	{
+	arr_store=document.getElementById('rest1').value;	
+	procVal(arr_store);
+	}
 	
                
  }
+	function alertDismissed1()
+	{
+	navigator.device.exitApp();
+		//navigator.app.exitApp();
+	}
 var latR;
 var events = new Array();
 function procVal(pVar)
