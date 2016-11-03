@@ -17,11 +17,16 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-	function init() {
-	
+function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
-		//changedate('return');
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	
+}
+function onDeviceReady(){
+	
+	checkConnection();
+	document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
 }
 function checkConnection() {
      var networkState = navigator.connection.type;
@@ -31,11 +36,10 @@ function checkConnection() {
    else
       {
 	 connSel='Y';
+	 changedate('return');
 	 
       }
-	window.plugins.spinnerDialog.show(null,'Loading Calendar.....Please wait!');
-	alert(connSel);
-	ajaxFunction();
+	
 }
 	
 function gotFS(fileSystem) {
@@ -79,18 +83,7 @@ function getDaysInMonth(m, y) {
 }	
 
 	
-	function onDeviceReady()
-		{
-		//window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
-		//ajaxFunction();
-		//procVal();
-		changedate('return');
-		//window.plugins.tts.startup(startupWin, fail);
-		
-		document.addEventListener("backbutton", function (e) {
-        	e.preventDefault(); 
-		navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
-		}
+	
 	
 		function onConfirmExit(button) {
 		if(button==2){ //If User select a No, then return back;
@@ -139,9 +132,7 @@ var eastermonth = 0;
 var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
-	//alert('in');
-	checkConnection(); 
-	//ajaxFunction();
+	ajaxFunction();
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -385,11 +376,10 @@ var dayofmonth = 0;	// zero out our calendar day variable.
 return dayofmonth;
 }
 var ajaxResponse;
-	var arr_store;
+var arr_store;
 function ajaxFunction()
 {
-	if (connSel=='Y')
-	{alert('in');
+	
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
@@ -397,24 +387,13 @@ function ajaxFunction()
 		alert(xhr.responseText);
 	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
-	arr_store=document.getElementById('rest1').value;	
+	arr_store=document.getElementById('rest1').value;
+	arr_store=document.getElementById('rest1').value;
 	ajaxResponse=xhr.responseText;
 		procVal(ajaxResponse);
 	};
 	xhr.send();
-	}
-	else if(document.getElementById('rest1').value.length==1)
-	{
-	  navigator.notification.alert('No network connection... Please turn it on..',  alertDismissed1,  'Events Loader',   'OK' );
-	}
-	else
-	{
-	arr_store=document.getElementById('rest1').value;	
-	procVal(arr_store);
-	}
-	
-               
- }
+}
 	function alertDismissed1()
 	{
 	navigator.device.exitApp();
@@ -449,6 +428,8 @@ function procVal(pVar)
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);
+		//write ajax response to text file
+		 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 		}
 	
 	//testing();
