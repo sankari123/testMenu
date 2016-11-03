@@ -65,11 +65,21 @@ function gotFileEntry(fileEntry) {
 
 	
 function gotFile(file){
-      //  readDataUrl(file);
+      readDataUrl(file);
         readAsText(file);
     }
 
-function readAsText(file) {
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+	
+	function readAsText(file) {
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             console.log("Read as text");
