@@ -66,12 +66,14 @@ function gotFile(file){
       //  readDataUrl(file);
         readAsText(file);
     }
+
 function readAsText(file) {
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             console.log("Read as text");
             console.log(evt.target.result);
-	    procVal(evt.target.result);	
+	    document.getElementById('rest1').value=evt.target.result;	
+	    changedate('return');
         };
         reader.readAsText(file);
   }	
@@ -386,6 +388,8 @@ var arr_store;
 function ajaxFunction()
 {
 	
+	if(connSel=='Y')
+	{	
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
@@ -396,9 +400,14 @@ function ajaxFunction()
 	arr_store=document.getElementById('rest1').value;
 	arr_store=document.getElementById('rest1').value;
 	ajaxResponse=xhr.responseText;
-		procVal(ajaxResponse);
+	procVal(ajaxResponse);
 	};
 	xhr.send();
+	}
+	else
+	{
+	procVal(document.getElementById('rest1').value);
+	}	
 }
 	function alertDismissed1()
 	{
