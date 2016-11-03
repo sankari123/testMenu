@@ -31,7 +31,8 @@ function onDeviceReady(){
 function checkConnection() {
      var networkState = navigator.connection.type;
      if(navigator.connection.type == Connection.NONE) {        
-     connSel='N';
+        connSel='N';
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
     }
    else
       {
@@ -42,13 +43,38 @@ function checkConnection() {
 	
 }
 	
+function RgotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", null, RgotFileEntry, fail);
+    }	
+	
+	
 function gotFS(fileSystem) {
         fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
 }
 
+function RgotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+	
+	
 function gotFileEntry(fileEntry) {
         fileEntry.createWriter(WriteText, fail);
     }	
+
+	
+function gotFile(file){
+      //  readDataUrl(file);
+        readAsText(file);
+    }
+function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+	    procVal(evt.target.result);	
+        };
+        reader.readAsText(file);
+  }	
 	
  function WriteText(writer) {
       writer.onwriteend = function(evt){ // Fired when end write.
@@ -57,24 +83,9 @@ function gotFileEntry(fileEntry) {
     };
 writer.write(arr_store);
 }
-	function gotFileWriter(writer) {
-        writer.onwriteend = function(evt) {
-            console.log("contents of file now 'some sample text'");
-            writer.truncate(11);
-            writer.onwriteend = function(evt) {
-                console.log("contents of file now 'some sample'");
-                writer.seek(4);
-                writer.write(" different text");
-                writer.onwriteend = function(evt){
-                    console.log("contents of file now 'some different text'");
-                }
-            };
-        };
-        writer.write("some sample text");
-    }
-
+	
     function fail(error) {
-        console.log(error.code);
+        alert('Failed to load events...');
     }
 	
 	
@@ -85,19 +96,14 @@ function getDaysInMonth(m, y) {
 	
 	
 	
-		function onConfirmExit(button) {
-		if(button==2){ //If User select a No, then return back;
-        	return;
-		}else{
-    		if (navigator.app) {
-            	navigator.app.exitApp();
-        	}
-        	else if (navigator.device) {
-            	navigator.device.exitApp();
-        	}
-       // navigator.app.exitApp(); // If user select a Yes, quit from the app.
-		}
-		}
+function onConfirmExit(button) {
+if(button==2){ //If User select a No, then return back;
+       	return; }
+else{
+   if (navigator.app) {
+     navigator.app.exitApp(); }
+   else if (navigator.device) {
+     navigator.device.exitApp(); } }	}
 	   
 	
 	
@@ -188,7 +194,7 @@ eastermonth = month;
 easterday = day;
 }
 function createCalendar() {
-	window.plugins.spinnerDialog.hide();		
+	//window.plugins.spinnerDialog.hide();		
 	calendarString = '';
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
@@ -384,7 +390,7 @@ function ajaxFunction()
 	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
 	xhr.onload = function(){
     	//console.log(xhr);
-		alert(xhr.responseText);
+		//alert(xhr.responseText);
 	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
 	arr_store=document.getElementById('rest1').value;
