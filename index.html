@@ -74,6 +74,7 @@ function readAsText(file) {
         reader.onloadend = function(evt) {
             console.log("Read as text");
             console.log(evt.target.result);
+	    alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
 	    changedate('return');
         };
