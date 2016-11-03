@@ -155,7 +155,7 @@ var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
 	ajaxFunction();
-	window.plugins.spinnerDialog.hide();	
+		
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -258,6 +258,7 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
+window.plugins.spinnerDialog.hide();
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
