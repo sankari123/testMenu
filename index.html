@@ -258,7 +258,7 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
-window.plugins.spinnerDialog.hide();
+
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -382,6 +382,7 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ---------------------- \n\n';
 			document.forms.eventform.eventlist.value = theevent;
+			window.plugins.spinnerDialog.hide();
 		}
 	}
 	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
