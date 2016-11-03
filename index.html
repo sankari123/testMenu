@@ -255,7 +255,7 @@ function createCalendar() {
 	var object=document.getElementById('calendar');
 	object.innerHTML= calendarString;
 	thisDate = 1;
-	
+	window.plugins.spinnerDialog.hide();
 }
 function checkevents(day,month,year,week,dayofweek) {
 
@@ -293,6 +293,7 @@ var floater = 0;
 	
 }
 function showevents(day,month,year,week,dayofweek) {
+	
 var theevent = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -382,7 +383,7 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ---------------------- \n\n';
 			document.forms.eventform.eventlist.value = theevent;
-			window.plugins.spinnerDialog.hide();
+			
 		}
 	}
 	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
