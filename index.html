@@ -485,10 +485,16 @@ var config = {
 		document.getElementById("lst_mnu").style.visibility="true"
 		document.getElementById("calendar").style.display="none"
 		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("det").style.display="none"
+		document.getElementById("det").style.visibility="false";
 window.plugins.listpicker.showPicker(config, 
     function(item) { 
-        alert("You have selected " + item);
-	lst_mnu.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Venue</td></tr></table> ";
+      //  alert("You have selected " + item);
+	lst_mnu.innerHTML="<table width='100%' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr> ";
+	for (var i = 0, len = events.length-1; i < len; i++) {
+	lst_mnu.innerHTML.="<tr height='30px'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][8]+"</td><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
+	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
+	}
     },
     function() { 
         alert("You have cancelled");
@@ -509,7 +515,8 @@ window.plugins.listpicker.showPicker(config,
             display:none;
         }
 
-.btn1 {  background-color: transparent; border: 0; padding: 0; font-weight: bold; color: white;}
+.btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white;}
+button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 #evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* unvisited link */
 #evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}	/* visited link */
 #evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;}	/* mouse over link */
@@ -535,7 +542,7 @@ window.plugins.listpicker.showPicker(config,
 				<div id='lst_mnu'>
 				</div>
 			</td></tr></table>
-			<div align='center' style="background:white">
+			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
 				</form>
