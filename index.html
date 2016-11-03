@@ -32,11 +32,13 @@ function checkConnection() {
      var networkState = navigator.connection.type;
      if(navigator.connection.type == Connection.NONE) {        
         connSel='N';
+	     alert(connSel);
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
     }
    else
       {
-	 connSel='Y';
+	    connSel='Y';
+	      alert(connSel);
 	 changedate('return');
 	 
       }
@@ -397,8 +399,6 @@ function ajaxFunction()
 		//alert(xhr.responseText);
 	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
 	document.getElementById('rest1').value=xhr.responseText;
-	arr_store=document.getElementById('rest1').value;
-	arr_store=document.getElementById('rest1').value;
 	ajaxResponse=xhr.responseText;
 	procVal(ajaxResponse);
 	};
@@ -406,6 +406,8 @@ function ajaxFunction()
 	}
 	else
 	{
+		alert('no conn');
+		alert(document.getElementById('rest1').value);
 	procVal(document.getElementById('rest1').value);
 	}	
 }
@@ -421,7 +423,7 @@ var events = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	//alert('Ajax Resp'+pVar);
+	alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
