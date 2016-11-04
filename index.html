@@ -495,8 +495,8 @@ window.plugins.listpicker.showPicker(config,
 	alert(events.length);
 	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr> ";
 	for (var i = 0, len = events.length-1; i < len; i++) {
-		alert(events[i][5]);
-		if(2==2)
+		ven_nam=events[i][5];
+		if(ven_nam==v_sel)
 		{
 		alert('in');
 		time_p=String(events[i][4]);
