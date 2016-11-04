@@ -492,26 +492,26 @@ window.plugins.listpicker.showPicker(config,
     function(item) { 
 	v_sel=item;
         alert("You have selected " + v_sel);
-	alert(events.length);
-	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr> ";
+	//alert(events.length);
+	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
 		if(ven_nam==v_sel)
 		{
 		alert('in');
 		time_p=String(events[i][4]);
-	      lst_mnu.innerHTML+="<tr height='30px'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
+	        lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
 		}
 		
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
-	
+	lst_mnu.innerHTML+="</table>" ;
     },
     function() { 
         alert("You have cancelled");
     }
 );
-lst_mnu.innerHTML+="</table>" ;	}	
+	}	
 </script>
 	<style type="text/css">
 		body, html {
@@ -559,5 +559,6 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 				</form>
 			</div>
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
+	
 </body>
 </html>
