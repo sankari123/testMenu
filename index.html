@@ -492,6 +492,7 @@ var config = {
 window.plugins.listpicker.showPicker(config, 
     function(item) { 
         alert("You have selected " + item);
+	alert(events.length);
 	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr> ";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		alert(events[i][5]);
