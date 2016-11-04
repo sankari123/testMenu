@@ -492,7 +492,7 @@ window.plugins.listpicker.showPicker(config,
       //  alert("You have selected " + item);
 	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr> ";
 	for (var i = 0, len = events.length-1; i < len; i++) {
-		if((events[i][4])==item)
+		if((events[i][5])==item)
 		{
 		pTim=String(events[i][4]);
 	lst_mnu.innerHTML+="<tr height='30px'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][8]+"</td><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
