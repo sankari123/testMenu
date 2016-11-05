@@ -253,7 +253,7 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
-window.plugins.spinnerDialog.hide();
+
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -400,7 +400,7 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	
+	window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
@@ -473,7 +473,8 @@ var config = {
         { text: "Mylapore Fine Arts", value: "MFA" },
 	{ text: "Mudhra", value: "Mudhra" },
         { text: "Narada Gana Sabha", value: "NGS" },	    
-        { text: "Bharatiya Vidya Bhavan", value: "BVB" } ],
+        { text: "Bharatiya Vidya Bhavan", value: "BVB" }
+    ],
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
@@ -494,7 +495,7 @@ window.plugins.listpicker.showPicker(config,
 	v_sel=item;
         alert("You have selected " + v_sel);
 	//alert(events.length);
-	lst_mnu.innerHTML="<table width='100%' style='font-size:10px;' border='1' cellpadding='0' cellspacing='0'>";
+	lst_mnu.innerHTML="<table width='100%' bgcolor='#e3dabb' border='1' cellpadding='0' cellspacing='0'>";
 	//lst_mnu.innerHTML+="<tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
@@ -503,12 +504,12 @@ window.plugins.listpicker.showPicker(config,
 		//alert('in');
 		time_p=String(events[i][4]);
 	      //  lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/><br/>";	
+		lst_mnu.innerHTML+="<font size=9><tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/><br/>";	
 		}
 		
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
-	lst_mnu.innerHTML+="</table>" ;
+	lst_mnu.innerHTML+="</font></table>" ;
     },
     function() { 
         alert("You have cancelled");
