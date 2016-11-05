@@ -501,19 +501,21 @@ window.plugins.listpicker.showPicker(config,
 		ven_nam=events[i][5];
 		if(ven_nam==v_sel)
 		{
-		//alert('in');
+		flg=true;
 		time_p=String(events[i][4]);
 	      //  lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
 		lst_mnu.innerHTML+="<font size=2><tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/><hr/><br/>";	
 		}
-		else
-		{
-			alert('Sorry... No events at '+item+'. Please comeback later...') ;
-		}
+		
 		
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
+	if(flg!=true)
+	{
+		alert('Sorry... No events at '+item+'. Please comeback later...') ;
+	}
 	lst_mnu.innerHTML+="</font></table>" ;
+	
     },
     function() { 
         alert("You have cancelled");
