@@ -457,7 +457,7 @@ function procVal(pVar)
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);
-		venue_arr.push([venue]);
+		//venue_arr.push([venue]);
 		//write ajax response to text file
 		
 		}
@@ -467,7 +467,12 @@ function procVal(pVar)
 }
 var config = {
     title: "Select a Venue", 
-    items: [{ text: venue_arr, value: venue_arr }],
+    items: [{   text: "Vani Mahal", value: "Vani Mahal" },
+        { text: "Krishna Gana Sabha", value: "KGS" },
+        { text: "Mylapore Fine Arts", value: "MFA" },
+	{ text: "Mudhra", value: "Mudhra" },
+        { text: "Narada Gana Sabha", value: "NGS" },	    
+        { text: "Bharatiya Vidya Bhavan", value: "BVB" } }],
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
