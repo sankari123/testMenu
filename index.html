@@ -502,18 +502,19 @@ window.plugins.listpicker.showPicker(config,
 		{
 		//alert('in');
 		time_p=String(events[i][4]);
-	        lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+	      //  lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/>";	
 		}
 		//lst_menu.innerHTML+="<tr><td>&nbsp;</td></tr> ";
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
-	
+	lst_mnu.innerHTML+="</table>" ;
     },
     function() { 
         alert("You have cancelled");
     }
 );
-		lst_mnu.innerHTML+="</table>" ;
+		//lst_mnu.innerHTML+="</table>" ;
 	}
 
 function calClick()
@@ -558,7 +559,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr height='40px' bgcolor="#ed7372"><td colspan=2 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
+	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
 		<tr height='40px' bgcolor='#003c67'><td align=center><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
