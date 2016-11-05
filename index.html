@@ -471,7 +471,8 @@ var config = {
         { text: "Vani Mahal", value: "Vani Mahal" },
         { text: "Krishna Gana Sabha", value: "KGS" },
         { text: "Mylapore Fine Arts", value: "MFA" },
-        { text: "Bharatiya Vidhya Bhavan", value: "BVB" }
+	{ text: "Mudhra", value: "Mudhra" },
+        { text: "Bharatiya Vidya Bhavan", value: "BVB" }
       ],
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
@@ -493,16 +494,18 @@ window.plugins.listpicker.showPicker(config,
 	v_sel=item;
         alert("You have selected " + v_sel);
 	//alert(events.length);
-	lst_mnu.innerHTML="<table width='100%' border='1' cellpadding='0' cellspacing='0'><tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
+	lst_mnu.innerHTML="<table width='100%' style='font-family:Arial, Verdana, sans-serif;color:#0000FF;font-size:10px;' border='1' cellpadding='0' cellspacing='0'>";
+	//lst_mnu.innerHTML+="<tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
 		if(ven_nam==v_sel)
 		{
-		alert('in');
+		//alert('in');
 		time_p=String(events[i][4]);
-	        lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
+	        lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr>";
+		lst_menu.innerHTML+="<tr><td>"+events[i][7]+"</td><td>Route</td></tr> ";	
 		}
-		
+		lst_menu.innerHTML+="<tr><td>&nbsp;</td></tr> ";
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
 	lst_mnu.innerHTML+="</table>" ;
