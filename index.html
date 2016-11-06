@@ -551,6 +551,7 @@ function calClick()
 
 	function getDrive()
 	{
+	alert('in');
 	document.getElementById("route_canvas").style.display="block";
 	document.getElementById("route_canvas").style.visibility="true";
 	document.getElementById("panel").style.display="block";
@@ -558,10 +559,10 @@ function calClick()
 		
 	var directionsService = new google.maps.DirectionsService();
          var directionsDisplay = new google.maps.DirectionsRenderer();
-		alert(position.coords.latitude, position.coords.latitude);
-    alert(position.coords.latitude, position.coords.longitude);
+	alert(position.coords.latitude);
+       alert(position.coords.longitude);
 	alert(lat2);
-		alert(long2);
+	alert(long2);
          var map = new google.maps.Map(document.getElementById('route_canvas'), {
            zoom:7,
            mapTypeId: google.maps.MapTypeId.ROADMAP
