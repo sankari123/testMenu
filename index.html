@@ -478,7 +478,7 @@ var config = {
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
-	
+var flg=false;	
 // Show the picker
 	function venueFilter()
 	{
@@ -496,7 +496,7 @@ window.plugins.listpicker.showPicker(config,
 	v_sel=item;
        // alert("You have selected " + v_sel);
 	//alert(events.length);
-	var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'><tr bgcolor='#f7f7f7'><td colspan='3'>";
+	var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'><tr bgcolor='#f7f7f7'><td colspan='3' align='center'>"+v_sel+"</td></tr>";
 	//lst_mnu.innerHTML+="<tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
@@ -505,7 +505,7 @@ window.plugins.listpicker.showPicker(config,
 		flg=true;
 		time_p=String(events[i][4]);
 	      //lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+=ven_nam+"</td></tr><font size=2><tr bgcolor='#a5deb8'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='30px'><td colspan='3'>&nbsp;</td></tr>";	
+		htm_str+="<font size=2><tr bgcolor='#a5deb8'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='30px'><td colspan='3'>&nbsp;</td></tr>";	
 		//lst_mnu.innerHTML=htm_str;
 		}
 		
