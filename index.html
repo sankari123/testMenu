@@ -505,7 +505,7 @@ window.plugins.listpicker.showPicker(config,
 		flg=true;
 		time_p=String(events[i][4]);
 	      //lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr bgcolor='#f8bd72'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";	
+		htm_str+="<font size=2><tr bgcolor='#f8bd72'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#f8bd72'><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><tr><td>&nbsp;</td></tr>";	
 		lst_mnu.innerHTML=htm_str;
 		}
 		
@@ -517,7 +517,7 @@ window.plugins.listpicker.showPicker(config,
 	{
 		alert('No events at '+item+'. Please comeback later...') ;
 	}
-	lst_mnu.innerHTML+=lst_mnu.innerHTML+"</font></table>" ;
+	//lst_mnu.innerHTML+=lst_mnu.innerHTML+"</font></table>" ;
 	
     },
     function() { 
