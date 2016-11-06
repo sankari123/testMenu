@@ -483,6 +483,7 @@ var config = {
 	function venueFilter()
 	{
 		
+		checkConnection();
 		lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
@@ -495,7 +496,7 @@ window.plugins.listpicker.showPicker(config,
 	v_sel=item;
        // alert("You have selected " + v_sel);
 	//alert(events.length);
-	lst_mnu.innerHTML="<table width='100%' bgcolor='#f8bd72' border='0' cellpadding='0' cellspacing='0'>";
+	var htm_str="<table width='100%' bgcolor='#f8bd72' border='0' cellpadding='0' cellspacing='0'>";
 	//lst_mnu.innerHTML+="<tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
@@ -503,22 +504,23 @@ window.plugins.listpicker.showPicker(config,
 		{
 		flg=true;
 		time_p=String(events[i][4]);
-	      //  lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		lst_mnu.innerHTML+="<font size=2><tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/><hr/><br/>";	
+	      //lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		htm_str+="<font size=2><tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><br/><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr><br/><hr/><br/>";	
 		}
 		
 		
 	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
 	}
+	//lst_mnu.innerHTML=htm_str;
 	if(flg!=true)
 	{
 		alert('No events at '+item+'. Please comeback later...') ;
 	}
-	lst_mnu.innerHTML+="</font></table>" ;
+	lst_mnu.innerHTML=htm_str+"</font></table>" ;
 	
     },
     function() { 
-        alert("You have cancelled");
+      //  alert("You have cancelled");
     }
 );
 		//lst_mnu.innerHTML+="</table>" ;
@@ -567,7 +569,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
-		<tr height='40px' bgcolor='#003c67'><td align=center><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
