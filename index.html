@@ -546,7 +546,7 @@ window.plugins.listpicker.showPicker(config,
 	}
 	else
 	{
-	lst_mnu.innerHTML=htm_str+"</font><tr><td colspan='3' align='center'><input type='button' value='Route Map' onclick='getDrive();'></td></tr></table>" ;
+	lst_mnu.innerHTML=htm_str+"</font></table>" ;
 	}
 	
     },
@@ -555,6 +555,7 @@ window.plugins.listpicker.showPicker(config,
     }
 );
 		//lst_mnu.innerHTML+="</table>" ;
+		getDrive() ;
 	}
 
 function calClick()
@@ -571,18 +572,15 @@ function calClick()
 	function getDrive()
 	{
 	
-	alert('in');
+	//alert('in');
 	document.getElementById("route_canvas").style.display="block";
 	document.getElementById("route_canvas").style.visibility="true";
 	document.getElementById("panel").style.display="block";
 	document.getElementById("panel").style.visibility="true";
-		
+	document.getElementById(panel).innerHTML = "";
 	var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer();
-	alert(x);
-       alert(y);
-	alert(lat2);
-	alert(long2);
+
          var map = new google.maps.Map(document.getElementById('route_canvas'), {
            zoom:7,
            mapTypeId: google.maps.MapTypeId.ROADMAP
