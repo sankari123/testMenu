@@ -482,7 +482,7 @@ function procVal(pVar)
 		}
 	
 	//testing();
-	alert("events"+events);
+	//alert("events"+events);
 }
 var config = {
     title: "Select a Venue", 
@@ -504,7 +504,7 @@ var lat2,long2;
 	{
 		
 		checkConnection();
-		
+		getLoc();
 		lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
@@ -570,7 +570,7 @@ function calClick()
 
 	function getDrive()
 	{
-	getLoc();
+	
 	alert('in');
 	document.getElementById("route_canvas").style.display="block";
 	document.getElementById("route_canvas").style.visibility="true";
