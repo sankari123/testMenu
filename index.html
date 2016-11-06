@@ -546,7 +546,8 @@ window.plugins.listpicker.showPicker(config,
 	}
 	else
 	{
-	lst_mnu.innerHTML=htm_str+"</font></table>" ;
+	lst_mnu.innerHTML=htm_str+"</font><tr><td colspan=3><b>Route Map</b></td></tr></table>" ;
+		getDrive() ;
 	}
 	
     },
@@ -555,7 +556,7 @@ window.plugins.listpicker.showPicker(config,
     }
 );
 		//lst_mnu.innerHTML+="</table>" ;
-		getDrive() ;
+		
 	}
 
 function calClick()
