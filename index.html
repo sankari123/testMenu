@@ -12,6 +12,9 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
+	var directionDisplay;
+    var directionsService = new google.maps.DirectionsService();
+	
 function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
 	
@@ -555,7 +558,10 @@ function calClick()
 		
 	var directionsService = new google.maps.DirectionsService();
          var directionsDisplay = new google.maps.DirectionsRenderer();
-    
+		alert(position.coords.latitude, position.coords.latitude);
+    alert(position.coords.latitude, position.coords.longitude);
+	alert(lat2);
+		alert(long2);
          var map = new google.maps.Map(document.getElementById('route_canvas'), {
            zoom:7,
            mapTypeId: google.maps.MapTypeId.ROADMAP
