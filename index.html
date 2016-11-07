@@ -515,10 +515,7 @@ var lat2,long2;
 window.plugins.listpicker.showPicker(config, 
     function(item) { 
 	v_sel=item;
-       // alert("You have selected " + v_sel);
-	//alert(events.length);
-	var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'><tr bgcolor='#f7f7f7' height='40px'><td colspan='3' align='center'><b>"+v_sel+"</b></td></tr>";
-	//lst_mnu.innerHTML+="<tr height='30px'><td>Date</td><td>Time</td><td>Artist</td><td>Details</td><td>Route</td></tr>";
+        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
 		ven_nam=events[i][5];
 		if(ven_nam==v_sel)
@@ -529,10 +526,8 @@ window.plugins.listpicker.showPicker(config,
 		var values =latLon.split('*');
 		lat2=values[0];
 		long2=values[1];
-		//alert(latLon);
-		//alert(long2);
-	      //lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr bgcolor='#a5deb8'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
+		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		htm_str+="<tr bgcolor='#f7f7f7' height='40px'><td colspan='3' align='center'><b>"+v_sel+"</b></td></tr><font size=2><tr bgcolor='#a5deb8'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
 		//lst_mnu.innerHTML=htm_str;
 		}
 		
@@ -547,7 +542,7 @@ window.plugins.listpicker.showPicker(config,
 	else
 	{
 	lst_mnu.innerHTML=htm_str+"</font><tr><td colspan=3><b>Route Map</b></td></tr></table>" ;
-		getDrive() ;
+	getDrive() ;
 	}
 	
     },
@@ -647,6 +642,10 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		display:none;
 		
 	}
+	.map_c
+	{
+		 width: 100vw;
+	}
 	</style>
 	
 </head>
@@ -662,9 +661,9 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 				
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
-       <div style="width: 300px;">
-         <div id='route_canvas' style='width:200px;height:400px;float: left;'></div> 
-         <div id="panel" style="font-family:arial;font-size:12px;width: 100px; float: right;">
+       <div class='map_c'>
+         <div id='route_canvas' style='width:50vw;float: left;'></div> 
+         <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">
 	</div>
        </div>
 			<div id='det' align='center' style="background:white">
