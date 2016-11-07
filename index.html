@@ -484,7 +484,7 @@ function procVal(pVar)
 		}
 	
 	//testing();
-	uniq = remove_duplicates_es6(venue_arr);
+	uniq = remove_duplicates_safe(venue_arr);
 	alert("events  "+uniq);
 }
 	
@@ -495,10 +495,17 @@ venue_array = venue_array.map(function(e) {
   return result;
 });
 	
-function remove_duplicates_es6(arr) {
-    let s = new Set(arr);
-    let it = s.values();
-    return Array.from(it);
+function remove_duplicates_safe(arr) {
+    var seen = {};
+    var ret_arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in seen)) {
+            ret_arr.push(arr[i]);
+            seen[arr[i]] = true;
+        }
+    }
+    return ret_arr;
+
 }	
 var config = {
     title: "Select a Venue", 
