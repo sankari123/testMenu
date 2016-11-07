@@ -484,13 +484,16 @@ function procVal(pVar)
 		}
 	
 	//testing();
-	alert("events"+venue_arr);
+	uniqueArray = venue_arr.filter(function(item, pos) {
+    return venue_arr.indexOf(item) == pos;
+});
+	alert("events"+uniqueArray);
 }
 	
 venue_array = venue_array.map(function(e) { 
   var result = {};  
-  result['text'] =venue_arr[0]; // or e[1]
-  result['value'] =venue_arr[0]; // or e[0]
+  result['text'] =uniqueArray[0]; // or e[1]
+  result['value'] =uniqueArray[0]; // or e[0]
   return result;
 });
 	
