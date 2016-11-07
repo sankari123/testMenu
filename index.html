@@ -666,11 +666,11 @@ window.plugins.listpicker.showPicker(config1,
     function(item) { 
 	 
 	 flg=false;
-	 v_sel=item;
+	 a_sel=item;
         var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
-		ven_nam=events[i][5];
-		if(ven_nam==v_sel)
+		art_nam=events[i][8];
+		if(art_nam==a_sel)
 		{
 		flg=true;
 		time_p=String(events[i][4]);
@@ -687,7 +687,7 @@ window.plugins.listpicker.showPicker(config1,
 	}
 	if(flg!=true)
 	{
-		alert('No events at '+item+'. Please comeback later...') ;
+		alert('No events. Please comeback later...') ;
 	}
 	else
 	{
