@@ -488,10 +488,10 @@ function procVal(pVar)
 	alert("events  "+uniq);
 }
 	
-venue_array = venue_array.map(function(e) { 
+uniq = uniq.map(function(e) { 
   var result = {};  
-  result['text'] =uniq[0]; // or e[1]
-  result['value'] =uniq[0]; // or e[0]
+  result['text'] =e[0]; // or e[1]
+  result['value'] =e[0]; // or e[0]
   return result;
 });
 	
@@ -509,7 +509,7 @@ function remove_duplicates_safe(arr) {
 }	
 var config = {
     title: "Select a Venue", 
-    items: venue_array,
+    items: uniq,
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
