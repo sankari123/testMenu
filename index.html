@@ -476,7 +476,7 @@ function procVal(pVar)
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
-		//venue_arr.push([venue]);
+		venue_arr.push([venue]);
 		//write ajax response to text file
 		
 		}
@@ -484,16 +484,18 @@ function procVal(pVar)
 	//testing();
 	//alert("events"+events);
 }
+	
+venue_array = venue_array.map(function(e) { 
+  var result = {};  
+  result['text'] =venue_arr[0]; // or e[1]
+  result['value'] =venue_arr[0]; // or e[0]
+  return result;
+});
+	
+	
 var config = {
     title: "Select a Venue", 
-    items: [
-	{ text: "Vani Mahal", value: "Vani Mahal" },
-        { text: "Krishna Gana Sabha", value: "KGS" },
-        { text: "Mylapore Fine Arts", value: "MFA" },
-	{ text: "Mudhra", value: "Mudhra" },
-        { text: "Narada Gana Sabha", value: "NGS" },	    
-        { text: "Bharatiya Vidya Bhavan", value: "BVB" }
-    ],
+    items: venue_array,
     doneButtonLabel: "Done",
     cancelButtonLabel: "Cancel"
 };
@@ -529,7 +531,7 @@ window.plugins.listpicker.showPicker(config,
 		long2=values[1];
 	        
 		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
+		htm_str+="<font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#e9f2fc'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
 		 
 		}
 		 	
