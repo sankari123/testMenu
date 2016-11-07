@@ -484,10 +484,11 @@ function procVal(pVar)
 		}
 	
 	//testing();
-	uniqueArray = venue_arr.filter(function(item, pos) {
-    return venue_arr.indexOf(item) == pos;
-});
-	alert("events"+uniqueArray);
+	var uniq = venue_arr.reduce(function(a,b){
+    if (a.indexOf(b) < 0 ) a.push(b);
+    return a;
+  },[]);
+	alert("events  "+uniq);
 }
 	
 venue_array = venue_array.map(function(e) { 
