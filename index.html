@@ -514,7 +514,7 @@ var lat2,long2;
 		document.getElementById("det").style.visibility="false";
 window.plugins.listpicker.showPicker(config, 
     function(item) { 
-	kk=1;
+	 
 	v_sel=item;
         var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = events.length-1; i < len; i++) {
@@ -527,20 +527,17 @@ window.plugins.listpicker.showPicker(config,
 		var values =latLon.split('*');
 		lat2=values[0];
 		long2=values[1];
-	        if(kk==1)
+	        for (var kk = 0,  kk < 1; kk++) 
 		{
 		 htm_str+="<tr bgcolor='#f7f7f7' height='40px'><td colspan='3' align='center'><b>"+v_sel+"</b></td></tr>";
-			kk++;
+			
 		}
 		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
 		htm_str+="<tr bgcolor='#f7f7f7' height='40px'><td colspan='3' align='center'><b>"+v_sel+"</b></td></tr><font size=2><tr bgcolor='#a5deb8'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#a5deb8'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
-		//lst_mnu.innerHTML=htm_str;
+		 
 		}
-		
-		
-	//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art]);	
+		 	
 	}
-	//lst_mnu.innerHTML=htm_str;
 	if(flg!=true)
 	{
 		alert('No events at '+item+'. Please comeback later...') ;
@@ -556,8 +553,6 @@ window.plugins.listpicker.showPicker(config,
       //  alert("You have cancelled");
     }
 );
-		//lst_mnu.innerHTML+="</table>" ;
-		
 	}
 
 function calClick()
@@ -668,7 +663,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
        <div class='map_c'>
-         <div id='route_canvas' style='width:400px;float: left;'></div> 
+         <div id='route_canvas' style='width:300px;height:400px;float: left;'></div> 
          <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">
 	</div>
        </div>
