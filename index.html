@@ -632,7 +632,75 @@ function calClick()
          });
 	}
 	
-
+var config1 = {
+    title: "Select an Artist", 
+     items: [
+        { text: "Aruna Sairam", value: "Aruna Sairam" },
+        { text: "Sudha Ragunathan", value: "Sudha Ragunathan" },
+        { text: "Vani Mahal", value: "Vani Mahal" },
+        { text: "Vijay Siva", value: "Vijay Siva" },
+        { text: "Ranjani", value: "Ranjani" },
+        { text: "Kanya Kumari", value: "Kanya Kumari" },  
+	{ text: "Radhika", value: "Radhika" }, 
+	{ text: "Bombay Jayashree", value: "Bombay Jayashree" }, 
+	{ text: "Shobana", value: "Shobana" }
+	 
+    ],
+    doneButtonLabel: "Done",
+    cancelButtonLabel: "Cancel"
+};
+	
+function artistFilter()
+	{
+		
+		checkConnection();
+		getLoc();
+		lst_mnu.innerHTML='';
+		document.getElementById("lst_mnu").style.display="block";
+		document.getElementById("lst_mnu").style.visibility="true";
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("det").style.display="none";
+		document.getElementById("det").style.visibility="false";
+window.plugins.listpicker.showPicker(config1, 
+    function(item) { 
+	 
+	 flg=false;
+	 v_sel=item;
+        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
+	for (var i = 0, len = events.length-1; i < len; i++) {
+		ven_nam=events[i][5];
+		if(ven_nam==v_sel)
+		{
+		flg=true;
+		time_p=String(events[i][4]);
+		//latLon=events[i][9];
+		//var values =latLon.split('*');
+		//lat2=values[0];
+	//	long2=values[1];
+	        
+		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		htm_str+="<tr><td colspan=4>"+art+"</td></tr><font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][5]+"</td><td>"+Route+"</td></tr><tr height='10px'><td colspan='4'>&nbsp;</td></tr>";	
+	//	 events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		}
+		 	
+	}
+	if(flg!=true)
+	{
+		alert('No events at '+item+'. Please comeback later...') ;
+	}
+	else
+	{
+	lst_mnu.innerHTML=htm_str//+"</font><tr><td colspan=3>Route Map-"+v_sel+"</td></tr></table>" ;
+	//getDrive() ;
+	}
+	
+    },
+    function() { 
+      //  alert("You have cancelled");
+    }
+);
+	}
 </script>
 	<style type="text/css">
 		body, html {
