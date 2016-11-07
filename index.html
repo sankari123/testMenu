@@ -450,6 +450,7 @@ function ajaxFunction()
 		
 var latR;
 var events = new Array();
+var venue_arr = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
@@ -459,6 +460,7 @@ function procVal(pVar)
 	locArr=locArr.split('#');
 	//alert('locarr'+locArr);
 	events=[];
+	venue_arr=[];
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
 		start = 6;
