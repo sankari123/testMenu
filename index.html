@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+<title><center><font face=verdana size=12>Madras Music Fest</font></center></title>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
+
+<!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
+
+<script type="text/JavaScript" language="JavaScript">
+	
+	
+function init() {
+    	document.addEventListener("deviceready", onDeviceReady, false);
+	
+}
+function getLoc()
+{
+ 	if (navigator.geolocation)
+          {
+            navigator.geolocation.getCurrentPosition(myMap);
+          }
+        else
+          {
+             alert("Geolocation API not supported.");
+          }
+
+}
+function myMap(position) {
+       x = position.coords.latitude;
+        y = position.coords.longitude;
+ }
+function onDeviceReady(){
+	window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
+	checkConnection();
+	document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
+}
+function checkConnection() {
+     var networkState = navigator.connection.type;
+     if(navigator.connection.type == Connection.NONE) {        
+        connSel='N';
+	   //  alert(connSel);
+	     
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
+    }
+   else
+      {
+	    connSel='Y';
+	     // alert(connSel);
+	 changedate('return');
+	 
+      }
+	
+}
+	
+function RgotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", null, RgotFileEntry, fail);
+    }	
+	
+	
+function gotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
+
+function RgotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+	
+	
+function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(WriteText, fail);
+    }	
+
+	
+function gotFile(file){
+      readDataUrl(file);
+        readAsText(file);
+    }
+
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+	
+	function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+	 //   alert(evt.target.result);
+	    document.getElementById('rest1').value=evt.target.result;	
+	    changedate('return');
+        };
+        reader.readAsText(file);
+  }	
+	
+ function WriteText(writer) {
+      writer.onwriteend = function(evt){ // Fired when end write.
+        console.log("End write text in file");
+
+    };
+writer.write(ajaxResponse);
+}
+	
+    function fail(error) {
+        alert('Failed to load events...');
+    }
+	
+	
+function getDaysInMonth(m, y) {
+    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
+}	
+
+	
+	
+	
+function onConfirmExit(button) {
+if(button==2){ //If User select a No, then return back;
+       	return; }
+else{
+   if (navigator.app) {
+     navigator.app.exitApp(); }
+   else if (navigator.device) {
+     navigator.device.exitApp(); } }	}
+	   
+	
+	
+	
+/* Preload images script */
+var myimages=new Array()
+function preloadimages(){
+	for (i=0;i<preloadimages.arguments.length;i++){
+		myimages[i]=new Image();
+		myimages[i].src=preloadimages.arguments[i];
+	}
+	
+}
+/* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
+preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
+
+var thisDate = 1;							// Tracks current date being written in calendar
+var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+var today = new Date();							// Date object to store the current date
+var todaysDay = today.getDay() + 1;					// Stores the current day number 1-7
+var todaysDate = today.getDate();					// Stores the current numeric date within the month
+var todaysMonth = today.getUTCMonth() + 1;				// Stores the current month 1-12
+var todaysYear = today.getFullYear();					// Stores the current year
+var monthNum = todaysMonth;						// Tracks the current month being displayed
+var yearNum = todaysYear;						// Tracks the current year being displayed
+var firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));	// Object Storing the first day of the current month
+var firstDay = firstDate.getUTCDay();					// Tracks the day number 1-7 of the first day of the current month
+var lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));	// Tracks the last date of the current month
+var numbDays = 0;
+var calendarString = "";
+var eastermonth = 0;
+var easterday = 0;
+var flg=1;
+function changedate(buttonpressed) {
+	ajaxFunction();
+		
+	if (buttonpressed == "prevyr") yearNum--;
+	else if (buttonpressed == "nextyr") yearNum++;
+	else if (buttonpressed == "prevmo") monthNum--;
+	else if (buttonpressed == "nextmo") monthNum++;
+	else  if (buttonpressed == "return") { 
+		monthNum = todaysMonth;
+		yearNum = todaysYear;
+	}
+	if (monthNum == 0) {
+		monthNum = 12;
+		yearNum--;
+	}
+	else if (monthNum == 13) {
+		monthNum = 1;
+		yearNum++
+	}
+	lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
+	numbDays = lastDate.getDate();
+	   
+	if(isNaN(parseFloat("numbDays")))
+	  {
+	  numbDays = getDaysInMonth(monthNum, yearNum);
+	  }
+	  else
+	  {
+	   lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
+	   numbDays = lastDate.getDate();
+	  }
+	  
+	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
+	firstDay = firstDate.getDay() + 1;
+	
+	createCalendar();
+	return;
+}
+function easter(year) {
+// feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
+var a = year % 19;
+var b = Math.floor(year/100);
+var c = year % 100;
+var d = Math.floor(b/4);
+var e = b % 4;
+var f = Math.floor((b+8) / 25);
+var g = Math.floor((b-f+1) / 3);
+var h = (19*a + b - d - g + 15) % 30;
+var i = Math.floor(c/4);
+var j = c % 4;
+var k = (32 + 2*e + 2*i - h - j) % 7;
+var m = Math.floor((a + 11*h + 22*k) / 451);
+var month = Math.floor((h + k - 7*m + 114) / 31);
+var day = ((h + k - 7*m +114) % 31) + 1;
+eastermonth = month;
+easterday = day;
+}
+function createCalendar() {
+	//window.plugins.spinnerDialog.hide();		
+	calendarString = '';
+	var daycounter = 0;
+	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
+	calendarString += '<tr>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevyr\')\"><img name=\"PrevYr\" src=\"images\/PrevYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Yr\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
+	calendarString += '<td bgcolor=\"#C8C896\" align=\"center\" valign=\"center\" width=\"128\" height=\"40\" colspan=\"3\"><b>' + wordMonth[monthNum-1] + '&nbsp;&nbsp;' + yearNum + '<\/b><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextmo\')\"><img name=\"NextMo\" src=\"images\/NextMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Mo\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextyr\')\"><img name=\"NextYr\" src=\"images\/NextYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Yr\"\/><\/a><\/td>';
+	calendarString += '<\/tr>';
+	calendarString += '<tr>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Sun<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Mon<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Tue<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Wed<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Thu<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Fri<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Sat<\/td>';
+	calendarString += '<\/tr>';
+	thisDate == 1;
+	for (var i = 1; i <= 6; i++) {
+		calendarString += '<tr>';
+		for (var x = 1; x <= 7; x++) {
+			daycounter = (thisDate - firstDay)+1;
+			thisDate++;
+			if ((daycounter > numbDays) || (daycounter < 1)) {
+				calendarString += '<td align=\"center\" bgcolor=\"#888888\" height=\"30\" width=\"40\">&nbsp;<\/td>';
+			} else {
+				if (checkevents(daycounter,monthNum,yearNum,i,x) || ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum))){
+					if ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum)) {
+						calendarString += '<td align=\"center\" bgcolor=\"#81ab4b\" height=\"30\" width=\"40\"><a href=\"javascript:showevents(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+					}
+ 					else	calendarString += '<td align=\"center\" bgcolor=\"#FFFFC8\" height=\"30\" width=\"40\"><a href=\"javascript:showevents(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+				} else {
+					calendarString += '<td align=\"center\" bgcolor=\"#ce9452\" height=\"30\" width=\"40\">' + daycounter + '<\/td>';
+				}
+			}
+		}
+		calendarString += '<\/tr>';
+	}
+	var object=document.getElementById('calendar');
+	object.innerHTML= calendarString;
+	thisDate = 1;
+	
+}
+function checkevents(day,month,year,week,dayofweek) {
+
+var numevents = 0;
+var floater = 0;
+	for (var i = 0; i < events.length; i++) {
+		if (events[i][0] == "W") {
+			if ((events[i][2] == dayofweek)) numevents++;
+		}
+		else if (events[i][0] == "Y") {
+			if ((events[i][2] == day) && (events[i][1] == month)) numevents++;
+		}
+		else if (events[i][0] == "F") {
+			if ((events[i][1] == 3) && (events[i][2] == 0) && (events[i][3] == 0) ) {
+				easter(year);
+				if (easterday == day && eastermonth == month) numevents++;
+			} else {
+				floater = floatingholiday(year,events[i][1],events[i][2],events[i][3]);
+				if ((month == 5) && (events[i][1] == 5) && (events[i][2] == 4) && (events[i][3] == 2)) {
+					if ((floater + 7 <= 31) && (day == floater + 7)) {
+						numevents++;
+					} else if ((floater + 7 > 31) && (day == floater)) numevents++;
+				} else if ((events[i][1] == month) && (floater == day)) numevents++;
+			}
+		}
+		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
+			numevents++;
+		}
+	}
+	if (numevents == 0) {
+		return false;
+	} else {
+		return true;
+	}
+	
+}
+function showevents(day,month,year,week,dayofweek) {
+	
+var theevent = "";
+var floater = 0;
+	for (var i = 0; i < events.length; i++) {
+		// First we'll process recurring events (if any):
+		if (events[i][0] != "") {
+			if (events[i][0] == "D") {
+			}
+			if (events[i][0] == "W") {
+				if ((events[i][2] == dayofweek)) {
+				theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+				theevent += events[i][6] + '\n';
+				theevent += 'Start Time: ' + events[i][4] + '\n';
+				theevent += 'Ending Time: ' + events[i][5] + '\n';
+				theevent += 'Description: ' + events[i][7] + '\n';
+				theevent += '\n ---------------------- \n\n';
+				document.forms.eventform.eventlist.value = theevent;
+				}
+			}
+			if (events[i][0] == "M") {
+			}
+			if (events[i][0] == "Y") {
+				if ((events[i][2] == day) && (events[i][1] == month)) {
+				theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+				theevent += events[i][6] + '\n';
+				theevent += 'Start Time: ' + events[i][4] + '\n';
+				theevent += 'Ending Time: ' + events[i][5] + '\n';
+				theevent += 'Description: ' + events[i][7] + '\n';
+				theevent += 'Description: ' + events[i][8] + '\n';
+				theevent += '\n -------------- \n\n';
+				document.forms.eventform.eventlist.value = theevent;
+				}
+			}
+			if (events[i][0] == "F") {
+				if ((events[i][1] == 3) && (events[i][2] == 0) && (events[i][3] == 0) ) {
+					if (easterday == day && eastermonth == month) {
+						theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+						theevent += events[i][6] + '\n';
+						theevent += 'Start Time: ' + events[i][4] + '\n';
+						theevent += 'Ending Time: ' + events[i][5] + '\n';
+						theevent += 'Description: ' + events[i][7] + '\n';
+						theevent += 'Description: ' + events[i][8] + '\n';
+						theevent += '\n -------------- \n\n';
+						document.forms.eventform.eventlist.value = theevent;
+					} 
+				} else {
+					floater = floatingholiday(year,events[i][1],events[i][2],events[i][3]);
+					if ((month == 5) && (events[i][1] == 5) && (events[i][2] == 4) && (events[i][3] == 2)) {
+						if ((floater + 7 <= 31) && (day == floater + 7)) {
+							theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+							theevent += events[i][6] + '\n';
+							theevent += 'Start Time: ' + events[i][4] + '\n';
+							theevent += 'Ending Time: ' + events[i][5] + '\n';
+							theevent += 'Description: ' + events[i][7] + '\n';
+							theevent += 'Description: ' + events[i][8] + '\n';
+							theevent += '\n -------------- \n\n';
+							document.forms.eventform.eventlist.value = theevent;
+						} else if ((floater + 7 > 31) && (day == floater)) {
+							theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+							theevent += events[i][6] + '\n';
+							theevent += 'Start Time: ' + events[i][4] + '\n';
+							theevent += 'Ending Time: ' + events[i][5] + '\n';
+							theevent += 'Description: ' + events[i][7] + '\n';
+							theevent += 'Description: ' + events[i][8] + '\n';
+							theevent += '\n -------------- \n\n';
+							document.forms.eventform.eventlist.value = theevent;
+						}
+					} else if ((events[i][1] == month) && (floater == day)) {
+						theevent += "Events of: \n" + month +'/'+ day +'/'+ year + '\n';
+						theevent += events[i][6] + '\n';
+						theevent += 'Start Time: ' + events[i][4] + '\n';
+						theevent += 'Ending Time: ' + events[i][5] + '\n';
+						theevent += 'Description: ' + events[i][7] + '\n';
+						theevent += 'Description: ' + events[i][8] + '\n';
+						theevent += '\n -------------- \n\n';
+						document.forms.eventform.eventlist.value = theevent;
+					}
+				}
+		}
+		}
+		// Now we'll process any One Time events happening on the matching month, day, year:
+		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
+			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
+			theevent += events[i][6] + '\n';
+			theevent += 'Artist: ' + events[i][8] + '\n';
+			theevent += 'Time: ' + events[i][4] + '\n';
+			theevent += 'Venue: ' + events[i][5] + '\n';
+			theevent += 'Details: ' + events[i][7] + '\n';
+			theevent += '\n ---------------------- \n\n';
+			document.forms.eventform.eventlist.value = theevent;
+			
+		}
+	}
+	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
+}
+function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
+var firstdate = new Date(String(targetmo)+"/1/"+String(targetyr));	// Object Storing the first day of the current month.
+var firstday = firstdate.getUTCDay();	// The first day (0-6) of the target month.
+var dayofmonth = 0;	// zero out our calendar day variable.
+	targetday = targetday - 1;
+	if (targetday >= firstday) {
+		cardinaloccurrence--;	// Subtract 1 from cardinal day.
+		dayofmonth = (cardinaloccurrence * 7) + ((targetday - firstday)+1);
+	} else {
+		dayofmonth = (cardinaloccurrence * 7) + ((targetday - firstday)+1);
+	}
+return dayofmonth;
+}
+var ajaxResponse;
+var arr_store;
+function ajaxFunction()
+{
+	window.plugins.spinnerDialog.hide();
+	if(connSel=='Y')
+	{	
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
+	xhr.onload = function(){
+    	//console.log(xhr);
+		//alert(xhr.responseText);
+	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
+	document.getElementById('rest1').value=xhr.responseText;
+	ajaxResponse=xhr.responseText;
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	procVal(ajaxResponse);
+	};
+	xhr.send();
+	}
+	else
+	{
+	//	alert('no conn');
+	//	alert(document.getElementById('rest1').value);
+	procVal(document.getElementById('rest1').value);
+	}	
+}
+	function alertDismissed1()
+	{
+	navigator.device.exitApp();
+		//navigator.app.exitApp();
+	}
+	
+		
+var latR;
+var events = new Array();
+var venue_arr = new Array();
+function procVal(pVar)
+{
+//multiArr=[];
+	//alert('Ajax Resp'+pVar);
+	locArr = pVar;
+	locArr = locArr.substring(0, locArr.length - 1);
+	locArr=locArr.split('#');
+	//alert('locarr'+locArr);
+	events=[];
+	venue_arr=[];
+	for (var i = 0, len = locArr.length; i < len; i++) {
+		delimiter = ',';
+		start = 6;
+		var result = locArr[i].split(delimiter, start+1).join(delimiter);
+		latR=result.split(',');
+		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
+		pnam=String(latR[0]);
+		venue=String(latR[1]);
+		art=String(latR[2]);
+		Pdeta=String(latR[3]);
+		pTim=String(latR[5]);
+		pLatLong=String(latR[6]);
+		var dt = new Date(latR[4]);
+		var eDat= dt.getDate();
+		eMon=dt.getMonth()+1;
+		eYr=dt.getFullYear();
+		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		venue_arr.push([venue]);
+		//write ajax response to text file
+		
+		}
+	
+	//testing();
+	uniq = remove_duplicates_safe(venue_arr);
+//	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
+//	alert(uniq);
+}
+	
+
+	
+function remove_duplicates_safe(arr) {
+    var seen = {};
+    var ret_arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in seen)) {
+            ret_arr.push(arr[i]);
+            seen[arr[i]] = true;
+        }
+    }
+    return ret_arr;
+
+}	
+var config = {
+    title: "Select a Venue", 
+     items: [
+        { text: "Narada Gana Sabha", value: "NGS" },
+        { text: "Bharatiya Vidya Bhavan", value: "BVB" },
+        { text: "Vani Mahal", value: "Vani Mahal" },
+        { text: "Krishna Gana Sabha", value: "KGS" },
+        { text: "Mylapore Fine Arts", value: "MFA" },
+        { text: "The Music Academy", value: "TMA" },  
+	{ text: "Mudhra", value: "Mudhra" }, 
+	{ text: "Bharat Kalachar", value: "BK" }, 
+	{ text: "Kalarasana", value: "kalarasana" }, 
+	{ text: "Kapali Fine Arts", value: "KFA" }, 
+	{ text: "Kartik Fine Arts", value: "KFA" }, 
+	{ text: "Kalakshetra", value: "Kalakshetra" }, 
+	{ text: "Sri Parthasarathy Swami Sabha", value: "SPSS" }, 
+	{ text: "Rasika Ranjani Sabha", value: "RRS" }, 
+	{ text: "TAPAS Cultural Foundation", value: "TCF" }, 
+	{ text: "Sri Rama Bhaktha Jana Samaj ", value: "SRBJS" }, 
+	{ text: "Hamsadhwani", value: "Hamsadhwani" }   
+    ],
+    doneButtonLabel: "Done",
+    cancelButtonLabel: "Cancel"
+};
+var flg=false;	
+var lat2,long2;
+// Show the picker
+	function venueFilter()
+	{
+		
+		checkConnection();
+		getLoc();
+		lst_mnu.innerHTML='';
+		document.getElementById("lst_mnu").style.display="block";
+		document.getElementById("lst_mnu").style.visibility="true";
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("det").style.display="none";
+		document.getElementById("det").style.visibility="false";
+window.plugins.listpicker.showPicker(config, 
+    function(item) { 
+	 
+	v_sel=item;
+        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
+	for (var i = 0, len = events.length-1; i < len; i++) {
+		ven_nam=events[i][5];
+		if(ven_nam==v_sel)
+		{
+		flg=true;
+		time_p=String(events[i][4]);
+		latLon=events[i][9];
+		var values =latLon.split('*');
+		lat2=values[0];
+		long2=values[1];
+	        
+		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		htm_str+="<font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#e9f2fc'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
+		 
+		}
+		 	
+	}
+	if(flg!=true)
+	{
+		alert('No events at '+item+'. Please comeback later...') ;
+	}
+	else
+	{
+	lst_mnu.innerHTML=htm_str+"</font><tr><td colspan=3>Route Map-"+v_sel+"</td></tr></table>" ;
+	getDrive() ;
+	}
+	
+    },
+    function() { 
+      //  alert("You have cancelled");
+    }
+);
+	}
+
+function calClick()
+	{
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false"
+		document.getElementById("calendar").style.display="block";
+		document.getElementById("calendar").style.visibility="true";
+		document.getElementById("det").style.display="block";
+		document.getElementById("det").style.visibility="true";
+		document.getElementById("route_canvas").style.display="none";
+		document.getElementById("route_canvas").style.visibility="false"
+		document.getElementById("panel").style.display="none";
+		document.getElementById("panel").style.visibility="false";
+		checkConnection();
+	}
+
+	function getDrive()
+	{
+	
+	//alert('in');
+	document.getElementById("route_canvas").style.display="block";
+	document.getElementById("route_canvas").style.visibility="true";
+	document.getElementById("panel").style.display="block";
+	document.getElementById("panel").style.visibility="true";
+	document.getElementById('panel').innerHTML = "";
+	var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+
+         var map = new google.maps.Map(document.getElementById('route_canvas'), {
+           zoom:7,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+         });
+        
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById('panel'));
+	//new google.maps.LatLng(position.coords.latitude,    position.coords.longitude), 13)
+      	origin  = new google.maps.LatLng(x,y);
+        destination = new google.maps.LatLng(lat2,long2);
+         var request = {
+		 
+           origin: origin, 
+           destination: destination,
+           travelMode: google.maps.DirectionsTravelMode.DRIVING
+         };
+    
+         directionsService.route(request, function(response, status) {
+           if (status == google.maps.DirectionsStatus.OK) {
+             directionsDisplay.setDirections(response);
+           }
+         });
+	}
+	
+var config1 = {
+    title: "Select an Artist", 
+     items: [
+        { text: "Aruna Sairam", value: "Aruna Sairam" },
+        { text: "Sudha Ragunathan", value: "Sudha Ragunathan" },
+        { text: "Vani Mahal", value: "Vani Mahal" },
+        { text: "Vijay Siva", value: "Vijay Siva" },
+        { text: "Ranjani", value: "Ranjani" },
+        { text: "Kanya Kumari", value: "Kanya Kumari" },  
+	{ text: "Radhika", value: "Radhika" }, 
+	{ text: "Bombay Jayashree", value: "Bombay Jayashree" }, 
+	{ text: "Shobana", value: "Shobana" }
+	 
+    ],
+    doneButtonLabel: "Done",
+    cancelButtonLabel: "Cancel"
+};
+	
+function artistFilter()
+	{
+		
+		checkConnection();
+		getLoc();
+		lst_mnu.innerHTML='';
+		document.getElementById("lst_mnu").style.display="block";
+		document.getElementById("lst_mnu").style.visibility="true";
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("det").style.display="none";
+		document.getElementById("det").style.visibility="false";
+window.plugins.listpicker.showPicker(config1, 
+    function(item) { 
+	 
+	 flg=false;
+	 a_sel=item;
+        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
+	for (var i = 0, len = events.length-1; i < len; i++) {
+		art_nam=events[i][8];
+		if(art_nam==a_sel)
+		{
+		flg=true;
+		time_p=String(events[i][4]);
+		//latLon=events[i][9];
+		//var values =latLon.split('*');
+		//lat2=values[0];
+	//	long2=values[1];
+	        
+		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
+		htm_str+="<tr><td colspan=4>"+art+"</td></tr><font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][5]+"</td><td>"+Route+"</td></tr><tr height='10px'><td colspan='4'>&nbsp;</td></tr>";	
+	//	 events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		}
+		 	
+	}
+	if(flg!=true)
+	{
+		alert('No events. Please comeback later...') ;
+	}
+	else
+	{
+	lst_mnu.innerHTML=htm_str//+"</font><tr><td colspan=3>Route Map-"+v_sel+"</td></tr></table>" ;
+	//getDrive() ;
+	}
+	
+    },
+    function() { 
+      //  alert("You have cancelled");
+    }
+);
+	}
+</script>
+	<style type="text/css">
+		body, html {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+.hideDontTakeUpSpace
+        {
+            display:none;
+        }
+
+.btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white;}
+button:focus {outline:none;} ::-moz-focus-inner {border:0;}
+#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* unvisited link */
+#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}	/* visited link */
+#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;}	/* mouse over link */
+#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* selected link */
+#lst_mnu
+	{
+		
+		display:none;
+		
+	}
+#route_canvas
+	{
+		display:none;
+		
+	}
+	#panel
+	{
+		display:none;
+		
+	}
+	.map_c
+	{
+		 width: 100vw;
+	}
+	</style>
+	
+</head>
+
+<body style="background-color: transparent;" onload='init();'> 
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
+		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+	</table>
+	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+			<td style="padding: 3px;" align="center" valign="top" width="314">
+				<div id="calendar"><!--  Dynamically Filled --></div>
+				
+			</td></tr></table>
+	<div id='lst_mnu' align='left'>	</div>
+       <div class='map_c'>
+         <div id='route_canvas' style='width:50vw;height:400px;float: left;'></div> 
+         <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">
+	</div>
+       </div>
+			<div id='det' align='center' style="background:white">
+				<form id="eventform" name="eventform" action="#" method="get">
+					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
+				</form>
+			</div>
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
+	
+</body>
+</html>
