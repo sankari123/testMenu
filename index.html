@@ -519,11 +519,11 @@ var lat2,long2;
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
         var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-	for (var i = 0, len = uniq.length-1; i < len; i++) {
-		alert(uniq[i]);		
-	        j=i+1;
+	for (var i = 0, len = uniq.length-1; i < len; i+=2) {
+		//alert(uniq[i]);		
+	        j=i;
 		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr height='30px'><td><input type=button value="+uniq[i]+"></td><td><input type=button value="+uniq[j]+"></td></tr>";	
+		htm_str+="<font size=2><tr height='30px'><td><input type=button value="+uniq[j]+"></td><td><input type=button value="+uniq[j+1]+"></td></tr>";	
 		 i=j;
 		
 	}
