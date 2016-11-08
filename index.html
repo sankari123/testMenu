@@ -503,36 +503,12 @@ function remove_duplicates_safe(arr) {
     return ret_arr;
 
 }	
-var config = {
-    title: "Select a Venue", 
-     items: [
-        { text: "Narada Gana Sabha", value: "NGS" },
-        { text: "Bharatiya Vidya Bhavan", value: "BVB" },
-        { text: "Vani Mahal", value: "Vani Mahal" },
-        { text: "Krishna Gana Sabha", value: "KGS" },
-        { text: "Mylapore Fine Arts", value: "MFA" },
-        { text: "The Music Academy", value: "TMA" },  
-	{ text: "Mudhra", value: "Mudhra" }, 
-	{ text: "Bharat Kalachar", value: "BK" }, 
-	{ text: "Kalarasana", value: "kalarasana" }, 
-	{ text: "Kapali Fine Arts", value: "KFA" }, 
-	{ text: "Kartik Fine Arts", value: "KFA" }, 
-	{ text: "Kalakshetra", value: "Kalakshetra" }, 
-	{ text: "Sri Parthasarathy Swami Sabha", value: "SPSS" }, 
-	{ text: "Rasika Ranjani Sabha", value: "RRS" }, 
-	{ text: "TAPAS Cultural Foundation", value: "TCF" }, 
-	{ text: "Sri Rama Bhaktha Jana Samaj ", value: "SRBJS" }, 
-	{ text: "Hamsadhwani", value: "Hamsadhwani" }   
-    ],
-    doneButtonLabel: "Done",
-    cancelButtonLabel: "Cancel"
-};
 var flg=false;	
 var lat2,long2;
 // Show the picker
 	function venueFilter()
 	{
-		
+		var j;
 		checkConnection();
 		getLoc();
 		lst_mnu.innerHTML='';
@@ -542,43 +518,19 @@ var lat2,long2;
 		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
-window.plugins.listpicker.showPicker(config, 
-    function(item) { 
-	 
-	v_sel=item;
         var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-	for (var i = 0, len = events.length-1; i < len; i++) {
-		ven_nam=events[i][5];
-		if(ven_nam==v_sel)
-		{
-		flg=true;
-		time_p=String(events[i][4]);
-		latLon=events[i][9];
-		var values =latLon.split('*');
-		lat2=values[0];
-		long2=values[1];
-	        
+	for (var i = 0, len = uniq.length-1; i < len; i++) {
+				
+	        j=i+1;
 		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][8]+"</td></tr><tr bgcolor='#e9f2fc'><td colspan='3'>"+events[i][7]+"</td></tr><tr height='10px'><td colspan='3'>&nbsp;</td></tr>";	
-		 
-		}
-		 	
-	}
-	if(flg!=true)
-	{
-		alert('No events at '+item+'. Please comeback later...') ;
-	}
-	else
-	{
-	lst_mnu.innerHTML=htm_str+"</font><tr><td colspan=3>Route Map-"+v_sel+"</td></tr></table>" ;
-	getDrive() ;
+		htm_str+="<font size=2><tr bgcolor='#e9f2fc'><td><input type=button value="+uniq[i]+"></td><td><input type=button value="+uniq[j]+"></td></tr>;	
+		 i=j;
+		
 	}
 	
-    },
-    function() { 
-      //  alert("You have cancelled");
-    }
-);
+	
+	lst_mnu.innerHTML=htm_str+"</font></table>" ;
+	
 	}
 
 function calClick()
@@ -632,75 +584,7 @@ function calClick()
          });
 	}
 	
-var config1 = {
-    title: "Select an Artist", 
-     items: [
-        { text: "Aruna Sairam", value: "Aruna Sairam" },
-        { text: "Sudha Ragunathan", value: "Sudha Ragunathan" },
-        { text: "Vani Mahal", value: "Vani Mahal" },
-        { text: "Vijay Siva", value: "Vijay Siva" },
-        { text: "Ranjani", value: "Ranjani" },
-        { text: "Kanya Kumari", value: "Kanya Kumari" },  
-	{ text: "Radhika", value: "Radhika" }, 
-	{ text: "Bombay Jayashree", value: "Bombay Jayashree" }, 
-	{ text: "Shobana", value: "Shobana" }
-	 
-    ],
-    doneButtonLabel: "Done",
-    cancelButtonLabel: "Cancel"
-};
-	
-function artistFilter()
-	{
-		
-		checkConnection();
-		getLoc();
-		lst_mnu.innerHTML='';
-		document.getElementById("lst_mnu").style.display="block";
-		document.getElementById("lst_mnu").style.visibility="true";
-		document.getElementById("calendar").style.display="none";
-		document.getElementById("calendar").style.visibility="false";
-		document.getElementById("det").style.display="none";
-		document.getElementById("det").style.visibility="false";
-window.plugins.listpicker.showPicker(config1, 
-    function(item) { 
-	 
-	 flg=false;
-	 a_sel=item;
-        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-	for (var i = 0, len = events.length-1; i < len; i++) {
-		art_nam=events[i][8];
-		if(art_nam==a_sel)
-		{
-		flg=true;
-		time_p=String(events[i][4]);
-		//latLon=events[i][9];
-		//var values =latLon.split('*');
-		//lat2=values[0];
-	//	long2=values[1];
-	        
-		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<tr><td colspan=4>"+art+"</td></tr><font size=2><tr bgcolor='#e9f2fc'><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"&nbsp;&nbsp;</td><td>"+time_p+"&nbsp;&nbsp;</td><td>"+events[i][5]+"</td><td>"+Route+"</td></tr><tr height='10px'><td colspan='4'>&nbsp;</td></tr>";	
-	//	 events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
-		}
-		 	
-	}
-	if(flg!=true)
-	{
-		alert('No events. Please comeback later...') ;
-	}
-	else
-	{
-	lst_mnu.innerHTML=htm_str//+"</font><tr><td colspan=3>Route Map-"+v_sel+"</td></tr></table>" ;
-	//getDrive() ;
-	}
-	
-    },
-    function() { 
-      //  alert("You have cancelled");
-    }
-);
-	}
+
 </script>
 	<style type="text/css">
 		body, html {
