@@ -518,18 +518,34 @@ var lat2,long2;
 		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
-        var htm_str="<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-	for (var i = 0, len = uniq.length-1; i < len; i+=2) {
-		//alert(uniq[i]);		
-	        j=i+1;
-		//lst_mnu.innerHTML+="<tr><td>"+events[i][2]+'/'+events[i][1]+'/'+events[i][3]+"</td><td>"+time_p+"</td><td>"+events[i][8]+"</td></tr><tr><td colspan='2'>"+events[i][7]+"</td><td>Route</td></tr>";
-		htm_str+="<font size=2><tr height='30px'><td><input type=button value="+uniq[i]+"></td><td><input type=button value="+uniq[j]+"></td></tr>";	
-		 i=j+1;
+        if(len % 2==0)
+{}
+else
+{
+uniq.push(["d"]);
+}
+  var str_m="<table border='1' wdth='100%' cellpadding='0' cellspacing='0'>";
+	for (var i = 0, len = uniq.length; i < len-1; i++) {
+				
+	    j=i+1;
+		if(uniq[j]=='d')
+		{
+		//alert(uniq[i]);
+		im_file=uniq[i]+".jpg";
+		//str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><input type=button onclick='ven_det(this.value);' value="+uniq1[i]+">"+uniq[i]+"</td></tr><tr valign='center'><td>Events</td><td>Direction</td></table></td></tr>";
+		str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[i]+"><img src="+im_file+" alt='im_file'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+uniq[i]+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[i]+">Direction</button></td></tr></table></td></tr>";
+		}
+		else
+		{
+		
+	str_m+="<font size=2><tr height='200px'><td width='50%'><input type=button onclick='ven_det(this.value);' value="+uniq[i]+">"+uniq[i]+"</td><td width='50%'><input type=button  onclick='ven_det(this.value);' value="+uniq[j]+">"+uniq[j]+"</td></tr><br>";
+	//alert(uniq[i]+"--"+uniq[j]);
+	}
+	 i=j;
 		
 	}
 	
-	
-	lst_mnu.innerHTML=htm_str+"</font></table>" ;
+lst_mnu.innerHTML=str_m+"</font></table>" ;
 	
 	}
 
