@@ -486,7 +486,7 @@ function procVal(pVar)
 	//testing();
 	uniq = remove_duplicates_safe(venue_arr);
 //	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
- 	alert(uniq);
+ 	//alert(uniq);
 }
 	
 
@@ -524,7 +524,7 @@ else
 {
 uniq.push(["d"]);
 }
-  var str_m="<table border='1' width='100%' cellpadding='0' cellspacing='0'>";
+  var str_m="<table border='1' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 				
 	    j=i+1;
@@ -533,7 +533,7 @@ uniq.push(["d"]);
 		//alert(uniq[i]);
 		im_file=uniq[i]+".jpg";
 		//str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><input type=button onclick='ven_det(this.value);' value="+uniq1[i]+">"+uniq[i]+"</td></tr><tr valign='center'><td>Events</td><td>Direction</td></table></td></tr>";
-		str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[i]+"><img src="+im_file+" alt='im_file'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+uniq[i]+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[i]+">Direction</button></td></tr></table></td></tr>";
+		str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[i]+"><img src="+im_file+" alt='im_file'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+uniq[i]+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[i]+">Direction</button></td></tr></table></td></tr>";
 		}
 		else
 		{
@@ -642,11 +642,19 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	{
 		
 		display:none;
+		 border-right: 2px solid red;
+    width: 45%;
 		
 	}
+#lst_mnu table {
+    max-width: 400px;
+    width: 100% !important;
+  }
+		
 #route_canvas
 	{
 		display:none;
+		
 		
 	}
 	#panel
@@ -658,6 +666,18 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	{
 		 width: 100vw;
 	}
+		
+		
+		 #middlecol {
+    border-right: 2px solid red;
+    width: 45%;
+  }
+
+  #middlecol table {
+    max-width: 400px;
+    width: 100% !important;
+  }
+		
 	</style>
 	
 </head>
