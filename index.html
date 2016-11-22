@@ -543,12 +543,14 @@ uniq.push(["d"]);
 		
 		if(uniq[j].indexOf(' ') >= 0)
 		{
+			alert('in');
 		uniq[j]=uniq[j].split(' ').join('_');
 		imx_file=uniq[j].split(' ').join('_');
 		im1_file=imx_file+".jpg";	
 		}
 		else
 		{
+			alert('out');
 		im1_file=uniq[j]+".jpg";
 		}
 		
