@@ -532,6 +532,7 @@ uniq.push(["d"]);
 		
 		if(uniq[i].indexOf(' ') >= 0)
 		{
+		uniq[i]=uniq[i].split(' ').join('_');
 		imy_file=uniq[i].split(' ').join('_');
 		im_file=imy_file+".jpg";	
 		}
@@ -542,6 +543,7 @@ uniq.push(["d"]);
 		
 		if(uniq[j].indexOf(' ') >= 0)
 		{
+		uniq[j]=uniq[j].split(' ').join('_');
 		imx_file=uniq[j].split(' ').join('_');
 		im1_file=imx_file+".jpg";	
 		}
