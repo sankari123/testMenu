@@ -524,7 +524,7 @@ else
 {
 uniq.push(["d"]);
 }
-  var str_m="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
+ var str_m="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
 			
@@ -534,7 +534,7 @@ uniq.push(["d"]);
 		{
 		im_file=uniq[i].split(' ').join('_')+".jpg";
 		alert("in-i"+im_file);
-	        }
+	     }
 		else
 		{
 		im_file=uniq[i]+".jpg";
@@ -555,9 +555,10 @@ uniq.push(["d"]);
 		
 		}
 		
-		alert("j    "+im1_file.substring(0, im1_file.length-4));
-		alert("i   "+im_file.substring(0, im_file.length-4));
 		
+		
+		//alert(uniq[j]);
+	//str_m+="<font size=2><tr height='200px'><td width='50%'><input type=button onclick='ven_det(this.value);' value="+uniq[i]
 		if(uniq[j]=='d')
 		{
 		//alert(uniq[i]);
@@ -566,11 +567,9 @@ uniq.push(["d"]);
 		}
 		else
 		{
-		//alert(uniq[j]);
-	//str_m+="<font size=2><tr height='200px'><td width='50%'><input type=button onclick='ven_det(this.value);' value="+uniq[i]
-			
+		
 str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im_file.substring(0, im_file.length-4) +"><img src="+im_file +" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Direction</button></td></tr></table></td>";
-	str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im1_file.substring(0, im1_file.length-4) +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Direction</button></td></tr></table></td></tr>";
+str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im1_file.substring(0, im1_file.length-4) +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Direction</button></td></tr></table></td></tr>";
 	//alert(uniq[i]+"--"+uniq[j]);
 	}
 	 i=j;
@@ -578,6 +577,7 @@ str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table bor
 	}
 	
 lst_mnu.innerHTML=str_m+"</font></table>" ;
+	
 	
 	}
 
