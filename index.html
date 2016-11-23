@@ -530,27 +530,27 @@ uniq.push(["d"]);
 			
 	    j=i+1;
 		
-		if(uniq[i].indexOf(' ') >= 0)
+		if(trim(uniq[i]).indexOf(' ') >= 0)
 		{
-		im_file=uniq[i].split(' ').join('_')+".jpg";
+		im_file=(trim(uniq[i]).split(' ').join('_')+".jpg";
 		alert("in-i"+im_file);
 	     }
 		else
 		{
-		im_file=uniq[i]+".jpg";
+		im_file=(trim(uniq[i])+".jpg";
 		alert("out-i"+im_file);
 		}
 		
 		
-		if(uniq[j].indexOf(' ') >= 0)
+		if(trim(uniq[j]).indexOf(' ') >= 0)
 		{
-		im1_file=uniq[j].split(' ').join('_')+".jpg";	
+		im1_file=(trim(uniq[j]).split(' ').join('_')+".jpg";	
 		alert("in-j"+im1_file);
 		//alert(im1_file.substring(0, im1_file.length-4));
 		}
 		else
 		{
-		im1_file=uniq[j]+".jpg";
+		im1_file=(trim(uniq[j])+".jpg";
 		alert("out-j"+im1_file);
 		
 		}
@@ -559,7 +559,7 @@ uniq.push(["d"]);
 		
 		//alert(uniq[j]);
 	//str_m+="<font size=2><tr height='200px'><td width='50%'><input type=button onclick='ven_det(this.value);' value="+uniq[i]
-		if(uniq[j]=='d')
+		if((trim(uniq[j])=='d')
 		{
 		//alert(uniq[i]);
 				//str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><input type=button onclick='ven_det(this.value);' value="+uniq1[i]+">"+uniq[i]+"</td></tr><tr valign='center'><td>Events</td><td>Direction</td></table></td></tr>";
