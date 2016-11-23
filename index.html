@@ -532,11 +532,13 @@ uniq.push(["d"]);
 		if(uniq[i].indexOf(' ') >= 0)
 		{
 		im_file=uniq[i].split(' ').join('_')+".jpg";
+		val1=uniq[i].split(' ').join('_');
 	//	alert("in-i"+im_file);
 	     }
 		else
 		{
 		im_file=uniq[i]+".jpg";
+		val1=uniq[i];
 	//	alert("out-i"+im_file);
 		}
 		
@@ -544,12 +546,14 @@ uniq.push(["d"]);
 		if(uniq[j].indexOf(' ') >= 0)
 		{
 		im1_file=uniq[j].split(' ').join('_')+".jpg";	
+		val2=uniq[j].split(' ').join('_');
 		//alert("in-j"+im1_file);
 		//alert(im1_file.substring(0, im1_file.length-4));
 		}
 		else
 		{
 		im1_file=uniq[j]+".jpg";
+		val2=uniq[j];
 		//alert("out-j"+im1_file);
 		
 		}
@@ -568,7 +572,7 @@ uniq.push(["d"]);
 		{
 		
 str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im_file.substring(0, im_file.length-4) +"><img src="+im_file +" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Direction</button></td></tr></table></td>";
-str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im1_file.substring(0, im1_file.length-4) +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Direction</button></td></tr></table></td></tr>";
+str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+val2 +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+val2 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+val2 +">Direction</button></td></tr></table></td></tr>";
 	//alert(uniq[i]+"--"+uniq[j]);
 	}
 	 i=j;
