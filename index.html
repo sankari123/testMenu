@@ -533,22 +533,30 @@ uniq.push(["d"]);
 		if(uniq[i].indexOf(' ') >= 0)
 		{
 		im_file=uniq[i].split(' ').join('_')+".jpg";
+		alert("in-i"+im_file);
 	        }
 		else
 		{
 		im_file=uniq[i]+".jpg";
+		alert("out-i"+im_file);
 		}
-		alert(im_file);
+		
+		
 		if(uniq[j].indexOf(' ') >= 0)
 		{
 		im1_file=uniq[j].split(' ').join('_')+".jpg";	
+		alert("in-j"+im1_file);
+		//alert(im1_file.substring(0, im1_file.length-4));
 		}
 		else
 		{
 		im1_file=uniq[j]+".jpg";
+		alert("out-j"+im1_file);
+		
 		}
 		
-		alert(im1_file);
+		alert("j    "+im1_file.substring(0, im1_file.length-4));
+		alert("i   "+im_file.substring(0, im_file.length-4));
 		
 		if(uniq[j]=='d')
 		{
