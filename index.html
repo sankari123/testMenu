@@ -529,26 +529,46 @@ uniq.push(["d"]);
 	
 			
 	    j=i+1;
-		im_file=uniq[i].replace(/ /g, "_")+".jpg";
-		im1_file=uniq[j].replace(/ /g, "_")+".jpg";
-		val1=im_file.substring(0, im_file.length-4);
-		val2=im1_file.substring(0, im1_file.length-4);
-		alert(im_file);
-		alert(val1);
-		alert(im1_file);
-		alert(val2);
+		if(uniq[i].indexOf(' ') >= 0)
+		{
+		im_file=uniq[i].split(' ').join('_')+".jpg";
+	//	alert("in-i"+im_file);
+	     }
+		else
+		{
+		im_file=uniq[i]+".jpg";
+	//	alert("out-i"+im_file);
+		}
 		
-			
-	if(trim(uniq[j])=='d')
+		
+		if(uniq[j].indexOf(' ') >= 0)
+		{
+		im1_file=uniq[j].split(' ').join('_')+".jpg";	
+		//alert("in-j"+im1_file);
+		//alert(im1_file.substring(0, im1_file.length-4));
+		}
+		else
+		{
+		im1_file=uniq[j]+".jpg";
+		//alert("out-j"+im1_file);
+		
+		}
+		
+		
+		
+		//alert(uniq[j]);
+	//str_m+="<font size=2><tr height='200px'><td width='50%'><input type=button onclick='ven_det(this.value);' value="+uniq[i]
+		if(uniq[j]=='d')
+		{
+		//alert(uniq[i]);
+				//str_m+="<font size=2><tr height='200px' valign='top'><td width='50%'> <table border='1' width='100%' cellspacing='0' cellpadding='4'><tr height='160px'><td colspan='2'><input type=button onclick='ven_det(this.value);' value="+uniq1[i]+">"+uniq[i]+"</td></tr><tr valign='center'><td>Events</td><td>Direction</td></table></td></tr>";
+		str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im_file.substring(0, im_file.length-4) +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Direction</button></td></tr></table></td></tr>";
+		}
+		else
 		{
 		
-str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+val1 +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+val1 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+val1+">Direction</button></td></tr></table></td></tr>";
-}
-else
-{
-		
-str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+val1 +"><img src="+im_file +" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+val1 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+val1+">Direction</button></td></tr></table></td>";
-str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+val2 +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+val2 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+val2 +">Direction</button></td></tr></table></td></tr>";
+str_m+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im_file.substring(0, im_file.length-4) +"><img src="+im_file +" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im_file.substring(0, im_file.length-4) +">Direction</button></td></tr></table></td>";
+str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+im1_file.substring(0, im1_file.length-4) +"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+im1_file.substring(0, im1_file.length-4) +">Direction</button></td></tr></table></td></tr>";
 	//alert(uniq[i]+"--"+uniq[j]);
 	}
 	 i=j;
@@ -556,7 +576,6 @@ str_m+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' cl
 	}
 	
 lst_mnu.innerHTML=str_m+"</font></table>" ;
-	
 	
 	}
 
