@@ -509,7 +509,10 @@ var lat2,long2;
 	
 function text()
 {
-
+var j;
+		checkConnection();
+		getLoc();
+		alert(uniq);
 //uniq=["Sri Krishna Gana Sabha","Mylapore Fine Arts & Club","Narada Gana Sabha","Vani Mahal","Mudhra"];
 for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
@@ -538,7 +541,7 @@ for (var i = 0, len = uniq.length; i < len-1; i++) {
 		checkConnection();
 		getLoc();
 		alert(uniq);
-		lst_mnu.innerHTML='';
+		//lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
 		document.getElementById("calendar").style.display="none";
