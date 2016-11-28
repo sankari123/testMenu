@@ -510,7 +510,8 @@ var lat2,long2;
 function text()
 {
 var j;
-	var d1,d2;
+	var d1=''
+	var d2='';
 		checkConnection();
 		getLoc();
 		alert(uniq);
@@ -519,12 +520,12 @@ for (var i = 0, len = uniq.length; i < len-1; i++) {
 	alert(len);
 	d1=uniq[i];
 	d1=d1.replace(/\s/g, '_');
-	alert(uniq[i]+'  '+d1);
+	alert(d1);
 	  
 	j=i+1;
 	d2=uniq[j];
 	d2=d2.replace(/\s/g, '_');
-	alert(uniq[j]+'  '+d2);
+	alert(d2);
 	 
 	
 		
