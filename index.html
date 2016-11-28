@@ -517,17 +517,14 @@ var j;
 for (var i = 0, len = uniq.length; i < len-1; i++) {
 	alert(len);
 	 alert(uniq[i]);
-	 str1=uniq[i].replace(/\s/g, '_');
-	// alert(uniq[i]);
+	  
 	j=i+1;
 	 alert(uniq[j]);
-	//	 alert(uniq[j]);
-		str2=uniq[j].replace(/\s/g, '_');
-	 
+	
 	
 		
-		im_file=str1+".jpg";
-		im1_file=str2+".jpg";	
+		im_file=uniq[i]+".jpg";
+		im1_file=uniq[j]+".jpg";	
 	 alert(im_file);
 	alert(im1_file);
 		
