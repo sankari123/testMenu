@@ -536,33 +536,45 @@ alert('add');
 }
  var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
-	str1=uniq[i].replace(/\s/g, '_');
-	alert(str1);
-	if(str1!=uniq[i])
-	{
 	
+	 
+	if(uniq[i].indexOf(' ') >= 0)
+	{
+	str1=uniq[i].replace(/\s/g, '_');
 	}
+	else
+	{
+	str1=uniq[i];
+	}
+	j=i+1;
+	if(uniq[j].indexOf(' ') >= 0)
+	{
+	str2=uniq[j].replace(/\s/g, '_');
+	}
+	else
+	{
+	str2=uniq[j];
+	}
+	
 		
-		
-	    j=i+1;
-		str2=uniq[j].replace(/\s/g, '_');
-		alert(str2);
 		im_file=str1+".jpg";
 		im1_file=str2+".jpg";	
-	 
+	 alert(im_file);
+	alert(im1_file);
+		
 
-		if(uniq[j]=='d')
-		{
+	//	if(uniq[j]=='d')
+	//	{
 	//	alert('in');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1 +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value= "+str1+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td></tr>";
-  }
-		else
-		{
+//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1 +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value= "+str1+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td></tr>";
+ // }
+//		else
+//		{
 		//alert('out');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1+"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str1 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td>";	
+//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1+"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str1 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td>";	
 	
-im_htm+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str2+"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str2 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str2 +">Direction</button></td></tr></table></td></tr>";
-}
+//im_htm+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str2+"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str2 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str2 +">Direction</button></td></tr></table></td></tr>";
+//}
 	 i=j;
 		
 	}
