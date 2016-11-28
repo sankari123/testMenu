@@ -538,24 +538,30 @@ uniq.push(["d"]);
 		{
 		alert(str1);
 		str1 = str1.split(' ').join('_');
-		alert(str1);
+		//alert(str1);
+		}
+		else
+		{
+		alert(str1.indexOf(' '));
 		}
 		
 		if(str2.indexOf(' ') >= 0)
 		{
 		alert(str2);
 		str2 = uniq[j].split(' ').join('_');
-			alert(str2);
+		//alert(str2);
 		}
-		
+		else
+		{
+		alert(str2.indexOf(' '));
+		}
+			
+		alert(str1);
+		alert(str2);
 		
 		im_file=str1+".jpg";
 		im1_file=str2+".jpg";	
-	//	alert('str1'+str1);
-	//	alert('str2'+str2);
-		//alert('im1'+im_file);
-	//alert('im21'+im1_file);
-//	alert("1"+uniq[j]);
+	 
 
 		if(uniq[j]=='d')
 		{
