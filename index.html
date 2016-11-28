@@ -530,23 +530,18 @@ uniq.push(["d"]);
 	
 			
 	    j=i+1;
-		if(uniq[i].indexOf(' ') >= 0)
-		{
-		str1 = uniq[i].split(' ').join('_');
-		}
-		else
-		{
 		str1=uniq[i];
+		str2=uniq[j];
+		if(str1.indexOf(' ') >= 0)
+		{
+		str1 = str1.split(' ').join('_');
 		}
-		if(uniq[j].indexOf(' ') >= 0)
+		
+		if(str2.indexOf(' ') >= 0)
 		{
 		str2 = uniq[j].split(' ').join('_');
 		}
-		else
-		{
-	//	alert(uniq[j]);
-		str2=uniq[j];
-		}
+		
 		
 		
 		im_file=str1+".jpg";
