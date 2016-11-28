@@ -507,7 +507,27 @@ var flg=false;
 var lat2,long2;
 // Show the picker
 	
+function text()
+{
 
+//uniq=["Sri Krishna Gana Sabha","Mylapore Fine Arts & Club","Narada Gana Sabha","Vani Mahal","Mudhra"];
+for (var i = 0, len = uniq.length; i < len-1; i++) {
+	
+	 str1=uniq[i].replace(/\s/g, '_');
+	// alert(uniq[i]);
+	j=i+1;
+	//	 alert(uniq[j]);
+		str2=uniq[j].replace(/\s/g, '_');
+	 
+	
+		
+		im_file=str1+".jpg";
+		im1_file=str2+".jpg";	
+	 alert(im_file);
+	alert(im1_file);
+		
+		}
+}
 
 
 	
@@ -536,7 +556,7 @@ alert('add');
 }
  //var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	//for (var i = 0, len = multiArr.length-1; i < len; i++) {
-		for (var i = 0, len = uniq.length; i < len-1; i++) {
+	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
 	 str1=uniq[i].replace(/\s/g, '_');
 	 alert(uniq[i]);
@@ -568,7 +588,7 @@ alert('add');
 		
 	}
 	
-document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
+//document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	
 	}
 function calClick()
@@ -715,7 +735,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
-		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='text();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
