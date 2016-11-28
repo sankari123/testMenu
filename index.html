@@ -506,12 +506,21 @@ function remove_duplicates_safe(arr) {
 var flg=false;	
 var lat2,long2;
 // Show the picker
+	
+function hasWhiteSpace(s) {
+  return /\s/g.test(s);
+}
+
+
+
+	
+	
 	function venueFilter()
 	{
 		var j;
 		checkConnection();
 		getLoc();
-		alert(uniq);
+		//alert(uniq);
 		lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
@@ -524,34 +533,33 @@ var lat2,long2;
 else
 {
 uniq.push(["d"]);
+alert('add');
 }
  var str_m="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
-			
-	    j=i+1;
-		str1=uniq[i];
-		str2=uniq[j];
-		alert(str1);
-		alert(str2);
-		if(str1.indexOf(' ') >= 0)
-		{
-		}
+		if(hasWhiteSpace(uniq[i]))
+             {
+              str1 =uniq[i].split(' ').join('_');
+             }
 		else
 		{
-		str1 = str1.split(' ').join('_');
+		str1=uniq[i];
 		}
 		
-		if(str2.indexOf(' ') >= 0)
-		{
-		}
-		else
-		{
-		str2 = str2.split(' ').join('_');
-		}
-			
-		alert(str1);
-		alert(str2);
+		
+	    j=i+1;
+		if(hasWhiteSpace(uniq[j]))
+             {
+               str2 = uniq[j].split(' ').join('_');
+             }
+	      else
+	      {
+	     str2=uniq[j];
+	      }
+					
+		//alert(str1);
+		//alert(str2);
 		
 		im_file=str1+".jpg";
 		im1_file=str2+".jpg";	
