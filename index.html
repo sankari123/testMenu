@@ -517,7 +517,7 @@ var lat2,long2;
 		var j;
 		checkConnection();
 		getLoc();
-		//alert(uniq);
+		alert(uniq);
 		lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
@@ -526,13 +526,15 @@ var lat2,long2;
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
         if(uniq.length % 2==0)
-{}
+{
+alert('no add');
+}
 else
 {
 uniq.push(["d"]);
 alert('add');
 }
- var str_m="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
+ var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	str1=uniq[i].replace(/\s/g, '_');
 	
