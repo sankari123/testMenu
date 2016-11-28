@@ -538,7 +538,7 @@ alert('add');
  var str_m="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
-		if(hasWhiteSpace(uniq[i]))
+	if(uniq[i].indexOf(' ') >= 0)
              {
               str1 =uniq[i].split(' ').join('_');
              }
@@ -549,7 +549,7 @@ alert('add');
 		
 		
 	    j=i+1;
-		if(hasWhiteSpace(uniq[j]))
+		if(uniq[j].indexOf(' ') >= 0)
              {
                str2 = uniq[j].split(' ').join('_');
              }
