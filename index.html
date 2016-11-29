@@ -469,6 +469,7 @@ function procVal(pVar)
 		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		pnam=String(latR[0]);
 		venue=String(latR[1]);
+		venue=venue.replace(/\s/g, '_');
 		art=String(latR[2]);
 		Pdeta=String(latR[3]);
 		pTim=String(latR[5]);
@@ -486,7 +487,7 @@ function procVal(pVar)
 	//testing();
 	uniq = remove_duplicates_safe(venue_arr);
 //	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
- 	//alert(uniq);
+ 	alert(uniq);
 }
 	
 
@@ -519,23 +520,22 @@ var j;
 for (var i = 0, len = uniq.length; i < len-1; i++) {
 	alert(len);
 	
-	d1=uniq[i].replace(/\s/g, '_');
+	d1+=uniq[i].replace(/\s/g, '_');
 	alert(d1);
 	  
 	j=i+1;
 	
-	d2=uniq[j].replace(/\s/g, '_');
+	d2+=uniq[j].replace(/\s/g, '_');
 	alert(d2);
-	 
-	
-		
-		im_file=uniq[i]+".jpg";
-		im1_file=uniq[j]+".jpg";	
+	im_file=uniq[i]+".jpg";
+	im1_file=uniq[j]+".jpg";	
 	 alert(im_file);
 	alert(im1_file);
 	 i=j;
 		
 		}
+	alert (d1);
+	alert(d2);
 }
 
 
