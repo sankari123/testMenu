@@ -487,7 +487,7 @@ function procVal(pVar)
 	//testing();
 	uniq = remove_duplicates_safe(venue_arr);
 //	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
- 	alert(uniq);
+ //	alert(uniq);
 }
 	
 
@@ -546,7 +546,7 @@ for (var i = 0, len = uniq.length; i < len-1; i++) {
 		var j;
 		checkConnection();
 		getLoc();
-		alert(uniq);
+		//alert(uniq);
 		//lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
 		document.getElementById("lst_mnu").style.visibility="true";
@@ -563,36 +563,29 @@ else
 uniq.push(["d"]);
 alert('add');
 }
- //var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
+ var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	//for (var i = 0, len = multiArr.length-1; i < len; i++) {
 	for (var i = 0, len = uniq.length; i < len-1; i++) {
 	
-	 str1=uniq[i].replace(/\s/g, '_');
-	 alert(uniq[i]);
 	j=i+1;
-		 alert(uniq[j]);
-		str2=uniq[j].replace(/\s/g, '_');
-	 
-	
 		
-		im_file=str1+".jpg";
-		im1_file=str2+".jpg";	
-	 alert(im_file);
-	alert(im1_file);
+		im_file=uniq[i]+".jpg";
+		im1_file=uniq[j]+".jpg";	
+	
 		
 
-	//	if(uniq[j]=='d')
-	//	{
+if(uniq[j]=='d')
+{
 	//	alert('in');
-//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1 +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value= "+str1+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td></tr>";
- // }
-//		else
-//		{
+im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1' bordercolor='#e6e6e5'  class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[i] +"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value= "+uniq[i]+">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[i] +">Direction</button></td></tr></table></td></tr>";
+ }
+		else
+		{
 		//alert('out');
-//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str1+"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str1 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str1 +">Direction</button></td></tr></table></td>";	
+im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%'> <table border='1'  bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[i]+"><img src="+im_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+uniq[i] +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[i] +">Direction</button></td></tr></table></td>";	
 	
-//im_htm+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+str2+"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+str2 +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+str2 +">Direction</button></td></tr></table></td></tr>";
-//}
+im_htm+="<font size=2><td width='50%'> <table border='1' bordercolor='#e6e6e5' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' value="+uniq[j]+"><img src="+im1_file+" width='100px' height='50px'></button></td></tr><tr valign='center'><td><button onclick='ven_det1(this.value);' class='btn2' value="+uniq[j] +">Events</button></td><td><button onclick='ven_det2(this.value);' class='btn2' value="+uniq[j] +">Direction</button></td></tr></table></td></tr>";
+}
 	 i=j;
 		
 	}
@@ -744,7 +737,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
-		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='text();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick=' venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
