@@ -5,6 +5,10 @@
 <title><center><font face=verdana size=12>Madras Music Fest</font></center></title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="html2canvas.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="tableExport.js"></script>
+<script type="text/javascript" src="jquery.base64.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 
@@ -623,7 +627,7 @@ function ven_det(v)
 	document.getElementById("evt_lst").style.visibility="true";
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility="false";
-	var evt_lst="<table border='0' class='ven1' cellpadding='1' cellspacing='1'>";
+	var evt_lst="<table border='0' id='xportEve' class='ven1' cellpadding='1' cellspacing='1'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
@@ -639,8 +643,10 @@ function ven_det(v)
 	}
 	 
 	 document.getElementById('evt_lst').innerHTML=evt_lst+"</table>" ;
+	 <a href="#" onClick ="$('#xportEve').tableExport({type:'png',escape:'false'});">Download</a>
+
  }
-alert('venue '+v);
+//alert('venue '+v);
 }
 
 
