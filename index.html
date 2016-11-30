@@ -680,15 +680,11 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100% !important;
   }
 		
-#route_canvas
+
+	#evt_lst
 	{
 		display:none;
-		
-		
-	}
-	#panel
-	{
-		display:none;
+		height: 100vh;
 		
 	}
 	.map_c
@@ -722,10 +718,10 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 				
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
-       <div class='map_c'>
-         <div id='route_canvas' style='width:50vw;height:400px;float: left;'></div> 
-         <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">
-	</div>
+       <div id='evt_lst'>
+	       <div id='eveLst'></div>
+               <div id='route_canvas' style='width:50vw;height:400px;float: left;'></div> 
+               <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">	</div>
        </div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
