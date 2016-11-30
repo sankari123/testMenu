@@ -478,7 +478,8 @@ function procVal(pVar)
 		var eDat= dt.getDate();
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
-		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		//multiArr.push([latR[2],latR[0],latR[1],dist]);
+		events.push([String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		venue_arr.push([venue]);
 		//write ajax response to text file
 		
@@ -487,7 +488,7 @@ function procVal(pVar)
 	//testing();
 	uniq = remove_duplicates_safe(venue_arr);
 //	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
- alert(events);
+ //alert(events);
 }
 	
 
@@ -617,7 +618,7 @@ function ven_det(v)
 {
 	for (var i = 0, len = events.length; i < len-1; i++)
  {
-	alert(events[i]);
+	alert(events[i][5]);
  }
 alert('venue '+v);
 }
