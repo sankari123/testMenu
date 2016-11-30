@@ -617,10 +617,28 @@ function calClick()
 
 function ven_det(v)
 {
+	
+	k=0;
+	document.getElementById("evt_lst").style.display="block";
+	document.getElementById("evt_lst").style.visibility="true";
+	document.getElementById("lst_mnu").style.display="none";
+	document.getElementById("lst_mnu").style.visibility="false";
+	var evt_lst="<table border='0' class='ven1' cellpadding='1' cellspacing='1'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
-	alert(events[i][5]);
+	if(events[i][5]==v)
+	{
+		if(k==0)
+		{
+			evt_lst+="<tr><td align='center' colspan=3>"+v+"</td></tr><tr><td colspan=3> Programme</td></tr>";
+		}
+		k++;
+	   evt_lst+="<font size=2><tr valign='top'><td width='20%' bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>;
+		
+	}
+	 
+	 document.getElementById('evt_lst').innerHTML=evt_lst+"</table>" ;
  }
 alert('venue '+v);
 }
@@ -715,9 +733,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
        <div id='evt_lst'>
-	       <div id='eveLst'></div>
-               <div id='route_canvas' style='width:50vw;height:400px;float: left;'></div> 
-               <div id="panel" style="font-family:arial;font-size:10px;width:50vw; float: right;">	</div>
+	     
        </div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
