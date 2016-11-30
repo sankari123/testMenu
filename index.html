@@ -387,14 +387,14 @@ var floater = 0;
 		}
 		}
 		// Now we'll process any One Time events happening on the matching month, day, year:
-	
-		else if ((events[i][1] == day) && (events[i][0] == month) && (events[i][2] == year)) {
+	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
-			theevent += events[i][5] + '\n';
-			theevent += 'Artist: ' + events[i][7] + '\n';
-			theevent += 'Time: ' + events[i][3] + '\n';
-			theevent += 'Venue: ' + events[i][4] + '\n';
-			theevent += 'Details: ' + events[i][6] + '\n';
+			theevent += events[i][6] + '\n';
+			theevent += 'Artist: ' + events[i][8] + '\n';
+			theevent += 'Time: ' + events[i][4] + '\n';
+			theevent += 'Venue: ' + events[i][5] + '\n';
+			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ---------------------- \n\n';
 			document.forms.eventform.eventlist.value = theevent;
 			
@@ -480,7 +480,7 @@ function procVal(pVar)
 		eMon=dt.getMonth()+1;
 		eYr=dt.getFullYear();
 		//multiArr.push([latR[2],latR[0],latR[1],dist]);
-		events.push([String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		venue_arr.push([venue]);
 		//write ajax response to text file
 		
@@ -614,9 +614,10 @@ function calClick()
            }
          });
 	}
-	
+
 function ven_det(v)
 {
+	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
 	alert(events[i][5]);
