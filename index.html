@@ -643,18 +643,20 @@ function ven_det(v)
 {
 	
 	k=0;
-	document.getElementById("evt_lst").style.display="block";
-	document.getElementById("evt_lst").style.visibility="true";
+	document.getElementById("xPort").style.display="block";
+	document.getElementById("xPort").style.visibility="true";
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility="false";
-	var evt_lst="<table border='0' id='xportEve' class='ven1' cellpadding='1' cellspacing='1'>";
+	var evt_lst="<table border='4' id='xportEve' class='ven1' cellpadding='1' cellspacing='1'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
 	if(events[i][5]==v)
 	{
+		alert('in');
 		if(k==0)
 		{
+			alert('in2');
 			evt_lst+="<tr><td colspan=3>"+v+"</td></tr><tr><td colspan=3> Programme</td></tr>";
 		}
 		k++;
@@ -662,7 +664,7 @@ function ven_det(v)
 		
 	}
 	 
-	 document.getElementById('evt_lst').innerHTML=evt_lst+"</table><button id='downLoad' value='Download as Image'>" ;
+	 document.getElementById('xPort').innerHTML=evt_lst+"</table><button id='downLoad' value='Download as Image'>" ;
 	
 
  }
