@@ -16,7 +16,8 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-$(document).ready(function(){
+function downLoad()
+{
 
 	
 var element = $("#xPort"); // global variable
@@ -29,18 +30,27 @@ var getCanvas; // global variable
                 getCanvas = canvas;
              }
          });
-	 window.savephotoplugin(getCanvas,"image/png",device.version,function(val){ 
-                    //returns you the saved path in val 
-                    alert("Photo Saved: " + val);   
-                });
-            }	
+		
     var imgageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-    $("#downLoad").attr("download", "your_pic_name.png").attr("href", newData);
 	});
+	
+	 window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },newData   );
+	}	
+		
+		
+		
 
-});
+	
+
+
 	
 function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
@@ -668,7 +678,7 @@ function ven_det(v)
 		
 	}
 	 
-	 document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downnLoad' href='#'>Download</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad 'href='#' onclick='downLoad();return false;'></a>" ;
 	
 
  }
