@@ -16,7 +16,27 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
+$(document).ready(function(){
+
 	
+var element = $("#xPort"); // global variable
+var getCanvas; // global variable
+ 
+  	$("#downLoad").on('click', function () {
+		 html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#previewImage").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+		
+    var imgageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#downLoad").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+
+});
 	
 function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
@@ -642,8 +662,8 @@ function ven_det(v)
 		
 	}
 	 
-	 document.getElementById('evt_lst').innerHTML=evt_lst+"</table>" ;
-	 <a href="#" onClick ="$('#xportEve').tableExport({type:'png',escape:'false'});">Download</a>
+	 document.getElementById('evt_lst').innerHTML=evt_lst+"</table><button id='downLoad' value='Download as Image'>" ;
+	
 
  }
 //alert('venue '+v);
@@ -738,9 +758,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 				
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
-       <div id='evt_lst'>
-	     
-       </div>
+       <div id='xPort'>      </div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
