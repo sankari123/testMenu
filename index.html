@@ -29,7 +29,11 @@ var getCanvas; // global variable
                 getCanvas = canvas;
              }
          });
-		
+	 window.savephotoplugin(getCanvas,"image/png",device.version,function(val){ 
+                    //returns you the saved path in val 
+                    alert("Photo Saved: " + val);   
+                });
+            }	
     var imgageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
@@ -762,7 +766,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<div id='lst_mnu' align='left'>	</div>
 	<div id="previewImage">
     </div>
-       <div id='xPort'>      </div>
+       <div id='xPort' style="background-color: #F0F0F1; color: #00cc65; width: 500px; padding-left: 25px; padding-top: 10px;">      </div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
