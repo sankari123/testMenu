@@ -31,16 +31,15 @@ var getCanvas; // global variable
              }
          });
 	});	
-    var imgData = getCanvas.toDataURL("image/png");
+    var imgData = getCanvas.toDataURL("image/png",1.0);
     // Now browser starts downloading it instead of just showing it
-    var imageData = imgData.replace(/data:image\/jpeg;base64,/, '');
+    var imageData = imgData.replace(/data:image\/png;base64,/, '');
  window.canvas2ImagePlugin.saveImageDataToLibrary(
         function(msg){
             console.log(msg);
         },
         function(err){
-            console.log(err);
-        },  imageData  );
+            console.log(err);       },  imageData  );
 	 
 }
 	
