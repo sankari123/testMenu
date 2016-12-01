@@ -19,7 +19,7 @@
 function downLoad()
 {
 
-	
+alert('in');	
 var element = $("#xPort"); // global variable
 var getCanvas; // global variable
  
@@ -30,14 +30,21 @@ var getCanvas; // global variable
                 getCanvas = canvas;
              }
          });
-		
+	});	
     var imgageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-$("#downLoad").attr("download", "events.png").attr("href", newData);
-	});
-}	
-		
+ window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){
+            console.log(msg);
+        },
+        function(err){
+            console.log(err);
+        },
+        [newData]  );
+	 
+}
+	
 function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
 	
