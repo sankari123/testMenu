@@ -19,24 +19,28 @@
 <script type="text/JavaScript" language="JavaScript">
 
 
+$(document).ready(function(){
 
-//alert('in');	
+	
 var element = $("#xPort"); // global variable
 var getCanvas; // global variable
- 
-  	$("#downLoad").on('click', function () {
-		 html2canvas(element, {
+  
+
+	$("#downLoad").on('click', function () {
+	 html2canvas(element, {
          onrendered: function (canvas) {
                 $("#previewImage").append(canvas);
                 getCanvas = canvas;
              }
          });
-	});	
-    var imgData = getCanvas.toDataURL("image/png");
+		 
+    var imgageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
-    var newData = imgData.replace(/^data:image\/png/, "data:application/octet-stream");
-$("#downLoad").attr("download", "your_pic_name.png").attr("href", newData);
-  
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#downLoad").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+
+});
 	 
 
 function alertDismissed() {
@@ -668,7 +672,7 @@ function ven_det(v)
 		
 	}
 	 
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onclick='downLoad();'>Download</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#'>Download</a>" ;
 	
 
  }
