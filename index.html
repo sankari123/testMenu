@@ -17,10 +17,10 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-function downLoad()
-{
 
-alert('in');	
+
+
+//alert('in');	
 var element = $("#xPort"); // global variable
 var getCanvas; // global variable
  
@@ -32,21 +32,13 @@ var getCanvas; // global variable
              }
          });
 	});	
-    var imgData = getCanvas.toDataURL("image/png",1.0);
+    var imgData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
-    var imageData = imgData.replace(/data:image\/png;base64,/, '');
- window.canvas2ImagePlugin.saveImageDataToLibrary(
-        function(msg){
-		alert(msg);
-            console.log(msg);
-        },
-        function(err){
-		alert(err);
-            console.log(err);  },  imageData  );
-navigator.notification.alert('Image saved successfully.To view the image, open <Pictures> folder in your device. ',  alertDismissed,   'DigiGraph',   'OK'      );
+    var newData = imgData.replace(/^data:image\/png/, "data:application/octet-stream");
+$("#downLoad").attr("download", "your_pic_name.png").attr("href", newData);
   
 	 
-}
+
 function alertDismissed() {
             alert('ddd');
         }	
@@ -676,7 +668,7 @@ function ven_det(v)
 		
 	}
 	 
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad 'href='#' onclick='downLoad();return false;'>Download</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onclick='downLoad();'>Download</a>" ;
 	
 
  }
