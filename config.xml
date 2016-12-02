@@ -41,6 +41,7 @@
   <plugin name="cordova-plugin-gpslocation" source="npm" />
   <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
   <gap:plugin name="cordova-plugin-listpicker" source="npm" />
+  <plugin name="cordova-plugin-canvas2image" source="npm">
   
   <icon src="icon.png" />
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
