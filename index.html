@@ -37,7 +37,7 @@ var getCanvas; // global variable
     var imgageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
     var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-		 Canvas2Image.saveAsImage(newData, 500, 500,png);
+		 Canvas2Image.saveAsPNG(newData);
     
 	});
 
