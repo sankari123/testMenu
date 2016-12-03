@@ -41,6 +41,7 @@
   <plugin name="cordova-plugin-gpslocation" source="npm" />
   <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
   <gap:plugin name="cordova-plugin-listpicker" source="npm" />
+  <gap:plugin name="org.devgeeks.Canvas2ImagePlugin" source="npm" />
   
   
   <icon src="icon.png" />
