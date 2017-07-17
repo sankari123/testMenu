@@ -576,10 +576,12 @@ uniq.push(["d"]);
 	j=i+1;
 		
 		im_file=uniq[i]+".jpg";
-		im1_file=uniq[j]+".jpg";	
-	uniq[i]=uniq[i].replace(/\s+/g,"_");
-	uniq[j]=uniq[j].replace(/\s+/g,"_");
-
+		im1_file=uniq[j]+".jpg";
+		//venue.replace(/\s/g, ' ');
+	uniq[i]=uniq[i].replace(/\s/g, '-');
+	uniq[j]=uniq[j].replace(/\s/g, '-');
+  alert(uniq[i]);
+	alert(uniq[j]);	
 if(uniq[j]=='d')
 {
 	//	alert('in');
