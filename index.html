@@ -550,7 +550,7 @@ var lat2,long2;
 		checkConnection();
 		getLoc();
 		for (var i = 0, len = uniq.length; i < len; i++) {
-		//alert(uniq[i]);
+		alert(uniq[i]);
 		}
 		//alert(uniq);
 		//lst_mnu.innerHTML='';
@@ -567,7 +567,7 @@ alert('no add');
 else
 {
 uniq.push(["d"]);
-alert('add');
+//alert('add');
 }
  var im_htm="<table border='0' class='ven' cellpadding='1' cellspacing='1'>";
 	//for (var i = 0, len = multiArr.length-1; i < len; i++) {
@@ -577,8 +577,8 @@ alert('add');
 		
 		im_file=uniq[i]+".jpg";
 		im1_file=uniq[j]+".jpg";	
-	
-		
+	uniq[i]=uniq[i].replace(/ /g,"_");
+	uniq[j]=uniq[j].replace(/ /g,"_");	
 
 if(uniq[j]=='d')
 {
