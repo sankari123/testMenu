@@ -577,8 +577,8 @@ uniq.push(["d"]);
 		
 		im_file=uniq[i]+".jpg";
 		im1_file=uniq[j]+".jpg";	
-	uniq[i]=uniq[i].replace(/ /g,"_");
-	uniq[j]=uniq[j].replace(/ /g,"_");	
+	uniq[i]=uniq[i].replace(/\s+/g,"_");
+	uniq[j]=uniq[j].replace(/\s+/g,"_");
 
 if(uniq[j]=='d')
 {
