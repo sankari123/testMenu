@@ -578,13 +578,16 @@ uniq.push(["d"]);
 		im_file=uniq[i]+".jpg";
 		im1_file=uniq[j]+".jpg";
 		 alert(uniq[i]);
-	alert(uniq[j]);	
+	        alert(uniq[j]);	
+		ch_uni=uniq[i];
+		ch_uni=ch_uni.replace(/\s/g, ' ');
 		//venue.replace(/\s/g, ' ');
-uniq[i]=uniq[i].replace(/\s/g, ";");
-	uniq[j]=uniq[j].replace(/\s/g, ";");
+		//venue=venue.replace(/\s/g, ' ');
+               ch_uni1=uniq[j];
+		ch_uni1=ch_uni1.replace(/\s/g, ' ');
 
-  alert('after'+uniq[i]);
-	alert('after'+uniq[j]);	
+  alert('after'+ch_uni);
+	alert('after'+ch_uni1);	
 if(uniq[j]=='d')
 {
 	//	alert('in');
