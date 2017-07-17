@@ -502,7 +502,7 @@ function procVal(pVar)
 		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		pnam=String(latR[0]);
 		venue=String(latR[1]);
-		venue=venue.replace(/\s/g, '_');
+		venue=venue.replace(/\s/g, ' ');
 		art=String(latR[2]);
 		Pdeta=String(latR[3]);
 		pTim=String(latR[5]);
@@ -549,6 +549,9 @@ var lat2,long2;
 		var j;
 		checkConnection();
 		getLoc();
+		for (var i = 0, len = uniq.length; i < len; i++) {
+		alert(uniq[i]);
+		}
 		//alert(uniq);
 		//lst_mnu.innerHTML='';
 		document.getElementById("lst_mnu").style.display="block";
@@ -759,7 +762,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr height='40px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music Fest</b></font></td></tr>
+	<tr height='90px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
 		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick=' venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
