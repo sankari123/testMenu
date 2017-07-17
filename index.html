@@ -580,8 +580,8 @@ uniq.push(["d"]);
 		 alert(uniq[i]);
 	alert(uniq[j]);	
 		//venue.replace(/\s/g, ' ');
-uniq[i]=uniq[i].replace(/ /g,"_");
-	uniq[j]=uniq[j].replace(/ /g,"_");
+uniq[i]=uniq[i].split(" ").join("_");
+	uniq[j]=uniq[j].split(" ").join("_");
   alert('after'+uniq[i]);
 	alert('after'+uniq[j]);	
 if(uniq[j]=='d')
