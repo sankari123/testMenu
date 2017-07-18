@@ -674,7 +674,7 @@ function ven_det(v)
 	document.getElementById("xPort").style.visibility="true";
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility="false";
-	var evt_lst="<table border='2' id='xportEve' class='ven1' cellpadding='1' cellspacing='1'>";
+	var evt_lst="<table border='2' id='exportable' class='ven1' cellpadding='1' cellspacing='1'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
@@ -691,13 +691,18 @@ function ven_det(v)
 		
 	}
 	 
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#'>Download</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onlick='downloadFile();'>Download</a>" ;
 	
 
  }
 //alert('venue '+v);
 }
-
+function downloadFile()
+	{
+	var blob = new Blob([document.getElementById('exportable').innerHTML], {
+            type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"        }); 
+		saveAs(blob, "Report.xls");
+	}
 
 
 </script>
