@@ -575,16 +575,20 @@ uniq.push(["d"]);
 	
 	j=i+1;
 		
+		//checking
+		//venue=String(latR[1]);
+		//venue=venue.replace(/\s/g, ' ');
+		//end check
 		im_file=uniq[i]+".jpg";
 		im1_file=uniq[j]+".jpg";
 		 alert(uniq[i]);
 	        alert(uniq[j]);	
-		ch_uni=uniq[i];
-		ch_uni=ch_uni.replace(/ /g, '_');
+		ch_uni=String(uniq[i]);
+		ch_uni=ch_uni.replace(/\s/g, '_');
 		//venue.replace(/\s/g, ' ');
 		//venue=venue.replace(/\s/g, ' ');
-              ch_uni1=uniq[j];
-		//ch_uni1=ch_uni1.replace(/ /g,"_");
+              ch_uni1=String(uniq[j]);
+		ch_uni1=ch_uni1.replace(/\s/g, '_');
 
   alert('after'+ch_uni);
 	alert('after'+ch_uni1);	
