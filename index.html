@@ -26,7 +26,7 @@
 
 
   $("#downLoad").on('click', function () {
-    $('#example').DataTable( {
+     $('#exportable').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
@@ -34,26 +34,10 @@
             'csvHtml5',
             'pdfHtml5'
         ]
+    } );
     } );
  	 
     
-	 
-
-	
-	
-	$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );
-	
-	
 	
 	
 function alertDismissed() {
