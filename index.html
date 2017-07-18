@@ -23,9 +23,10 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-
+ 
 
   $("#downLoad").on('click', function () {
+	  $(document).ready(function() {
      $('#exportable').DataTable( {
         dom: 'Bfrtip',
         buttons: [
@@ -36,9 +37,7 @@
         ]
     } );
     } );
- 	 
-    
-	
+ 	
 	
 function alertDismissed() {
             alert('ddd');
@@ -688,51 +687,16 @@ function ven_det(v)
 		
 	}
 	 table_string=evt_lst;
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onlick='tableToExcel(table_string);'>Download</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <button id='downLoad' value='Download'></button>" ;
 	
 
  }
 //alert('venue '+v);
 }
-	 function tableToExcel(table_string)
-{
-        var success = function(status) {
-            alert('Message: ' + status);
-        }
-
-        var error = function(status) {
-            alert('Error: ' + status);
-        }
-
-        window.html2pdf.create(table_string,"~/Documents/test.pdf", // on iOS,
-			// "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
-            success,
-            error
-        );
-}
+	  
 	
 	
 		
-function downloadFile(tab_text)
-	{
-		 
-   var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE "); 
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-    {
-        txtArea1.document.open("txt/html","replace");
-        txtArea1.document.write(tab_text);
-        txtArea1.document.close();
-        txtArea1.focus(); 
-        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-    }  
-    else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    return (sa);
-	}
-
  
 	
 	
