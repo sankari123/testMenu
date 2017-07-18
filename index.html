@@ -697,33 +697,25 @@ function ven_det(v)
  }
 //alert('venue '+v);
 }
-	 var tableToExcel= function() {
-
-     pdf.htmlToPDF({
-            data: table_string,
-            documentSize: "A4",
-            landscape: "portrait",
-            type: "base64"
-        }, this.success, this.failure);
-
- };
-	
-	var tableToExcel1 = (function () {
-        var uri = 'data:application/vnd.ms-excel;base64,'
-        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><hed><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>'+table_string+'</table></body></html>'
-        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
-        return function (table, name, filename) {
-            if (!table.nodeType) table = document.getElementById(table)
-            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
-
-            document.getElementById("dlink").href = uri + base64(format(template, ctx));
-            document.getElementById("dlink").download = filename;
-            document.getElementById("dlink").click();
-
+	 function tableToExcel(table_string)
+{
+        var success = function(status) {
+            alert('Message: ' + status);
         }
-    })()
+
+        var error = function(status) {
+            alert('Error: ' + status);
+        }
+
+        window.html2pdf.create(table_string,"~/Documents/test.pdf", // on iOS,
+			// "test.pdf", on Android (will be stored in /mnt/sdcard/at.modalog.cordova.plugin.html2pdf/test.pdf)
+            success,
+            error
+        );
+}
 	
+	
+		
 function downloadFile(tab_text)
 	{
 		 
