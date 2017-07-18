@@ -662,7 +662,7 @@ function calClick()
            }
          });
 	}
-
+var table_string;
 function ven_det(v)
 {
 	
@@ -690,13 +690,30 @@ function ven_det(v)
 	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		
 	}
-	 
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onlick='downloadFile(evt_lst);'>Download</a>" ;
+	 table_string=evt_lst;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a id='downLoad' href='#' onlick='tableToExcel('tablename', 'name', 'myfile.xls')'>Download</a>" ;
 	
 
  }
 //alert('venue '+v);
 }
+	
+	var tableToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><hed><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>'+table_string+'</table></body></html>'
+        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name, filename) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+
+            document.getElementById("dlink").href = uri + base64(format(template, ctx));
+            document.getElementById("dlink").download = filename;
+            document.getElementById("dlink").click();
+
+        }
+    })()
+	
 function downloadFile(tab_text)
 	{
 		 
@@ -808,7 +825,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<div id='lst_mnu' align='left'>	</div>
 	<div id="previewImage">
     </div>
-       <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 5px; padding-top: 10px;"> <iframe id="txtArea1" style="display:none"></iframe>     </div>
+       <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 5px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
