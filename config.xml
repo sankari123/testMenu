@@ -42,7 +42,7 @@
   <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
   <gap:plugin name="cordova-plugin-listpicker" source="npm" />
   <plugin name="cordova-pdf-generator" source="npm" />
-  <plugin name="html2pdf-node" source="npm" />
+  
   <icon src="icon.png" />
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
