@@ -684,10 +684,10 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			evt_lst+="<tr><td colspan=3>"+v+"</td></tr><tr><td colspan=3> Programme</td></tr>";
+			evt_lst+="<tr><td colspan=3 align='center'><b>"+v+"</b></td></tr><tr><td colspan=3 align='center'><b> Programme</b></td></tr>";
 		}
 		k++;
-	   evt_lst+="<font size=1 color=black><tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		
 	}
 	 
@@ -721,6 +721,7 @@ function ven_det(v)
 		 width: 100vw;
 			 text-align:left; 
 			border-style: solid;
+			font-size: 9pt;
     border-color: black;
 		}
 .hideDontTakeUpSpace
