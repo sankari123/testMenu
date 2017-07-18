@@ -667,7 +667,9 @@ function ven_det(v)
 {
 	
 	k=0;
-	alert(v);
+	//venue=String(latR[1]);
+	v=v.replace(/_/g, " ");
+	
 	document.getElementById("xPort").style.display="block";
 	document.getElementById("xPort").style.visibility="true";
 	document.getElementById("lst_mnu").style.display="none";
