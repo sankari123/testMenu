@@ -26,12 +26,7 @@
 <script type="text/JavaScript" language="JavaScript">
  
 
- $(document).ready(function() {	
-  $("#downLoad").on('click', function () {
-       $('#test').tableExport({type:'pdf',escape:'false'});
-   });	
- });	
-	
+ 
 	 
 	
 function alertDismissed() {
@@ -682,7 +677,7 @@ function ven_det(v)
 		
 	}
 	 table_string=evt_lst;
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <button id='downLoad' value='Download'></button>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table> <a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>" ;
 	
 
  }
