@@ -686,7 +686,21 @@ function ven_det(v)
 	  
 	
 	
-		
+function printData()
+{
+   var divToPrint=document.getElementById("xPort");
+
+   pdf.htmlToPDF({
+            data: divToPrint.outerHTML,
+            documentSize: "A4",
+            landscape: "portrait",
+            type: "share" //use share to open the open-with-menu. 
+        }, this.success, this.failure);
+}
+
+$('#exportpdf').on('click',function(){
+printData();
+})	
  
 	
 	
@@ -786,7 +800,9 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     </div>
        <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 2px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
 	<div id='dl_btn' class='dl_btn'>
-	<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a></div>
+		 <input type="button" id="exportpdf" value="Download PDF">
+	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
+	</div>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
