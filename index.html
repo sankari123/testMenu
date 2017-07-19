@@ -550,7 +550,7 @@ var lat2,long2;
 		
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
-		alert('in');
+		//alert('in');
 		
         if(uniq.length % 2==0)
 {
@@ -606,7 +606,7 @@ document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	}
 function calClick()
 	{
-		alert('in');
+		//alert('in');
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false"
 		document.getElementById("calendar").style.display="block";
@@ -626,6 +626,9 @@ function calClick()
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
 		
+		
+			
+	
 		checkConnection();
 	}
 
@@ -678,6 +681,9 @@ function ven_det(v)
 	document.getElementById("lst_mnu").style.visibility="false";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
+	
+	
+	
 	
 	var evt_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
