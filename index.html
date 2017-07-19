@@ -607,6 +607,7 @@ document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	}
 function calClick()
 	{
+		alert('in');
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false"
 		document.getElementById("calendar").style.display="block";
@@ -625,7 +626,7 @@ function calClick()
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
-		alert('in');
+		
 		checkConnection();
 	}
 
@@ -821,12 +822,12 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<div id='lst_mnu' align='left'>	</div>
 	<!--<div id="previewImage">
     </div>-->
-       <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 1px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
+       <div id='xPort' style="background-color: white; color: #000000;  padding-left: 1px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
 	<div id='dl_btn' class='dl_btn'>
 		 <input type="button" id="exportpdf" value="Download PDF">
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
-			<div id='det' align='center' style="background:white">
+			<div id='det' align='center' style="background-color:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
 				</form>
