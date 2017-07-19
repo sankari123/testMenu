@@ -698,9 +698,13 @@ function printData()
         }, this.success, this.failure);
 }
 
-$('#exportpdf').on('click',function(){
-printData();
-})	
+	
+	$(document).ready(function(){
+		$("#exportpdf").on('click', function () {
+                 printData();
+			});
+			
+});	
  
 	
 	
