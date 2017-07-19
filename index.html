@@ -543,6 +543,16 @@ var lat2,long2;
 		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
+		
+		
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn").style.visibility="false";
+		alert('in');
+		
         if(uniq.length % 2==0)
 {
 alert('no add');
@@ -801,7 +811,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='90px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
-		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick=' venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+		<tr height='40px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
 	</table>
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
@@ -809,9 +819,9 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 				
 			</td></tr></table>
 	<div id='lst_mnu' align='left'>	</div>
-	<div id="previewImage">
-    </div>
-       <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 2px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
+	<!--<div id="previewImage">
+    </div>-->
+       <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 1px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
 	<div id='dl_btn' class='dl_btn'>
 		 <input type="button" id="exportpdf" value="Download PDF">
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
