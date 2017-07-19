@@ -674,7 +674,7 @@ function ven_det(v)
 		
 	}
 	 table_string=evt_lst;
- document.getElementById('xPort').innerHTML=evt_lst+"</table> <a href="#" onClick ='$('#test').tableExport({type:'pdf',escape:'false'});'><img src='images/json.jpg' width='24px'>JSON (ignoreColumn)</a>" ;
+ document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 	
 
  }
@@ -778,6 +778,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<div id="previewImage">
     </div>
        <div id='xPort' style="background-color: #F0F0F1; color: #000000;  padding-left: 5px; padding-top: 10px;"> <a id="dlink"  style="display:none;"></a>    </div>
+	<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});"><img src="logo.png" width="24px">PDF</a>
 			<div id='det' align='center' style="background:white">
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
