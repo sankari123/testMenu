@@ -859,7 +859,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 
 /* Style the buttons inside the tab */
 div.tab button {
-    background-color: inherit;
+    
     float: left;
     border: none;
     outline: none;
@@ -867,11 +867,17 @@ div.tab button {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
+	border-left:solid white 0px;
+    border-right:solid white 0px;
+    border-top:solid white 0px;
+    border-bottom:solid #003c67 3px;
+    background:white;
+    width:100px; height:50px
 }
 
 /* Change background color of buttons on hover */
 div.tab button:hover {
-    background-color: #ddd;
+    background-color: white;
 }
 
 /* Create an active/current tablink class */
@@ -903,17 +909,17 @@ div.tab button.active {
 
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr height='90px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
-		<tr height='35px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
-	
-	
-	
+	<tr height='60px' bgcolor="#ed7372"><td  align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr></table>
+		
+	 
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr height='35px' bgcolor='#003c67'><td align=center>
 	<div class="tab">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Calendar</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Artist</button>
 </div>
-
+		</td></tr></table>
 <div id="London" class="tabcontent">
 <!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
    
@@ -932,7 +938,7 @@ div.tab button.active {
 	
 	
 	
-	</table>
+	
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
