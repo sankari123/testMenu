@@ -408,7 +408,7 @@ var floater = 0;
 		// Now we'll process any One Time events happening on the matching month, day, year:
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
-			var str_time= String(tevents[i][4]);
+			var str_time= String(events[i][4]);
 		      var h = str_time % 12 || 12;
 		      var ampm = str_time < 12 ? "AM" : "PM";
 		     str_time= h + str_time.substr(2, 3) + ampm;
