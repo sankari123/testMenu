@@ -326,6 +326,12 @@ function showevents(day,month,year,week,dayofweek) {
 var theevent = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
+		
+		str_time= events[i][4];
+		var h = str_time % 12 || 12;
+		var ampm = str_time < 12 ? "AM" : "PM";
+		timeString = h + timeString.substr(2, 3) + ampm;
+		
 		// First we'll process recurring events (if any):
 		if (events[i][0] != "") {
 			if (events[i][0] == "D") {
@@ -408,7 +414,7 @@ var floater = 0;
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
-			theevent += 'Time: ' + events[i][4] + '\n';
+			theevent += 'Time: ' + timeString  + '\n';
 			theevent += 'Venue: ' + events[i][5] + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ---------------------- \n\n';
