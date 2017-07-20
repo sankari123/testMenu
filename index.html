@@ -408,14 +408,18 @@ var floater = 0;
 		// Now we'll process any One Time events happening on the matching month, day, year:
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
-			var str_time= String(events[i][4]);
-		      var h = str_time % 12 || 12;
-		      var ampm = str_time < 12 ? "AM" : "PM";
-		     str_time= h + str_time.substr(2, 3) + ampm;
+			
+			hours=String(events[i][4]);
+			var timeString = hours;
+			var H = +timeString.substr(0, 2);
+			var h = H % 12 || 12;
+			var ampm = H < 12 ? "AM" : "PM";
+			timeString = h + timeString.substr(2, 3) + " "+ampm;
+			
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
-			theevent += 'Time: ' +  str_time + '\n';
+			theevent += 'Time: ' +  events[i][4] + '\n';
 			theevent += 'Venue: ' + events[i][5] + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ---------------------- \n\n';
