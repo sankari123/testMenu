@@ -741,7 +741,28 @@ function printData()
 			
 });	
  
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 	
+	if(cityName=='London')
+	{
+	calClick();
+	}
+	else if(cityName=='Paris')
+	{
+	venueFilter();
+	}
+}	
 	
 </script>
 	<style type="text/css">
@@ -828,6 +849,54 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		
 		display:none;	
 		}
+
+		
+		div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.topright:hover {color: red;}
+		
+		
 	</style>
 	
 </head>
@@ -836,6 +905,30 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr height='90px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
 		<tr height='35px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+	
+	
+	
+	<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Calendar</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Artist</button>
+</div>
+
+<div id="London" class="tabcontent">
+<!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+   
+</div>
+
+<div id="Paris" class="tabcontent">
+<!--   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+  
+</div>
+
+<div id="Tokyo" class="tabcontent">
+ <!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+ 
+</div>
+
 	
 	
 	
