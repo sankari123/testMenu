@@ -607,7 +607,7 @@ document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	}
 function calClick()
 	{
-		alert('in');
+		//alert('in');
 		
 		document.getElementById("calendar").style.display="block";
 		document.getElementById("calendar").style.visibility="true";
@@ -837,10 +837,15 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
 			<div id='det' align='center' style="background-color:white">
+				<hr size=2>
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
 				</form>
 			</div>
+	<div id='day_event'>
+		
+		
+	</div>
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
 	
 </body>
