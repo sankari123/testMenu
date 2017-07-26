@@ -115,7 +115,7 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	    changedate('return');
+	   // changedate('return');
         };
         reader.readAsText(file);
   }	
@@ -635,11 +635,11 @@ function calClick()
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
-		
-		
+		checkConnection();
+		changedate('return');
 			
 	
-		checkConnection();
+		
 	}
 
 	function getDrive()
