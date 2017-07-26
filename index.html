@@ -68,7 +68,7 @@ function checkConnection() {
       {
 	    connSel='Y';
 	     // alert(connSel);
-	 changedate('return');
+	// changedate('return');
 	 
       }
 	
@@ -162,7 +162,7 @@ function preloadimages(){
 	
 }
 /* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
-preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
+//preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
 
 var thisDate = 1;							// Tracks current date being written in calendar
 var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -182,6 +182,7 @@ var eastermonth = 0;
 var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
+	preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
 	ajaxFunction();
 		
 	if (buttonpressed == "prevyr") yearNum--;
