@@ -57,7 +57,6 @@ function onDeviceReady(){
 	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
 }
 function checkConnection() {
-	alert('cnn');
      var networkState = navigator.connection.type;
      if(navigator.connection.type == Connection.NONE) {        
         connSel='N';
@@ -68,8 +67,8 @@ function checkConnection() {
    else
       {
 	    connSel='Y';
-	     alert(connSel);
-	// changedate('return');
+	     // alert(connSel);
+	 changedate('return');
 	 
       }
 	
@@ -116,7 +115,7 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	   // changedate('return');
+	    changedate('return');
         };
         reader.readAsText(file);
   }	
@@ -163,7 +162,7 @@ function preloadimages(){
 	
 }
 /* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
-//preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
+preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
 
 var thisDate = 1;							// Tracks current date being written in calendar
 var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -183,8 +182,6 @@ var eastermonth = 0;
 var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
-	alert('changedate');
-	preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
 	ajaxFunction();
 		
 	if (buttonpressed == "prevyr") yearNum--;
@@ -449,7 +446,6 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	alert('ajax');
 	window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
@@ -639,12 +635,11 @@ function calClick()
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
-		alert('calclick');
-		checkConnection();
-		changedate('return');
+		
+		
 			
 	
-		
+		checkConnection();
 	}
 
 	function getDrive()
@@ -766,10 +761,6 @@ function openCity(evt, cityName) {
 	else if(cityName=='Paris')
 	{
 	venueFilter();
-	}
-	else if(cityName=='Tokyo')
-	{
-	eventFilter();
 	}
 }	
 	
@@ -940,10 +931,9 @@ display	: none;
 <table border="0"  bordercolor='#003c67' cellpadding="0" cellspacing="0" width="100%">
 	<tr height='25px'  bgcolor='#003c67'><td align=center>
 	<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Events</button>
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Calendar</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
- 
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Artist</button>
 </div>
 		</td></tr></table>
 <div id="London" class="tabcontent">
