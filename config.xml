@@ -24,7 +24,7 @@
   <gap:plugin name="cordova-plugin-admobpro" source="npm" />
   <preference name="android-installLocation" value="auto"/>
   
-  <gap:plugin name="org.apache.cordova.battery-status" source="npm" />
+ 
   <gap:plugin name="org.apache.cordova.camera" source="npm" />
   <gap:plugin name="org.apache.cordova.media-capture" source="npm" />
   <gap:plugin name="org.apache.cordova.console" source="npm" />
