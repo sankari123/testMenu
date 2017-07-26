@@ -29,7 +29,7 @@
   
   
   
-  <plugin name="cordova-plugin-file" source="git" />
+  <plugin name="cordova-plugin-file"/>
   <gap:plugin name="org.apache.cordova.file" source="npm" />
   <gap:plugin name="org.apache.cordova.media" source="npm" />
   <gap:plugin name="org.apache.cordova.network-information" source="npm" />
