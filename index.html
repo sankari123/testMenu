@@ -43,7 +43,6 @@ function getLoc()
           {
              alert("Geolocation API not supported.");
           }
-
 }
 function myMap(position) {
        x = position.coords.latitude;
@@ -82,7 +81,6 @@ function RgotFS(fileSystem) {
 function gotFS(fileSystem) {
         fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
 }
-
 function RgotFileEntry(fileEntry) {
         fileEntry.file(gotFile, fail);
     }
@@ -91,14 +89,11 @@ function RgotFileEntry(fileEntry) {
 function gotFileEntry(fileEntry) {
         fileEntry.createWriter(WriteText, fail);
     }	
-
 	
 function gotFile(file){
       readDataUrl(file);
         readAsText(file);
     }
-
-
     function readDataUrl(file) {
         var reader = new FileReader();
         reader.onloadend = function(evt) {
@@ -123,7 +118,6 @@ function gotFile(file){
  function WriteText(writer) {
       writer.onwriteend = function(evt){ // Fired when end write.
         console.log("End write text in file");
-
     };
 writer.write(ajaxResponse);
 }
@@ -136,7 +130,6 @@ writer.write(ajaxResponse);
 function getDaysInMonth(m, y) {
     return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
 }	
-
 	
 	
 	
@@ -163,7 +156,6 @@ function preloadimages(){
 }
 /* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
 preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
-
 var thisDate = 1;							// Tracks current date being written in calendar
 var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
 var today = new Date();							// Date object to store the current date
@@ -286,7 +278,6 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
-
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -519,7 +510,6 @@ function procVal(pVar)
  //alert(events);
 }
 	
-
 	
 function remove_duplicates_safe(arr) {
     var seen = {};
@@ -531,13 +521,11 @@ function remove_duplicates_safe(arr) {
         }
     }
     return ret_arr;
-
 }	
 var flg=false;	
 var lat2,long2;
 // Show the picker
 	
-
 	
 	function venueFilter()
 	{
@@ -594,7 +582,6 @@ uniq.push(["d"]);
 		//venue=venue.replace(/\s/g, ' ');
               ch_uni1=String(uniq[j]);
 		ch_uni1=ch_uni1.replace(/\s/g, '_');
-
 //  alert('after'+ch_uni);
 //	alert('after'+ch_uni1);	
 if(uniq[j]=='d')
@@ -636,9 +623,11 @@ function calClick()
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
 		
+		
+			
+	
 		checkConnection();
 	}
-
 	function getDrive()
 	{
 	
@@ -650,7 +639,6 @@ function calClick()
 	document.getElementById('panel').innerHTML = "";
 	var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer();
-
          var map = new google.maps.Map(document.getElementById('route_canvas'), {
            zoom:7,
            mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -711,7 +699,6 @@ function ven_det(v)
 	 table_string=evt_lst;
  document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 	
-
  }
 //alert('venue '+v);
 }
@@ -721,7 +708,6 @@ function ven_det(v)
 function printData()
 {
    var divToPrint=document.getElementById("xPort");
-
    pdf.htmlToPDF({
             data: divToPrint.innerHTML,
             documentSize: "A4",
@@ -729,7 +715,6 @@ function printData()
             type: "share" //use share to open the open-with-menu. 
         }, this.success, this.failure);
 }
-
 	
 	$(document).ready(function(){
 		$("#exportpdf").on('click', function () {
@@ -760,7 +745,7 @@ function openCity(evt, cityName) {
 	venueFilter();
 	}
 }	
-document.getElementById("defaultOpen").click();	
+	
 </script>
 	<style type="text/css">
 		body, html {
@@ -789,7 +774,6 @@ document.getElementById("defaultOpen").click();
         {
             display:none;
         }
-
 .btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white; text-decoration:underline;
     display:inline-block;}
 		
@@ -814,7 +798,6 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100% !important;
   }
 		
-
 	#evt_lst
 	{
 		display:none;
@@ -831,7 +814,6 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     border-right: 2px solid red;
     width: 45%;
   }
-
   #middlecol table {
     max-width: 400px;
     width: 100% !important;
@@ -846,7 +828,6 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		
 		display:none;	
 		}
-
 		
 		div.tab {
     overflow: hidden;
@@ -857,7 +838,6 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	    
 	  
 }
-
 /* Style the buttons inside the tab */
 div.tab button {
     
@@ -877,19 +857,16 @@ div.tab button {
     background:#003c67;
     width:33%; height:50px
 }
-
 /* Change background color of buttons on hover */
 div.tab button:hover {
     /*  background-color: #ddd;*/
     border-bottom:solid white 3px;
 }
-
 /* Create an active/current tablink class */
 div.tab button.active {
      /*  background-color: #ccc;*/
      border-bottom:solid white 3px;
 }
-
 /* Style the tab content */
 .tabcontent {
      display: none;
@@ -897,16 +874,13 @@ div.tab button.active {
  /*   border: 1px solid #ccc;*/
     border-top: none;
 }
-
 /* Style the close button */
 .topright {
     float: right;
     cursor: pointer;
     font-size: 20px;
 }
-
 .topright:hover {color: red;}
-
 #div_hr
 {
 	display	: none;
@@ -928,10 +902,9 @@ display	: none;
 <table border="0"  bordercolor='#003c67' cellpadding="0" cellspacing="0" width="100%">
 	<tr height='25px'  bgcolor='#003c67'><td align=center>
 	<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Events</button>
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Calendar</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
- 
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Artist</button>
 </div>
 		</td></tr></table>
 <div id="London" class="tabcontent">
@@ -985,3 +958,4 @@ display	: none;
 	
 </body>
 </html>
+
