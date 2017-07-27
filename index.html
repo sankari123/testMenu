@@ -415,12 +415,14 @@ var floater = 0;
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
+			var venue_1=String(events[i][5]);
+		        venue_1=venue.replace('_',' ');
 			 
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
 			theevent += 'Time: ' +  timeString + '\n';
-			theevent += 'Venue: ' + events[i][5] + '\n';
+			theevent += 'Venue: ' + venue_1 + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ____________________________________\n';
 			document.forms.eventform.eventlist.value = theevent;
