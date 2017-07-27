@@ -502,6 +502,7 @@ function procVal(pVar)
 		venue=venue.replace(/\s/g, ' ');
 		art=String(latR[2]);
 		Pdeta=String(latR[3]);
+		Pdeta=Pdeta.replace('^','\'');
 		pTim=String(latR[5]);
 		pLatLong=String(latR[6]);
 		var dt = new Date(latR[4]);
