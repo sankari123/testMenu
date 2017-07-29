@@ -286,8 +286,8 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
-//document.getElementById("rcorners3").innerText="";
-//document.getElementById("rcorners2").innerText="";
+document.getElementById("rcorners3").innerText="";
+document.getElementById("rcorners2").innerText="";
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -324,8 +324,8 @@ var floater = 0;
 function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("det").style.display="block";
 	document.getElementById("det").style.visibility="true";
-//	document.getElementById("rcorners3").innerText="";
-//	document.getElementById("rcorners2").innerText="";
+	document.getElementById("rcorners3").innerText="";
+	document.getElementById("rcorners2").innerText="";
 var theevent = "";
 var theeventNew = "";
 var floater = 0;
