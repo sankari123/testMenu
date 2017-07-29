@@ -418,7 +418,7 @@ var floater = 0;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			var venue_1=String(events[i][5]);
-		        venue_1=venue.replace('_',' ');
+		        venue_1=venue_1.replace('_',' ');
 			 
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
