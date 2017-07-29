@@ -286,7 +286,7 @@ function createCalendar() {
 	
 }
 function checkevents(day,month,year,week,dayofweek) {
-
+document.getElementById("rcorners3").innerText="";
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -323,7 +323,9 @@ var floater = 0;
 function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("det").style.display="block";
 	document.getElementById("det").style.visibility="true";
+	document.getElementById("rcorners3").innerText="";
 var theevent = "";
+var theeventNew = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
 		
@@ -421,13 +423,15 @@ var floater = 0;
 			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
+			theeventNew= 'Artist: ' + events[i][8] + '\n';
 			theevent += 'Time: ' +  timeString + '\n';
 			theevent += 'Venue: ' + venue_1 + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
+			theeventNew+=events[i][7] ;
 			theevent += '\n ____________________________________\n';
 			document.forms.eventform.eventlist.value = theevent;
-			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year ;
-			document.getElementById("rcorners3").innerText=theevent;
+			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
+			document.getElementById("rcorners3").innerText=theeventNew;
 			
 		}
 	}
@@ -928,14 +932,14 @@ display	: none;
     border-radius: 25px;
     border: 2px solid #73AD21;
     padding: 20px; 
-    width: 200px;
+    width: 100%;
     height: 150px;    
 }
 		#rcorners3 {
     border-radius: 25px;
     border: 2px solid #73AD21;
     padding: 20px; 
-    width: 200px;
+    width: 100%;
     height: 150px;    
 }
 	</style>
@@ -992,7 +996,10 @@ display	: none;
 <hr size=2/>
 
 </div>
-			<div id='det' align='center' style="background-color:white">
+			<div>
+		<p id="rcorners2"></p>
+		<p id="rcorners3"></p>
+	</div><div id='det' align='center' style="background-color:white">
 				
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
