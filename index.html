@@ -429,13 +429,20 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theeventNew+=events[i][7] ;
 			theevent += '\n ____________________________________\n';
-			document.forms.eventform.eventlist.value = theevent;
+			//document.forms.eventform.eventlist.value = theevent;
+			document.getElementById("rcorners2").style.borderColor = "#cfcece";
 			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
+			doument.getElementById("rcorners3").style.borderColor = "#cfcece";
 			document.getElementById("rcorners3").innerText=theeventNew;
 			
 		}
 	}
-	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
+	if (theevent == "") 
+	{
+		//document.forms.eventform.eventlist.value = 'No events to show.';
+	 	document.getElementById("rcorners2").style.borderColor = "#cfcece";
+		document.getElementById("rcorners2").innerText='No events to show.';
+	}
 }
 function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
 var firstdate = new Date(String(targetmo)+"/1/"+String(targetyr));	// Object Storing the first day of the current month.
@@ -776,7 +783,7 @@ function openCity(evt, cityName) {
 </script>
 	<style type="text/css">
 		body, html {
-    width: 100%;
+    width: 100%; !important;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -930,17 +937,17 @@ display	: none;
 }
 		#rcorners2 {
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid #FFFFFF;
     padding: 20px; 
-    width: 100%;
-    height: 150px;    
+    width: 100%; !important;
+    height: 50vh;
 }
 		#rcorners3 {
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid #FFFFFF;
     padding: 20px; 
-    width: 100%;
-    height: 150px;    
+    width: 100%; !important;
+    height: 100vh;    
 }
 	</style>
 	
