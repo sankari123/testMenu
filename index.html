@@ -426,6 +426,8 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ____________________________________\n';
 			document.forms.eventform.eventlist.value = theevent;
+			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year ;
+			document.getElementById("rcorners3").innerText=theevent;
 			
 		}
 	}
@@ -921,7 +923,21 @@ div.tab button.active {
 .style1{
 /*border-top: 1px solid #8c8b8b;*/
 display	: none;
-}	
+}
+		#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
+		#rcorners3 {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
 	</style>
 	
 </head>
@@ -987,6 +1003,9 @@ display	: none;
 		
 	</div>
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
-	
+	<div>
+		<p id="rcorners2"></p>
+		<p id="rcorners3"></p>
+	</div>
 </body>
 </html>
