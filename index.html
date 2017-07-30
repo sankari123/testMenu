@@ -596,7 +596,7 @@ else
 uniq.push(["d"]);
 //alert('add');
 }
- var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
+// var im_htm="<table border='0' class='ven' cellpadding='0' cellspacing='0'>";
 	//for (var i = 0, len = multiArr.length-1; i < len; i++) {
 	for (var i = 0, len = uniq.length; i < len; i++) {
 	
@@ -623,20 +623,26 @@ uniq.push(["d"]);
 if(uniq[j]=='d')
 {
 	//	alert('in');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black'   class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr></table></td></tr>";
+	im_htm="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
+	
+//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black'   class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr></table></td></tr>";
  }
 		else
 		{
 		//alert('out');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr></table></td>";	
-	
-im_htm+="<font size=2><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr></table></td></tr>";
+			im_htm="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
+//im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr></table></td>";	
+
+			
+			im_htm+="<font size=2><div class='right-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni1 +">"+uniq[j]+"</button></div>";	
+			
+//im_htm+="<font size=2><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='120px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr></table></td></tr>";
 }
 	 i=j;
 	
 	}
 	
-document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
+document.getElementById('lst_mnu').innerHTML=im_htm+"</font>" ;
 	
 	}
 function calClick()
@@ -972,6 +978,22 @@ display	: none;
         width: 50px;
     }
 }
+		
+		.left-div {
+		 border-radius: 25px;
+    float: left;
+    width: 50vw;
+    height: 20px;
+/*    margin-right: 8px;*/
+  
+}
+.right-div {
+ /*   margin-left: 108px;*/
+	 width: 50vw;
+	 border-radius: 25px;
+    
+}
+		
 	</style>
 	
 </head>
