@@ -589,7 +589,7 @@ var lat2,long2;
 		
         if(uniq.length % 2==0)
 {
-alert('no add');
+//alert('no add');
 }
 else
 {
@@ -878,6 +878,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	{
 		
 		display:none;
+		 
 		}
 #dl_btn
 	{
@@ -895,6 +896,11 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	    
 	  
 }
+		
+	.xPortFont
+		{
+			 font-size: 13px;
+		}
 
 /* Style the buttons inside the tab */
 div.tab button {
@@ -1047,8 +1053,8 @@ display	: none;
 	<!--<div id="previewImage">
     </div>-->
        <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
-	<div id='dl_btn'>
-		 <input type="button" id="exportpdf" value="Download PDF">
+	<div id='dl_btn'><br>
+		 <input type="button" id="exportpdf" class='xPortFont' value="Download PDF">
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
 	<div id="div_hr" class="style1">
