@@ -288,6 +288,8 @@ function createCalendar() {
 function checkevents(day,month,year,week,dayofweek) {
 document.getElementById("rcorners3").innerText="";
 document.getElementById("rcorners2").innerText="";
+	document.getElementById("rcorners2").style.borderColor = "#FFFFFF";
+	document.getElementById("rcorners3").style.borderColor = "#FFFFFF";
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -326,6 +328,8 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("det").style.visibility="true";
 	document.getElementById("rcorners3").innerText="";
 	document.getElementById("rcorners2").innerText="";
+	document.getElementById("rcorners2").style.borderColor = "#FFFFFF";
+	document.getElementById("rcorners3").style.borderColor = "#FFFFFF";
 var theevent = "";
 var theeventNew = "";
 var floater = 0;
@@ -942,15 +946,31 @@ display	: none;
     border-radius: 25px;
     border: 2px solid #FFFFFF;
     padding: 20px; 
-    width: 100%; !important;
+    width: 100vw; !important;
   
 }
 		#rcorners3 {
     border-radius: 25px;
     border: 2px solid #FFFFFF;
     padding: 20px; 
-    width: 100%; !important;
+    width: 100vw; !important;
    
+}
+	
+		@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 299px)
+{
+    .button
+    {
+        width: 50px;
+    }
 }
 	</style>
 	
