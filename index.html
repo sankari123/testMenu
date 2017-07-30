@@ -770,7 +770,7 @@ function printData()
 			});
 			
 });	
- 
+document.getElementById("defaultOpen").click();
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -792,8 +792,17 @@ function openCity(evt, cityName) {
 	{
 	venueFilter();
 	}
+	else if(cityName=='Tokyo')
+	{
+	category();
+	}
 }	
+
 	
+	function category()
+	{
+	alert('in');
+	}
 </script>
 	<style type="text/css">
 		body, html {
@@ -1020,9 +1029,11 @@ display	: none;
 <table border="0"  bordercolor='#003c67' cellpadding="0" cellspacing="0" width="100%">
 	<tr height='25px'  bgcolor='#003c67'><td align=center>
 	<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Calendar</button>
+ 
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">Artist</button>
+  <button class="tablinks" onclick="openCity(event, 'London')">Calendar</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Artist</button>
+		
 </div>
 		</td></tr></table>
 <div id="London" class="tabcontent">
@@ -1075,6 +1086,11 @@ display	: none;
 		
 		
 	</div>
+	<div id='category' class='category'>
+		Browse by Category
+		
+	</div>
+	
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
 	
 </body>
