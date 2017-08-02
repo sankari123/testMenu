@@ -69,7 +69,7 @@ function checkConnection() {
 	    connSel='Y';
 	     // alert(connSel);
 	 //changedate('return');
-	//    category();
+	 ajaxFunction();
 	 
       }
 	
@@ -117,7 +117,7 @@ function gotFile(file){
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
 	//    changedate('return');
-	//	category();
+		 ajaxFunction();
         };
         reader.readAsText(file);
   }	
@@ -825,7 +825,7 @@ function openCity(evt, cityName) {
 		checkConnection();
 		ajaxFunction();
 		for (i = 0; i < events.length; i++) {
-        alert(events[i]);
+        alert(events[i][0]);
     }
 		
 	}
