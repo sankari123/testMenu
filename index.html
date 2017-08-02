@@ -68,7 +68,8 @@ function checkConnection() {
       {
 	    connSel='Y';
 	     // alert(connSel);
-	 changedate('return');
+	 //changedate('return');
+	      category();
 	 
       }
 	
@@ -115,7 +116,8 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	    changedate('return');
+	    //changedate('return');
+		category();
         };
         reader.readAsText(file);
   }	
@@ -802,6 +804,9 @@ function openCity(evt, cityName) {
 	function category()
 	{
 	alert('in');
+	document.getElementById("category").style.display="block";
+	document.getElementById("category").style.visibility="true";
+		
 	}
 </script>
 	<style type="text/css">
@@ -1016,6 +1021,9 @@ display	: none;
 	background-color: green;
     
 }
+.category
+		{
+		display: none; }
 		
 	</style>
 	
@@ -1088,7 +1096,7 @@ display	: none;
 	</div>
 	<div id='category' class='category'>
 		Browse by Category
-		
+	
 	</div>
 	
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
