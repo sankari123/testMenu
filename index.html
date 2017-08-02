@@ -69,7 +69,7 @@ function checkConnection() {
 	    connSel='Y';
 	     // alert(connSel);
 	 //changedate('return');
-	      category();
+	    category();
 	 
       }
 	
@@ -116,7 +116,7 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	    //changedate('return');
+	//    changedate('return');
 		category();
         };
         reader.readAsText(file);
@@ -184,7 +184,7 @@ var eastermonth = 0;
 var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
-	ajaxFunction();
+	//ajaxFunction();
 		
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
@@ -807,6 +807,23 @@ function openCity(evt, cityName) {
 	document.getElementById("category").style.display="block";
 	document.getElementById("category").style.visibility="true";
 		
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		//document.getElementById("det").style.display="block";
+		//document.getElementById("det").style.visibility="true";
+		
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("route_canvas").style.display="none";
+		document.getElementById("route_canvas").style.visibility="false"
+		document.getElementById("panel").style.display="none";
+		document.getElementById("panel").style.visibility="false";
+		ajaxFunction();
+		
 	}
 </script>
 	<style type="text/css">
@@ -1023,7 +1040,14 @@ display	: none;
 }
 .category
 		{
-		display: none; }
+		display: none; 
+		border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 100vw; !important;
+   
+}}
+		
 		
 	</style>
 	
@@ -1095,8 +1119,17 @@ display	: none;
 		
 	</div>
 	<div id='category' class='category'>
-		Browse by Category
-	
+		Browse by Category<br>
+	   <table class=''>
+		   <tr><td>Concerts</td></tr>
+		    <tr><td>Dance</td></tr>
+		    <tr><td>Drama</td></tr>
+		    <tr><td>Discourses</td></tr>
+		    <tr><td>Meetups</td></tr>
+		    <tr><td>Lec-Dem</td></tr>
+		    <tr><td>Others</td></tr>
+		</table>
+			   
 	</div>
 	
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
