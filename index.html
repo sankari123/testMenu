@@ -24,7 +24,7 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-  
+  var optSel;
 	
 function alertDismissed() {
             alert('ddd');
@@ -54,7 +54,7 @@ function onDeviceReady(){
 	checkConnection();
 	document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
-	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music & Miscellany", "Yes,No");    }, false );
 }
 function checkConnection() {
      var networkState = navigator.connection.type;
@@ -68,8 +68,8 @@ function checkConnection() {
       {
 	    connSel='Y';
 	     // alert(connSel);
-	 //changedate('return');
-	 ajaxFunction();
+	 changedate('return');
+	// ajaxFunction();
 	 
       }
 	
@@ -116,8 +116,8 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	//    changedate('return');
-		 ajaxFunction();
+	   changedate('return');
+	//	 ajaxFunction();
         };
         reader.readAsText(file);
   }	
@@ -184,7 +184,7 @@ var eastermonth = 0;
 var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
-	//ajaxFunction();
+	ajaxFunction();
 		
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
@@ -217,9 +217,11 @@ function changedate(buttonpressed) {
 	  
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
-	
+	if(optSel==2)
+	{
 	createCalendar();
 	return;
+	}
 }
 function easter(year) {
 // feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
@@ -788,14 +790,17 @@ function openCity(evt, cityName) {
 	
 	if(cityName=='London')
 	{
+		optSel=2;
 	calClick();
 	}
 	else if(cityName=='Paris')
 	{
+		optSel=3;
 	venueFilter();
 	}
 	else if(cityName=='Tokyo')
 	{
+		optSel=1;
 	category();
 	}
 }	
@@ -822,6 +827,7 @@ function openCity(evt, cityName) {
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
+		optSel=1;
 		checkConnection();
 		ajaxFunction();
 		for (i = 0; i < events.length; i++) {
