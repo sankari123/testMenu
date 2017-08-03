@@ -338,7 +338,7 @@ var theevent = "";
 var theeventNew = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
-		alert(String(events[i][5]));
+		//alert(String(events[i][5]));
 		
 		
 		// First we'll process recurring events (if any):
@@ -439,8 +439,8 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theeventNew+=events[i][7] ;
 			theevent += '\n ____________________________________\n';
-			document.forms.eventform.eventlist.value = theevent;
-			alert('event'+theevent);
+		//	document.forms.eventform.eventlist.value = theevent;
+			//alert('event'+theevent);
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
 			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
@@ -509,7 +509,7 @@ var venue_arr = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	alert('Ajax Resp'+pVar);
+	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
