@@ -440,6 +440,7 @@ var floater = 0;
 			theeventNew+=events[i][7] ;
 			theevent += '\n ____________________________________\n';
 			document.forms.eventform.eventlist.value = theevent;
+			alert('event'+theevent);
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
 			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
@@ -1125,15 +1126,12 @@ display	: none;
 		<p id="rcorners3"></p>
 	</div>
 			<div id='det' align='center' style="background-color:white">
-				<hr size=2>
+				 
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly>					</textarea>
 				</form>
 			</div>
-	<div id='day_event'>
-		
-		
-	</div>
+	 
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
 	
 
