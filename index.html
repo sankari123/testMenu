@@ -217,12 +217,10 @@ function changedate(buttonpressed) {
 	  
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
-	if(optSel==2)
-	{
-		alert('cal');
+	
 	createCalendar();
 	return;
-	}
+	
 	
 }
 function easter(year) {
