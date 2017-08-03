@@ -219,6 +219,7 @@ function changedate(buttonpressed) {
 	firstDay = firstDate.getDay() + 1;
 	if(optSel==2)
 	{
+		alert('cal');
 	createCalendar();
 	return;
 	}
@@ -670,9 +671,6 @@ function calClick()
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
-		
-		
-			
 	
 		checkConnection();
 	}
@@ -812,6 +810,8 @@ function openCity(evt, cityName) {
 	alert('in');
 	
 		
+		document.getElementById("category").style.display="block";
+		document.getElementById("category").style.visibility="true";
 		document.getElementById("calendar").style.display="none";
 		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
@@ -829,7 +829,7 @@ function openCity(evt, cityName) {
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
-		optSel=1;
+		 
 		checkConnection();
 		 
 		
@@ -1130,7 +1130,7 @@ display	: none;
 			<div id='rnd'>
 		<p id="rcorners2"></p>
 		<p id="rcorners3"></p>
-	</div><div id='det' align='center' style="background-color:white;"	>
+	</div><div id='det' align='center' style="background-color:white;">
 				
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
