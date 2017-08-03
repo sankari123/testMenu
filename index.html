@@ -220,9 +220,9 @@ function changedate(buttonpressed) {
 	if(optSel==2)
 	{
 	createCalendar();
-	
-	}
 	return;
+	}
+	
 }
 function easter(year) {
 // feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
@@ -775,7 +775,7 @@ function printData()
 			});
 			
 });	
-document.getElementById("defaultOpen").click();
+
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -801,7 +801,7 @@ function openCity(evt, cityName) {
 	}
 	else if(cityName=='Tokyo')
 	{
-		optSel=1;
+	optSel=1;
 	category();
 	}
 }	
@@ -810,8 +810,7 @@ function openCity(evt, cityName) {
 	function category()
 	{
 	alert('in');
-	document.getElementById("category").style.display="block";
-	document.getElementById("category").style.visibility="true";
+	
 		
 		document.getElementById("calendar").style.display="none";
 		document.getElementById("calendar").style.visibility="false";
@@ -833,11 +832,9 @@ function openCity(evt, cityName) {
 		optSel=1;
 		checkConnection();
 		 
-		for (i = 0; i < events.length; i++) {
-        alert(events[i][0]);
-    }
 		
 	}
+	document.getElementById("defaultOpen").click();
 </script>
 	<style type="text/css">
 		body, html {
