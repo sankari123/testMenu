@@ -439,7 +439,7 @@ var floater = 0;
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theeventNew+=events[i][7] ;
 			theevent += '\n ____________________________________\n';
-			//document.forms.eventform.eventlist.value = theevent;
+			document.forms.eventform.eventlist.value = theevent;
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
 			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
@@ -658,7 +658,6 @@ function calClick()
 		document.getElementById("calendar").style.visibility="true";
 		document.getElementById("category").style.display="none";
 		document.getElementById("category").style.visibility="false";
-		
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
@@ -1107,11 +1106,7 @@ display	: none;
 		</table>
 			   
 	</div>
-	
-	
-	
-	
-	
+
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
@@ -1132,7 +1127,7 @@ display	: none;
 			<div id='det' align='center' style="background-color:white">
 				<hr size=2>
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
+					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly>					</textarea>
 				</form>
 			</div>
 	<div id='day_event'>
