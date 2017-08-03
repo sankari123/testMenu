@@ -338,7 +338,7 @@ var theevent = "";
 var theeventNew = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
-		
+		alert(String(events[i][5]));
 		
 		
 		// First we'll process recurring events (if any):
@@ -420,7 +420,7 @@ var floater = 0;
 		// Now we'll process any One Time events happening on the matching month, day, year:
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
-			document.getElementById("div_hr").style.visibility="true";
+			//document.getElementById("div_hr").style.visibility="true";
 			hours=String(events[i][4]);
 			var timeString = hours;
 			var H = +timeString.substr(0, 2);
