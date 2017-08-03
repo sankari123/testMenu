@@ -222,6 +222,7 @@ function changedate(buttonpressed) {
 	createCalendar();
 	return;
 	}
+	
 }
 function easter(year) {
 // feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
@@ -508,7 +509,7 @@ var venue_arr = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	alert('Ajax Resp'+pVar);
+	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
 	locArr=locArr.split('#');
@@ -829,7 +830,7 @@ function openCity(evt, cityName) {
 		document.getElementById("panel").style.visibility="false";
 		optSel=1;
 		checkConnection();
-		ajaxFunction();
+		 
 		for (i = 0; i < events.length; i++) {
         alert(events[i][0]);
     }
@@ -1072,7 +1073,7 @@ display	: none;
 	<tr height='25px'  bgcolor='#003c67'><td align=center>
 	<div class="tab">
  
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">Artist</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">Events</button>
   <button class="tablinks" onclick="openCity(event, 'London')">Calendar</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
 		
