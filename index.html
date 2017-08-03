@@ -815,15 +815,17 @@ function openCity(evt, cityName) {
 		
 		document.getElementById("calendar").style.display="none";
 		document.getElementById("calendar").style.visibility="false";
-		//document.getElementById("det").style.display="block";
-		//document.getElementById("det").style.visibility="true";
-		
-		document.getElementById("xPort").style.display="none";
-		document.getElementById("xPort").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("rnd").style.display="none";
+		document.getElementById("rnd").style.visibility="false";
+		document.getElementById("det").style.display="block";
+		document.getElementById("det").style.visibility="true";
+		
 		document.getElementById("route_canvas").style.display="none";
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
@@ -1106,7 +1108,7 @@ display	: none;
 	<div id='lst_mnu' align='left'>	</div>
 	<!--<div id="previewImage">
     </div>-->
-       <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
+       <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 	<div id='dl_btn'><br>
 		 <input type="button" id="exportpdf" class='xPortFont' value="Download PDF">
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
@@ -1116,10 +1118,10 @@ display	: none;
 <hr size=2/>
 
 </div>
-			<div>
+			<div id='rnd'>
 		<p id="rcorners2"></p>
 		<p id="rcorners3"></p>
-	</div><div id='det' align='center' style="background-color:white">
+	</div><div id='det' align='center' style="background-color:white;display:none;"	>
 				
 				<form id="eventform" name="eventform" action="#" method="get">
 					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
