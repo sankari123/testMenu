@@ -219,6 +219,7 @@ function changedate(buttonpressed) {
 	firstDay = firstDate.getDay() + 1;
 	if(optSel==2)
 	{
+		alert('show cal');
 	createCalendar();
 	}
 	 	
@@ -810,7 +811,7 @@ function openCity(evt, cityName) {
 	{
 	//alert('in');
 	
-		
+			checkConnection();
 		document.getElementById("category").style.display="block";
 		document.getElementById("category").style.visibility="true";
 		document.getElementById("calendar").style.display="none";
@@ -831,7 +832,7 @@ function openCity(evt, cityName) {
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
 		 
-		checkConnection();
+	
 		 
 		
 	}
@@ -1100,13 +1101,12 @@ display	: none;
 	<div id='category' class='category'>
 		Browse by Category<br>
 	   <table border=1>
-		   <tr><td><button onclick='eventList('1');' class='btn2'></button>Concerts</td></tr>
-		    <tr><td>Dance</td></tr>
-		    <tr><td>Drama</td></tr>
-		    <tr><td>Discourses</td></tr>
-		    <tr><td>Meetups</td></tr>
-		    <tr><td>Lec-Dem</td></tr>
-		    <tr><td>Others</td></tr>
+		   <tr><td><button onclick='eventList(1);' class='btn2'>Concerts</button></td></tr>
+		    <tr><td><button onclick='eventList(2);' class='btn2'>Dance</button></td></tr>
+		    <tr><td><button onclick='eventList(3);' class='btn2'>Drama</button></td></tr>
+		    <tr><td><button onclick='eventList(4);' class='btn2'>Meetups</button></td></tr>>
+		   <tr><td><button onclick='eventList(5);' class='btn2'>Lec-Dem</button></td></tr>
+		    <tr><td><button onclick='eventList(6);' class='btn2'>Others</button></td></tr>
 		</table>
 			   
 	</div>
