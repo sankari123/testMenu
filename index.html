@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-<title><center><font face=verdana size=12>Madras Music Fest</font></center></title>
+<title><center><font face=verdana size=12>Madras Music & Miscellany</font></center></title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript" src="html2canvas.js"></script>
@@ -185,7 +185,7 @@ var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
 	ajaxFunction();
-	alert(optSel);	
+	alert('optsel'+optSel);	
 	if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
@@ -792,7 +792,7 @@ function openCity(evt, cityName) {
 	
 	if(cityName=='London')
 	{
-		optSel=2;
+	optSel=2;
 	calClick();
 	}
 	else if(cityName=='Paris')
@@ -838,6 +838,10 @@ function openCity(evt, cityName) {
 		
 	}
 	document.getElementById("defaultOpen").click();
+	function eventList(eVal)
+	{
+	alert('eval'+eVal);
+	}
 </script>
 	<style type="text/css">
 		body, html {
