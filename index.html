@@ -217,8 +217,11 @@ function changedate(buttonpressed) {
 	  
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
-	
+	if(optSel==2)
+	{
 	createCalendar();
+	}
+	 	
 	return;
 	
 	
@@ -805,13 +808,13 @@ function openCity(evt, cityName) {
 	
 	function category()
 	{
-	alert('in');
+	//alert('in');
 	
 		
 		document.getElementById("category").style.display="block";
 		document.getElementById("category").style.visibility="true";
-		//document.getElementById("calendar").style.display="none";
-		//document.getElementById("calendar").style.visibility="false";
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("xPort").style.display="none";
@@ -1097,7 +1100,7 @@ display	: none;
 	<div id='category' class='category'>
 		Browse by Category<br>
 	   <table border=1>
-		   <tr><td>Concerts</td></tr>
+		   <tr><td><button onclick='eventList('1');' class='btn2'></button>Concerts</td></tr>
 		    <tr><td>Dance</td></tr>
 		    <tr><td>Drama</td></tr>
 		    <tr><td>Discourses</td></tr>
