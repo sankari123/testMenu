@@ -658,8 +658,8 @@ document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	}
 function calClick()
 	{
-		alert('in');
-		
+		//alert('optsel'+optSel);
+		optSel=2;
 		document.getElementById("calendar").style.display="block";
 		document.getElementById("calendar").style.visibility="true";
 		document.getElementById("category").style.display="none";
@@ -797,7 +797,7 @@ function openCity(evt, cityName) {
 	}
 	else if(cityName=='Paris')
 	{
-		optSel=3;
+	optSel=3;
 	venueFilter();
 	}
 	else if(cityName=='Tokyo')
@@ -1106,12 +1106,12 @@ display	: none;
 	<div id='category' class='category'>
 		Browse by Category<br>
 	   <table border=1>
-		   <tr><td><button onclick='eventList(1);' class='btn2' value='Concerts'></button>Concerts</td></tr>
-		    <tr><td><button onclick='eventList(2);' class='btn2' value='Concerts'></button>Dance</td></tr>
-		    <tr><td><button onclick='eventList(3);' class='btn2' value='Concerts'></button>Drama</td></tr>
-		    <tr><td><button onclick='eventList(4);' class='btn2' value='Concerts'></button>Meetups</td></tr>
-		   <tr><td><button onclick='eventList(5);' class='btn2' value='Concerts'></button>Lec-Dem</td></tr>
-		    <tr><td><button onclick='eventList(6);' class='btn2' value='Concerts'></button>Others</td></tr>
+		   <tr><td><button onclick='eventList(1);' class='btn2' value='Concerts'>Concerts</button></td></tr>
+		    <tr><td><button onclick='eventList(2);' class='btn2' value='Concerts'>Dance</button></td></tr>
+		    <tr><td><button onclick='eventList(3);' class='btn2' value='Concerts'>Drama</button></td></tr>
+		    <tr><td><button onclick='eventList(4);' class='btn2' value='Concerts'>Meetups</button></td></tr>
+		   <tr><td><button onclick='eventList(5);' class='btn2' value='Concerts'>Lec-Dem</button></td></tr>
+		    <tr><td><button onclick='eventList(6);' class='btn2' value='Concerts'>Others</button></td></tr>
 		</table>
 			   
 	</div>
