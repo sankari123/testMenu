@@ -217,12 +217,11 @@ function changedate(buttonpressed) {
 	  
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
-	if(optSel==2)
-	{
-	alert('show cal');
+	
+	
 	createCalendar();
 	return;
-	}
+	
 	 	
 	
 	
@@ -660,6 +659,7 @@ function calClick()
 	{
 		//alert('optsel'+optSel);
 		optSel=2;
+		alert('optsel'+optSel);
 		document.getElementById("calendar").style.display="block";
 		document.getElementById("calendar").style.visibility="true";
 		document.getElementById("category").style.display="none";
