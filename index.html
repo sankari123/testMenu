@@ -840,9 +840,49 @@ function openCity(evt, cityName) {
 		
 	}
 	document.getElementById("defaultOpen").click();
-	function eventList(eVal)
+
+function eventList(eVal)
 	{
-	alert('eval'+eVal);
+//	alert('eval'+eVal);
+		
+	document.getElementById("xPort").style.display="block";
+	document.getElementById("xPort").style.visibility="true";
+	document.getElementById("lst_mnu").style.display="none";
+	document.getElementById("lst_mnu").style.visibility="false";
+	document.getElementById("dl_btn").style.display="block";
+	document.getElementById("dl_btn").style.visibility="true";
+	document.getElementById("category").style.display="none";
+	document.getElementById("category").style.visibility="false";
+	
+	if(eVal==1)
+	{
+	 
+	
+	var event_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
+	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
+	for (var i = 0, len = events.length; i < len; i++)
+ {
+	 var eDate= events[i][2]+"/"+events[i][1]+"/"+events[i][3];
+	 var dt = new Date(eDate);
+	 var todaysDate = new Date();
+	  if(dt>=todaysDate)
+	     {
+			event_lst+="<tr><td colspan=3 align='center'><b>"+"Concerts"+"</b></td></tr>";
+		
+	   event_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+ +events[i][5]  +"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+	     }
+	}
+	// table_string=event_lst;
+ document.getElementById('xPort').innerHTML=event_lst+"</table>" ;
+	
+ }
+		
+		
+  
+		
+		
+		
+		
 	}
 </script>
 	<style type="text/css">
