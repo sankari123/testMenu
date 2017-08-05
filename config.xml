@@ -46,7 +46,7 @@
 	<plugin name="cordova-plugin-whitelist" spec="~1.3.2" />
         <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
 	<gap:plugin name="cordova-plugin-listpicker" source="npm" />
-  
+        <plugin name="Calendar" value="Calendar"/>
   
   <plugin name="cordova-pdf-generator" source="npm" />
   
