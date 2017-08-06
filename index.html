@@ -858,16 +858,16 @@ document.getElementById("category").style.visibility="false";
 
 if(eVal=='1' || eVal==1)
 {
-
+        var evt_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
         for (var i = 0, len = events.length; i < len; i++)
 		{ 
-		   
+		 evt_lst+="<tr><td colspan=4 align='center'><b>Concerts</b></td></tr><tr><td colspan=4 align='center'><b> Programme</b></td></tr>";
 		      if(events[i][6]=='vocal' || events[i][6]=='Vocal' || events[i][6]=='VOCAL')
      {
-        alert(events[i][6]) ;
+        evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
    }
 		}
-document.getElementById('xPort').innerHTML=event_lst+"</table>" ;
+document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 }
 }
 	
