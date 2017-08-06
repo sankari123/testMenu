@@ -843,7 +843,7 @@ function openCity(evt, cityName) {
 
 function eventList(eVal)
 	{
-//	alert('eval'+eVal);
+alert('eval'+eVal);
 		
 	document.getElementById("xPort").style.display="block";
 	document.getElementById("xPort").style.visibility="true";
@@ -854,7 +854,7 @@ function eventList(eVal)
 	document.getElementById("category").style.display="none";
 	document.getElementById("category").style.visibility="false";
 	
-	if(eVal==1)
+	if(eVal=='1' || eVal==1)
 	{
 	 
 	
@@ -862,9 +862,8 @@ function eventList(eVal)
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
-	alert(strtolower(events[i][5]));
-	 alert(strtolower(events[i][6]));
-	 alert(strtolower(events[i][8]));
+	alert(events[i][5]);
+	alert(events[i][6]);
 		// var eDate= events[i][2]+"/"+events[i][1]+"/"+events[i][3];
 	// var dt = new Date(eDate);
 	// var todaysDate = new Date();
