@@ -448,9 +448,9 @@ var floater = 0;
 		//	document.forms.eventform.eventlist.value = theevent;
 			//alert('event'+theevent);
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
-			document.getElementById("rcorners2").innerText="Events of: " +day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1;
+			document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+"<br>";
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
-			document.getElementById("rcorners3").innerText=theeventNew;
+			document.getElementById("rcorners3").innerText="<b>"+theeventNew+"</b><br>";
 			
 		}
 	}
@@ -1057,7 +1057,7 @@ display	: none;
 			font-size: 9pt;
     border-color: black;
 	  border-collapse:separate;
-    border:solid black 1px;
+    border:solid black 0px;
     border-radius:6px;
     -moz-border-radius:6px;
 }
@@ -1072,7 +1072,7 @@ display	: none;
 			font-size: 9pt;
     border-color: black;
 	  border-collapse:separate;
-    border:solid black 1px;
+    border:solid black 0px;
     border-radius:6px;
     -moz-border-radius:6px;
    
