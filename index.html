@@ -51,7 +51,7 @@ function myMap(position) {
  }
 function onDeviceReady(){
 	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
-	ajaxFunction();
+	
 	checkConnection();
 	document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
@@ -69,6 +69,7 @@ function checkConnection() {
       {
 	    connSel='Y';
 	     // alert(connSel);
+	      ajaxFunction();
 	 changedate('return');
 	// ajaxFunction();
 	 
