@@ -593,6 +593,10 @@ var lat2,long2;
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
 		
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+		
+		
 		
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
@@ -671,6 +675,8 @@ function calClick()
 		document.getElementById("category").style.visibility="false";
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
@@ -728,6 +734,9 @@ function ven_det(v)
 	
 	document.getElementById("xPort").style.display="block";
 	document.getElementById("xPort").style.visibility="true";
+	document.getElementById("xPort1").style.display="block";
+	document.getElementById("xPort1").style.visibility="true";
+	
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility="false";
 	document.getElementById("dl_btn").style.display="block";
@@ -826,6 +835,9 @@ function openCity(evt, cityName) {
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+	
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
 		document.getElementById("rnd").style.display="none";
@@ -852,6 +864,9 @@ function openCity(evt, cityName) {
 
 document.getElementById("xPort").style.display="block";
 document.getElementById("xPort").style.visibility="true";
+	document.getElementById("xPort1").style.display="block";
+	document.getElementById("xPort1").style.visibility="true";
+	
 document.getElementById("lst_mnu").style.display="none";
 document.getElementById("lst_mnu").style.visibility="false";
 document.getElementById("dl_btn").style.display="block";
@@ -871,7 +886,7 @@ if(eVal=='1' || eVal==1)
         evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
    }
 		}
-	document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+	document.getElementById('xPort1').innerHTML=evt_lst+"</table>" ;
 }
 
 }
@@ -973,6 +988,12 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100% !important;
   }
 		#xPort
+	{
+		
+		display:none;
+		 
+		}
+			#xPort1
 	{
 		
 		display:none;
@@ -1210,12 +1231,12 @@ span {
 	<div id='lst_mnu' align='left'>	</div>
 	<!--<div id="previewImage">
     </div>-->
-   <!--    <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>-->
+      <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 	<div id='dl_btn'>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
-	<div id='xPort' style="display:none;">
+	<div id='xPort1'>
 		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" onclick='printData();'><img src='pdf.png'></button></td></tr></table>
 			<p id="rcorners2" align='center'></p>
 		<p id="rcorners3" align='center'></p>
