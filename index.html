@@ -874,17 +874,50 @@ document.getElementById("dl_btn").style.visibility="true";
 document.getElementById("category").style.display="none";
 document.getElementById("category").style.visibility="false";
 
+var catSel;
+
+if(eVal=='1' || eVal==1)
+{
+	catSel='vocal';
+}else if eVal=='2' || eVal==2)
+{
+	catSel='dance';
+}else if(eVal=='3' || eVal==3)
+{
+	catSel='drama';
+}else if(eVal=='4' || eVal==4)
+{
+	catSel='lec-dem';
+}else if(eVal=='5' || eVal==5)
+{
+	catSel='harikatha';
+}else
+{
+	catSel='';
+}
+	
+	
+	
+	
+	
+	
 if(eVal=='1' || eVal==1)
 {
         var evt_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
-	evt_lst+="<tr><td colspan=4 align='center'><b>Concerts</b></td></tr><tr><td colspan=4 align='center'><b> Programme</b></td></tr>"
+	evt_lst+="<tr><td colspan=4 align='center'><b>"+catSel+"   Schedule</b></td></tr>"
         for (var i = 0, len = events.length; i < len; i++)
 		{ 
 		
-		      if(events[i][6]=='vocal' || events[i][6]=='Vocal' || events[i][6]=='VOCAL')
+		      if(events[i][6]==catSel)
      {
         evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+   }else  
+	   {
+        evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
    }
+			
+			
+			
 		}
 	document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 }
@@ -990,6 +1023,8 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		#xPort
 	{
 		
+		max-width: 400px;
+                width: 100% !important;
 		display:none;
 		 
 		}
