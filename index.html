@@ -901,8 +901,8 @@ var evt_lst="<table border='1' id='test' class='ven1' cellpadding='0' cellspacin
 evt_lst+="<tr height='40px'><td colspan=4 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
 for (var i = 0, len = events.length; i < len; i++)
 {
-	
-	if(catSel==events[i][6])
+	cat1=events[i][6];
+	if(catSel==cat1)
 		{
 			evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td><span class='names'>"+events[i][5]+"</span></td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		}
