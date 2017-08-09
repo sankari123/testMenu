@@ -857,8 +857,7 @@ function openCity(evt, cityName) {
 	document.getElementById("defaultOpen").click();
 
 
-	
-	function eventList(eVal)
+function eventList(eVal)
 {
 //alert('eval'+eVal);
 
@@ -879,7 +878,7 @@ var catSel;
 if(eVal=='1' || eVal==1)
 {
 	catSel='vocal';
-}else if eVal=='2' || eVal==2)
+}else if(eVal=='2' || eVal==2)
 {
 	catSel='dance';
 }else if(eVal=='3' || eVal==3)
@@ -887,42 +886,37 @@ if(eVal=='1' || eVal==1)
 	catSel='drama';
 }else if(eVal=='4' || eVal==4)
 {
-	catSel='lec-dem';
+catSel='lec-dem';
 }else if(eVal=='5' || eVal==5)
 {
-	catSel='harikatha';
+catSel='harikatha';
 }else
 {
-	catSel='';
-}
-	
-	
-	
-	
-	
-	
-if(eVal=='1' || eVal==1)
-{
-        var evt_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
-	evt_lst+="<tr><td colspan=4 align='center'><b>"+catSel+"   Schedule</b></td></tr>"
-        for (var i = 0, len = events.length; i < len; i++)
-		{ 
-		
-		      if(events[i][6]==catSel)
-     {
-        evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
-   }else  
-	   {
-        evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
-   }
-			
-			
-			
-		}
-	document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+catSel='';
 }
 
+
+var evt_lst="<table border='2' id='test' class='ven1' cellpadding='1' cellspacing='1'>";
+evt_lst+="<tr><td colspan=4 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
+for (var i = 0, len = events.length; i < len; i++)
+{
+	if(catSel==events[i][6])
+		{
+			evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		}
+		else if(catSel.length==0) 
+			{
+			evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		
+			}
+		
+		} 
+document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 }
+	
+	
+	
+	
 	
 </script>
 	<style type="text/css">
