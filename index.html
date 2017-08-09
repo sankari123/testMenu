@@ -890,7 +890,7 @@ catSel='Lec-dem';
 }else if(eVal=='5' || eVal==5)
 {
 catSel='Harikatha';
-}else
+}else if(eVal=='6' || eVal==6)
 {
 catSel='';
 	alert(catSel.length);
@@ -906,7 +906,7 @@ for (var i = 0, len = events.length; i < len; i++)
 		{
 			evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		}
-	else if(catSel.length==0) 
+	else if(catSel.length==0 && eVal==6)
 			{
 			evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		
