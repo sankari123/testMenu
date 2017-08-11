@@ -300,6 +300,8 @@ document.getElementById("rcorners3").innerText="";
 document.getElementById("rcorners2").innerText="";
 	document.getElementById("rcorners2").style.borderColor = "#FFFFFF";
 	document.getElementById("rcorners3").style.borderColor = "#FFFFFF";
+	document.getElementById("calEvent").style.display='block';
+	document.getElementById("calEvent").style.visibility='true';
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -452,6 +454,33 @@ var floater = 0;
 			document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+'\n ____________________________________\n';
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
 			document.getElementById("rcorners3").innerText=theeventNew;
+
+
+			var evt_lst="<table border='2' id='test' cellpadding='0' cellspacing='0'>";
+	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
+	for (var i = 0, len = events.length; i < len; i++)
+ {
+	if(events[i][5]==v)
+	{
+		//alert('in');
+		if(k==0)
+		{
+			//alert('in2');
+			evt_lst+="<tr><td colspan=3 align='center'><b>"+v+"</b></td></tr><tr><td colspan=3 align='center'><b> Programme</b></td></tr>";
+		}
+		k++;
+	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		
+	}
+	 table_string=evt_lst;
+ document.getElementById('calEvent').innerHTML=evt_lst+"</table>" ;
+	
+
+ }
+			
+			
+			
+			
 			
 		}
 	}
@@ -1109,6 +1138,20 @@ div.tab button.active {
 /*border-top: 1px solid #8c8b8b;*/
 display	: none;
 }
+		
+		#calEvent
+		{
+		width: 100vw;
+			border-style: solid;
+			font-size: 9pt;
+    border-color: black;
+	  border-collapse:separate;
+    border:solid black 0px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+     display:none;
+		
+		}
 		#rcorners2 {
   /*  border-radius: 25px;
     border: 2px solid #FFFFFF;
@@ -1269,8 +1312,14 @@ span {
 		<p id="rcorners3" align='center'></p>
 	</div>
 	<div id='calEvent'>
-			<table><tr><td><img src='loc.png'>Location</td><td>Date</td></tr>
-				</div>
+			<table><tr bgcolor=><td><img src='loc.png'>Location</td><td><img src=cal.png>Date</td></tr>
+				<tr><td>loc</td><td>dattime</td></tr>
+				<tr bgcolor='gray'><td colspan=2>Event Details</td></tr>
+				<tr><bgcolor='gray'><td colspan=2>event details</td></tr>
+		</table>	
+				
+				
+	</div>
 	<div id='dl_btn'>
 		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
