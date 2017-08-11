@@ -342,6 +342,8 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("rcorners2").innerText="";
 	document.getElementById("rcorners2").style.borderColor = "#FFFFFF";
 	document.getElementById("rcorners3").style.borderColor = "#FFFFFF";
+	document.getElementById("calEvent").style.display='block';
+	document.getElementById("calEvent").style.visibility='true';
 var theevent = "";
 var theeventNew = "";
 var floater = 0;
@@ -457,23 +459,13 @@ var floater = 0;
 
 
 			var evt_lst="<table border='2' id='test' cellpadding='0' cellspacing='0'>";
-	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
-	for (var i = 0, len = events.length; i < len; i++)
- {
-	if(events[i][5]==v)
-	{
-		//alert('in');
-		if(k==0)
-		{
-			//alert('in2');
-			evt_lst+="<tr><td colspan=3 align='center'><b>"+v+"</b></td></tr><tr><td colspan=3 align='center'><b> Programme</b></td></tr>";
-		}
-		k++;
-	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
-		
-	}
-	 table_string=evt_lst;
- document.getElementById('calEvent').innerHTML=evt_lst+"</table>" ;
+			evt_lst+="<tr ><td><img src='loc.png'>Location</td><td><img src='cal.png'>Date</td></tr>";
+			evt_lst+="<tr bgcolor='gray'><td>"+venue_1+"</td><td>"+day +'/'+ month + '/'+year +"   "+  timeString+"</td></tr>";
+			evt_lst+="<tr bgcolor='gray'><td colspan=2><b>Event Details<b></td></tr>"
+			evt_lst+="<tr bgcolor='gray'><td colspan=2>"+venue_1+"</td></tr></table>";
+ 			
+		 
+ document.getElementById('calEvent').innerHTML=evt_lst ;
 	
 
  }
