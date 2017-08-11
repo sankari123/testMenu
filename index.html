@@ -249,7 +249,11 @@ eastermonth = month;
 easterday = day;
 }
 function createCalendar() {
-	//window.plugins.spinnerDialog.hide();		
+	//window.plugins.spinnerDialog.hide();	
+	
+	
+	
+	
 	calendarString = '';
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
@@ -305,6 +309,7 @@ document.getElementById("rcorners2").innerText="";
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
+		alert(events[i][2] ,events[i][1] ,events[i][3]);
 		if (events[i][0] == "W") {
 			if ((events[i][2] == dayofweek)) numevents++;
 		}
@@ -348,6 +353,7 @@ var theevent = "";
 var theeventNew = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
+		alert(events[i][2] ,events[i][1] ,events[i][3],week);
 		//alert(String(events[i][5]));
 		
 		
