@@ -458,14 +458,16 @@ var floater = 0;
 		//	document.getElementById("rcorners3").innerText=theeventNew;
 
 
-			var evt_lst="<table border='0' cellpadding='0' cellspacing='0'>";
-			evt_lst+="<tr ><td><img src='loc.png'>&nbsp;Location</td><td><img src='cal.png'>&nbsp;Date</td></tr>";
-			evt_lst+="<tr height='70 px'><td>"+venue_1+"</td><td>"+day +'/'+ month + '/'+year +"   "+  timeString+"</td></tr>";
-			evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2><b>Event Details<b></td></tr>"
-			evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2>"+theeventNew+"</td></tr></table>";
+		//	var evt_lst="div>cellspacing='0'>";
+		//	evt_lst+="<tr ><td><img src='loc.png'>&nbsp;Location</td><td><img src='cal.png'>&nbsp;Date</td></tr>";
+		//	evt_lst+="<tr height='70 px'><td>"+venue_1+"</td><td>"+day +'/'+ month + '/'+year +"   "+  timeString+"</td></tr>";
+		//	evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2><b>Event Details<b></td></tr>"
+		//	evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2>"+theeventNew+"</td></tr></table>";
  			
-		 
- document.getElementById('calEvent').innerHTML=evt_lst ;
+		 document.getElementById('left1').innerHTML="<img src='loc.png'>&nbsp;Location<br>"+venue_1";
+		document.getElementById('right1').innerHTML="<img src='cal.png'>&nbsp;Date<br>"+day +'/'+ month + '/'+year +"   "+  timeString";
+			document.getElementById('common1').innerHTML="Event Details<br>"+theeventNew;
+// document.getElementById('calEvent').innerHTML=evt_lst ;
 	
 
  }
@@ -1133,11 +1135,11 @@ display	: none;
 		
 		#calEvent
 		{
-		border-right: 1px solid #f3f3f3;
+		
 			width: 100vw;
-			border-style: solid;
+			
 			font-size: 9pt;
-    border-color: black;
+     
 
      display:none;
 		
@@ -1228,7 +1230,28 @@ span {
   display: inline-block;
   vertical-align: middle;
   margin-left: 60px;  /* width of image */
-}		
+}
+		
+		
+		.left1 {
+        width:300px;
+        border-right:1px solid #333;
+        float:left;
+        height:40px;
+    }
+   .right1 {
+       float:left;
+       padding-left:100PX;
+       padding-top:10PX;
+	   height:40px;
+   }
+   
+   .common1 {
+        width:100%;
+         float:left;
+         
+   }
+		
 	</style>
 	
 </head>
@@ -1302,12 +1325,11 @@ span {
 		<p id="rcorners3" align='center'></p>
 	</div>
 	<div id='calEvent'>
-			<table><tr bgcolor=><td><img src='loc.png'>Location</td><td><img src=cal.png>Date</td></tr>
-				<tr><td>loc</td><td>dattime</td></tr>
-				<tr bgcolor='gray'><td colspan=2>Event Details</td></tr>
-				<tr><bgcolor='gray'><td colspan=2>event details</td></tr>
-		</table>	
-				
+			 
+		<div id='left1' class="left1"></div>
+		<div id='right1' class="right1"></div>
+		<div id='common1' class="common1"></div>
+   
 				
 	</div>
 	<div id='dl_btn'>
