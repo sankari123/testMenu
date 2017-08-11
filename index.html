@@ -453,16 +453,16 @@ var floater = 0;
 		//	document.forms.eventform.eventlist.value = theevent;
 			//alert('event'+theevent);
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
-			document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+'\n ____________________________________\n';
+			//document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+'\n ____________________________________\n';
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
-			document.getElementById("rcorners3").innerText=theeventNew;
+		//	document.getElementById("rcorners3").innerText=theeventNew;
 
 
-			var evt_lst="<table border='2' id='test' cellpadding='0' cellspacing='0'>";
-			evt_lst+="<tr ><td><img src='loc.png'>Location</td><td><img src='cal.png'>Date</td></tr>";
-			evt_lst+="<tr bgcolor='gray'><td>"+venue_1+"</td><td>"+day +'/'+ month + '/'+year +"   "+  timeString+"</td></tr>";
-			evt_lst+="<tr bgcolor='gray'><td colspan=2><b>Event Details<b></td></tr>"
-			evt_lst+="<tr bgcolor='gray'><td colspan=2>"+venue_1+"</td></tr></table>";
+			var evt_lst="<table border='0' cellpadding='0' cellspacing='0'>";
+			evt_lst+="<tr ><td><img src='loc.png'>&nbsp;Location</td><td><img src='cal.png'>&nbsp;Date</td></tr>";
+			evt_lst+="<tr height='70 px'><td>"+venue_1+"</td><td>"+day +'/'+ month + '/'+year +"   "+  timeString+"</td></tr>";
+			evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2><b>Event Details<b></td></tr>"
+			evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2>"+theeventNew+"</td></tr></table>";
  			
 		 
  document.getElementById('calEvent').innerHTML=evt_lst ;
@@ -1133,14 +1133,12 @@ display	: none;
 		
 		#calEvent
 		{
-		width: 100vw;
+		border-right: 1px solid #f3f3f3;
+			width: 100vw;
 			border-style: solid;
 			font-size: 9pt;
     border-color: black;
-	  border-collapse:separate;
-    border:solid black 0px;
-    border-radius:6px;
-    -moz-border-radius:6px;
+
      display:none;
 		
 		}
