@@ -464,8 +464,8 @@ var floater = 0;
 		//	evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2><b>Event Details<b></td></tr>"
 		//	evt_lst+="<tr bgcolor='#f3f3f3'><td colspan=2>"+theeventNew+"</td></tr></table>";
  			
-		 document.getElementById('left1').innerHTML="<img src='loc.png'><font size=3>Location</font><br>"+venue_1;
-		document.getElementById('right1').innerHTML="<img src='cal.png'><font size=3>Date</font><br>"+day +"/"+ month + "/"+year +"   "+  timeString;
+		 document.getElementById('left1').innerHTML="<img src='loc.png'><font size=4>Location</font><br>"+venue_1;
+		document.getElementById('right1').innerHTML="<img src='cal.png'><font size=4>Date</font><br>"+day +"/"+ month + "/"+year +"   "+  timeString;
 			document.getElementById('common1').innerHTML="Event Details<br>"+theeventNew;
 //document.getElementById('calEvent').innerHTML=evt_lst ;
 	
@@ -481,9 +481,12 @@ var floater = 0;
 	if (theevent == "") 
 	{
 		//document.forms.eventform.eventlist.value = 'No events to show.';
-	 	document.getElementById("rcorners2").style.borderColor = "#cfcece";
-		document.getElementById("rcorners2").innerText='No events to show.';
-		document.getElementById("rcorners3").innerText='';
+	 //	document.getElementById("rcorners2").style.borderColor = "#cfcece";
+	//	document.getElementById("rcorners2").innerText='No events to show.';
+		//document.getElementById("rcorners3").innerText='';
+		 document.getElementById('left1').innerHTML="<img src='loc.png'><font size=4>Location</font><br>"+venue_1;
+		document.getElementById('right1').innerHTML="<img src='cal.png'><font size=4>Date</font><br>"+day +"/"+ month + "/"+year +"   "+  timeString;
+			document.getElementById('common1').innerHTML="No events to show...";
 	}
 }
 function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
@@ -1234,10 +1237,11 @@ span {
 		
 		
 		.left1 {
-        
+         width:50%;
          border-right:1px solid #000000;
         float:left;
-        height:40px;
+        height:70px;
+	padding-left:6px;
     }
    .right1 {
        float:left;
