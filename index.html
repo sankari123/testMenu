@@ -188,14 +188,14 @@ var flg=1;
 function changedate(buttonpressed) {
 	ajaxFunction();
 	//alert('optsel'+optSel);	
-	if (buttonpressed == "prevyr") yearNum--;
+	if (buttonpressed == "return") { 
+		monthNum = todaysMonth;
+		yearNum = todaysYear;
+	} else if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
 	else if (buttonpressed == "nextmo") monthNum++;
-	else  if (buttonpressed == "return") { 
-		monthNum = todaysMonth;
-		yearNum = todaysYear;
-	}
+	 
 	if (monthNum == 0) {
 		monthNum = 12;
 		yearNum--;
@@ -309,7 +309,7 @@ document.getElementById("rcorners2").innerText="";
 var numevents = 0;
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
-		alert(events[i][2] ,events[i][1] ,events[i][3]);
+		//alert(events[i][2] ,events[i][1] ,events[i][3]);
 		if (events[i][0] == "W") {
 			if ((events[i][2] == dayofweek)) numevents++;
 		}
@@ -353,7 +353,7 @@ var theevent = "";
 var theeventNew = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
-		alert(events[i][2] ,events[i][1] ,events[i][3],week);
+		//alert(events[i][2] ,events[i][1] ,events[i][3],week);
 		//alert(String(events[i][5]));
 		
 		
@@ -459,9 +459,9 @@ var floater = 0;
 		//	document.forms.eventform.eventlist.value = theevent;
 			//alert('event'+theevent);
 			document.getElementById("rcorners2").style.borderColor = "#cfcece";
-			//document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+'\n ____________________________________\n';
+			document.getElementById("rcorners2").innerText= day +'/'+ month + '/'+year +"   "+  timeString+"\n"+venue_1+'\n ____________________________________\n';
 			document.getElementById("rcorners3").style.borderColor = "#cfcece";
-		//	document.getElementById("rcorners3").innerText=theeventNew;
+		document.getElementById("rcorners3").innerText=theeventNew;
 
 
 			//var evt_lst="div>cellspacing='0'>";
