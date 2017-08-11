@@ -450,7 +450,7 @@ var floater = 0;
 			theevent += 'Venue: ' + events[i][5] + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
 			theevent += '\n ____________________________________\n';
-			document.forms.eventform.eventlist.value = theevent;
+		//	document.forms.eventform.eventlist.value = theevent;
 
 			//var evt_lst="div>cellspacing='0'>";
 		//	evt_lst+="<tr ><td><img src='loc.png'>&nbsp;Location</td><td><img src='cal.png'>&nbsp;Date</td></tr>";
@@ -465,7 +465,7 @@ var floater = 0;
 	
 
  }
-			
+	document.forms.eventform.eventlist.value = theevent;	
 			
 	//	 document.getElementById('left1').innerHTML="<img src='loc.png'><font size=4>Location</font><br>"+venue_1;
 		//document.getElementById('right1').innerHTML="<img src='cal.png'><font size=4>Date</font><br>"+day +"/"+ month + "/"+year +"   "+  timeString;
