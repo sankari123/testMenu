@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-<title><center><font face=verdana size=12>Madras Music Fest</font></center></title>
+<title><center><font face=verdana size=12>Madras Music & Miscellany</font></center></title>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript" src="html2canvas.js"></script>
@@ -24,7 +24,7 @@
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
-  
+  var optSel;
 	
 function alertDismissed() {
             alert('ddd');
@@ -50,11 +50,12 @@ function myMap(position) {
         y = position.coords.longitude;
  }
 function onDeviceReady(){
-	window.plugins.spinnerDialog.show(null, "Loading Calendar... Please wait!");
+	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	
 	checkConnection();
 	document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
-	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music Fest", "Yes,No");    }, false );
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music & Miscellany", "Yes,No");    }, false );
 }
 function checkConnection() {
      var networkState = navigator.connection.type;
@@ -70,6 +71,7 @@ function checkConnection() {
 	     // alert(connSel);
 	      ajaxFunction();
 	 changedate('return');
+	// ajaxFunction();
 	 
       }
 	
@@ -116,7 +118,8 @@ function gotFile(file){
             console.log(evt.target.result);
 	 //   alert(evt.target.result);
 	    document.getElementById('rest1').value=evt.target.result;	
-	    changedate('return');
+	   changedate('return');
+	//	 ajaxFunction();
         };
         reader.readAsText(file);
   }	
@@ -184,15 +187,15 @@ var easterday = 0;
 var flg=1;
 function changedate(buttonpressed) {
 	ajaxFunction();
-		
-	if (buttonpressed == "prevyr") yearNum--;
+	//alert('optsel'+optSel);	
+	if (buttonpressed == "return") { 
+		monthNum = todaysMonth;
+		yearNum = todaysYear;
+	} else if (buttonpressed == "prevyr") yearNum--;
 	else if (buttonpressed == "nextyr") yearNum++;
 	else if (buttonpressed == "prevmo") monthNum--;
 	else if (buttonpressed == "nextmo") monthNum++;
-	else  if (buttonpressed == "return") { 
-		monthNum = todaysMonth;
-		yearNum = todaysYear;
-	}
+	 
 	if (monthNum == 0) {
 		monthNum = 12;
 		yearNum--;
@@ -217,8 +220,14 @@ function changedate(buttonpressed) {
 	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
 	firstDay = firstDate.getDay() + 1;
 	
+	
 	createCalendar();
 	return;
+	
+	 	
+	
+	
+	
 }
 function easter(year) {
 // feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
@@ -240,7 +249,11 @@ eastermonth = month;
 easterday = day;
 }
 function createCalendar() {
-	window.plugins.spinnerDialog.hide();		
+	//window.plugins.spinnerDialog.hide();	
+	
+	
+	
+	
 	calendarString = '';
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
@@ -346,9 +359,6 @@ var floater = 0;
 	 
 }
 	
-	
-	
-	
 function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
 var firstdate = new Date(String(targetmo)+"/1/"+String(targetyr));	// Object Storing the first day of the current month.
 var firstday = firstdate.getUTCDay();	// The first day (0-6) of the target month.
@@ -420,6 +430,7 @@ function procVal(pVar)
 		venue=venue.replace(/\s/g, ' ');
 		art=String(latR[2]);
 		Pdeta=String(latR[3]);
+		Pdeta=Pdeta.replace('^','\'');
 		pTim=String(latR[5]);
 		pLatLong=String(latR[6]);
 		var dt = new Date(latR[4]);
@@ -473,30 +484,34 @@ var lat2,long2;
 		document.getElementById("lst_mnu").style.visibility="true";
 		document.getElementById("calendar").style.display="none";
 		document.getElementById("calendar").style.visibility="false";
-		document.getElementById("det").style.display="none";
-		document.getElementById("det").style.visibility="false";
 		document.getElementById("category").style.display="none";
 		document.getElementById("category").style.visibility="false";
+		document.getElementById("det").style.display="none";
+		document.getElementById("det").style.visibility="false";
+		
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+		
+		
 		
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
 		
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
-		document.getElementById("dl_btn1").style.display="none";
-		document.getElementById("dl_btn1").style.visibility="false";
 		//alert('in');
 		
         if(uniq.length % 2==0)
 {
-alert('no add');
+//alert('no add');
 }
 else
 {
 uniq.push(["d"]);
 //alert('add');
 }
- var im_htm="<table border='0' class='ven' cellpadding='1' cellspacing='1'>";
+		//var im_htm='';
+var im_htm="<table border='0' class='ven' cellpadding='3' cellspacing='3'>";
 	//for (var i = 0, len = multiArr.length-1; i < len; i++) {
 	for (var i = 0, len = uniq.length; i < len; i++) {
 	
@@ -523,17 +538,23 @@ uniq.push(["d"]);
 if(uniq[j]=='d')
 {
 	//	alert('in');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='0' bordercolor='black'  bgcolor='#d9f4fb' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr><tr valign='center'><td><button onclick='ven_det(this.value);' class='btn2' value= "+ch_uni+">Events</button></td><td><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">Direction</button></td></tr></table></td></tr>";
+//	im_htm+="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
+	
+im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black'   class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr></table></td></tr>";
  }
 		else
 		{
-		//alert('out');
-im_htm+="<font size=2><tr height='100px' valign='top'><td width='50%' bordercolor='black'> <table border='0' bgcolor='#d9f4fb' bordercolor='black' class='ven1' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr><tr valign='center'><td><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">Events</button></td><td><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">Direction</button></td></tr></table></td>";	
-	
-im_htm+="<font size=2><td width='50%' bordercolor='black'> <table border='0' bordercolor='black' class='ven1' bgcolor='#d9f4fb' cellspacing='0' cellpadding='0'><tr height='120px'><td colspan='2'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr><tr valign='center'><td><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1 +">Events</button></td><td><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1 +">Direction</button></td></tr></table></td></tr>";
+//		alert('out');
+	//		im_htm+="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
+im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr></table></td>";	
+
+			
+//			im_htm+="<font size=2><div class='right-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni1 +">"+uniq[j]+"</button></div>";	
+			
+im_htm+="<font size=2><td width='50%' bordercolor='black'> <table border='1' bordercolor='black' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr></table></td></tr>";
 }
 	 i=j;
-		
+	
 	}
 	
 document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
@@ -541,30 +562,25 @@ document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
 	}
 function calClick()
 	{
-		//alert('in');
-		
+		//alert('optsel'+optSel);
+		optSel=2;
+		//alert('optsel'+optSel);
 		document.getElementById("calendar").style.display="block";
 		document.getElementById("calendar").style.visibility="true";
 		document.getElementById("category").style.display="none";
 		document.getElementById("category").style.visibility="false";
-		//document.getElementById("det").style.display="block";
-		//document.getElementById("det").style.visibility="true";
-		
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
-		document.getElementById("dl_btn1").style.visibility="false";
-		document.getElementById("dl_btn1").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
 		document.getElementById("route_canvas").style.display="none";
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
 		document.getElementById("panel").style.visibility="false";
-		
-		
-			
 	
 		checkConnection();
 	}
@@ -614,12 +630,14 @@ function ven_det(v)
 	
 	document.getElementById("xPort").style.display="block";
 	document.getElementById("xPort").style.visibility="true";
+	document.getElementById("xPort1").style.display="block";
+	document.getElementById("xPort1").style.visibility="true";
+	
 	document.getElementById("lst_mnu").style.display="none";
 	document.getElementById("lst_mnu").style.visibility="false";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
-	document.getElementById("dl_btn1").style.display="block";
-	document.getElementById("dl_btn1").style.visibility="true";
+	
 	
 	
 	
@@ -668,7 +686,7 @@ function printData()
 			});
 			
 });	
- 
+
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -748,8 +766,6 @@ document.getElementById("lst_mnu").style.display="none";
 document.getElementById("lst_mnu").style.visibility="false";
 document.getElementById("dl_btn").style.display="block";
 document.getElementById("dl_btn").style.visibility="true";
-	document.getElementById("dl_btn1").style.display="block";
-document.getElementById("dl_btn1").style.visibility="true";
 document.getElementById("category").style.display="none";
 document.getElementById("category").style.visibility="false";
 
@@ -791,20 +807,27 @@ for (var i = 0, len = events.length; i < len; i++)
 document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 }
 	
-		
+	
+	
+	
 	
 </script>
 	<style type="text/css">
 		body, html {
-    width: 100%;
+    width: 100%; !important;
     height: 100vh;
     margin: 0;
     padding: 0;
     
 }
+
+.names { font-weight: bold; 
+		text-align:left;}
+		
 		.ven
 		{
-		 width: 100vw;
+	
+			width: 100vw;
 		  text-align:center; 	
 			border-style: solid;
     border-color: black;
@@ -812,11 +835,27 @@ document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 		.ven1
 		{
 		 width: 100vw;
-			 text-align:left; 
+			  
 			border-style: solid;
 			font-size: 9pt;
     border-color: black;
+	  border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
 		}
+	.ven2
+		{
+		 width: 100vw;
+			  
+			border-style: solid;
+			font-size: 9pt;
+    border-color: black;
+	  border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+		}	
 .hideDontTakeUpSpace
         {
             display:none;
@@ -846,7 +885,11 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100% !important;
   }
 		
-
+.cat
+	{
+  max-width: 400px;
+    width: 100% !important;
+}
 	#evt_lst
 	{
 		display:none;
@@ -871,94 +914,39 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		#xPort
 	{
 		
+		max-width: 400px;
+                width: 100% !important;
 		display:none;
+		 
+		}
+			#xPort1
+	{
+		
+		display:none;
+		 
 		}
 #dl_btn
 	{
 		
 		display:none;	
 		}
-		#dl_btn1
-	{
-		
-		display:none;	
-		}
-		
-	@media screen and (min-width: 100px) and (max-width: 199px)
-{
-    .button
-    {
-        width: 25px;
-    }
-}
 
-@media screen and (min-width: 200px) and (max-width: 299px)
-{
-    .button
-    {
-        width: 50px;
-    }
+		
+		div.tab {
+    overflow: hidden;
+    border: 0px solid #ccc;
+    background-color:  #003c67;
+    width: 100% !important;
+    height:50px;
+	    
+	  
 }
 		
-.left-div {
-		 border-radius: 25px;
-    float: left;
-    width: 50vw;
-    height: 20px;
-    background-color: linen;
-/*    margin-right: 8px;*/
-  
-}
-.right-div {
- /*   margin-left: 108px;*/
-	 width: 50vw;
-	 border-radius: 25px;
-	background-color: green;
-    
-}		
-		
-		.category
+	.xPortFont
 		{
-		 
-		border-radius: 25px;
-    border: 2px solid #FFFFFF;
-    padding: 20px; 
-    width: 100vw; !important;
-   
-}
-#calendar
-		{
-		 
-		display	: none;
-   
-}		
-span {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 60px;  /* width of image */
-}
-		
-		
-		.left1 {
-         width:50%;
-         border-right:1px solid #000000;
-        float:left;
-        height:70px;
-	padding-left:6px;
-    }
-   .right1 {
-       float:left;
-       padding-left:50%;
-       
-	   height:40px;
-   }
-   
-   .common1 {
-        width:100%;
-         float:left;
-         
-   }
-		
+			 font-size: 13px;
+		}
+
 /* Style the buttons inside the tab */
 div.tab button {
     
@@ -1028,7 +1016,116 @@ display	: none;
 
      display:none;
 		
-		}		
+		}
+		#rcorners2 {
+  /*  border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 100vw; !important;*/
+  
+			
+			width: 100vw;
+			border-style: solid;
+			font-size: 9pt;
+    border-color: black;
+	  border-collapse:separate;
+    border:solid black 0px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    height: 30px;
+}
+		#rcorners3 {
+  /*  border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 100vw; !important;*/
+			
+			width: 100vw;
+			border-style: solid;
+			font-size: 9pt;
+			min-height: 50px;
+    border-color: black;
+	  border-collapse:separate;
+    border:solid black 0px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+   
+}
+	
+		@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 299px)
+{
+    .button
+    {
+        width: 50px;
+    }
+}
+		
+.left-div {
+		 border-radius: 25px;
+    float: left;
+    width: 50vw;
+    height: 20px;
+    background-color: linen;
+/*    margin-right: 8px;*/
+  
+}
+.right-div {
+ /*   margin-left: 108px;*/
+	 width: 50vw;
+	 border-radius: 25px;
+	background-color: green;
+    
+}
+.category
+		{
+		 
+		border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 100vw; !important;
+   
+}
+#calendar
+		{
+		 
+		display	: none;
+   
+}		
+span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 60px;  /* width of image */
+}
+		
+		
+		.left1 {
+         width:50%;
+         border-right:1px solid #000000;
+        float:left;
+        height:70px;
+	padding-left:6px;
+    }
+   .right1 {
+       float:left;
+       padding-left:50%;
+       
+	   height:40px;
+   }
+   
+   .common1 {
+        width:100%;
+         float:left;
+         
+   }
+		
 	</style>
 	
 </head>
@@ -1083,7 +1180,9 @@ display	: none;
 		    <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
 		   
 		</table>
-			  
+			   
+	</div>
+
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
@@ -1092,29 +1191,39 @@ display	: none;
 	<div id='lst_mnu' align='left'>	</div>
 	<!--<div id="previewImage">
     </div>-->
-       <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
-	
+      
+	<div id='calEvent'>
+			 
+		<div id='left1' class="left1"></div>
+		<div id='right1' class="right1"></div>
+		<div id='common1' class="common1"></div>
+   
+				
+	</div>
+	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 
-	
-	<div id='dl_btn1'>
-		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
+	<div id='dl_btn'>
+		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
-		<div id='dl_btn'></div>
+		<div>
 	
-	 
+		 
+		<p id="rcorners2" align='center'></p>
+		<p id="rcorners3" align='center'></p>
+	</div>
+	
 			<div id='det' align='center' style="background-color:white">
-				<hr size=2>
+				 
 				<form id="eventform" name="eventform" action="#" method="get">
-					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly></textarea>
+					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly>					</textarea>
 				</form>
 			</div>
-	<div id='day_event'>
-		
-		
-	</div>
+	 
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=50></textarea>
+	
+<div id='xPort1' style="display:none;">     </div>
 	
 </body>
 </html>
