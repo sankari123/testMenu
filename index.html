@@ -475,13 +475,16 @@ var lat2,long2;
 		document.getElementById("calendar").style.visibility="false";
 		document.getElementById("det").style.display="none";
 		document.getElementById("det").style.visibility="false";
-		
+		document.getElementById("category").style.display="none";
+		document.getElementById("category").style.visibility="false";
 		
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
 		
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
 		//alert('in');
 		
         if(uniq.length % 2==0)
@@ -542,6 +545,8 @@ function calClick()
 		
 		document.getElementById("calendar").style.display="block";
 		document.getElementById("calendar").style.visibility="true";
+		document.getElementById("category").style.display="none";
+		document.getElementById("category").style.visibility="false";
 		//document.getElementById("det").style.display="block";
 		//document.getElementById("det").style.visibility="true";
 		
@@ -550,6 +555,8 @@ function calClick()
 		document.getElementById("lst_mnu").style.display="none";
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
 		document.getElementById("route_canvas").style.display="none";
 		document.getElementById("route_canvas").style.visibility="false"
@@ -611,7 +618,8 @@ function ven_det(v)
 	document.getElementById("lst_mnu").style.visibility="false";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
-	
+	document.getElementById("dl_btn1").style.display="block";
+	document.getElementById("dl_btn1").style.visibility="true";
 	
 	
 	
@@ -740,6 +748,8 @@ document.getElementById("lst_mnu").style.display="none";
 document.getElementById("lst_mnu").style.visibility="false";
 document.getElementById("dl_btn").style.display="block";
 document.getElementById("dl_btn").style.visibility="true";
+	document.getElementById("dl_btn1").style.display="block";
+document.getElementById("dl_btn1").style.visibility="true";
 document.getElementById("category").style.display="none";
 document.getElementById("category").style.visibility="false";
 
