@@ -321,7 +321,7 @@ var floater = 0;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-			theevent += "Events of: " +day +'/'+ month + '/'+year + '\n';
+			theevent += "\nEvents of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
 			theevent += 'Time: ' +  timeString + '\n';
@@ -331,17 +331,16 @@ var floater = 0;
 			document.forms.eventform.eventlist.value = theevent;
 			
 		}
+		document.getElementById('dl_btn').innerHTML=theevent;
 	}
 	if (theevent == "") 
 	{
 		theevent= 'No events to show...';
-	//document.forms.eventform.eventlist.value = 'No events to show.';
+	        document.forms.eventform.eventlist.value = 'No events to show.';
+		document.getElementById('dl_btn').innerHTML=theevent;
 	}
-	else
-	{
-	  document.getElementById('dl_btn').innerHTML=theevent;
-	//	document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
-	}
+	 
+	 
 }
 	
 	
