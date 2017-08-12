@@ -68,6 +68,7 @@ function checkConnection() {
       {
 	    connSel='Y';
 	     // alert(connSel);
+	      ajaxFunction();
 	 changedate('return');
 	 
       }
@@ -239,7 +240,7 @@ eastermonth = month;
 easterday = day;
 }
 function createCalendar() {
-	//window.plugins.spinnerDialog.hide();		
+	window.plugins.spinnerDialog.hide();		
 	calendarString = '';
 	var daycounter = 0;
 	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
@@ -309,7 +310,7 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn1").style.visibility="true";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
-	
+	window.plugins.spinnerDialog.hide();		
 var theevent = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -323,25 +324,25 @@ var floater = 0;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-			theevent += "\nEvents of: " +day +'/'+ month + '/'+year + '\n';
+			theevent += "\n\nEvents of: " +day +'/'+ month + '/'+year + '\n';
 			theevent += events[i][6] + '\n';
 			theevent += 'Artist: ' + events[i][8] + '\n';
 			theevent += 'Time: ' +  timeString + '\n';
 			theevent += 'Venue: ' + events[i][5] + '\n';
 			theevent += 'Details: ' + events[i][7] + '\n';
-			theevent += '\n ____________________________________\n';
-			document.forms.eventform.eventlist.value = theevent;
+			theevent += '\n ____________________________________\n\n';
+		//	document.forms.eventform.eventlist.value = theevent;
 			
 		}
-		document.getElementById('dl_btn').innerHTML=theevent;
+		//document.getElementById('dl_btn').innerHTML=theevent;
 	}
 	if (theevent == "") 
 	{
 		theevent= 'No events to show...';
-	        document.forms.eventform.eventlist.value = 'No events to show.';
-		document.getElementById('dl_btn').innerHTML=theevent;
+	    //    document.forms.eventform.eventlist.value = 'No events to show.';
+		
 	}
-	 
+	 document.getElementById('dl_btn').innerHTML=theevent;
 	 
 }
 	
@@ -660,7 +661,127 @@ function printData()
 			
 });	
  
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 	
+	if(cityName=='London')
+	{
+	optSel=2;
+	calClick();
+	}
+	else if(cityName=='Paris')
+	{
+	optSel=3;
+	venueFilter();
+	}
+	else if(cityName=='Tokyo')
+	{
+	optSel=1;
+	category();
+	}
+}	
+
+	
+	function category()
+	{
+	//alert('in');
+	
+			checkConnection();
+		document.getElementById("category").style.display="block";
+		document.getElementById("category").style.visibility="true";
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+	
+		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("rnd").style.display="none";
+		document.getElementById("rnd").style.visibility="false";
+		document.getElementById("det").style.display="block";
+		document.getElementById("det").style.visibility="true";
+		
+		document.getElementById("route_canvas").style.display="none";
+		document.getElementById("route_canvas").style.visibility="false"
+		document.getElementById("panel").style.display="none";
+		document.getElementById("panel").style.visibility="false";
+		 
+	
+		 
+		
+	}
+	document.getElementById("defaultOpen").click();
+
+
+function eventList(eVal)
+{
+//alert('eval'+eVal);
+
+document.getElementById("xPort").style.display="block";
+document.getElementById("xPort").style.visibility="true";
+	document.getElementById("xPort1").style.display="block";
+	document.getElementById("xPort1").style.visibility="true";
+	
+document.getElementById("lst_mnu").style.display="none";
+document.getElementById("lst_mnu").style.visibility="false";
+document.getElementById("dl_btn").style.display="block";
+document.getElementById("dl_btn").style.visibility="true";
+document.getElementById("category").style.display="none";
+document.getElementById("category").style.visibility="false";
+
+var catSel;
+
+if(eVal=='1' || eVal==1)
+{
+	catSel='Vocal';
+}else if(eVal=='2' || eVal==2)
+{
+	catSel='Dance';
+}else if(eVal=='3' || eVal==3)
+{
+	catSel='Drama';
+}else if(eVal=='4' || eVal==4)
+{
+catSel='Lec-dem';
+}else if(eVal=='5' || eVal==5)
+{
+catSel='Harikatha';
+}else if(eVal=='6' || eVal==6)
+{
+catSel='Meetup';
+	//alert(catSel.length);
+}
+
+
+var evt_lst="<table border='1' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
+evt_lst+="<tr height='40px'><td colspan=4 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
+for (var i = 0, len = events.length; i < len; i++)
+{
+	cat1=events[i][6];
+	if(catSel==cat1)
+		{
+			evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td><span class='names'>"+events[i][5]+"</span></td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		}
+ 
+} 
+document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+}
+	
+		
 	
 </script>
 	<style type="text/css">
@@ -752,18 +873,138 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		
 		display:none;	
 		}
+		
+	@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 299px)
+{
+    .button
+    {
+        width: 50px;
+    }
+}
+		
+.left-div {
+		 border-radius: 25px;
+    float: left;
+    width: 50vw;
+    height: 20px;
+    background-color: linen;
+/*    margin-right: 8px;*/
+  
+}
+.right-div {
+ /*   margin-left: 108px;*/
+	 width: 50vw;
+	 border-radius: 25px;
+	background-color: green;
+    
+}		
+		
+		.category
+		{
+		 
+		border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 100vw; !important;
+   
+}
+#calendar
+		{
+		 
+		display	: none;
+   
+}		
+span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 60px;  /* width of image */
+}
+		
+		
+		.left1 {
+         width:50%;
+         border-right:1px solid #000000;
+        float:left;
+        height:70px;
+	padding-left:6px;
+    }
+   .right1 {
+       float:left;
+       padding-left:50%;
+       
+	   height:40px;
+   }
+   
+   .common1 {
+        width:100%;
+         float:left;
+         
+   }
+		
+		
 	</style>
 	
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr height='90px' bgcolor="#ed7372"><td colspan=3 align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
-		<tr height='35px' bgcolor='#003c67'><td align=center width='33%'><input type='button' class='btn1' value='Calendar' onclick='calClick();'></td><td align=center width='33%'><input type='button' class='btn1' value='Venue' onclick='venueFilter();'></td><td align='center' width='33%'><input type='button' class='btn1' value='Artist' onclick='artistFilter();'></td></tr>
+	<tr height='70px' bgcolor="#ed7372"><td  align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr></table>
+		
+	 
+<table border="0"  bordercolor='#003c67' cellpadding="0" cellspacing="0" width="100%">
+	<tr height='25px'  bgcolor='#003c67'><td align=center>
+	<div class="tab">
+ 
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">Events</button>
+  <button class="tablinks" onclick="openCity(event, 'London')">Calendar</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Venue</button>
+		
+</div>
+		</td></tr></table>
+<div id="London" class="tabcontent">
+<!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+   
+</div>
+
+<div id="Paris" class="tabcontent">
+<!--   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+  
+</div>
+
+<div id="Tokyo" class="tabcontent">
+ <!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+ 
+</div>
+
 	
 	
 	
-	</table>
+	<div id='category' class='category'>
+		<font size=1 face='arial'>Browse by Category</font><br><br>
+	   <table border=0 cellpadding=0 cellpadding=0 class='cat'>
+		   <tr><td><button onclick='eventList(1);' class='btn2'><img src='concert.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Concerts</span></button></td></tr>
+		   <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		    <tr><td ><button onclick='eventList(2);' class='btn2' ><img src='dance.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Dance</span></button></td></tr>
+		    <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		   <tr><td><button onclick='eventList(3);' class='btn2'><img src='drama.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span >Drama</span></button></td></tr>
+		   <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		    <tr><td><button onclick='eventList(4);' class='btn2' ><img src='lec-dem.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Lec-Dem</span></button></td></tr>
+		    <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		   <tr><td><button onclick='eventList(5);' class='btn2'><img src='harikatha.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Harikatha</span></button></td></tr>
+		   <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		    <tr><td ><button onclick='eventList(6);' class='btn2' ><img src='concert.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Meetup</span></button></td></tr>
+		    <tr valign="top"><td><hr size=1 color='#ececec'></td></tr>
+		   
+		</table>
+			  
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
@@ -777,7 +1018,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 
 	
 	<div id='dl_btn1'>
-		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
+		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
