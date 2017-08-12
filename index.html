@@ -305,6 +305,8 @@ var floater = 0;
 function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("det").style.display="block";
 	document.getElementById("det").style.visibility="true";
+	document.getElementById("dl_btn1").style.display="block";
+	document.getElementById("dl_btn1").style.visibility="true";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
 	
@@ -745,6 +747,11 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		
 		display:none;	
 		}
+		#dl_btn1
+	{
+		
+		display:none;	
+		}
 	</style>
 	
 </head>
@@ -767,13 +774,14 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     </div>-->
        <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 	
+
 	
-	<div id='dl_btn'>
+	<div id='dl_btn1'>
 		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
-	
+		<div id='dl_btn'></div>
 	
 	 
 			<div id='det' align='center' style="background-color:white">
