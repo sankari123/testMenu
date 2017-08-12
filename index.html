@@ -305,6 +305,9 @@ var floater = 0;
 function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("det").style.display="block";
 	document.getElementById("det").style.visibility="true";
+	document.getElementById("dl_btn").style.display="block";
+	document.getElementById("dl_btn").style.visibility="true";
+	
 var theevent = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
@@ -329,7 +332,16 @@ var floater = 0;
 			
 		}
 	}
-	if (theevent == "") document.forms.eventform.eventlist.value = 'No events to show.';
+	if (theevent == "") 
+	{
+		theevent= 'No events to show...';
+	//document.forms.eventform.eventlist.value = 'No events to show.';
+	}
+	else
+	{
+	  document.getElementById('dl_btn').innerHTML=theevent;
+	//	document.getElementById('lst_mnu').innerHTML=im_htm+"</font></table>" ;
+	}
 }
 	
 	
@@ -755,10 +767,16 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	<!--<div id="previewImage">
     </div>-->
        <div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
+	
+	
 	<div id='dl_btn'>
-		 <input type="button" id="exportpdf" value="Download PDF">
+		<table border=0  cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
+	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
+	
+	
+	 
 			<div id='det' align='center' style="background-color:white">
 				<hr size=2>
 				<form id="eventform" name="eventform" action="#" method="get">
