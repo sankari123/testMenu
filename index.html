@@ -224,10 +224,7 @@ function changedate(buttonpressed) {
 	createCalendar();
 	return;
 	
-	 	
-	
-	
-	
+		
 }
 function easter(year) {
 // feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
@@ -461,7 +458,10 @@ function procVal(pVar)
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		venue_arr.push([venue]);
 		//write ajax response to text file
-		
+		for (var i = 0; i < events.length; i++) {
+			alert(events[i][2]+"-"+events[i][1]+"-"+events[i][3]);
+			
+		}
 		}
 	
 	//testing();
