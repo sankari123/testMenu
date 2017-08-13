@@ -437,7 +437,7 @@ function procVal(pVar)
 	locArr=locArr.split('#');
 	events=[];
 	venue_arr=[];
-	for (var i = 0, len = locArr.length; i < len; i++) {
+	for (var i = 0, i<locArr.length; i++) {
 		delimiter = ',';
 		start = 6;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
