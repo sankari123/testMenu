@@ -363,9 +363,9 @@ var floater = 0;
 			theevent += '<br><hr size=2 color=gray>';
 		//	document.forms.eventform.eventlist.value = theevent;
 			
-		   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
-		   theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
-		   theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
+		//   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
+		  // theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
+		   //theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
  		
 		
 		
@@ -1256,8 +1256,8 @@ span {
 	</div>
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
-		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
-	<tr><td width='33%'>Add to Calendar</td><td width='33%'>Share</td><td width='33%'>Download</td></tr>
+		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png' valign='middle'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+			<tr><td width='33%'><b>Add to Calendar</b></td><td width='33%'><b>Share</b></td><td width='33%'><b>Download</b></td></tr>
 	</table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
