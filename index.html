@@ -352,13 +352,14 @@ var floater = 0;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-			theevent += "\n\nEvents of: " +day +'/'+ month + '/'+year + '\n';
-			theevent += events[i][6] + '\n';
-			theevent += 'Artist: ' + events[i][8] + '\n';
+			theevent += "<br>Events of: " +day +'/'+ month + '/'+year + '<br>';
 			theevent += 'Time: ' +  timeString + '\n';
-			theevent += 'Venue: ' + events[i][5] + '\n';
-			theevent += 'Details: ' + events[i][7] + '\n';
-			theevent += '\n ____________________________________\n\n';
+			theevent += events[i][6] + '\n';
+			theevent += '<b>' + events[i][8] + '</b><br>';
+			
+			theevent +=  events[i][5] + '<br>';
+			theevent +=  events[i][7] + '<br>';
+			theevent += '<br><hr size=2 color=gray><br>';
 		//	document.forms.eventform.eventlist.value = theevent;
 			
 		}
@@ -521,6 +522,8 @@ var lat2,long2;
 		
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
 		//alert('in');
 		
         if(uniq.length % 2==0)
@@ -599,6 +602,8 @@ function calClick()
 		document.getElementById("lst_mnu").style.visibility="false";
 		document.getElementById("dl_btn").style.display="none";
 		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
 		document.getElementById("route_canvas").style.display="none";
 		document.getElementById("route_canvas").style.visibility="false"
 		document.getElementById("panel").style.display="none";
@@ -891,7 +896,7 @@ function eventChecking()
 		}	
 .hideDontTakeUpSpace
         {
-            /*display:none;*/
+            display:none;
         }
 
 .btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white; text-decoration:underline;
@@ -1168,7 +1173,7 @@ span {
 	
 	
 	<tr height='70px' bgcolor="#ed7372"><td  align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
-	<tr> <td><button onclick="eventChecking();" >Test Events</button></td></tr>
+<!--	<tr> <td><button onclick="eventChecking();" >Test Events</button></td></tr>-->
 	</table>
 	
 	
@@ -1262,7 +1267,7 @@ span {
 				</form>
 			</div>
 	 
-<textarea id="rest1" class="hideDontTakeUpSpace" rows=20 cols=40></textarea>
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea>
 	
 <div id='xPort1' style="display:none;">     </div>
 	
