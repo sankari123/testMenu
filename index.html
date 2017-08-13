@@ -339,7 +339,7 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
 	window.plugins.spinnerDialog.hide();		
-var theevent = "";
+var theevent1 = "";
 var floater = 0;
 	for (var i = 0; i < events.length; i++) {
 	
@@ -359,9 +359,16 @@ var floater = 0;
 			
 			theevent +=  events[i][5] + '<br>';
 			theevent +=  events[i][7] + '<br>';
-			theevent += '<br><hr size=2 color=gray><br>';
+			theevent += '<br><hr size=2 color=gray>';
 		//	document.forms.eventform.eventlist.value = theevent;
 			
+		   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
+		   theevent1+=="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
+		   theevent1+=="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
+ 		
+		
+		
+		
 		}
 		//document.getElementById('dl_btn1').innerHTML=theevent;
 	}
@@ -369,11 +376,11 @@ var floater = 0;
 	{
 		document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
-		theevent= 'No events to show...';
+		theevent1= '<tr><td>No events to show...</td></tr>';
 	    //    document.forms.eventform.eventlist.value = 'No events to show.';
 		
 	}
-	 document.getElementById('dl_btn1').innerHTML=theevent;
+	 document.getElementById('dl_btn1').innerHTML="<table>"+theevent1+"</table>";
 	 
 }
 	
@@ -873,14 +880,15 @@ function eventChecking()
 		.ven1
 		{
 		 width: 100vw;
-			  
+			
 			border-style: solid;
 			font-size: 9pt;
+			background-color: '#eeedf0';
     border-color: black;
 	  border-collapse:separate;
     border:solid black 1px;
-    border-radius:6px;
-    -moz-border-radius:6px;
+/*    border-radius:6px;*/
+  /*  -moz-border-radius:6px;*/
 		}
 	.ven2
 		{
@@ -1247,7 +1255,9 @@ span {
 	</div>
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
-		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr></table>
+		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%'><button  class='btn1' onclick='calAdd();'><img src='cal1.png'></button></td><td width='33%'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+	<tr><td width='33%'>Add to Calendar</td><td width='33%'>Share</td><td width='33%'>Download</td></tr>
+	</table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 	</div>
