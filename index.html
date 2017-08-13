@@ -433,8 +433,9 @@ function procVal(pVar)
 	locArr = pVar;
 	//document.getElementById('rest1').value=pVar;
 	locArr = locArr.substring(0, locArr.length - 1);
-	locArr=locArr.split('#');
 	document.getElementById('rest1').value=locArr;
+	locArr=locArr.split('#');
+	
 	events=[];
 	venue_arr=[];
 	for (var i = 0, len = locArr.length; i < len; i++) {
