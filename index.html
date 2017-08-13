@@ -339,9 +339,9 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
 	window.plugins.spinnerDialog.hide();		
-var theevent1 = "";
+var theevent = "";
 var floater = 0;
-	 theevent1="<table>";
+	 
 	for (var i = 0; i < events.length; i++) {
 	
 	if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
@@ -381,7 +381,7 @@ var floater = 0;
 	    //    document.forms.eventform.eventlist.value = 'No events to show.';
 		
 	}
-	 document.getElementById('dl_btn1').innerHTML=theevent+"</table>";
+	 document.getElementById('dl_btn1').innerHTML=theevent;
 	 
 }
 	
