@@ -356,7 +356,7 @@ var floater = 0;
 			theevent += "<br>&nbsp;&nbsp;Events of: " +day +'/'+ month + '/'+year + '&nbsp;&nbsp;    '+timeString+'<br>';
 			//theevent += 'Time: ' +  timeString + '\n';
 			theevent += '&nbsp;&nbsp;'+events[i][6];
-			theevent += '<b>' + events[i][8] + '</b><br>';
+			theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
 			
 			theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
 			theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
@@ -1254,8 +1254,8 @@ span {
 	</div>
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
-		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%' align='center'><button  class='btn1' onclick='calAdd();'><img src='cal1.png' valign='middle'></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
-			<tr><td width='33%'><b>Add to Calendar</b></td><td width='33%'><b>Share</b></td><td width='33%'><b>Download</b></td></tr>
+		<table border=0  class=ven1 cellpadding=0 cellspacing=0><tr><td width='33%' align='center'><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+			<tr><td width='33%'><b>Add to Calendar</b></td><td width='33%' align='center'><b>Share</b></td><td width='33%' align='center'><b>Download</b></td></tr>
 	</table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
