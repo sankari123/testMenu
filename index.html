@@ -844,7 +844,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-			evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+timeString +"</td><td><span class='names'>"+events[i][5]+"</span></td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+			evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+'&nbsp;&nbsp;'+timeString +"</td><td>"+events[i][5]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		}
  
 } 
