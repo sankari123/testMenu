@@ -439,7 +439,7 @@ function procVal(pVar)
 	venue_arr=[];
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 6;
+		start = 0;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
 		latR=result.split(',');
 		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
