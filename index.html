@@ -686,10 +686,18 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			evt_lst+="<tr><td colspan=3 align='center'><b>"+v+"</b></td></tr><tr><td colspan=3 align='center'><b> Programme</b></td></tr>";
+			evt_lst+="<tr><td colspan=2 align='center'><b>"+v+"</b></td></tr><tr><td colspan=2 align='center'><b> Programme</b></td></tr>";
 		}
 		k++;
-	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td>"+events[i][4]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		hours=String(events[i][4]);
+			var timeString = hours;
+			var H = +timeString.substr(0, 2);
+			var h = H % 12 || 12;
+			var ampm = H < 12 ? "AM" : "PM";
+			timeString = h + timeString.substr(2, 3) + " "+ampm;
+			 
+		
+	   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"&nbsp;&nbsp;timeString+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 		
 	}
 	 table_string=evt_lst;
@@ -1274,7 +1282,7 @@ span {
 	</div>
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
-		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr><td width='33%' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
 			<tr><td width='33%'><b>Add to Calendar</b></td><td width='33%' align='center'><b>Share</b></td><td width='33%' align='center'><b>Download</b></td></tr>
 	</table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
