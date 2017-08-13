@@ -439,8 +439,9 @@ function procVal(pVar)
 	venue_arr=[];
 	for (var i = 0, len = locArr.length; i < len; i++) {
 		delimiter = ',';
-		start = 0;
+		start = 6;
 		var result = locArr[i].split(delimiter, start+1).join(delimiter);
+		document.getElementById('rest1').value=result;
 		latR=result.split(',');
 		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
 		pnam=String(latR[0]);
