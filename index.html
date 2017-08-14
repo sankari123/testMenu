@@ -699,9 +699,9 @@ function ven_det(v)
 		
 	//   evt_lst+="<tr valign='top'><td bordercolor='black'> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"&nbsp;&nbsp;"+timeString+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 	
-		evt_lst+="<tr valign='top'><td bordercolor='black'>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"</td><td rowspan=2>"+events[i][6]+"</td><td><b>"+events[i][8]+"</b></td></tr>";
+		evt_lst+="<tr valign='top'><td bordercolor='black'> &nbsp;&nbsp;"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"</td><td rowspan=2>"+events[i][6]+"</td><td><b>"+events[i][8]+"</b></td></tr>";
 		
-		evt_lst+="<tr valign='top'><td bordercolor='black'>"+timeString+"</td><td>"+events[i][7]+"</td></tr>";
+		evt_lst+="<tr valign='top'><td bordercolor='white'>"+timeString+"</td><td bordercolor='white'>"+events[i][7]+"</td></tr>";
 		
 		
 		
@@ -861,9 +861,9 @@ for (var i = 0, len = events.length; i < len; i++)
 			 
 		//	evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+'&nbsp;&nbsp;'+timeString +"</td><td>"+events[i][5]+"</td><td>"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
-		evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
+		evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> &nbsp;&nbsp;"+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
 			
-		evt_lst+="<tr valign='top' height='25px'><td bordercolor='black'> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";	
+		evt_lst+="<tr valign='top' height='25px'><td bordercolor='white'> "+timeString+"</td><td bordercolor='white'>"+events[i][7]+"</td></tr>";	
 				
 			
 			
@@ -927,7 +927,7 @@ function eventChecking()
 		font-size: 9pt;
 			 
 	  border-collapse:separate;
-   padding-left:6px;
+/*   padding-left:6px;*/
 /*    border-radius:6px;*/
   /*  -moz-border-radius:6px;*/
 		}
@@ -1296,7 +1296,7 @@ span {
 	</div>
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
-		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr height='40px' valign="middle"><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
 			<tr><td width='33%'><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar</b></td><td width='33%' align='center'><b>Share</b></td><td width='33%' align='center'><b>Download</b></td></tr>
 	</table>
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
