@@ -844,8 +844,8 @@ catSel='Meetup';
 }
 
 
-var evt_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
-evt_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
+//var evt_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
+//evt_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
 for (var i = 0, len = events.length; i < len; i++)
 {
 	cat1=events[i][6];
@@ -859,18 +859,19 @@ for (var i = 0, len = events.length; i < len; i++)
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-		evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+	//	evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> &nbsp;&nbsp;"+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";	
 				
-			
+	  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br>';
 			
 		}
  
 } 
-document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+//document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+	document.getElementById('xPort').innerHTML=ev_lst ;
 }
 	
 	
@@ -1004,7 +1005,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		max-width: 400px;
                 width: 100% !important;
 		display:none;
-		 
+		font: normal 12pt "ubuntu", "Helvetica", "Sans Serif";  
 		}
 			#xPort1
 	{
