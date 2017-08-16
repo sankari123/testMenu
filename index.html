@@ -676,7 +676,7 @@ function ven_det(v)
 	
 	
 	
-	var evt_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
+	var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
 	//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 	for (var i = 0, len = events.length; i < len; i++)
  {
@@ -686,7 +686,7 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			evt_lst+="<tr height='50px'><td colspan=3 align='center'><font size=3>"+v+"- Schedule</font></td></tr>";
+			ev_lst+="<tr height='100px'><td colspan=3 align='center'><font size=3>"+v+"- Schedule</font></td></tr>";
 		}
 		k++;
 		hours=String(events[i][4]);
@@ -695,9 +695,14 @@ function ven_det(v)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-			 
+	
+		ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+	ev_lst+=events[i][6]+'<br>'+'<br>';
+	ev_lst+=events[i][8]+'<br>';
+	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
 		
-	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
+		
+//	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 	
 	//	evt_lst+="<tr valign='top'><td bordercolor='black'> &nbsp;&nbsp;"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"</td><td rowspan=2>"+events[i][6]+"</td><td><b>"+events[i][8]+"</b></td></tr>";
 		
@@ -708,7 +713,7 @@ function ven_det(v)
 		
 	}
 	 table_string=evt_lst;
- document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
+ document.getElementById('xPort').innerHTML=ev_lst+"</table>" ;
 	
 
  }
@@ -1315,6 +1320,15 @@ span {
    
 				
 	</div>
+	
+	<div id='dl_btn'>
+		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr height='40px' valign="middle"><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
+			<tr><td width='33%'><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar</b></td><td width='33%' align='center'><b>Share</b></td><td width='33%' align='center'><b>Download</b></td></tr>
+	</table>
+	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
+	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
+	</div>
+	
 	<div id='xPort' > <a id="dlink"  style="display:none;"></a>    </div>
 <div id='dl_btn'>
 		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr height='40px' valign="middle"><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
