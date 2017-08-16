@@ -843,7 +843,7 @@ catSel='Meetup';
 	//alert(catSel.length);
 }
 
-
+alert(catSel);
 //var evt_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
 //evt_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
 for (var i = 0, len = events.length; i < len; i++)
@@ -872,7 +872,7 @@ for (var i = 0, len = events.length; i < len; i++)
 } 
 //document.getElementById('xPort').innerHTML=evt_lst+"</table>" ;
 	alert('evlst'+ev_lst);
-	document.getElementById('xPort').innerHTML=ev_lst ;
+	document.getElementById('xPort').innerHTML='<b>'+  catSel +"   Schedule</b>"+ev_lst ;
 }
 	
 	
