@@ -808,6 +808,7 @@ function openCity(evt, cityName) {
 	}
 	document.getElementById("defaultOpen").click();
 
+var calArray;
 
 function eventList(eVal)
 {
@@ -871,6 +872,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";	
 	ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+			calArray+-=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'&';
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
 	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
@@ -898,7 +900,18 @@ function eventChecking()
 	
 	}
 	
+function calAdd()
 	
+{
+  calArray=calArray.split('&');
+	for(i=1;i<calArray.length;i++)
+	{
+		dt=new Date(calArray[i]);
+	alert(dt);
+	}
+
+
+}
 	
 </script>
 	<style type="text/css">
@@ -1231,7 +1244,7 @@ span {
 		
         }	
 	.ven1 tr:nth-child(2n) {
-             background-color: #b4c5d3;
+             background-color: silver;
 		
         }
 /*	.ven1 tr:nth-child(odd) {
