@@ -357,7 +357,6 @@ var floater = 0;
 			//theevent += 'Time: ' +  timeString + '\n';
 			theevent += '&nbsp;&nbsp;'+events[i][6];
 			theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
-			
 			theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
 			theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
 			theevent += '<br><hr size=2 color=gray>';
@@ -808,8 +807,8 @@ function openCity(evt, cityName) {
 	}
 	document.getElementById("defaultOpen").click();
 
-var calArray;
-var calArrayDetails;
+var calArray=[];
+var calArrayDetails=[];
 function eventList(eVal)
 {
 //alert('eval'+eVal);
@@ -871,8 +870,8 @@ for (var i = 0, len = events.length; i < len; i++)
 	//	evt_lst+="<tr valign='top' height='25px'><td> &nbsp;&nbsp;"+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";
-			calArray+=events[i][3]+' ' +events[i][1]+" "+events[i][2]+'&';
-			calArrayDetails+=events[i][5]+'  '+events[i][8]+'  '+'%';
+			calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
+			calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
 			
 	ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
@@ -906,40 +905,16 @@ function eventChecking()
 	
 function calAdd()
 	
-{
-  calArray=calArray.split('&');
+	{
+	calArray=calArray.split('&');
 	calArrayDetails=calArrayDetails.split('%');
 	for(i=1;i<calArray.length;i++)
 	{
-		dt=new Date(calArray[i]);
-	 
-	 var startDate = new Date(calArray[i]);
-  // End date and time of the event 
-  var endDate = new Date(calArray[i]);
-  // Title of the event 
-		//calArrayDetails+=events[i][5]+'  '+events[i][8]+'  '+'%';
-  var title = "Madras Music Miscellany";
-  // Location of the event 
-  var location = "Chennai";
-  // Description about the event 
-  var notes = calArrayDetails[i];
- alert(calArrayDetails[i]);
-alert(calArray[i]);
+		alert(calArray[i]);
+		alert(calArrayDetails[i]);
 		
-	//window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror);
-
-}
-
-}	
-	 var calsuccess = function(message) {
-    navigatore.notification.alert("Event added successfully.");
-  };
-  var calerror = function(message) { 
-    navigatore.notification.alert("Error occurred while adding the event.");
-  };
-	
-	
-	
+	}
+	}
 	
 	
 </script>
