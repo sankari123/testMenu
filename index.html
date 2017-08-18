@@ -672,7 +672,7 @@ function ven_det(v)
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
 	
-	 document.getElementById('xPort').innerHTML='' ;
+	// document.getElementById('xPort').innerHTML='' ;
 	
 	
 	var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
@@ -706,12 +706,10 @@ function ven_det(v)
 	//	evt_lst+="<tr valign='top'><td bordercolor='black'> &nbsp;&nbsp;"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"</td><td rowspan=2>"+events[i][6]+"</td><td><b>"+events[i][8]+"</b></td></tr>";
 		
 	//	evt_lst+="<tr valign='top'><td bordercolor='white'>"+timeString+"</td><td bordercolor='white'>"+events[i][7]+"</td></tr>";
-		
-		
-		
+			
 		
 	}
-	 table_string=evt_lst;
+	// table_string=evt_lst;
  document.getElementById('xPort').innerHTML=ev_lst+"</table>" ;
 	
 
@@ -825,7 +823,7 @@ document.getElementById("dl_btn").style.display="block";
 document.getElementById("dl_btn").style.visibility="true";
 document.getElementById("category").style.display="none";
 document.getElementById("category").style.visibility="false";
- document.getElementById('xPort').innerHTML='' ;
+// document.getElementById('xPort').innerHTML='' ;
 var catSel;
 
 if(eVal=='1' || eVal==1)
@@ -893,7 +891,7 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
-	alert(calEvt);
+	//alert(calEvt);
 }
 	
 	
