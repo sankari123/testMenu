@@ -874,7 +874,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			//calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
 			
-	ev_lst+=	"<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
@@ -927,7 +927,7 @@ function calAdd()
   var notes = calEvtDetails1[i];
    
 	
-//	 window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+    	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
 	}
 }
 	
@@ -1072,9 +1072,51 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 #dl_btn
 	{
 		
+		  margin: 0 auto;
 		display:none;	
+		vertical-align: top;
+    display: inline-block;
+    text-align: center;
+/*    width: 120px; */
 		}
+		
+		.caption {
+    display: block;
+}
 
+		#one{
+/*    width: 200px;
+    height: 200px;
+    margin: 0;*/
+    float: left;
+}
+#oneIn{
+     
+    background: white;
+    float: left;
+}
+#two{
+   
+    margin: 0;
+    float: left;
+}
+#twoIn{
+    
+    background: white;
+    margin: 0 auto;
+}
+#three{
+    
+    margin: 0;
+    float: left;
+}
+#threeIn{
+     
+    background: white;
+    float: right;
+}
+		
+		
 		
 		div.tab {
     overflow: hidden;
@@ -1086,7 +1128,10 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	  
 }
 		
-	
+img {
+    
+    background-color: grey;
+}	
 
 /* Style the buttons inside the tab */
 div.tab button {
@@ -1362,11 +1407,30 @@ span {
 	</div>
 	
 	<div id='dl_btn'>
-		<table border=0  class=ven_cal cellpadding=0 cellspacing=0><tr height='40px' valign="middle"><td width='33%' align='center' ><button  class='btn1' onclick='calAdd();'><img src='cal1.png' ></button></td><td width='33%' align='center'><button class='btn1' onclick='share();'><img src='share1.png'></button></td><td width='33%' align='center'> <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'></button></td></tr>
-			<tr><td width='33%'><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar</b></td><td width='33%' align='center'><b>Share</b></td><td width='33%' align='center'><b>Download</b></td></tr>
-	</table>
+		 
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
+
+		
+  <div id="one">
+        <div id="oneIn">
+           <button  class='btn1' onclick='calAdd();'><img src='cal1.png' > <span class="caption">Add to Calendar</span></button>
+        </div>
+    </div>
+    <div id="two">
+      <button class='btn1' onclick='share();'><img src='share1.png'> <span class="caption">Share</span></button>
+       
+        </div>
+    </div>
+    <div id="three">
+        <div id="threeIn">
+        <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'> <span class="caption">Download</span></button.
+        </div>
+    </div>
+		
+		
+		
+		
 	</div>
 	
 	<div id='xPort' >     </div>
