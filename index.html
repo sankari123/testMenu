@@ -879,8 +879,8 @@ for (var i = 0, len = events.length; i < len; i++)
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
 	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
-			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
-			calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+		//	calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+		//	calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
 		//alert('evlst'+ev_lst);	
 		}
@@ -890,7 +890,7 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
-	alert(calEvt);
+	//alert(calEvt);
 }
 	
 	
