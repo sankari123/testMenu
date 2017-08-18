@@ -807,8 +807,8 @@ function openCity(evt, cityName) {
 	}
 	document.getElementById("defaultOpen").click();
 
-var calArray=[];
-var calArrayDetails=[];
+var calEvt1=[];
+var calEvtDetails1=[];
 function eventList(eVal)
 {
 //alert('eval'+eVal);
@@ -874,13 +874,13 @@ for (var i = 0, len = events.length; i < len; i++)
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
 			
 	ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
-			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
-			calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+			
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
 	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
-			
+			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
 		//alert('evlst'+ev_lst);	
 		}
@@ -909,21 +909,21 @@ function calAdd()
 	
 {
 	
-	calEvt=calEvt.split('&');
-	 calEvtDetails=calEvtDetails.split('%');
-	 
+	calEvt1=calEvt.split('&');
+	 calEvtDetails1=calEvtDetails.split('%');
+	 alert(calEvt1[i]);
 	 
 	for (var i = 0; i <calEvt.length; i++) {
 	// Start date and time of the event
-  var startDate = new Date(calEvt[i]);
+  var startDate = new Date(calEvt1[i]);
   // End date and time of the event 
-  var endDate = new Date(calEvt[i]);
+  var endDate = new Date(calEvt1[i]);
   // Title of the event 
   var title = "Madras Music Miscellany";
   // Location of the event 
   var location = "Chennai";
   // Description about the event 
-  var notes = calEvtDetails[i];
+  var notes = calEvtDetails1[i];
    
 	
 	 window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
