@@ -1077,6 +1077,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		vertical-align: top;
     display: inline-block;
     text-align: center;
+		 
 /*    width: 120px; */
 		}
 		
@@ -1084,38 +1085,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     display: block;
 }
 
-		#one{
-/*    width: 200px;
-    height: 200px;
-    margin: 0;*/
-    float: left;
-}
-#oneIn{
-     
-    background: white;
-    float: left;
-}
-#two{
-   
-    margin: 0;
-    float: left;
-}
-#twoIn{
-    
-    background: white;
-    margin: 0 auto;
-}
-#three{
-    
-    margin: 0;
-    float: left;
-}
-#threeIn{
-     
-    background: white;
-    float: right;
-}
-		
+				
 		
 		
 		div.tab {
@@ -1411,22 +1381,10 @@ span {
 	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
 	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
 
-		
-  <div id="one">
-        <div id="oneIn">
-           <button  class='btn1' onclick='calAdd();'><img src='cal1.png' > <span class="caption">Add to Calendar</span></button>
-        </div>
-    </div>
-    <div id="two">
-      <button class='btn1' onclick='share();'><img src='share1.png'> <span class="caption">Share</span></button>
-       
-        </div>
-    </div>
-    <div id="three">
-        <div id="threeIn">
-        <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'> <span class="caption">Download</span></button.
-        </div>
-    </div>
+<div style="width: 200px; float: left; text-align: left;"> <button  class='btn1' onclick='calAdd();'><img src='cal1.png' > <span class="caption">Add to Calendar</span></button></div>
+<div style="width: 200px; float: right; text-align: left;"><button class='btn1' onclick='share();'><img src='share1.png'> <span class="caption">Share</span></button>    </div>
+<div style="width: 200px; margin-left: auto; margin-right: auto; text-align: left;">  <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'> <span class="caption">Download</span></button></div>
+
 		
 		
 		
