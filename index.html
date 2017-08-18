@@ -864,7 +864,9 @@ for (var i = 0, len = events.length; i < len; i++)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-			 
+			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+			
 	//	evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> &nbsp;&nbsp;"+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
@@ -890,7 +892,7 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
-	//alert(calEvt);
+	alert(calEvt);
 }
 	
 	
