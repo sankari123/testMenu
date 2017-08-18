@@ -806,7 +806,7 @@ function openCity(evt, cityName) {
 		
 	}
 	document.getElementById("defaultOpen").click();
-
+var caladdEvt='';
 var calEvt1=[];
 var calEvtDetails1=[];
 function eventList(eVal)
@@ -864,8 +864,8 @@ for (var i = 0, len = events.length; i < len; i++)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
-			calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+			caladdEvt = caladdEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			//calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 			
 	//	evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
@@ -875,7 +875,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			//calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
 			
-	ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+	ev_lst+=	"<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
