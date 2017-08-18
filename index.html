@@ -890,6 +890,7 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
+	alert(calEvt);
 }
 	
 	
@@ -905,37 +906,6 @@ function eventChecking()
 	}
 
 	
-function calAdd()
-	
-{
-	
-	calEvt1=calEvt.split('&');
-	 calEvtDetails1=calEvtDetails.split('%');
-	 alert(calEvt1[i]);
-	 
-	for (var i = 0; i <calEvt.length; i++) {
-	// Start date and time of the event
-  var startDate = new Date(calEvt1[i]);
-  // End date and time of the event 
-  var endDate = new Date(calEvt1[i]);
-  // Title of the event 
-  var title = "Madras Music Miscellany";
-  // Location of the event 
-  var location = "Chennai";
-  // Description about the event 
-  var notes = calEvtDetails1[i];
-   
-	
-	 window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
-	}
-}
-	
-var calsuccess = function(message) {
-    navigatore.notification.alert("Event added successfully.");
-  };
-  var calerror = function(message) { 
-    navigatore.notification.alert("Error occurred while adding the event.");
-  };
 		
 </script>
 	<style type="text/css">
