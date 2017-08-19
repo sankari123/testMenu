@@ -919,12 +919,7 @@ function eventChecking()
 	}
 
 	
-var calsuccess = function(message) {
-    navigatore.notification.alert("Event added successfully.");
-  };
-  var calerror = function(message) { 
-    navigatore.notification.alert("Error occurred while adding the event.");
-  };
+ 
 
 function calAdd()
 	
@@ -947,23 +942,23 @@ function calAdd()
   var location = "Chennai";
   // Description about the event 
   var notes = calEvtDetails1[i];
+
+var calsuccess = function(message) {
+    navigatore.notification.alert("Event added successfully.");
+  };
+  var calerror = function(message) { 
+    navigatore.notification.alert("Error occurred while adding the event.");
+  };
  //alert(startDate);
 	//	alert(endDate);
 	//	alert(notes);
     window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+  
 	}
 }	
 	
 
-function calsuccess(message)
-{
-  navigatore.notification.alert("Event added successfully.");
- }
-	
-function calerror(message)
-{
-  navigatore.notification.alert("Error occurred while adding the event.");
- }
+
 </script>
 	<style type="text/css">
 		body, html {
