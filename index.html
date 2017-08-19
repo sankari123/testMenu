@@ -1047,20 +1047,33 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		display:none;
 		 
 		}
-#dl_btn
-	{
-		
-		  
-		 
-	vertical-align: top;  
-  display: inline-block;  
-    text-align: center;  
-
-/*    width: 120px; */
-		}
-		
-		.caption {
+.dl_btn a {
+    display: inline-block;
+    vertical-align: top; /* Adjust if multi-line text */
+    margin: 10px;
+    padding: 5px;
+    width: 120px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+.dl_btn a img {
     display: block;
+    margin: auto;
+    border: 0;
+}
+.dl_btn a span {
+    display: block;
+}
+.dl_btn a:hover {
+  /*  background: rgba(0,0,0,.3);*/
+}
+
+/* The following is just coloring and faux images */
+
+.dl_btn {
+    width: 100%;
+     background:#f3f3f3;
 }
 
 				
@@ -1350,18 +1363,28 @@ span {
 				
 	</div>
 	
-	<div id='dl_btn'>
-		 
-	<!--	 <input type="button" id="exportpdf" value="Download PDF">-->
-	<!--<a href="#" onClick ="$('#test').tableExport({type:'pdf',escape:'false'});">Download</a>-->
-
-<div style="width: 40px; float: left; text-align: left;"> <button  class='btn1' onclick='calAdd();'><img src='cal1.png' > <span class="caption">Add to Calendar</span></button></div>
-<div style="width: 40px; float: right; text-align: left;"><button class='btn1' onclick='share();'><img src='share1.png'> <span class="caption">Share</span></button>    </div>
-<div style="width: 40px; margin-left: auto; margin-right: auto; text-align: left;">  <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'> <span class="caption">Download</span></button></div>
-
-		
-	</div>
-	
+	<div class="dl_btn">
+    <a href="javascript:calAdd();">
+        <img alt="" src="cal1.png" />
+        <span>Add to Calendar</span>
+    </a>
+     <a href="javascript:share();">
+       <img src='share1.png'>
+        <span>Share</span>
+    </a>
+    <a href="javascript:printData();">
+        <img src='pdf.png'>
+        <span>Download</span>
+    </a>
+<!--    <a href="#">
+        <img alt="" src="" />
+        <span>Short text</span>
+    </a>
+    <a href="#">
+        <img alt="" src="" />
+        <span>Image text here</span>
+    </a>-->
+</div>
 	<div id='xPort' >     </div>
 
 		<div id='dl_btn1'></div>
