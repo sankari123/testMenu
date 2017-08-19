@@ -813,7 +813,8 @@ var calEvtDetails1=[];
 function eventList(eVal)
 {
 //alert('eval'+eVal);
-
+calEvt='';
+	calEvtDetails='';
 document.getElementById("xPort").style.display="block";
 document.getElementById("xPort").style.visibility="true";
 	document.getElementById("xPort1").style.display="block";
@@ -895,6 +896,7 @@ for (var i = 0, len = events.length; i < len; i++)
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
 	calEvt = calEvt.replace('undefined','');
 	document.getElementById('rest1').value=calEvt;
+	calEvtDetails=calEvtDetails.replace('undefined','');
 	//alert(calEvt);
 }
 	
