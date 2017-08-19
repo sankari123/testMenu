@@ -929,7 +929,7 @@ function calAdd()
 	 calEvtDetails1=calEvtDetails.split('%');
 	 
 	 
-	for (var i = 0; i <calEvt1.length; i++) {
+	for (var i = 0; i <calEvt1.length-1; i++) {
 	//	alert(calEvt1[i]);
 	// Start date and time of the event
   var startDate = new Date(calEvt1[i]);
@@ -945,7 +945,7 @@ function calAdd()
 	alert(startDate);
 		alert(endDate);
 		alert(notes);
-    	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+    window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
 	}
 }	
 		
