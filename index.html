@@ -920,12 +920,14 @@ function calAdd()
 	
 {
 	
+	calEvt = calEvt.replace('undefined','');
+	document.getElementById('rest1').value=calEvt;
 	calEvt1=calEvt.split('&');
 	 calEvtDetails1=calEvtDetails.split('%');
 	 
 	 
 	for (var i = 0; i <calEvt1.length; i++) {
-		alert(calEvt1[i]);
+	//	alert(calEvt1[i]);
 	// Start date and time of the event
   var startDate = new Date(calEvt1[i]);
   // End date and time of the event 
@@ -937,7 +939,7 @@ function calAdd()
   // Description about the event 
   var notes = calEvtDetails1[i];
    
-	alert(startDate);
+	//alert(startDate);
     	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
 	}
 }	
@@ -1424,8 +1426,8 @@ span {
 				</form>
 			</div>
 	 
-<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea>
-	
+<!--<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea>-->
+<textarea id="rest1"   rows=15 cols=40></textarea>	
 <div id='xPort1' style="display:none;">     </div>
 	
 </body>
