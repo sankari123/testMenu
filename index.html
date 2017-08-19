@@ -875,15 +875,15 @@ for (var i = 0, len = events.length; i < len; i++)
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";
 			//calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
-			
+			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+		calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
 	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
-		//	calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
-		//	calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+		
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
 		//alert('evlst'+ev_lst);	
 		}
@@ -916,7 +916,31 @@ var calsuccess = function(message) {
     navigatore.notification.alert("Error occurred while adding the event.");
   };
 
+function calAdd()
 	
+{
+	
+	calEvt1=calEvt.split('&');
+	 calEvtDetails1=calEvtDetails.split('%');
+	 
+	 
+	for (var i = 0; i <calEvt1.length; i++) {
+		alert(calEvt1[i]);
+	// Start date and time of the event
+  var startDate = new Date(calEvt1[i]);
+  // End date and time of the event 
+  var endDate = new Date(calEvt1[i]);
+  // Title of the event 
+  var title = "Madras Music Miscellany";
+  // Location of the event 
+  var location = "Chennai";
+  // Description about the event 
+  var notes = calEvtDetails1[i];
+   
+	alert(startDate);
+    	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+	}
+}	
 		
 </script>
 	<style type="text/css">
@@ -1363,15 +1387,15 @@ span {
 	<div class="dl_btn" id=dl_btn>
     <a href="javascript:calAdd();">
         <img alt="" src="cal1.png" />
-        <span style="color:blue;width:27px;"> Calendar</span>
+        <span style="font-size: 10px;width:27px;"> Add to Calendar</span>
     </a>
      <a href="javascript:share();">
        <img src='share1.png'>
-        <span style="color:blue;width:27px;">Share</span>
+        <span style="font-size: 10px;width:27px;">Share</span>
     </a>
     <a href="javascript:printData();">
         <img src='pdf.png'>
-        <span style="color:blue;width:27px;">Download</span>
+        <span style="font-size: 10px;width:27px;">Download</span>
     </a>
 <!--    <a href="#">
         <img alt="" src="" />
