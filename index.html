@@ -51,7 +51,8 @@ function myMap(position) {
  }
 function onDeviceReady(){
 	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
-	
+	document.getElementById("dl_btn").style.display="none";
+	document.getElementById("dl_btn").style.visibility="false";
 	checkConnection();
 	document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
@@ -1050,10 +1051,10 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	{
 		
 		  
-		display:none;	
-	/*	vertical-align: top; */
-   /* display: inline-block; */
-  /*  text-align: center; */
+		 
+	vertical-align: top;  
+  display: inline-block;  
+    text-align: center;  
 
 /*    width: 120px; */
 		}
