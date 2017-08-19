@@ -906,31 +906,7 @@ function eventChecking()
 	
 	
 	}
-function calAdd()
-	
-{
-	
-	calEvt1=calEvt.split('&');
-	 calEvtDetails1=calEvtDetails.split('%');
-	 
-	 
-	for (var i = 0; i <calEvt1.length; i++) {
-		alert(calEvt1[i]);
-	// Start date and time of the event
-  var startDate = new Date(calEvt1[i]);
-  // End date and time of the event 
-  var endDate = new Date(calEvt1[i]);
-  // Title of the event 
-  var title = "Madras Music Miscellany";
-  // Location of the event 
-  var location = "Chennai";
-  // Description about the event 
-  var notes = calEvtDetails1[i];
-   
-	alert(startDate);
-    	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
-	}
-}
+
 	
 var calsuccess = function(message) {
     navigatore.notification.alert("Event added successfully.");
@@ -1382,9 +1358,6 @@ span {
 <div style="width: 40px; float: right; text-align: left;"><button class='btn1' onclick='share();'><img src='share1.png'> <span class="caption">Share</span></button>    </div>
 <div style="width: 40px; margin-left: auto; margin-right: auto; text-align: left;">  <button id="exportpdf" class='btn1' onclick='printData();'><img src='pdf.png'> <span class="caption">Download</span></button></div>
 
-		
-		
-		
 		
 	</div>
 	
