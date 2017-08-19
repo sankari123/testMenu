@@ -875,7 +875,7 @@ for (var i = 0, len = events.length; i < len; i++)
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";
 			//calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
-			calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvt+=events[i][3]+' '+events[i][1]+" "+events[i][2]+'&';
 		calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
@@ -940,7 +940,9 @@ function calAdd()
   // Description about the event 
   var notes = calEvtDetails1[i];
    
-	//alert(startDate);
+	alert(startDate);
+		alert(endDate);
+		alert(notes);
     	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
 	}
 }	
