@@ -700,7 +700,7 @@ function ven_det(v)
 		ev_lst+="<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 	ev_lst+=events[i][6]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
+	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 		
 		
 //	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
@@ -883,7 +883,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
+	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 		
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
 		//alert('evlst'+ev_lst);	
@@ -943,17 +943,17 @@ function calAdd()
   // Description about the event 
   var notes = calEvtDetails1[i];
 
-var calsuccess = function(message) {
+
+ //alert(startDate);
+	//	alert(endDate);
+	//	alert(notes);
+    window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+  var calsuccess = function(message) {
     navigatore.notification.alert("Event added successfully.");
   };
   var calerror = function(message) { 
     navigatore.notification.alert("Error occurred while adding the event.");
   };
- //alert(startDate);
-	//	alert(endDate);
-	//	alert(notes);
-    window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
-  
 	}
 }	
 	
@@ -1093,7 +1093,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     vertical-align: top; /* Adjust if multi-line text */
     width: 70px;
     margin: 1px;
-    padding: 3px;
+    padding: 5px;
     color: #333;
     text-align: center;
     text-decoration: none;
