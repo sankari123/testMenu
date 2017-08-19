@@ -1098,35 +1098,16 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		display:none;
 		 
 		}
-.dl_btn a {
-    display: inline-block;
-    vertical-align: top; /* Adjust if multi-line text */
-    width: 70px;
-    margin: 1px;
-    padding: 5px;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
+ 
+ .img-with-text {
+    text-align: justify;
+    width: 27px;
 }
-.dl_btn a img {
+
+.img-with-text img {
     display: block;
-    margin: auto;
-    border: 0;
+    margin: 0 auto;
 }
-.dl_btn a span {
-    display: block;
-}
-.dl_btn a:hover {
-  /*  background: rgba(0,0,0,.3);*/
-}
-
-/* The following is just coloring and faux images */
-
-.dl_btn {
-    width: 100% !important;
-     background:#f3f3f3;
-}
-
 				
 		div.tab {
     overflow: hidden;
@@ -1412,27 +1393,17 @@ span {
 				
 	</div>
 	
-	<div class="dl_btn" id=dl_btn>
-    <a href="javascript:calAdd();">
-        <img alt="" src="cal1.png" />
-        <span style="font-size: 12px;">Calendar</span>
-    </a>
-     <a href="javascript:share();">
-       <img src='share1.png'>
-        <span style="font-size: 12px;">Share</span>
-    </a>
-    <a href="javascript:printData();">
+<div id=dl_btn>
+
+<div style="width: 33%; float: left; text-align: justify;width: 27px;"> <a href="javascript:calAdd();">
+        <img src='cal1.png'>
+    <p>Calendar</p></a></div>
+<div style="width: 33%; float: right; text-align: justify;width: 27px;"> <a href="javascript:share();">
+        <img src='share1.png'>
+    <p>Share</p></a></div>
+<div style="width: 33%; margin-left: auto; margin-right: auto;text-align: justify;width: 27px;"> <a href="javascript:calAdd();">
         <img src='pdf.png'>
-        <span style="font-size: 12px;">Download</span>
-    </a>
-<!--    <a href="#">
-        <img alt="" src="" />
-        <span>Short text</span>
-    </a>
-    <a href="#">
-        <img alt="" src="" />
-        <span>Image text here</span>
-    </a>-->
+    <p>Download</p></a></div>
 </div>
 	<div id='xPort' >     </div>
 
