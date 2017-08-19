@@ -655,6 +655,7 @@ function calClick()
          });
 	}
 var table_string;
+	
 function ven_det(v)
 {
 	
@@ -672,7 +673,7 @@ function ven_det(v)
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
 	
-	// document.getElementById('xPort').innerHTML='' ;
+	document.getElementById('xPort').innerHTML='' ;
 	
 	
 	var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
@@ -695,7 +696,7 @@ function ven_det(v)
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 	
-		ev_lst+=	"<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+		ev_lst+="<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 	ev_lst+=events[i][6]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
 	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
@@ -823,7 +824,7 @@ document.getElementById("dl_btn").style.display="block";
 document.getElementById("dl_btn").style.visibility="true";
 document.getElementById("category").style.display="none";
 document.getElementById("category").style.visibility="false";
-// document.getElementById('xPort').innerHTML='' ;
+document.getElementById('xPort').innerHTML='' ;
 var catSel;
 
 if(eVal=='1' || eVal==1)
@@ -926,7 +927,7 @@ function calAdd()
   // Description about the event 
   var notes = calEvtDetails1[i];
    
-	
+	alert(startDate);
     	// window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
 	}
 }
