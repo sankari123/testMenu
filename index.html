@@ -893,6 +893,8 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
+	calEvt = calEvt.replace('undefined','');
+	document.getElementById('rest1').value=calEvt;
 	//alert(calEvt);
 }
 	
@@ -920,8 +922,7 @@ function calAdd()
 	
 {
 	
-	calEvt = calEvt.replace('undefined','');
-	document.getElementById('rest1').value=calEvt;
+	
 	calEvt1=calEvt.split('&');
 	 calEvtDetails1=calEvtDetails.split('%');
 	 
