@@ -50,7 +50,7 @@ function myMap(position) {
         y = position.coords.longitude;
  }
 function onDeviceReady(){
-	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	checkConnection();
@@ -339,7 +339,7 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn1").style.visibility="true";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
-	//window.plugins.spinnerDialog.hide();		
+	window.plugins.spinnerDialog.hide();		
 var theevent = "";
 var floater = 0;
 	 
@@ -402,7 +402,7 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	//window.plugins.spinnerDialog.hide();
+	window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
@@ -696,12 +696,11 @@ function ven_det(v)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-	        calEvt+=events[i][3]+' '+events[i][1]+" "+events[i][2]+'&';
-		calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+	
 		ev_lst+="<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 	ev_lst+=events[i][6]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
+	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
 		
 		
 //	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
@@ -714,16 +713,7 @@ function ven_det(v)
 	}
 	// table_string=evt_lst;
  document.getElementById('xPort').innerHTML=ev_lst+"</table>" ;
-	 
-	calEvt = calEvt.replace('undefined','');
-	 
-	calEvtDetails=calEvtDetails.replace('undefined','');
 	
-	if(k>0)
-	{
-	document.getElementById("dl_btn").style.display="none";
-	document.getElementById("dl_btn").style.visibility="false";
-	}
 
  }
 //alert('venue '+v);
@@ -823,12 +813,11 @@ var calEvtDetails1=[];
 function eventList(eVal)
 {
 //alert('eval'+eVal);
-calEvt='';
-	calEvtDetails='';
+
 document.getElementById("xPort").style.display="block";
 document.getElementById("xPort").style.visibility="true";
-document.getElementById("xPort1").style.display="block";
-document.getElementById("xPort1").style.visibility="true";
+	document.getElementById("xPort1").style.display="block";
+	document.getElementById("xPort1").style.visibility="true";
 	
 document.getElementById("lst_mnu").style.display="none";
 document.getElementById("lst_mnu").style.visibility="false";
@@ -859,7 +848,7 @@ catSel='Harikatha';
 catSel='Meetup';
 	//alert(catSel.length);
 }
-x=0;
+
 //alert(catSel);
 	var ev_lst='';
 var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
@@ -878,7 +867,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 		//	calEvt = caladdEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
 			//calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
-			x=1;
+			
 	//	evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
 	//	evt_lst+="<tr valign='top' height='25px'><td> &nbsp;&nbsp;"+events[i][2]+"."+events[i][1]+"."+events[i][3]+"</td><td rowspan=2>"+events[i][5]+"</td><td>"+"<b>"+events[i][8]+"</b></td></tr>";	
@@ -886,15 +875,15 @@ for (var i = 0, len = events.length; i < len; i++)
 	//	evt_lst+="<tr valign='top' height='25px'><td> "+timeString+"</td><td>"+events[i][7]+"</td></tr>";
 			//calArray+=events[i][3]+'/' +events[i][1]+"/"+events[i][2]+'&';
 		//	calArrayDetails+=events[i][5]+'-'+events[i][8]+'-'+'%';
-			calEvt+=events[i][3]+' '+events[i][1]+" "+events[i][2]+'&';
-		calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
+			
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
-		
+	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
+		//	calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+		//	calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
 		//alert('evlst'+ev_lst);	
 		}
@@ -904,15 +893,6 @@ for (var i = 0, len = events.length; i < len; i++)
 //	alert('evlst'+ev_lst);
 	ev_lst = ev_lst.replace('undefined','');
 	document.getElementById('xPort').innerHTML=ev_lst +"<table>";
-	calEvt = calEvt.replace('undefined','');
-	//document.getElementById('rest1').value=calEvt;
-	calEvtDetails=calEvtDetails.replace('undefined','');
-	
-	if(x==0)
-	{
-	document.getElementById("dl_btn").style.display="none";
-	document.getElementById("dl_btn").style.visibility="false";
-	}
 	//alert(calEvt);
 }
 	
@@ -929,98 +909,79 @@ function eventChecking()
 	}
 
 	
- 
-
-function calAdd()
-	
-{
-	
-	
-	calEvt1=calEvt.split('&');
-	 calEvtDetails1=calEvtDetails.split('%');
-	 
-	 
-	for (var i = 0; i <calEvt1.length-1; i++) {
-	//	alert(calEvt1[i]);
-	// Start date and time of the event
-  var startDate = new Date(calEvt1[i]);
-  // End date and time of the event 
-  var endDate = new Date(calEvt1[i]);
-  // Title of the event 
-  var title = "Madras Music Miscellany";
-  // Location of the event 
-  var location = "Chennai";
-  // Description about the event 
-  var notes = calEvtDetails1[i];
-
-
- //alert(startDate);
-	//	alert(endDate);
-	//	alert(notes);
-    window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error)
-  var success = function(message) {
+var calsuccess = function(message) {
     navigatore.notification.alert("Event added successfully.");
   };
-  var error = function(message) { 
+  var calerror = function(message) { 
     navigatore.notification.alert("Error occurred while adding the event.");
   };
-	}
-}	
+
+function calsuccess(message)
+{
+  navigatore.notification.alert("Event added successfully.");
+ }
 	
-
-
+function calerror(message)
+{
+  navigatore.notification.alert("Error occurred while adding the event.");
+ }	
+		
 </script>
-<style type="text/css">
-body, html {
+	<style type="text/css">
+		body, html {
     width: 100%; !important;
     height: 100vh;
     margin: 0;
     padding: 0;
-background_color: #fafbfc;
     
 }
 
 .names { font-weight: bold; 
-	text-align:left;}
-.ven_cal
-	{
-	 width: 100vw;
-	font-size: 8pt;
-	background-color: #eeedf0;
-        border-color: #eeedf0;
-	border-collapse:separate;
+		text-align:left;}
+
+		.ven_cal
+		{
+		 width: 100vw;
+		font-size: 8pt;
+			background-color: #eeedf0;
+    border-color: #eeedf0;
+	  border-collapse:separate;
  
 /*    border-radius:6px;*/
   /*  -moz-border-radius:6px;*/
-}
+		}
 		
-.ven
-	{
-	width: 100vw;
-`	text-align:center; 	
+		
+		.ven
+		{
+	
+			width: 100vw;
+		  text-align:center; 	
 /*			border-style: solid;*/
   /*  border-color: black;*/
-}
-.ven1
-	{
-	 width: 100vw;
-	font-size: 11pt;
-	border-collapse:separate;
+		}
+		.ven1
+		{
+		 width: 100vw;
+		font-size: 11pt;
+			 
+	  border-collapse:separate;
 /*   padding-left:6px;*/
 /*    border-radius:6px;*/
   /*  -moz-border-radius:6px;*/
-}
-.ven2
-	{
-	width: 100vw;
-	border-style: solid;
-	font-size: 9pt;
+		}
+	.ven2
+		{
+		 width: 100vw;
+			  
+			border-style: solid;
+			font-size: 9pt;
  */   border-color: black;*/
 	  border-collapse:separate;
    */ border:solid black 1px;*/
     border-radius:6px;
     -moz-border-radius:6px;
-}	
+		}	
 .hideDontTakeUpSpace
         {
             display:none;
@@ -1028,8 +989,7 @@ background_color: #fafbfc;
 
 .btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white; text-decoration:underline;
     display:inline-block;}
-.btnpdf {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black; text-decoration:underline;
-    display:inline-block;}		
+		
 		
 .btn2 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black;}
 button:focus {outline:none;} ::-moz-focus-inner {border:0;}
@@ -1077,40 +1037,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     max-width: 400px;
     width: 100% !important;
   }
-		
-		.dl_btn a {
-    display: inline-block;
-    vertical-align: top; /* Adjust if multi-line text */
-    margin: 1px;
-    padding: 6px;
-    width: 90px;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
-}
-.dl_btn a img {
-    display: block;
-    margin: auto;
-    border: 0;
-}
-.dl_btn a span {
-    display: inline-block;
-    font-size:9pt;
-/*	display: inline-block;
-  vertical-align: middle;
-  margin-left: 60px; */
-}
-.dl_btn a:hover {
-  /*  background: rgba(0,0,0,.3);*/
-}
-
-/* The following is just coloring and faux images */
-
-.dl_btn {
-    width: 100vw;
-     background-color:#f3f3f3;
-}
-#xPort
+		#xPort
 	{
 		
 		max-width: 400px;
@@ -1122,22 +1049,40 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	/*	font-size: 9pt;*/
 	/*	font: normal 12pt "Sans Serif";  */
 		}
-#xPort1
+			#xPort1
 	{
 		
 		display:none;
 		 
 		}
- 
- .img-with-text {
-    text-align: justify;
-    width: 27px;
+.dl_btn a {
+    display: inline-block;
+    vertical-align: top; /* Adjust if multi-line text */
+    margin: 1px;
+    padding: 5px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+.dl_btn a img {
+    display: block;
+    margin: auto;
+    border: 0;
+}
+.dl_btn a span {
+    display: block;
+}
+.dl_btn a:hover {
+  /*  background: rgba(0,0,0,.3);*/
 }
 
-.img-with-text img {
-    display: block;
-    margin: 0 auto;
+/* The following is just coloring and faux images */
+
+.dl_btn {
+    width: 100% !important;
+     background:#f3f3f3;
 }
+
 				
 		div.tab {
     overflow: hidden;
@@ -1257,7 +1202,7 @@ display	: none;
 	
 		@media screen and (min-width: 100px) and (max-width: 199px)
 {
-.button
+    .button
     {
         width: 25px;
     }
@@ -1345,7 +1290,7 @@ span {
 	
 </head>
 
-<body onload='init();'> 
+<body style="background-color: transparent;" onload='init();'> 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	
 	
@@ -1404,7 +1349,7 @@ span {
 		</table>
 			   
 	</div>
-
+	
 	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 			<td style="padding: 3px;" align="center" valign="top" width="314">
 				<div id="calendar"><!--  Dynamically Filled --></div>
@@ -1423,21 +1368,28 @@ span {
 				
 	</div>
 	
-<div class="dl_btn">
+	<div class="dl_btn" id=dl_btn>
     <a href="javascript:calAdd();">
         <img alt="" src="cal1.png" />
-        <span>Add to Calendar</span>
+        <span style="color:blue;width:27px;"> Calendar</span>
     </a>
      <a href="javascript:share();">
        <img src='share1.png'>
-        <span>Share</span>
+        <span style="color:blue;width:27px;">Share</span>
     </a>
     <a href="javascript:printData();">
         <img src='pdf.png'>
-        <span>Download</span>
+        <span style="color:blue;width:27px;">Download</span>
     </a>
-	
-	</div>
+<!--    <a href="#">
+        <img alt="" src="" />
+        <span>Short text</span>
+    </a>
+    <a href="#">
+        <img alt="" src="" />
+        <span>Image text here</span>
+    </a>-->
+</div>
 	<div id='xPort' >     </div>
 
 		<div id='dl_btn1'></div>
@@ -1456,8 +1408,8 @@ span {
 				</form>
 			</div>
 	 
-<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea> 
-<!--<textarea id="rest1"   rows=15 cols=40></textarea>-->	
+<textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea>
+	
 <div id='xPort1' style="display:none;">     </div>
 	
 </body>
