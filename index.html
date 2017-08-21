@@ -1083,12 +1083,35 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100% !important;
   }
 		
-		#dl_btn
-		{
-		 max-width: 400px;
-		width: 100vw !important;
-		background-color:#f3f3f3;
-		}
+		.dl_btn a {
+    display: inline-block;
+    vertical-align: top; /* Adjust if multi-line text */
+    margin: 1px;
+    padding: 6px;
+    width: 90px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+.dl_btn a img {
+    display: block;
+    margin: auto;
+    border: 0;
+}
+.dl_btn a span {
+    display: block;
+	font-size:11pt;
+}
+.dl_btn a:hover {
+  /*  background: rgba(0,0,0,.3);*/
+}
+
+/* The following is just coloring and faux images */
+
+.dl_btn {
+    width: 100vw;
+     background:#f3f3f3;
+}
 		#xPort
 	{
 		
