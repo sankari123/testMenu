@@ -1094,8 +1094,11 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     border: 0;
 }
 .dl_btn a span {
-    display: block;
-	font-size:11pt;
+    display: inline-block;
+    font-size:9pt;
+/*	display: inline-block;
+  vertical-align: middle;
+  margin-left: 60px; */
 }
 .dl_btn a:hover {
   /*  background: rgba(0,0,0,.3);*/
@@ -1107,7 +1110,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
     width: 100vw;
      background-color:#f3f3f3;
 }
-		#xPort
+#xPort
 	{
 		
 		max-width: 400px;
@@ -1119,7 +1122,7 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 	/*	font-size: 9pt;*/
 	/*	font: normal 12pt "Sans Serif";  */
 		}
-			#xPort1
+#xPort1
 	{
 		
 		display:none;
@@ -1254,7 +1257,7 @@ display	: none;
 	
 		@media screen and (min-width: 100px) and (max-width: 199px)
 {
-    .button
+.button
     {
         width: 25px;
     }
@@ -1420,18 +1423,21 @@ span {
 				
 	</div>
 	
-<div id=dl_btn align='center'>
-
-<div style=" float: left; text-align: justify;width: 27px;> <a  style="color: #000000; text-decoration: none;"  href="javascript:calAdd();">
-        <img src='cal1.png'>
-    <p>Calendar</p></a></div>
-<div style="float: right; text-align: justify;width: 27px;"> <a   style="color: #000000; text-decoration: none;"  href="javascript:share();">
-        <img src='share1.png'>
-    <p>Share</p></a></div>
-<div style="margin-left: auto; margin-right: auto;text-align: justify;width: 27px;"> <a  style="color: #000000; text-decoration: none;"  href="javascript:printData();">
+<div class="dl_btn">
+    <a href="javascript:calAdd();">
+        <img alt="" src="cal1.png" />
+        <span>Add to Calendar</span>
+    </a>
+     <a href="javascript:share();">
+       <img src='share1.png'>
+        <span>Share</span>
+    </a>
+    <a href="javascript:printData();">
         <img src='pdf.png'>
-    <p>Download</p></a></div>
-</div>
+        <span>Download</span>
+    </a>
+	
+	</div>
 	<div id='xPort' >     </div>
 
 		<div id='dl_btn1'></div>
