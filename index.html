@@ -1033,7 +1033,8 @@ background_color: #fafbfc;
 
 .btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white; text-decoration:underline;
     display:inline-block;}
-		
+.btnpdf {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black; text-decoration:underline;
+    display:inline-block;}		
 		
 .btn2 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black;}
 button:focus {outline:none;} ::-moz-focus-inner {border:0;}
@@ -1402,13 +1403,13 @@ span {
 	
 <div id=dl_btn>
 
-<div style="float: left; text-align: justify;width: 27px;"> <button  class='btn1' onclick='calAdd();'>
+<div style="float: left; text-align: justify;width: 27px;"> <button  class='btnpdf' onclick='calAdd();'>
         <img src='cal1.png'>
     <p>Calendar</p></button></div>
-<div style="float: right; text-align: justify;width: 27px;"> <button class='btn1' onclick='share();'>
+<div style="float: right; text-align: justify;width: 27px;"> <button class='btnpdf' onclick='share();'>
         <img src='share1.png'>
     <p>Share</p></button></div>
-<div style="margin-left: auto; margin-right: auto;text-align: justify;width: 27px;"> <button id="exportpdf" class='btn1' onclick='printData();'>
+<div style="margin-left: auto; margin-right: auto;text-align: justify;width: 27px;"> <button id="exportpdf" class='btnpdf' onclick='printData();'>
         <img src='pdf.png'>
     <p>Download</p></button></div>
 </div>
