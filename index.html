@@ -687,7 +687,7 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			ev_lst+="<tr height='100px'><td colspan=3 align='center'><font size=3>"+v+"- Schedule</font></td></tr>";
+			ev_lst+="<tr height='90px'><td colspan=3 align='center'><font size=3>"+v+"- Schedule</font></td></tr>";
 		}
 		k++;
 		hours=String(events[i][4]);
@@ -697,10 +697,10 @@ function ven_det(v)
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 	
-		ev_lst+="<tr align='center' height=100px><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+		ev_lst+="<tr align='center'><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 	ev_lst+=events[i][6]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
+	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 		
 		
 //	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
@@ -881,7 +881,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<br><hr size=2></td></tr>';
+	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 		//	calEvt+=events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
 		//	calEvtDetails+=events[i][5]+'  '+events[i][8]+'%';
 	//  ev_lst+=events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+'<br>'+events[i][5]+'<br>'+ events[i][8]+'<br>'+events[i][7]+'<br><hr size=2>';
@@ -1065,7 +1065,7 @@ div#images{
 div#images div{
   border:0px solid white;
   display:inline-block;
-  width:60px;
+  width:100px;
 }	
 div#images p{
 font-size:10pt;
