@@ -868,8 +868,8 @@ for (var i = 0, len = events.length; i < len; i++)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-		//	calEvt = caladdEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
-			//calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
+		calEvt = caladdEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
 			
 	//	evt_lst+="<tr valign='top' height='100px'><td> "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+'<br>'+timeString +"</td><td>&nbsp;&nbsp;"+events[i][5]+"</td><td>&nbsp;&nbsp;"+"<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
 			
@@ -912,22 +912,41 @@ function eventChecking()
 	}
 
 	
-var calsuccess = function(message) {
+function calAdd()
+	
+{
+	
+	
+	calEvt1=calEvt.split('&');
+	 calEvtDetails1=calEvtDetails.split('%');
+	 
+	 
+	for (var i = 0; i <calEvt1.length-1; i++) {
+	//	alert(calEvt1[i]);
+	// Start date and time of the event
+  var startDate = new Date(calEvt1[i]);
+  // End date and time of the event 
+  var endDate = new Date(calEvt1[i]);
+  // Title of the event 
+  var title = "Madras Music Miscellany";
+  // Location of the event 
+  var location = "Chennai";
+  // Description about the event 
+  var notes = calEvtDetails1[i];
+
+
+ //alert(startDate);
+	//	alert(endDate);
+	//	alert(notes);
+    window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
+  var calsuccess = function(message) {
     navigatore.notification.alert("Event added successfully.");
   };
   var calerror = function(message) { 
     navigatore.notification.alert("Error occurred while adding the event.");
   };
-
-function calsuccess(message)
-{
-  navigatore.notification.alert("Event added successfully.");
- }
-	
-function calerror(message)
-{
-  navigatore.notification.alert("Error occurred while adding the event.");
- }	
+	}
+}	
 		
 </script>
 	<style type="text/css">
