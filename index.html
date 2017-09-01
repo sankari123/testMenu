@@ -573,18 +573,21 @@ if(uniq[j]=='d')
 	//	alert('in');
 //	im_htm+="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
 	
-im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='#eeeded'> <table border='0' bgcolor='#eeeded' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr></table></td></tr>";
+//im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='#eeeded'> <table border='0' bgcolor='#eeeded' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni +">"+uniq[i]+"</button></td></tr></table></td></tr>";
+	im_htm+="<tr height='80px'> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni +">"+uniq[i]+"</button></td><td>&nbsp;</td> </tr>";
  }
 		else
 		{
 //		alert('out');
 	//		im_htm+="<font size=2><div class='left-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni +">"+uniq[i]+"</button></div>";
-im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='#eeeded'> <table border='1' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr></table></td>";	
+//im_htm+="<font size=2><tr height='80px' valign='top'><td width='50%' bordercolor='#eeeded'> <table border='1' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni+">"+uniq[i]+"</button></td></tr></table></td>";	
 
 			
 //			im_htm+="<font size=2><div class='right-div'><button onclick='ven_det(this.value);' style='display:none;' value="+ch_uni1 +">"+uniq[j]+"</button></div>";	
 			
-im_htm+="<font size=2><td width='50%' bordercolor='#eeeded'> <table border='1' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr></table></td></tr>";
+//im_htm+="<font size=2><td width='50%' bordercolor='#eeeded'> <table border='1' bordercolor='#eeeded' class='ven1' cellspacing='3' cellpadding='3'><tr height='80px'><td colspan='2' align='center' bgcolor='white' bordercolor='white'><button onclick='ven_det(this.value);' class='btn2' value="+ch_uni1+">"+uniq[j]+"</button></td></tr></table></td></tr>";
+			
+im_htm+="<tr height='80px'> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni +">"+uniq[i]+"</button></td> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni1+">"+uniq[j]+"</button></td> </tr>";
 }
 	 i=j;
 	
@@ -935,7 +938,15 @@ function calerror(message)
     padding: 0;
     
 }
-
+.btn24
+	
+	{
+	width:100%;
+	height:100%;
+	background-color:#f2f2f2; border:block; padding: 2;  display:inline-block; font-weight: bold; color: black;
+	border-radius:6px;
+    -moz-border-radius:6px;
+	}
 .names { font-weight: bold; 
 		text-align:left;}
 
