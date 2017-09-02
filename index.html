@@ -963,17 +963,12 @@ function share()
 	//printData();
 	//var shareCont=document.getElementById('xPort').innerHTML;
 	var message= $("#xPort").html();
-	message=message.replace("<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>",'Madras Music & Miscellany--');
-	message=message.replace('<tbody>','');
-	message=message.replace('</tbody>','');
-	message=message.replace('</table>','--End of Message--');
-	message=message.replace("<tr height='40px' bgcolor='white'>",'');
-	message=message.replace('</tr>','');
-	message=message.replace("<td colspan=3 align='center'><b>",'--');
-	message=message.replace('</td>','--');
-	message=message.replace('<hr size="2">','--');
-	message=message.replace('<br>','--');
-	message=message.replace("<tr align='center'>",'--');
+	var regex = /(<([^>]+)>)/ig;
+	  message = message.replace(regex, "");
+
+ 
+	
+	
 //	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany','Testing',null);
 //setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
 //window.plugins.socialsharing.share('Optional message',  'Optional title','default.pdf',null);	
