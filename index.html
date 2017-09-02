@@ -961,10 +961,12 @@ function calAdd()
 function share()
 {
 	//printData();
-	var shareCont=document.getElementById('xPort').innerHTML;
+	//var shareCont=document.getElementById('xPort').innerHTML;
+	var message= $("#xPort").html();
 	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany','Testing',null);
 //setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
 //window.plugins.socialsharing.share('Optional message',  'Optional title','default.pdf',null);	
+window.plugins.socialsharing.share(message); 
 }
 	
 function onSuccess()
