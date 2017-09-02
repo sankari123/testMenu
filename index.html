@@ -964,9 +964,9 @@ function share()
 	//var shareCont=document.getElementById('xPort').innerHTML;
 	var message= $("#xPort").html();
 	var regex = /(<([^>]+)>)/ig;
-	  message = message.replace(regex, "");
+	  message = message.replace(regex, " ");
 
-   message = message.replace('&nbsp;', " ");
+   message = message.replace(/&nbsp;/g,'');
 	
 	
 //	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany','Testing',null);
