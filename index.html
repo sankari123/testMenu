@@ -966,7 +966,7 @@ function share()
 	var regex = /(<([^>]+)>)/ig;
 	  message = message.replace(regex, "");
 
- 
+   message = message.replace('&nbsp;', " ");
 	
 	
 //	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany','Testing',null);
