@@ -699,6 +699,8 @@ function ven_det(v)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
+		calEvt = calEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
 	
 		ev_lst+="<tr align='center'><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 	ev_lst+=events[i][6]+'<br>'+'<br>';
@@ -715,6 +717,8 @@ function ven_det(v)
 		
 	}
 	// table_string=evt_lst;
+	 calEvt = calEvt.replace('undefined','');
+	calEvtDetails = calEvtDetails.replace('undefined','');
  document.getElementById('xPort').innerHTML=ev_lst+"</table>" ;
 	
 
@@ -950,7 +954,26 @@ function calAdd()
   };
 	}
 }	
-		
+
+	
+function share()
+{
+	var shareCont=document.getElementById('xPort').innerHTML;
+	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany',shareCont,null);
+//setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
+	
+}
+	
+function onSuccess()
+{
+navigator.notification.alert('Scehdule Shared Successfully...',  alertDismissed,   'Madras Music & Miscellany',   'OK');	
+}
+function onError()
+{
+	
+navigator.notification.alert('Share Failed...',  alertDismissed,   'Madras Music & Miscellany',   'OK');	
+}	
+	
 </script>
 	<style type="text/css">
 		body, html {
