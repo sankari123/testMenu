@@ -960,11 +960,11 @@ function calAdd()
 	
 function share()
 {
-	alert('in');
+	//printData();
 	var shareCont=document.getElementById('xPort').innerHTML;
-	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany',shareCont,null);
+	window.plugins.socialsharing.share('MMM','Madras Music & Miscellany','Testing',null);
 //setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
-	
+//window.plugins.socialsharing.share('Optional message',  'Optional title','default.pdf',null);	
 }
 	
 function onSuccess()
