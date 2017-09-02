@@ -20,11 +20,7 @@
 <script type="text/javascript" src="jspdf/libs/sprintf.js"></script>
 <script type="text/javascript" src="jspdf/jspdf.js"></script>
 <script type="text/javascript" src="jspdf/libs/base64.js"></script>
-<link rel="stylesheet" href="mocha.min.css">
-    <link rel="stylesheet" href="test.css">
-    <link rel="stylesheet" href="index.css">
-<!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
- <script src="slideout.js"></script>
+ 
 <script type="text/JavaScript" language="JavaScript">
 	
 	
@@ -57,21 +53,7 @@ function myMap(position) {
  }
 function onDeviceReady(){
 	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
-	window.onload = function() {
-        var slideout = new Slideout({
-          'panel': document.getElementById('panel'),
-          'menu': document.getElementById('menu'),
-          'side': 'right'
-        });
-
-        document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
-          slideout.toggle();
-        });
-
-        document.querySelector('.menu').addEventListener('click', function(eve) {
-          if (eve.target.nodeName === 'A') { slideout.close(); }
-        });
-      };
+	 
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	checkConnection();
@@ -1008,6 +990,14 @@ navigator.notification.alert('Share Failed...',  alertDismissed,   'Madras Music
 function alertDismissed() {
             // do
 			}	
+	
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 </script>
 	<style type="text/css">
 		body, html {
@@ -1015,6 +1005,7 @@ function alertDismissed() {
     height: 100vh;
     margin: 0;
     padding: 0;
+font-family: "Lato", sans-serif;
     
 }
       .slideout-menu { left: auto; }
@@ -1358,6 +1349,45 @@ span {
 /*	.ven1 tr:nth-child(odd) {
     background: silver;
 }*/
+
+		.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 		
 		
 	</style>
@@ -1366,37 +1396,24 @@ span {
 
 <body style="background-color: transparent;" onload='init();'> 
 	
-	
-	 <nav id="menu" class="menu">
-        <a href="https://github.com/mango/slideout" target="_blank">
-        <header class="menu-header">
-          <span class="menu-header-title">Tests</span>
-        </header>
-      </a>
-
- <section class="menu-section">
-        <h3 class="menu-section-title">Docs</h3>
-        <ul class="menu-section-list">
-          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
-          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
-          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
-          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
-        </ul>
-      </section>
-		 
-	</nav>
-	<main id="panel" class="panel">
- <section class="box">
- <div class="box-content">
+ 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	
 	
-	<tr height='70px' bgcolor="#ed7372"><td  align='center'><font face=arial><b>Madras Music & Miscellany</b></font></td></tr>
+	<tr height='70px' bgcolor="#ed7372"><td  align='center'><font face=arial>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span>
+		<b>Madras Music & Miscellany</b></font></td></tr>
 <!--	<tr> <td><button onclick="eventChecking();" >Test Events</button></td></tr>-->
 	</table>
 	
 	
-	
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>	
 		
 	 
 <table border="0"  bordercolor='#003c67' cellpadding="0" cellspacing="0" width="100%">
@@ -1500,8 +1517,5 @@ span {
 		
 			  
 			  
-			  </div>
-		</section>
-	</main>
 </body>
 </html>
