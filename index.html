@@ -20,10 +20,31 @@
 <script type="text/javascript" src="jspdf/libs/sprintf.js"></script>
 <script type="text/javascript" src="jspdf/jspdf.js"></script>
 <script type="text/javascript" src="jspdf/libs/base64.js"></script>
-
+<link rel="stylesheet" href="mocha.min.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="index.css">
 <!--<script language="JavaScript" type="text/javascript" src="events.js"></script>-->
 
 <script type="text/JavaScript" language="JavaScript">
+	
+	
+	
+	window.onload = function() {
+        var slideout = new Slideout({
+          'panel': document.getElementById('panel'),
+          'menu': document.getElementById('menu'),
+          'side': 'right'
+        });
+
+        document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+          slideout.toggle();
+        });
+
+        document.querySelector('.menu').addEventListener('click', function(eve) {
+          if (eve.target.nodeName === 'A') { slideout.close(); }
+        });
+      };
+	
   var optSel;
 	
 function alertDismissed() {
@@ -996,6 +1017,10 @@ function alertDismissed() {
     padding: 0;
     
 }
+		.slideout-menu { left: auto; }
+      .btn-hamburger { left: auto; right: 12px;}
+      .box { height: 1500px; }
+		
 .btn24
 	
 	{
@@ -1340,6 +1365,27 @@ span {
 </head>
 
 <body style="background-color: transparent;" onload='init();'> 
+	
+	
+	 <nav id="menu" class="menu">
+      <a href="https://github.com/mango/slideout" target="_blank">
+        <header class="menu-header">
+          <span class="menu-header-title">Tests</span>
+        </header>
+      </a>
+
+ <section class="menu-section">
+        <h3 class="menu-section-title">Docs</h3>
+        <ul class="menu-section-list">
+          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
+          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
+          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
+          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
+        </ul>
+      </section>
+		 
+	</nav>
+	<main id="panel" class="panel">
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	
 	
@@ -1449,6 +1495,6 @@ span {
 <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea>
 	
 <div id='xPort1' style="display:none;">     </div>
-	
+	</main>
 </body>
 </html>
