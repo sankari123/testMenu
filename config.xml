@@ -47,7 +47,7 @@
         <gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
 	<gap:plugin name="cordova-plugin-listpicker" source="npm" />
         <gap:plugin name="cordova-plugin-calendar" source="npm" />
-         
+         gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
   <plugin name="cordova-pdf-generator" source="npm" />
   
   <icon src="icon.png" />
