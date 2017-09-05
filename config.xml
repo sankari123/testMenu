@@ -23,7 +23,7 @@
   <preference name="android-build-tool" value="gradle" /> 
   <gap:plugin name="cordova-plugin-admobpro" source="npm" />
   <preference name="android-installLocation" value="auto"/>
-	
+  <preference name="DisallowOverscroll" value="true" />
         <plugin name="cordova-plugin-battery-status" spec="~1.2.4" />
         <plugin name="cordova-plugin-camera" spec="~2.4.1" />
         <plugin name="cordova-plugin-console" spec="~1.0.7" />
