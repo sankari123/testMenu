@@ -18,10 +18,11 @@
 <script src="js/reportlist.js"></script>
 	<script>
 		
-	 document.addEventListener('deviceready', function() {
-        StatusBar.overlaysWebView(false);
-       // StatusBar.backgroundColorByName('green');
-    }, false);
+	 document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady(){
+            StatusBar.overlaysWebView(false);
+        }
 	 
 	</script>
 	<style>
