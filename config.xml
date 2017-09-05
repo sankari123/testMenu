@@ -94,7 +94,6 @@
     <allow-intent href="itms-apps:*"/>
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
-</platform>
   </platform>
   <feature name="Camera">
     <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
